@@ -97,7 +97,7 @@ Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the g
 | Version 8.0.0 build 1 in the project | ✅ |
 | Privacy manifest matches the APIs used (UserDefaults, file timestamps, disk space) | ✅ |
 | Review notes match the native test path; NO TARGET bar 56 pt | ✅ |
-| Privacy policy and support pages (`docs/privacy.md`, `docs/support.md`) | 🟡 contact email to fill in |
+| Privacy policy and support pages (`docs/privacy.md`, `docs/support.md`) | ✅ |
 | Tag `v8.0.0-b1` on the commit that is uploaded to TestFlight | ⏳ first upload |
 | App Store Connect API key and secrets for `release.yml` | ⏳ Apple Developer account |
 | TestFlight internal, then external (three shooters, three range sessions) | ⏳ owner |

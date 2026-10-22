@@ -41,7 +41,7 @@ not "collection" by Apple's definition because it is not linked to the user or r
 - **Screenshots**: 6.9" (iPhone 17 Pro Max) and 13" iPad required; light and dark; Record, Timer, Analysis, Schemes.
 - **Age rating**: answer the questionnaire honestly; sport shooting with no violence content rates 4+.
 - **Support URL and privacy policy URL**: `docs/support.md` and `docs/privacy.md` in this public repository
-  (`https://github.com/JIAMETRIC/TrapShooterPro/blob/main/docs/privacy.md`). Fill in the contact email first.
+  (`https://github.com/JIAMETRIC/TrapShooterPro/blob/main/docs/privacy.md`)..
 
 ## Order of work
 

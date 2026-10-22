@@ -1,6 +1,6 @@
 # TrapShoot — Support
 
-**Contact**: CONTACT_EMAIL. Please attach the file from **Settings → About → Send diagnostics**.
+**Contact**: jiametric@gmail.com. Please attach the file from **Settings → About → Send diagnostics**.
 
 ## Common questions
 

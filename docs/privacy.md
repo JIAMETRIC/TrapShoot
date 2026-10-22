@@ -16,4 +16,4 @@
   lines, never your rounds. It is sent only if you choose to mail or share it.
 - **Children**: the app collects nothing from anyone.
 
-Questions: CONTACT_EMAIL
+Questions: jiametric@gmail.com
