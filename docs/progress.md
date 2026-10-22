@@ -62,31 +62,31 @@ Legend: ✅ done and verified in CI · 🟡 done in code, not yet verified where
 | Deliverable | State |
 |---|---|
 | `TrapReports` built and tested in CI | ✅ |
-| Local packages linked into the Xcode project (`TrapApp`, ADR‑017) | 🔨 |
-| Native app root replaces the WebView | ⬜ |
-| `RecordModel`, `TimerLifecycle`, scene storage | ⬜ |
-| Record screen | ⬜ |
-| Timer screen | ⬜ |
-| iPhone tabs, iPad split, keyboard, VoiceOver, Dynamic Type | ⬜ |
-| UI test through a scripted timer | ⬜ |
+| Local packages linked into the Xcode project (`TrapApp`, ADR‑017) | ✅ |
+| Native app root replaces the WebView | 🔨 |
+| `RecordModel`, `TimingFlow` (7.0.7 range flow), lifecycle, kill‑and‑resume | 🔨 |
+| Record screen | 🔨 |
+| Timer screen | 🔨 |
+| iPhone tabs, iPad split, keyboard, VoiceOver, Dynamic Type | 🔨 |
+| Range flow tested through a scripted timer (`RecordFlowTests`) | 🔨 |
 | Full round on a real range; kill‑and‑resume on device | ⏳ range |
 
 ## Phase 6 — Rounds, Analysis, Schemes, exporters
 
 | Deliverable | State |
 |---|---|
-| Rounds list (search, chips, paging, delete with undo, iPad master‑detail) | ⬜ |
-| Analysis (tiles, trends, tables, trap analysis) | ⬜ |
-| Schemes table | ⬜ |
-| Exports through `ExporterFactory` and `ShareLink` | ⬜ |
+| Rounds list (search, chips, paging, delete with undo, iPad master‑detail) | 🔨 |
+| Analysis (tiles, trends, tables, trap analysis) | 🔨 |
+| Schemes table | 🔨 |
+| Exports through `ExporterFactory` and the share sheet, temp files removed | 🔨 |
 | Performance gates on device | ⏳ iPhone |
 
 ## Phase 7 — Settings, data, platform
 
 | Deliverable | State |
 |---|---|
-| Settings, Data, About screens | ⬜ |
-| Lifecycle, power, network, reminder, MetricKit wired | ⬜ |
+| Settings, Data, About screens | 🔨 |
+| Lifecycle, power, network, reminder, MetricKit wired | 🔨 |
 | `Web/`, Supabase and hybrid Swift files deleted | ⬜ |
 | Backup → reinstall → restore on device | ⏳ iPhone |
 
