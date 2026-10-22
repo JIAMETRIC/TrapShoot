@@ -269,13 +269,22 @@ private struct EntryPanel: View {
     }
 
     private func machineText(_ r: Round, _ i: Int) -> String {
-        guard let m = r.machine(at: i) else { return "Scheme \(r.scheme)" + (r.noTargetCount(at: i) > 0 ? " · No target ×\(r.noTargetCount(at: i))" : "") }
-        return "Trap \(m.number) · \(m.label) · \(JSText.number(m.height)) m"
+        let n = r.noTargetCount(at: i)
+        let noTarget: String = n > 0 ? " · No target ×\(n)" : ""
+        guard let m = r.machine(at: i) else { return "Scheme \(r.scheme)\(noTarget)" }
+        let height: String = JSText.number(m.height)
+        return "Trap \(m.number) · \(m.label) · \(height) m\(noTarget)"
+    }
+
+    private func timesText(_ first: Double, _ second: Double?) -> String {
+        var text = "1st \(secondsText(first)) s"
+        if let s = second { text += " · 2nd \(secondsText(s)) s" }
+        return text
     }
 
     @ViewBuilder private func timingLine(_ r: Round, _ i: Int) -> some View {
         if let t = r.firstShot[i] {
-            Text("1st " + secondsText(t) + " s" + (r.secondShot[i].map { " · 2nd " + secondsText($0) + " s" } ?? ""))
+            Text(timesText(t, r.secondShot[i]))
                 .font(BWFont.value(.body)).foregroundStyle(BW.text)
         } else if model.session.skipped.contains(i) {
             Text("No time for this target.").font(BWFont.note).foregroundStyle(BW.textMuted)

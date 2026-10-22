@@ -37,7 +37,8 @@ final class ScriptedTimer: ShotTimerControlling {
 
 @MainActor
 final class RecordFlowTests: XCTestCase {
-    private func makeModel(repo: InMemoryRoundRepository = InMemoryRoundRepository(), defaults: UserDefaults? = nil) -> (RecordModel, ScriptedTimer, UserDefaults) {
+    private func makeModel(repo: InMemoryRoundRepository? = nil, defaults: UserDefaults? = nil) -> (RecordModel, ScriptedTimer, UserDefaults) {
+        let repo = repo ?? InMemoryRoundRepository()          // built here, on the main actor, not in a default argument
         let d = defaults ?? UserDefaults(suiteName: "test-\(UUID().uuidString)")!
         let timer = ScriptedTimer()
         var s = AppSettings(); s.profile.name = "Mohammad Tajudeen"
