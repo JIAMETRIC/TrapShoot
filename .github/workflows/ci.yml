@@ -51,32 +51,42 @@ jobs:
       - uses: actions/checkout@v4
       - run: sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app
       - name: App builds (native root from the TrapApp package)
+        shell: bash          # -eo pipefail: a failing xcodebuild fails the step
         run: |
           xcodebuild -project TrapShooterPro.xcodeproj -scheme TrapShooterPro \
-            -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build | tee "$RUNNER_TEMP/App.log" | xcpretty || exit ${PIPESTATUS[0]}
+            -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build | tee "$RUNNER_TEMP/App.log" | xcpretty
       - name: TrapPlatform tests (iOS only package)
+        if: success() || failure()          # run every package so one CI run shows every error
+        shell: bash          # -eo pipefail: a failing xcodebuild fails the step
         run: |
           cd Packages/TrapPlatform
-          xcodebuild -scheme TrapPlatform -destination 'platform=iOS Simulator,name=iPhone 16' test | xcpretty || exit ${PIPESTATUS[0]}
+          xcodebuild -scheme TrapPlatform -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/TrapPlatform.log" | xcpretty
       - name: ShotTimer tests (iOS only package)
+        if: success() || failure()          # run every package so one CI run shows every error
+        shell: bash          # -eo pipefail: a failing xcodebuild fails the step
         run: |
           cd Packages/ShotTimer
-          xcodebuild -scheme ShotTimer -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/ShotTimer.log" | xcpretty || exit ${PIPESTATUS[0]}
+          xcodebuild -scheme ShotTimer -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/ShotTimer.log" | xcpretty
       - name: TrapReports tests (iOS only package)
+        if: success() || failure()          # run every package so one CI run shows every error
+        shell: bash          # -eo pipefail: a failing xcodebuild fails the step
         run: |
           cd Packages/TrapReports
-          xcodebuild -scheme TrapReports -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/TrapReports.log" | xcpretty || exit ${PIPESTATUS[0]}
+          xcodebuild -scheme TrapReports -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/TrapReports.log" | xcpretty
       - name: TrapApp tests (screens, models, timing flow)
+        if: success() || failure()          # run every package so one CI run shows every error
+        shell: bash          # -eo pipefail: a failing xcodebuild fails the step
         run: |
           cd Packages/TrapApp
-          xcodebuild -scheme TrapApp -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/TrapApp.log" | xcpretty || exit ${PIPESTATUS[0]}
-      - name: ShotTimer and TrapDesign build
+          xcodebuild -scheme TrapApp -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/TrapApp.log" | xcpretty
+      - name: TrapDesign build
+        if: success() || failure()          # run every package so one CI run shows every error
+        shell: bash          # -eo pipefail: a failing xcodebuild fails the step
         run: |
-          (cd Packages/ShotTimer && xcodebuild -scheme ShotTimer -destination 'generic/platform=iOS Simulator' build | xcpretty || exit ${PIPESTATUS[0]})
-          (cd Packages/TrapDesign && xcodebuild -scheme TrapDesign -destination 'generic/platform=iOS Simulator' build | xcpretty || exit ${PIPESTATUS[0]})
+          (cd Packages/TrapDesign && xcodebuild -scheme TrapDesign -destination 'generic/platform=iOS Simulator' build | tee "$RUNNER_TEMP/TrapDesign.log" | xcpretty)
       - name: Annotate simulator test failures
         if: failure()
         shell: bash
         run: |
-          lines=$(grep -hE "error:|failed|Fatal error" "$RUNNER_TEMP"/*.log 2>/dev/null | head -80 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+          lines=$(grep -hE "error:|failed|Fatal error" "$RUNNER_TEMP"/*.log 2>/dev/null | sort -u | head -80 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
           echo "::error title=simulator test failures::${lines:-no error lines found}"

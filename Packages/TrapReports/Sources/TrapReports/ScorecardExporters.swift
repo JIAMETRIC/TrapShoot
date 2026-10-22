@@ -36,7 +36,7 @@ public struct ScorecardPDFExporter: DocumentExporter {
         try MainActor.assumeIsolated { try render(r) }
     }
 
-    private func render(_ r: Round) throws -> Data {
+    @MainActor private func render(_ r: Round) throws -> Data {
         var box = CGRect(origin: .zero, size: ScorecardView.pageSize)
         let data = NSMutableData()
         let info: [CFString: Any] = [kCGPDFContextTitle: "TrapShooterPro scorecard \(r.sessionId)", kCGPDFContextCreator: "TrapShooterPro \(appVersion)"]

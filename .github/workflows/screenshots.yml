@@ -22,10 +22,11 @@ jobs:
       - uses: actions/checkout@v4
       - run: sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app
       - name: Build for the simulator
+        shell: bash          # -eo pipefail: a failing xcodebuild fails the step
         run: |
           xcodebuild -project TrapShooterPro.xcodeproj -scheme TrapShooterPro -configuration Debug \
             -destination 'generic/platform=iOS Simulator' -derivedDataPath build CODE_SIGNING_ALLOWED=NO build \
-            | tee "$RUNNER_TEMP/build.log" | xcpretty || exit ${PIPESTATUS[0]}
+            | tee "$RUNNER_TEMP/build.log" | xcpretty
       - name: Take screenshots
         run: bash Scripts/screenshots.sh build/Build/Products/Debug-iphonesimulator/TrapShooterPro.app shots
       - name: Publish to the screenshots branch
