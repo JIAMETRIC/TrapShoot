@@ -63,7 +63,7 @@ None of these are blockers for a rewrite. They are the reasons to do it.
 | **B. iCloud sync via CloudKit** (recommended for v2) | Rounds follow the shooter across iPhone, iPad, Watch. No server, no login screen, free, private by design. SwiftData can mirror to CloudKit with little code if models are CloudKit‑safe. | Apple‑only (fine for a 100% Apple app). Coach still needs an export or a share link. |
 | **C. Keep Supabase as an opt‑in "Share with coach"** | Preserves today's coach/admin web dashboard. | Keeps server, auth, privacy labels, RLS to maintain. Only worth it if the Admin workflow is essential. |
 
-Recommendation: **A now, B after launch, C only if the Admin dashboard is a must‑have**, and then as an explicit opt‑in "Publish this round to my coach" rather than a login wall.
+Decision taken: **A. Local storage only at launch.** B and C stay listed as later options, never as a login wall.
 
 ---
 
@@ -97,12 +97,12 @@ TrapShooterPro.xcworkspace
 
 **Key technical choices**
 
-- **iOS 17 minimum** (SwiftData, `@Observable`, `ShareLink`, `ImageRenderer`). The user's device is an iPhone 17 Pro Max; iOS 17+ covers the large majority of active iPhones. iOS 16 would force Core Data and older state management for little gain.
+- **iOS 17 minimum** (decided). SwiftData, `@Observable`, `ShareLink`, `ImageRenderer`. Universal app: iPhone and iPad, with `NavigationSplitView` on iPad.
 - **State**: `@Observable` view models, `@Query` for lists. One `TimerSession` object replaces `MicBridge` + `window.__trapMic`: same messages (started, inputs, route, restarted, error, first, target, reject, level, diag, saved) become published properties and an `AsyncStream` of events.
 - **Detector untouched.** `AudioDetector.swift` moves into the `ShotTimer` package as is. Its callbacks already land on the main queue, which is exactly what SwiftUI wants. A regression harness guards it.
 - **"Time a recording"** is rebuilt by reading the file with `AVAudioFile` and pushing buffers into the same `AudioDetector` (a small `process(buffer)` entry point). That deletes the JavaScript duplicate for good.
 - **Scorecard and PDF**: draw the scorecard once as a SwiftUI view; `ImageRenderer` gives the PNG, `UIGraphicsPDFRenderer` gives a real A4 PDF with vector text. The hand‑rolled JPEG‑in‑PDF goes away.
-- **Fonts**: the scorecard uses Barlow / IBM Plex Mono (OFL licensed). Either bundle them or switch to SF Pro / SF Mono. Recommend SF for v1.
+- **Fonts**: San Francisco (decided). The scorecard moves from Barlow / IBM Plex Mono to SF Pro and SF Mono.
 - **Storage layout**: SwiftData store in Application Support; recordings stay in `Documents/Recordings` so the Files app still shows them.
 - **Privacy**: mic and location usage strings stay; no tracking, no third‑party SDKs, so App Privacy labels are nearly empty ("Data not collected" if there is no sync).
 
@@ -126,7 +126,7 @@ Each phase ends with something installable on the phone. Estimates assume one de
 2. Put the project in a **git repository** (GitHub). Zips stop here: code gets pushed, you pull on the Mac and press Run.
 3. **Compile 7.0.7 as it is** in Xcode. Fix any red errors. This gives a known‑good baseline and verifies the detector on your device.
 4. Build the **detector regression set**: turn the 9 range videos and the 18 Oct mic test into short `.m4a` fixtures with the expected call and shot times. This set is run after every change that touches audio.
-5. Decide the two open questions in section 6 (minimum iOS, sync option).
+5. Decisions in section 6: done.
 
 ### Phase 1 — Core logic and the shooting flow, native (about 3 weeks)
 
@@ -164,14 +164,22 @@ Each phase ends with something installable on the phone. Estimates assume one de
 
 ---
 
-## 6. Decisions needed from you
+## 6. Decisions (agreed 22 Oct 2026)
 
-1. **Minimum iOS: 17 or 16?** Recommend 17 (SwiftData, modern SwiftUI). 16 roughly doubles the data‑layer work.
-2. **Sync at launch: none, iCloud, or keep Supabase?** Recommend none at launch, iCloud next. Tell me how important the Capri Studio Admin dashboard is; that decides whether Supabase stays as an opt‑in.
-3. **Name and identity**: keep display name "Shooter Pro" and bundle id `com.mtajudeen.trapshooterpro`? (Changing the bundle id later means a new App Store listing.)
-4. **Devices**: iPhone only (as today) or iPhone + iPad?
-5. **Fonts**: SF (no licensing work) or bundle Barlow / IBM Plex Mono to keep the scorecard look exactly?
-6. **Repository**: a GitHub repo I can push to. That is the practical workflow: I write Swift here, you build on the Mac.
+| Question | Decision |
+|---|---|
+| Minimum iOS | **iOS 17.0 and newer**, built against the latest SDK |
+| Sync at launch | **None. Local storage only.** No account, no server, no network dependency. Cloud sync is not part of v1. |
+| Name and identity | App name **TrapShooterPro**, bundle identifier `com.mtajudeen.trapshooterpro` unchanged |
+| Devices | **iPhone and iPad** (universal) |
+| Scorecard fonts | **San Francisco** (SF Pro, SF Mono). No bundled fonts. |
+| Source control | GitHub under **JIAMETRIC**. Code is pushed from the cloud session and pulled on the Mac. |
+
+Consequences already applied to the baseline project: deployment target 17.0, device family iPhone + iPad, iPad orientations added, display name "TrapShooterPro", build number 8, and the two user‑facing "Shooter Pro" strings in the Swift sources.
+
+Note on the display name: iOS truncates names under the home‑screen icon at about 11 to 12 characters, so "TrapShooterPro" may show as "TrapShoote…". The App Store listing name can be the full name regardless. Say if you prefer "Trap Shooter" or "TrapShooter" under the icon.
+
+Note on sync: with no sync, a user's rounds live only on that device. The **Data** screen therefore gets a one‑tap full backup (JSON) and restore, and the app participates in normal iPhone/iCloud device backups, so a phone upgrade carries the rounds over.
 
 ---
 
