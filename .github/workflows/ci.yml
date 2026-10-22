@@ -28,11 +28,21 @@ jobs:
       - run: sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app
       - run: swift --version
       - name: TrapCore
-        run: swift test --package-path Packages/TrapCore --parallel
+        shell: bash
+        run: swift test --package-path Packages/TrapCore --parallel 2>&1 | tee "$RUNNER_TEMP/TrapCore.log"
       - name: TrapData
-        run: swift test --package-path Packages/TrapData
+        shell: bash
+        run: swift test --package-path Packages/TrapData 2>&1 | tee "$RUNNER_TEMP/TrapData.log"
       - name: TrapWeather
-        run: swift test --package-path Packages/TrapWeather
+        shell: bash
+        run: swift test --package-path Packages/TrapWeather 2>&1 | tee "$RUNNER_TEMP/TrapWeather.log"
+      # Annotations are readable without signing in, unlike job logs; repeat the failing lines there.
+      - name: Annotate test failures
+        if: failure()
+        shell: bash
+        run: |
+          lines=$(grep -hE "error:|failed|Fatal error" "$RUNNER_TEMP"/*.log | head -80 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+          echo "::error title=swift test failures::${lines:-no error lines found}"
 
   ios:
     name: iOS build and simulator tests
