@@ -170,14 +170,14 @@ Each phase ends with something installable on the phone. Estimates assume one de
 |---|---|
 | Minimum iOS | **iOS 17.0 and newer**, built against the latest SDK |
 | Sync at launch | **None. Local storage only.** No account, no server, no network dependency. Cloud sync is not part of v1. |
-| Name and identity | App name **TrapShooterPro**, bundle identifier `com.mtajudeen.trapshooterpro` unchanged |
+| Name and identity | Project and App Store name **TrapShooterPro**, name under the icon **TrapShoot** (fits without truncation), bundle identifier `com.mtajudeen.trapshooterpro` unchanged |
 | Devices | **iPhone and iPad** (universal) |
 | Scorecard fonts | **San Francisco** (SF Pro, SF Mono). No bundled fonts. |
 | Source control | GitHub under **JIAMETRIC**. Code is pushed from the cloud session and pulled on the Mac. |
 
-Consequences already applied to the baseline project: deployment target 17.0, device family iPhone + iPad, iPad orientations added, display name "TrapShooterPro", build number 8, and the two user‑facing "Shooter Pro" strings in the Swift sources.
+Consequences already applied to the baseline project: deployment target 17.0, device family iPhone + iPad, iPad orientations added, display name "TrapShoot" under the icon, build number 8, and the two user‑facing "Shooter Pro" strings in the Swift sources.
 
-Note on the display name: iOS truncates names under the home‑screen icon at about 11 to 12 characters, so "TrapShooterPro" may show as "TrapShoote…". The App Store listing name can be the full name regardless. Say if you prefer "Trap Shooter" or "TrapShooter" under the icon.
+Note on the display name: iOS truncates names under the home‑screen icon at about 11 to 12 characters, so the icon label is **TrapShoot** (agreed 22 Oct 2026). The App Store listing keeps the full name TrapShooterPro.
 
 Note on sync: with no sync, a user's rounds live only on that device. The **Data** screen therefore gets a one‑tap full backup (JSON) and restore, and the app participates in normal iPhone/iCloud device backups, so a phone upgrade carries the rounds over.
 

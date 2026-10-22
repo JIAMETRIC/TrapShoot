@@ -2,7 +2,7 @@ import AVFoundation
 
 /// Saves the microphone audio of a timing session as a compressed .m4a file (about 1 MB per minute),
 /// with a small .json file holding the timer settings. Files live in Documents/Recordings, which shows
-/// in the Files app under On My iPhone > TrapShooterPro. Writing happens on a background queue.
+/// in the Files app under On My iPhone > TrapShoot. Writing happens on a background queue.
 final class RoundRecorder {
     private let queue = DispatchQueue(label: "shooterpro.recorder")
     private var file: AVAudioFile?

@@ -87,7 +87,7 @@ final class MicBridge {
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 guard ok else {
-                    self.fail("Microphone access is off. Open Settings > TrapShooterPro > Microphone and turn it on.")
+                    self.fail("Microphone access is off. Open Settings > TrapShoot > Microphone and turn it on.")
                     return
                 }
                 do {
