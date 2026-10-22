@@ -11,15 +11,16 @@ public struct RoundSummary: Identifiable, Equatable, Sendable {
     public let scheme: Int
     public let type: String
     public let sessionId: String
+    public let place: String
     public let score: Int
     public let recorded: Int
     public var isFull: Bool { recorded == Round.targetCount }
-    public init(id: String, createdAt: String, date: String, scheme: Int, type: String, sessionId: String, score: Int, recorded: Int) {
+    public init(id: String, createdAt: String, date: String, scheme: Int, type: String, sessionId: String, place: String, score: Int, recorded: Int) {
         self.id = id; self.createdAt = createdAt; self.date = date; self.scheme = scheme; self.type = type
-        self.sessionId = sessionId; self.score = score; self.recorded = recorded
+        self.sessionId = sessionId; self.place = place; self.score = score; self.recorded = recorded
     }
     public init(_ r: Round) {
-        self.init(id: r.id, createdAt: r.createdAt, date: r.date, scheme: r.scheme, type: r.type, sessionId: r.sessionId, score: r.score, recorded: r.recorded)
+        self.init(id: r.id, createdAt: r.createdAt, date: r.date, scheme: r.scheme, type: r.type, sessionId: r.sessionId, place: r.place, score: r.score, recorded: r.recorded)
     }
 }
 
@@ -31,8 +32,11 @@ public struct RoundFilter: Equatable, Sendable {
     public var dateFrom: String?
     public var dateTo: String?
     public var fullOnly = false
-    public init(scheme: Int? = nil, type: String? = nil, dateFrom: String? = nil, dateTo: String? = nil, fullOnly: Bool = false) {
+    /// Case‑insensitive search in range name and session id.
+    public var text: String?
+    public init(scheme: Int? = nil, type: String? = nil, dateFrom: String? = nil, dateTo: String? = nil, fullOnly: Bool = false, text: String? = nil) {
         self.scheme = scheme; self.type = type; self.dateFrom = dateFrom; self.dateTo = dateTo; self.fullOnly = fullOnly
+        self.text = text.flatMap { t in let s = t.trimmingCharacters(in: .whitespaces); return s.isEmpty ? nil : s }
     }
     public static let all = RoundFilter()
 
@@ -42,6 +46,7 @@ public struct RoundFilter: Equatable, Sendable {
         if let v = dateFrom, s.date < v { return false }
         if let v = dateTo, s.date > v { return false }
         if fullOnly, !s.isFull { return false }
+        if let t = text, !(s.place.localizedStandardContains(t) || s.sessionId.localizedStandardContains(t)) { return false }
         return true
     }
 }
@@ -71,13 +76,15 @@ public extension SwiftDataRoundRepository {
         let useFrom = f.dateFrom != nil, from = f.dateFrom ?? ""
         let useTo = f.dateTo != nil, to = f.dateTo ?? ""
         let fullOnly = f.fullOnly, full = Round.targetCount
+        let useText = f.text != nil, text = f.text ?? ""
         var d = FetchDescriptor<RoundRecord>(
             predicate: #Predicate { r in
                 (!useScheme || r.scheme == scheme) && (!useType || r.type == type) &&
-                (!useFrom || r.date >= from) && (!useTo || r.date <= to) && (!fullOnly || r.recorded == full)
+                (!useFrom || r.date >= from) && (!useTo || r.date <= to) && (!fullOnly || r.recorded == full) &&
+                (!useText || r.place.localizedStandardContains(text) || r.sessionId.localizedStandardContains(text))
             },
             sortBy: [SortDescriptor(\.createdAt, order: .reverse)])
-        d.propertiesToFetch = [\.id, \.createdAt, \.date, \.scheme, \.type, \.sessionId, \.score, \.recorded]
+        d.propertiesToFetch = [\.id, \.createdAt, \.date, \.scheme, \.type, \.sessionId, \.place, \.score, \.recorded]
         return d
     }
 
@@ -86,7 +93,7 @@ public extension SwiftDataRoundRepository {
         d.fetchOffset = offset
         if let limit { d.fetchLimit = limit }
         return try context.fetch(d).map {
-            RoundSummary(id: $0.id, createdAt: $0.createdAt, date: $0.date, scheme: $0.scheme, type: $0.type, sessionId: $0.sessionId, score: $0.score, recorded: $0.recorded)
+            RoundSummary(id: $0.id, createdAt: $0.createdAt, date: $0.date, scheme: $0.scheme, type: $0.type, sessionId: $0.sessionId, place: $0.place, score: $0.score, recorded: $0.recorded)
         }
     }
 

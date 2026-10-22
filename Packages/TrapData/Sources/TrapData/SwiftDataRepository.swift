@@ -2,40 +2,7 @@ import Foundation
 import SwiftData
 import TrapCore
 
-/// One stored round: a few indexed columns for lists and filters, and the full document v2 JSON as the payload.
-/// Keeping the document whole means the on-disk shape is the same as the export and import shape, and a
-/// schema change in TrapCore never needs a SwiftData migration for the target arrays.
-@Model
-public final class RoundRecord {
-    @Attribute(.unique) public var id: String
-    public var createdAt: String
-    public var updatedAt: String
-    public var date: String
-    public var scheme: Int
-    public var type: String
-    public var sessionId: String
-    public var score: Int
-    public var recorded: Int
-    public var document: Data
-
-    public init(id: String, createdAt: String, updatedAt: String, date: String, scheme: Int, type: String, sessionId: String, score: Int, recorded: Int, document: Data) {
-        self.id = id; self.createdAt = createdAt; self.updatedAt = updatedAt; self.date = date; self.scheme = scheme
-        self.type = type; self.sessionId = sessionId; self.score = score; self.recorded = recorded; self.document = document
-    }
-
-    public static func make(round r: Round, now: Date = Date()) throws -> RoundRecord {
-        RoundRecord(id: r.id, createdAt: r.createdAt, updatedAt: DateText.iso(now), date: r.date, scheme: r.scheme, type: r.type,
-                    sessionId: r.sessionId, score: r.score, recorded: r.recorded, document: try RoundDocument.json(of: r, now: now))
-    }
-
-    public func update(from r: Round, now: Date = Date()) throws {
-        createdAt = r.createdAt; updatedAt = DateText.iso(now); date = r.date; scheme = r.scheme; type = r.type
-        sessionId = r.sessionId; score = r.score; recorded = r.recorded
-        document = try RoundDocument.json(of: r, now: now)
-    }
-
-    public func round() throws -> Round { try RoundDocument.round(id: id, fromJSON: document) }
-}
+// `RoundRecord` and the schema versions live in Schema.swift.
 
 /// The on-device repository.
 @MainActor
@@ -46,8 +13,22 @@ public final class SwiftDataRoundRepository: RoundRepository {
 
     /// The app's container (on disk) or a throwaway one for tests and previews.
     public static func container(inMemory: Bool = false) throws -> ModelContainer {
-        let config = ModelConfiguration("TrapShooterPro", schema: Schema(versionedSchema: TrapSchemaV1.self), isStoredInMemoryOnly: inMemory)
-        return try ModelContainer(for: Schema(versionedSchema: TrapSchemaV1.self), migrationPlan: TrapMigrationPlan.self, configurations: [config])
+        let schema = Schema(versionedSchema: CurrentSchema.self)
+        let config = ModelConfiguration("TrapShooterPro", schema: schema, isStoredInMemoryOnly: inMemory)
+        return try ModelContainer(for: schema, migrationPlan: TrapMigrationPlan.self, configurations: [config])
+    }
+
+    /// Fills columns added by a migration from the stored documents. Cheap, idempotent; call once at launch.
+    @discardableResult
+    public func backfill() throws -> Int {
+        let empty = ""
+        let d = FetchDescriptor<RoundRecord>(predicate: #Predicate { $0.place == empty })
+        var n = 0
+        for rec in try context.fetch(d) {
+            if let r = try? rec.round(), !r.place.isEmpty { rec.place = r.place; n += 1 }
+        }
+        if n > 0 { try context.save() }
+        return n
     }
 
     public func fetchAll() throws -> [Round] {

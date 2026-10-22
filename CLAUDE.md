@@ -4,8 +4,9 @@ Native iOS/iPadOS app for Olympic Trap shooters: a call‑to‑shot timer that l
 a 25‑target round recorder, break‑distance model, analysis and exports. **Local‑first: no account, no server, no network
 dependency.** Icon label "TrapShoot", bundle id `com.mtajudeen.trapshooterpro`, iOS 17.0+, iPhone and iPad, SwiftUI.
 
-Read `docs/native-plan.md` (plan and decisions), `docs/architecture.md` (system design, ADRs), `docs/engineering.md`
-(testing, security, performance, debugging, git, CI) and `docs/design-system.md` (visual system) before larger changes.
+Read `docs/phases/README.md` (master plan by phase, exit gates), `docs/native-plan.md` (decisions), `docs/architecture.md`
+(system design, ADRs), `docs/engineering.md` (testing, security, performance, debugging, git, CI) and
+`docs/design-system.md` (visual system, breakpoints) before larger changes.
 
 ## State of the migration
 
@@ -20,7 +21,7 @@ into the Swift packages and the SwiftUI app target.
 | Pure logic | `Packages/TrapCore` | written, golden‑tested against the JavaScript (incl. trap analysis) |
 | Design system | `Packages/TrapDesign` | written |
 | Storage (SwiftData) | `Packages/TrapData` | written: `RoundRepository`, in‑memory and SwiftData, backup, importer |
-| Reports (scorecard PNG, PDF, CSV share) | `Packages/TrapReports` | planned |
+| Reports (scorecard PNG, PDF, CSV share) | `Packages/TrapReports` | written: `DocumentExporter` + factory, `ScorecardView`, PNG and vector PDF exporters |
 | Weather + location | `Packages/TrapWeather` | written: Open‑Meteo client tuned for constrained networks, sky/wind mapping, fill policy, one‑shot location |
 | Platform (lifecycle, power, network, notifications, storage, identity) | `Packages/TrapPlatform` | written; policies in `docs/architecture.md` ADR‑010..013 |
 | Publishing | `TrapShooterPro/PrivacyInfo.xcprivacy`, `ExportOptions.plist`, `Scripts/archive.sh`, `docs/app-store.md` | written |
@@ -29,7 +30,8 @@ into the Swift packages and the SwiftUI app target.
 ## Architecture
 
 - **One app target, local Swift packages.** Pure logic has no UIKit/AVFoundation imports so it is unit‑testable anywhere.
-- **TrapCore** owns the domain: `Round` (value type, 25 targets), `Direction` (R/S/L), `TargetResult` (G hit 1st, Y hit 2nd,
+- **TrapCore** owns the domain: `RoundSession` (the aggregate: phase setup → recording → complete, entry with the
+  station‑quota guard, NO TARGET, bounded undo), `Round` (value type, 25 targets), `Direction` (R/S/L), `TargetResult` (G hit 1st, Y hit 2nd,
   R lost), `Schemes` (10 ISSF schemes × 15 machines), station rule and prediction (`RoundRules`), `SessionID`,
   `RoundDocument` (document v2 JSON, tolerant import = the web app's `norm`, export = `toDoc`), `BreakDistanceModel`,
   `CSVExport`, `Analysis`. Station, machine, angle, height and break distance are **derived**, never stored.

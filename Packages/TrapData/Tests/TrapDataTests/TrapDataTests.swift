@@ -84,6 +84,15 @@ final class TrapDataTests: XCTestCase {
         XCTAssertEqual(try repo.fetchSummaries(RoundFilter(fullOnly: true)).map(\.id), ["s9"])
         XCTAssertEqual(try repo.fetchSummaries(limit: 2, offset: 2).map(\.id), ["s7", "s6"], "paging")
         XCTAssertEqual(try repo.fetchSummaries().first?.score, 0)
+        // text search on range and session id, case-insensitive
+        var named = sample(1); named.id = "s10"; named.place = "Al Ain Range 2"; named.sessionId = "20261022-0930-MT"
+        try repo.save(named)
+        XCTAssertEqual(try repo.fetchSummaries(RoundFilter(text: "al ain")).map(\.id), ["s10"])
+        XCTAssertEqual(try repo.fetchSummaries(RoundFilter(text: "0930-mt")).map(\.id), ["s10"])
+        XCTAssertEqual(try repo.fetchSummaries(RoundFilter(text: "   ")).count, 10, "blank search is no filter")
+        XCTAssertEqual(InMemoryRoundRepository([named]).count, 1)
+        XCTAssertEqual(try InMemoryRoundRepository([named]).fetchSummaries(RoundFilter(text: "RANGE")).map(\.id), ["s10"])
+        XCTAssertEqual(try repo.backfill(), 0, "nothing to backfill when place columns are filled")
         // the in-memory repository answers the same questions
         let mem = InMemoryRoundRepository(rounds)
         XCTAssertEqual(try mem.fetchSummaries(RoundFilter(scheme: 2)).map(\.id), try repo.fetchSummaries(RoundFilter(scheme: 2)).map(\.id))

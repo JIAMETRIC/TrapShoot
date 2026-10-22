@@ -115,7 +115,19 @@ Shooting domain mapping (keeps the G / Y / R meaning of the web app):
 | `.showcase-panel`, `.vm-modal-header` | `BWInkPanel` |
 | `.form-control` 48 px, 1.5 px border, focus ring black | `TextField` with `.textFieldStyle(.plain)` inside a 48 pt bordered box; focus swaps border to ink |
 
-## 7. Where each screen uses it
+## 7. Breakpoints and iPad
+
+| Window width | `Breakpoint` | Layout | Touch target | Navigation |
+|---|---|---|---|---|
+| < 600 pt | `.phone` | one column | 44 pt | tab bar |
+| 600 to 1099 pt (8" iPad, Split View) | `.tabletSmall` | master‑detail 40 / 60 | 48 pt | sidebar 180 pt or tab bar |
+| ≥ 1100 pt (11" and 13" iPad landscape) | `.tabletLarge` | master‑detail 35 / 65, three columns where useful | 48 pt | sidebar 220 pt |
+
+`BreakpointReader` at the root publishes `\.breakpoint`; `AdaptiveSplit` lays out master and detail; `BWKeys` holds
+the hardware‑keyboard shortcuts (Space start/stop, 1 2 3 directions, G Y R results, N no target, ⌘Z undo, arrows
+previous/next, ⌘S save, ⌘E share). Safe areas come from the system; split panes respect the trailing inset.
+
+## 8. Where each screen uses it
 
 - **Record**: range data and conditions as `BWCardTitle` cards; the 25‑target entry uses ink‑filled selected buttons and status pills for results; the scorecard is a `BWTableHeader` table with zebra rows.
 - **Timer**: the readout in `BWFont.readout` inside a card; audio‑in line as a `BWPill` with a success dot when audio is flowing; settings as `BWField` rows.

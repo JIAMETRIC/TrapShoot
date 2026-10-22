@@ -120,6 +120,8 @@ TrapShooterPro.xcworkspace
 
 ## 5. Plan
 
+The phase‑by‑phase version with exit gates, the cross‑cutting matrix and the risk register is in `docs/phases/README.md`.
+
 Each phase ends with something installable on the phone. Estimates assume one developer writing the code and you building/testing on the Mac and at the range.
 
 ### Phase 0 — Foundations (about 1 week)
