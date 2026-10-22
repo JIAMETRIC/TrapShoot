@@ -1,7 +1,7 @@
 // Golden fixture generator.
-// Extracts the pure functions of the 7.0.7 web app (Web/index.html) and runs them on fixed inputs.
+// Extracts the pure functions of the 7.0.7 web app (Tools/golden/reference/index-7.0.7.html) and runs them on fixed inputs.
 // The Swift port in Packages/TrapCore must produce the same answers (see TrapCoreTests).
-// Usage: node Tools/golden/generate.js TrapShooterPro/Web/index.html Packages/TrapCore/Tests/TrapCoreTests/Fixtures
+// Usage: node Tools/golden/generate.js Tools/golden/reference/index-7.0.7.html Packages/TrapCore/Tests/TrapCoreTests/Fixtures
 "use strict";
 const fs = require("fs"), path = require("path");
 const [,, htmlPath, outDir] = process.argv;

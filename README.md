@@ -1,19 +1,55 @@
-# TrapShooterPro for iPhone and iPad
+# TrapShoot — TrapShooterPro for iPhone and iPad
 
-**This repository is moving from the 7.0.7 hybrid app (web page in a WKWebView) to a 100% native SwiftUI, local-first app.**
-The plan is in [`docs/native-plan.md`](docs/native-plan.md). The first native package is [`Packages/TrapCore`](Packages/TrapCore)
-(round model, Olympic Trap rules, schemes, break distance, CSV, analysis) with golden tests against the JavaScript original,
-and [`Packages/TrapDesign`](Packages/TrapDesign) holds the black‑and‑white design system (see [`docs/design-system.md`](docs/design-system.md)).
-Further packages: `ShotTimer`, `TrapData`, `TrapWeather`, `TrapPlatform`. Architecture and decisions: [`docs/architecture.md`](docs/architecture.md); engineering practices: [`docs/engineering.md`](docs/engineering.md); master plan by phase: [`docs/phases/README.md`](docs/phases/README.md); one‑page summary of the four parts: [`docs/summary.md`](docs/summary.md); architecture review and code review: [`docs/architecture-review.md`](docs/architecture-review.md), [`docs/code-review-2026-10-22.md`](docs/code-review-2026-10-22.md); building without a local Mac: [`docs/build-options.md`](docs/build-options.md); publishing: [`docs/app-store.md`](docs/app-store.md).
-The notes below describe the 7.0.7 baseline, which still builds as before.
+A native SwiftUI app for Olympic Trap shooters: a call‑to‑shot timer that listens through the microphone or a
+**DJI Mic Mini 2** receiver, a 25‑target round recorder, break distance, analysis and exports.
+**Local‑first: no account, no server.** The only network call is the optional weather fill. iOS 17+, iPhone and iPad.
 
----
+| | |
+|---|---|
+| Progress by phase | [`docs/progress.md`](docs/progress.md) |
+| Plan and exit gates | [`docs/phases/README.md`](docs/phases/README.md) |
+| Architecture and decisions (ADR‑001…017) | [`docs/architecture.md`](docs/architecture.md) |
+| Engineering, testing, security, performance | [`docs/engineering.md`](docs/engineering.md) |
+| Design system | [`docs/design-system.md`](docs/design-system.md) |
+| Building without a local Mac (CI) | [`docs/build-options.md`](docs/build-options.md) |
+| Publishing | [`docs/app-store.md`](docs/app-store.md) |
+| Rules for Claude sessions | [`CLAUDE.md`](CLAUDE.md) |
 
-# TRAP SHOOTER PRO for iPhone, Ver 7.0.7
+## Layout
 
-A ready-made Xcode project. Open it, pick your team, press Run.
+| Path | What |
+|---|---|
+| `TrapShooterPro/` | the app target: `@main` entry, icon, privacy manifest |
+| `Packages/TrapApp` | screens and view models: Record, Timer, Rounds, Analysis, Schemes, Settings |
+| `Packages/TrapCore` | rules, schemes, round document, CSV, break distance, analysis (golden‑tested) |
+| `Packages/ShotTimer` | the validated 7.0.7 detector and recorder, `TimerSession` |
+| `Packages/TrapData` | SwiftData store, summaries, backup, import of 7.x data |
+| `Packages/TrapReports` | scorecard PNG and PDF, CSV and backup exporters |
+| `Packages/TrapWeather` | Open‑Meteo weather fill, one‑shot location |
+| `Packages/TrapPlatform` | lifecycle, power, network, notifications, storage, diagnostics |
+| `Packages/TrapDesign` | black‑and‑white design system |
+| `Tools/golden/` | golden fixture generator and the frozen 7.0.7 page it reads |
 
-It installs as a **separate app** called **Shooter Pro**. TRAP LOGGER and Trap Shot Timer stay on the phone as they are.
+Every push to `main` is compiled and tested on GitHub's macOS runners (`.github/workflows/ci.yml`).
+
+## Run it on your iPhone
+
+1. On a Mac with Xcode 16 or newer, open `TrapShooterPro.xcodeproj`.
+2. **Signing & Capabilities** → Team: your Apple ID. Keep the bundle id `com.mtajudeen.trapshooterpro`.
+3. Connect the iPhone, pick it at the top of Xcode, press **Run**.
+4. Open **TrapShoot**. The microphone is asked the first time you tap **Start timer**; location only when you tap **Weather**.
+
+Moving from 7.x: export your rounds from the old app or the Supabase table as JSON, then **Settings → Data → Restore or
+import a backup**. Rounds you already have are never replaced.
+
+## If the audio check line says NO AUDIO
+
+1. Read the **Audio in** line on the Timer tab: it names the **DJI Mic Mini 2 receiver** when that is the input.
+2. **NO AUDIO**: unplug and replug the receiver, switch the transmitter off and on, then Stop and Start timer.
+3. **receiving** but no calls are heard: the transmitter is muted or not paired (check the receiver's screen).
+4. Still stuck: **Settings → About → Send diagnostics** and mail the file.
+
+## The range flow (kept from 7.0.x)
 
 **Ver 7.0.1 timer fix.** The shot timer now runs the same Swift detector as the Trap Shot Timer app, on the audio thread. The page only shows the results. The audio session is set once when the timer starts and is never changed while timing runs.
 
@@ -50,69 +86,3 @@ It installs as a **separate app** called **Shooter Pro**. TRAP LOGGER and Trap S
 - **Undo** on the timer bar restores the target. Result already entered and the app moved on: tap **Previous**, then **NO TARGET**.
 - Each press is counted: "No target ×n" next to the station, CSV column `no_target`.
 - Timer readout no longer crowds on phone widths.
-
-## If the DJI badge shows No signal
-
-1. Read the **Audio in** line on the Timer tab.
-2. **NO AUDIO**: unplug and replug the receiver, switch the transmitter off and on, then Stop and Start timer.
-3. **receiving** but the badge stays red: the receiver sends silence. Check the transmitter is paired (receiver screen) and not muted.
-4. Send a screenshot of the Timer tab if it persists.
-
-**Status: not compiled here.** It was built on a computer without Xcode. The Swift files pass a syntax check and the page-to-app messages were tested in a browser simulation. If Xcode shows a red error, send a screenshot.
-
-## What you need
-
-- A Mac with **Xcode 15 or newer**.
-- Your **iPhone 17 Pro Max** and its USB-C cable.
-- Your free Apple ID (Personal Team), the same one you used for Trap Shot Timer.
-
-## Install
-
-1. Unzip **TrapShooterPro-iPhone.zip**.
-2. Double-click **TrapShooterPro.xcodeproj**.
-3. Click **TrapShooterPro** at the top of the left list. Open **Signing & Capabilities**.
-4. **Team:** pick **Mohammad Tajudeen (Personal Team)**.
-5. Leave the **Bundle Identifier** as `com.mtajudeen.trapshooterpro`. If Xcode says it is taken, add a letter at the end, for example `com.mtajudeen.trapshooterpro2`.
-6. Connect the iPhone. Pick it in the device menu at the top of Xcode.
-7. Press **Run** (▶).
-8. First time only, on the iPhone: **Settings > General > VPN & Device Management.** Tap your Apple ID. Tap **Trust**.
-9. Open **Shooter Pro**. Allow the microphone when asked. Allow location if you want the weather filled in.
-
-Free Apple ID installs last **7 days**. Connect the iPhone and press **Run** again to renew. Your rounds stay.
-
-## How the iPhone app differs from the web app
-
-| Part | iPhone app |
-|---|---|
-| Microphone | Runs in the app, with no automatic gain or noise processing |
-| DJI Mic Mini 2 receiver | Picked up as soon as it is plugged in. Badge turns green. |
-| Receiver unplugged | Timing stops and the app says so |
-| Phone call or Siri | Timing stops. Tap Start shot timer again. |
-| Screen | Stays on while the timer runs |
-| CSV, image, PDF | Open the share sheet: save to Files, AirDrop or mail |
-| Weather | Uses the iPhone's location once per round |
-| Account and rounds | Same Supabase account as the web app |
-
-## Install the fix over the old build
-
-1. Delete the old TrapShooterPro folder on the Mac.
-2. Unzip the new **TrapShooterPro-iPhone.zip**. Open **TrapShooterPro.xcodeproj**.
-3. Pick your Team again in **Signing & Capabilities**. Keep the same Bundle Identifier.
-4. Press **Run**. Your rounds and settings stay.
-
-## Update the app later
-
-The round recorder lives in the **Web** folder. To update it, replace `Web/index.html` with the new file and press **Run**. No Swift changes are needed.
-
-## Files
-
-| File | Job |
-|---|---|
-| `TrapShooterProApp.swift` | App start |
-| `ContentView.swift` | Shows the page. Handles save, alerts, links and location messages. |
-| `AudioDetector.swift` | Shot detector v3. Runs on the audio thread. Follows the channel that carries sound. |
-| `MicBridge.swift` | Starts and stops the mic, restarts it after hardware changes or silence, sends results and the audio check to the page |
-| `RoundRecorder.swift` | Saves round audio as .m4a with a settings .json |
-| `LocationFetcher.swift` | One-off location for the weather |
-| `Web/` | TRAP SHOOTER PRO page, `config.js`, `supabase.js`, icons |
-| `Assets.xcassets` | App icon |

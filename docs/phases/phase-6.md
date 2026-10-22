@@ -1,4 +1,4 @@
-# Phase 6 — Rounds, Analysis, Schemes and exporters `[DSA · TAB · SEF]`
+# Phase 6 — Rounds, Analysis, Schemes and exporters `[DSA · TAB · SEF]` — built; device timings pending
 
 - Rounds: `fetchSummaries` with `RoundFilter` (search field, scheme and type chips, date range), paging by 60, swipe to
   delete with undo, master‑detail on iPad (`AdaptiveSplit`), detail shows the scorecard view live.

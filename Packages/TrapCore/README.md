@@ -2,7 +2,7 @@
 
 The pure-Swift heart of TrapShooterPro. No UIKit, no AVFoundation, no storage.
 
-| File | Port of (Web/index.html) |
+| File | Port of (Tools/golden/reference/index-7.0.7.html) |
 |---|---|
 | `Direction.swift` | `DIROFF`, `DIRNAME`, `ARROW`, result codes G/Y/R |
 | `Schemes.swift` | `SCHEME_SRC`, `SCHEMES`, `trapFor` |
@@ -21,7 +21,7 @@ The pure-Swift heart of TrapShooterPro. No UIKit, no AVFoundation, no storage.
 `Tests/TrapCoreTests/Fixtures/*.json`. The tests assert the Swift port gives the same answers.
 
 ```sh
-node Tools/golden/generate.js TrapShooterPro/Web/index.html Packages/TrapCore/Tests/TrapCoreTests/Fixtures
+node Tools/golden/generate.js Tools/golden/reference/index-7.0.7.html Packages/TrapCore/Tests/TrapCoreTests/Fixtures
 cd Packages/TrapCore && swift test
 ```
 

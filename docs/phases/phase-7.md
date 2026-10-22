@@ -1,4 +1,4 @@
-# Phase 7 — Settings, data and platform behaviours `[CMS · SD · SEF]`
+# Phase 7 — Settings, data and platform behaviours `[CMS · SD · SEF]` — built; device checks pending
 
 - Settings: profile (name, DOB, weapon, ammo, chokes), timer defaults, break distance, weather auto‑fill, reminders on/off,
   appearance follows system.
@@ -8,8 +8,9 @@
 - Platform: `LifecycleCoordinator`, `PowerMonitor` advice on the Timer screen, `NetworkMonitor` gating weather,
   `LocalNotifier` unfinished‑round reminder, `MetricsCollector.start()` at launch.
 - Clean break: delete `Web/`, `supabase.js`, `config.js`, the hybrid Swift files; remove the folder reference from the
-  project; CI's "hybrid shell" step becomes the native build.
+  project; CI's "hybrid shell" step becomes the native build. Done; the 7.0.7 page itself moved to
+  `Tools/golden/reference/` because the golden fixtures are generated from it. It is not part of the app.
 
 **Exit gate:** export a backup, delete the app, reinstall, restore: identical library; background mid‑round → timer
 stopped, round saved, reminder arrives after 20 minutes if not reopened; Low Data Mode blocks automatic weather and allows
-the manual button; the repository contains no JavaScript.
+the manual button; the app contains no JavaScript (the golden generator and its frozen reference page stay in `Tools/`).

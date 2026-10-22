@@ -11,10 +11,11 @@ import TrapReports
 @Observable
 final class RoundsModel {
     static let pageSize = 60
-    var text = "" { didSet { if text != oldValue { reload() } } }
-    var scheme: Int? { didSet { if scheme != oldValue { reload() } } }
-    var type: String? { didSet { if type != oldValue { reload() } } }
-    var fullOnly = false { didSet { if fullOnly != oldValue { reload() } } }
+    // The list reloads when `filter` changes (the view watches it).
+    var text = ""
+    var scheme: Int?
+    var type: String?
+    var fullOnly = false
     private(set) var rows: [RoundSummary] = []
     private(set) var total = 0
     private(set) var error: DisplayError?
@@ -122,6 +123,7 @@ private struct RoundsList: View {
         .scrollContentBackground(.hidden)
         .background(BW.surface)
         .searchable(text: $model.text, prompt: "Range or session id")
+        .onChange(of: model.filter) { _, _ in model.reload() }
     }
 
     @ViewBuilder private func rowLink(_ row: RoundSummary) -> some View {

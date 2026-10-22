@@ -11,14 +11,15 @@ Read `docs/phases/README.md` (master plan by phase, exit gates), `docs/architect
 
 ## State of the migration
 
-The repo is moving from the 7.0.7 hybrid app (a 3,500‑line web page in a `WKWebView`, Supabase account) to 100 % Swift.
-Until the native screens land, the Xcode project still builds the hybrid app. Do not extend the web page; new work goes
-into the Swift packages and the SwiftUI app target.
+The 7.0.7 hybrid app (a 3,500‑line web page in a `WKWebView`, Supabase account) has been replaced by 100 % Swift. The
+app target only starts `TrapAppRoot` from `Packages/TrapApp` (ADR‑017). The web page survives only as the frozen golden
+reference in `Tools/golden/reference/`; it is never shipped or extended. Progress per deliverable: `docs/progress.md`.
 
 | Layer | Path | Status |
 |---|---|---|
-| App target (SwiftUI) | `TrapShooterPro/` | hybrid shell; being replaced screen by screen |
-| Shot detector, mic engine, recorder | `Packages/ShotTimer` (detector and recorder byte‑identical copies of the app files; `TimerSession` replaces `MicBridge`) | written; the app target still uses its own copies until it links the package |
+| App target | `TrapShooterPro/` | `@main` entry, assets, privacy manifest; links `TrapApp` |
+| Screens, view models, timing flow | `Packages/TrapApp` | written: Record, Timer, Rounds, Analysis, Schemes, Settings; `TimingFlow` ports the 7.0.7 range flow; `RecordFlowTests` |
+| Shot detector, mic engine, recorder | `Packages/ShotTimer` (detector and recorder are the validated 7.0.7 sources, unchanged; `TimerSession` replaced `MicBridge`) | written, tested in CI; device checks pending |
 | Pure logic | `Packages/TrapCore` | written, golden‑tested against the JavaScript (incl. trap analysis) |
 | Design system | `Packages/TrapDesign` | written |
 | Storage (SwiftData) | `Packages/TrapData` | written: `RoundRepository`, in‑memory and SwiftData, summaries with search and paging, transactional `saveMany`, backup, importer |
@@ -26,7 +27,7 @@ into the Swift packages and the SwiftUI app target.
 | Weather + location | `Packages/TrapWeather` | written: Open‑Meteo client tuned for constrained networks, sky/wind mapping, fill policy, one‑shot location |
 | Platform (lifecycle, power, network, notifications, storage, identity) | `Packages/TrapPlatform` | written; policies in `docs/architecture.md` ADR‑010..013 |
 | Publishing | `TrapShooterPro/PrivacyInfo.xcprivacy`, `ExportOptions.plist`, `Scripts/archive.sh`, `docs/app-store.md` | written |
-| Legacy web page | `TrapShooterPro/Web/` | reference only; deleted at the end of Phase 2 |
+| 7.0.7 web page | `Tools/golden/reference/index-7.0.7.html` | frozen reference for the golden fixtures and for behaviour; not in the app |
 
 ## Architecture
 
@@ -36,9 +37,11 @@ into the Swift packages and the SwiftUI app target.
   R lost), `Schemes` (10 ISSF schemes × 15 machines), station rule and prediction (`RoundRules`), `SessionID`,
   `RoundDocument` (document v2 JSON, tolerant import = the web app's `norm`, export = `toDoc`), `BreakDistanceModel`,
   `CSVExport`, `Analysis`. Station, machine, angle, height and break distance are **derived**, never stored.
-- **ShotTimer** (to be created) wraps `AudioDetector` unchanged. `MicBridge` becomes an `@Observable TimerSession`
-  exposing the same events it sends to the page today: started, inputs, route, restarted, error, first, target, reject,
-  level, diag, saved. "Time a recording" feeds an audio file through the same detector.
+- **ShotTimer** wraps `AudioDetector` unchanged. `TimerSession` (`@Observable`) replaced `MicBridge` and publishes the
+  same events the page received: started, inputs, route, restarted, error, first, target, reject, level, diag, saved.
+  "Time a recording" (to come with the regression set) feeds an audio file through the same detector.
+- **TrapApp** holds the screens and `@Observable` models (`AppModel`, `RecordModel`, `RoundsModel`, `WeatherModel`) and
+  `TimingFlow`, the pure port of the page's live timing. The app target holds only `TrapShooterProApp.swift`.
 - **TrapData** holds SwiftData models mirroring `Round`, autosave on every entry, a full‑library JSON backup/restore and a
   one‑time importer for 7.x documents. Recordings stay in `Documents/Recordings` so the Files app shows them.
 - **UI**: `TabView` on iPhone (Record, Timer, Rounds, Analysis, Schemes, Settings), `NavigationSplitView` with an ink
@@ -59,7 +62,7 @@ into the Swift packages and the SwiftUI app target.
    check line.
 2. **Golden tests gate TrapCore.** Any change to rules, schemes, codec, break distance, CSV or analysis must keep
    `swift test` green against `Packages/TrapCore/Tests/TrapCoreTests/Fixtures`. Regenerate fixtures only when the
-   JavaScript reference itself changes: `node Tools/golden/generate.js TrapShooterPro/Web/index.html Packages/TrapCore/Tests/TrapCoreTests/Fixtures`.
+   JavaScript reference itself changes: `node Tools/golden/generate.js Tools/golden/reference/index-7.0.7.html Packages/TrapCore/Tests/TrapCoreTests/Fixtures`.
 3. **No accounts, no network at launch.** No sign‑in, no analytics, no third‑party SDKs. The only network call is the
    optional Open‑Meteo weather fill through `TrapWeather`, gated by `NetworkMonitor` (no automatic fetch in Low Data
    Mode), and the app must work with it failing. No remote push; local notifications only, permission never at launch.
@@ -74,8 +77,8 @@ into the Swift packages and the SwiftUI app target.
 8. **Settings in code, not asset catalogs** for colours (dynamic tokens in `BWColor.swift`), so they are testable and greppable.
 9. **Swift style**: Swift 5.9+, `@Observable`, async/await, value types for domain data, `Sendable` where cheap,
    no force‑unwraps outside tests, doc comments on public API in the packages.
-10. **Commits**: small, one topic, imperative subject, body says why. Never commit secrets. The old Supabase keys in
-    `Web/config.js` are public anon keys and go away with the Web folder. Workflow in `docs/git-workflow.md`; CI in
+10. **Commits**: small, one topic, imperative subject, body says why. Never commit secrets. The old Supabase anon keys left with the Web
+    folder (Phase 7). Workflow in `docs/git-workflow.md`; CI in
     `.github/workflows/ci.yml` must be green before merging.
 11. **Errors the shooter sees conform to `UserFacingError`** (TrapCore). No `localizedDescription` on screen. Expected
     conditions (no weather, no receiver) are states with a line of text, not alerts. Imports sanitise, then report.
@@ -120,7 +123,7 @@ compile verification to the Mac session.
 
 ## Working agreements for Claude sessions
 
-- Before editing a screen, read the matching section of the 7.0.7 page (`TrapShooterPro/Web/index.html`) to preserve
+- Before editing a screen, read the matching section of the 7.0.7 page (`Tools/golden/reference/index-7.0.7.html`) to preserve
   behaviour, then write it natively; do not port HTML or CSS literally.
 - When porting a JavaScript function into TrapCore, add it to `Tools/golden/generate.js` and a test first.
 - After any change in `Packages/`, run `swift test` (Mac) or say explicitly that it was not compiled.

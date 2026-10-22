@@ -1,7 +1,7 @@
 # TrapShooterPro — progress tracker
 
 One line per deliverable, updated with every commit that changes one. Plan and exit gates: `docs/phases/`.
-Legend: ✅ done and verified in CI · 🟡 done in code, not yet verified where the gate says (device, range, Mac) ·
+Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the gate's device, range or Mac check still to do ·
 🔨 in progress · ⏳ waiting on the owner (recordings, iPhone, range, Mac, Apple account) · ⬜ not started.
 
 *Last updated: 22 October 2026*
@@ -63,31 +63,31 @@ Legend: ✅ done and verified in CI · 🟡 done in code, not yet verified where
 |---|---|
 | `TrapReports` built and tested in CI | ✅ |
 | Local packages linked into the Xcode project (`TrapApp`, ADR‑017) | ✅ |
-| Native app root replaces the WebView | 🔨 |
-| `RecordModel`, `TimingFlow` (7.0.7 range flow), lifecycle, kill‑and‑resume | 🔨 |
-| Record screen | 🔨 |
-| Timer screen | 🔨 |
-| iPhone tabs, iPad split, keyboard, VoiceOver, Dynamic Type | 🔨 |
-| Range flow tested through a scripted timer (`RecordFlowTests`) | 🔨 |
+| Native app root replaces the WebView | ✅ |
+| `RecordModel`, `TimingFlow` (7.0.7 range flow), lifecycle, kill‑and‑resume | 🟡 |
+| Record screen | 🟡 |
+| Timer screen | 🟡 |
+| iPhone tabs, iPad split, keyboard, VoiceOver, Dynamic Type | 🟡 |
+| Range flow tested through a scripted timer (`RecordFlowTests`) | 🟡 |
 | Full round on a real range; kill‑and‑resume on device | ⏳ range |
 
 ## Phase 6 — Rounds, Analysis, Schemes, exporters
 
 | Deliverable | State |
 |---|---|
-| Rounds list (search, chips, paging, delete with undo, iPad master‑detail) | 🔨 |
-| Analysis (tiles, trends, tables, trap analysis) | 🔨 |
-| Schemes table | 🔨 |
-| Exports through `ExporterFactory` and the share sheet, temp files removed | 🔨 |
+| Rounds list (search, chips, paging, delete with undo, iPad master‑detail) | 🟡 |
+| Analysis (tiles, trends, tables, trap analysis) | 🟡 |
+| Schemes table | 🟡 |
+| Exports through `ExporterFactory` and the share sheet, temp files removed | 🟡 |
 | Performance gates on device | ⏳ iPhone |
 
 ## Phase 7 — Settings, data, platform
 
 | Deliverable | State |
 |---|---|
-| Settings, Data, About screens | 🔨 |
-| Lifecycle, power, network, reminder, MetricKit wired | 🔨 |
-| `Web/`, Supabase and hybrid Swift files deleted | ⬜ |
+| Settings, Data, About screens | 🟡 |
+| Lifecycle, power, network, reminder, MetricKit wired | 🟡 |
+| `Web/`, Supabase and hybrid Swift files deleted; 7.0.7 page kept only as the golden reference in `Tools/golden/reference/` | 🔨 |
 | Backup → reinstall → restore on device | ⏳ iPhone |
 
 ## Phase 8 — Release
@@ -114,3 +114,6 @@ Legend: ✅ done and verified in CI · 🟡 done in code, not yet verified where
 | 2026‑10‑22 | `a769e74` | TrapData: NaN crash and test fixed; whole CI green |
 | 2026‑10‑22 | `e268864` | Docs record the green CI |
 | 2026‑10‑22 | `2aa796f` | ShotTimer: DJI Mic Mini 2 preferred; ShotTimer tests in CI |
+| 2026‑10‑22 | `3964ab8` | TrapReports tested in CI; this tracker |
+| 2026‑10‑22 | `27f40f5` | `TrapApp` package linked into the Xcode project (ADR‑017); hybrid sources out of the target |
+| 2026‑10‑22 | `31cd9c7` | Native Record, Timer, Rounds, Analysis, Schemes, Settings; `TimingFlow`; CI green |

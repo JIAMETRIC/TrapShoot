@@ -1,4 +1,4 @@
-# Phase 5 — Record and Timer screens `[OOP · CMS · TAB · SEF]` — next
+# Phase 5 — Record and Timer screens `[OOP · CMS · TAB · SEF]` — built and tested in CI; range and device checks pending
 
 The first native screens, the end of the WebView for shooting.
 
