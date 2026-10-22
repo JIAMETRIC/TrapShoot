@@ -11,7 +11,7 @@ What is in the code, what is in App Store Connect, and the order to do it in.
 | Privacy manifest (no tracking, no collected data, required‑reason APIs) | `TrapShooterPro/PrivacyInfo.xcprivacy` | done |
 | App icon 1024 | `Assets.xcassets/AppIcon` | present; redo in the B&W system before submission |
 | Launch screen | generated (`UILaunchScreen_Generation`) | done |
-| Versioning | `MARKETING_VERSION` (shooter‑visible, e.g. 8.0.0), `CURRENT_PROJECT_VERSION` (build, increases every upload) | 7.0.7 (8) today; becomes 8.0.0 (1) for the native app |
+| Versioning | `MARKETING_VERSION` (shooter‑visible, e.g. 8.0.0), `CURRENT_PROJECT_VERSION` (build, increases every upload) | 8.0.0 (1) since the native app (22 October 2026); 7.0.7 (8) was the last hybrid build |
 | Archive and upload | `Scripts/archive.sh`, `ExportOptions.plist` | done |
 | Export compliance | App Store Connect → App Information → "Uses non‑exempt encryption: No" (only HTTPS to a public API) | set once per app |
 
@@ -26,8 +26,10 @@ not "collection" by Apple's definition because it is not linked to the user or r
 > TrapShoot is a shot timer and scorecard for Olympic Trap, an ISSF/Olympic shotgun discipline. The microphone is used
 > only while the shooter taps Start, to time the voice call and the shots of a clay target; nothing is uploaded. No account
 > is needed; all data stays on the device and can be exported by the user as CSV, PDF or a backup file. Location is
-> optional and used once per round to pre‑fill the weather from Open‑Meteo. To test the timer without a range: tap
-> Timer → Start, say "pull" and clap twice within a second; the readout shows the two intervals.
+> optional and used once per round to pre‑fill the weather from Open‑Meteo. To test the timer without a range: on
+> Record, type any range name, pick Field 1 and Sky, enter a temperature and humidity (or tap Weather), tap Start round;
+> then on Timer tap Start timer, say "pull" loudly and clap twice within a second. The readout shows the call‑to‑clap
+> times and the Record tab asks for the target's direction and result.
 
 ## Listing
 
@@ -38,8 +40,8 @@ not "collection" by Apple's definition because it is not linked to the user or r
   plainly: no account, works offline, your data stays on your phone.
 - **Screenshots**: 6.9" (iPhone 17 Pro Max) and 13" iPad required; light and dark; Record, Timer, Analysis, Schemes.
 - **Age rating**: answer the questionnaire honestly; sport shooting with no violence content rates 4+.
-- **Support URL and privacy policy URL**: one page each. The privacy policy is short: no collection, optional
-  location to Open‑Meteo, microphone on device only, contact email.
+- **Support URL and privacy policy URL**: `docs/support.md` and `docs/privacy.md` in this public repository
+  (`https://github.com/JIAMETRIC/TrapShooterPro/blob/main/docs/privacy.md`). Fill in the contact email first.
 
 ## Order of work
 

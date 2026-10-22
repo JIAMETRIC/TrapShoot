@@ -248,7 +248,7 @@ private struct EntryPanel: View {
                 }
             }
             Button("NO TARGET") { model.noTarget() }
-                .buttonStyle(.bwSecondary)
+                .buttonStyle(BWSecondaryButtonStyle(height: 56))          // gloved hands (docs/app-store.md)
                 .keyboardShortcut(BWKeys.noTarget)
                 .accessibilityHint("The clay did not come or came out broken. The target keeps its number.")
             HStack(spacing: BWMetrics.s2) {
