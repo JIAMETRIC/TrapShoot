@@ -2,7 +2,8 @@
 
 **This repository is moving from the 7.0.7 hybrid app (web page in a WKWebView) to a 100% native SwiftUI, local-first app.**
 The plan is in [`docs/native-plan.md`](docs/native-plan.md). The first native package is [`Packages/TrapCore`](Packages/TrapCore)
-(round model, Olympic Trap rules, schemes, break distance, CSV, analysis) with golden tests against the JavaScript original.
+(round model, Olympic Trap rules, schemes, break distance, CSV, analysis) with golden tests against the JavaScript original,
+and [`Packages/TrapDesign`](Packages/TrapDesign) holds the black‑and‑white design system (see [`docs/design-system.md`](docs/design-system.md)).
 The notes below describe the 7.0.7 baseline, which still builds as before.
 
 ---

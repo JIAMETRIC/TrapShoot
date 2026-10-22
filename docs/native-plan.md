@@ -173,6 +173,7 @@ Each phase ends with something installable on the phone. Estimates assume one de
 | Name and identity | Project and App Store name **TrapShooterPro**, name under the icon **TrapShoot** (fits without truncation), bundle identifier `com.mtajudeen.trapshooterpro` unchanged |
 | Devices | **iPhone and iPad** (universal) |
 | Scorecard fonts | **San Francisco** (SF Pro, SF Mono). No bundled fonts. |
+| Visual design | **Black‑and‑white system** from the supplied `bw-theme.css` / `login.css`, translated to iOS in `docs/design-system.md` and `Packages/TrapDesign` (light + dark, SF typography, 44 pt targets). |
 | Source control | GitHub under **JIAMETRIC**. Code is pushed from the cloud session and pulled on the Mac. |
 
 Consequences already applied to the baseline project: deployment target 17.0, device family iPhone + iPad, iPad orientations added, display name "TrapShoot" under the icon, build number 8, and the two user‑facing "Shooter Pro" strings in the Swift sources.
