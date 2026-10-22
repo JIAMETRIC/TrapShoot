@@ -93,10 +93,11 @@ final class TrapDataTests: XCTestCase {
         XCTAssertEqual(InMemoryRoundRepository([named]).count, 1)
         XCTAssertEqual(try InMemoryRoundRepository([named]).fetchSummaries(RoundFilter(text: "RANGE")).map(\.id), ["s10"])
 
-        // the in-memory repository answers the same questions
-        let mem = InMemoryRoundRepository(rounds)
+        // the in-memory repository answers the same questions over the same rounds (s10 included)
+        let mem = InMemoryRoundRepository(rounds + [named])
         XCTAssertEqual(try mem.fetchSummaries(RoundFilter(scheme: 2)).map(\.id), try repo.fetchSummaries(RoundFilter(scheme: 2)).map(\.id))
-        XCTAssertEqual(try mem.fetchSummaries(limit: 2, offset: 2).map(\.id), ["s7", "s6"])
+        XCTAssertEqual(try mem.fetchSummaries(limit: 2, offset: 2).map(\.id), ["s8", "s7"])
+        XCTAssertEqual(try mem.fetchSummaries(limit: 2, offset: 2).map(\.id), try repo.fetchSummaries(limit: 2, offset: 2).map(\.id))
     }
 
     func testSaveManyIsAllOrNothing() throws {
@@ -107,7 +108,8 @@ final class TrapDataTests: XCTestCase {
         let autosave = repo.context.autosaveEnabled
         // a batch with a round that cannot be encoded (NaN is not JSON) must leave nothing behind
         var bad = sample(3); bad.temperature = .nan
-        XCTAssertThrowsError(try repo.saveMany([sample(2), bad]))
+        XCTAssertThrowsError(try repo.saveMany([sample(2), bad])) { XCTAssertEqual($0 as? RoundDocumentError, .notEncodable) }
+        XCTAssertThrowsError(try Backup.encode([bad], appVersion: "8.0")) { XCTAssertEqual($0 as? RoundDocumentError, .notEncodable) }
         XCTAssertEqual(try repo.count(), 1, "rolled back: sample 2 was not kept")
         XCTAssertNil(try repo.fetch(id: "r2"))
         XCTAssertEqual(repo.context.autosaveEnabled, autosave, "autosave flag restored")

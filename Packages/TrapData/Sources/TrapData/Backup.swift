@@ -13,7 +13,7 @@ public enum Backup {
             "exported": DateText.iso(now), "count": rounds.count,
             "rounds": rounds.map { ["id": $0.id, "doc": RoundDocument.document(of: $0, now: now)] }
         ]
-        return try JSONSerialization.data(withJSONObject: body, options: [.prettyPrinted, .sortedKeys])
+        return try RoundDocument.jsonData(body, options: [.prettyPrinted, .sortedKeys])
     }
 
     /// Reads a backup, a plain list of rows, or the 7.x browser cache. Unknown rows are skipped, never fatal.

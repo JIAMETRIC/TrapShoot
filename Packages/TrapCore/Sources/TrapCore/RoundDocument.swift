@@ -98,7 +98,14 @@ public enum RoundDocument {
     }
 
     public static func json(of r: Round, now: Date = Date(), pretty: Bool = false) throws -> Data {
-        try JSONSerialization.data(withJSONObject: document(of: r, now: now), options: pretty ? [.prettyPrinted, .sortedKeys] : [.sortedKeys])
+        try jsonData(document(of: r, now: now), options: pretty ? [.prettyPrinted, .sortedKeys] : [.sortedKeys])
+    }
+
+    /// `JSONSerialization.data` that throws instead of crashing. Given NaN or infinity it raises an Objective‑C
+    /// exception, which Swift cannot catch: the app would terminate and `saveMany` would never roll back.
+    public static func jsonData(_ object: Any, options: JSONSerialization.WritingOptions) throws -> Data {
+        guard JSONSerialization.isValidJSONObject(object) else { throw RoundDocumentError.notEncodable }
+        return try JSONSerialization.data(withJSONObject: object, options: options)
     }
 
     /// A number as JSON wants it: integral values without a fraction.

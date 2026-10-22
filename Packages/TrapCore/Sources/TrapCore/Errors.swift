@@ -15,6 +15,13 @@ public extension UserFacingError {
     var text: String { recovery.map { message + " " + $0 } ?? message }
 }
 
+/// A round that cannot be written as document JSON (a time, level or weather value that is not a finite number).
+public enum RoundDocumentError: Error, Equatable, UserFacingError {
+    case notEncodable
+    public var message: String { "This round has a value that cannot be saved." }
+    public var recovery: String? { "Check the times and weather of the round, then save again." }
+}
+
 /// Wraps any error for display. Unknown errors get a generic message; the detail goes to the log, not the screen.
 public struct DisplayError: UserFacingError, Equatable {
     public let message: String
