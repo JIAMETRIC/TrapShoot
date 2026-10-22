@@ -1,13 +1,12 @@
 import SwiftUI
+import TrapApp
 
-/// TRAP SHOOTER PRO for iPhone.
-/// The round recorder runs as a web page inside the app (Web/index.html).
-/// The microphone runs natively (MicStreamer) and streams samples to the page's shot timer.
+/// TrapShoot. The whole app lives in the TrapApp package (ADR-017); this target only starts it.
 @main
 struct TrapShooterProApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TrapAppRoot()
         }
     }
 }

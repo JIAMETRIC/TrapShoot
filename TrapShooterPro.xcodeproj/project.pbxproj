@@ -3,31 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D7E79F1CB89CC573FF298988 /* TrapShooterProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60792BEF2E5DEB86C489F487 /* TrapShooterProApp.swift */; };
-		62ADFAF7EDC910F8379C61C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2D059072C1E33E64D7DCDF /* ContentView.swift */; };
-		2CB8C222AB35F0FBA2367676 /* MicBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCD83796929D1B169E5A9B /* MicBridge.swift */; };
-		7CEC401AA1811787FE12FEE1 /* AudioDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B24EED77EAEC7981B330C78 /* AudioDetector.swift */; };
-		8F3CF1941FD441BD02F426AA /* RoundRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8B17F31552BF09FAD3A4D7 /* RoundRecorder.swift */; };
-		F840C253CF41888D16B28C8C /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC130C607CCD83209973A990 /* LocationFetcher.swift */; };
 		DCB5039E1B8D057334E9C8BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32BB636196F91ED59D7A4919 /* Assets.xcassets */; };
-		9CDBD54070D5CE81CD040EB9 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 2567A5EC9705EB7AC2C98403 /* Web */; };
 		7A11AC1F00000000000000A1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7A11AC1F00000000000000A2 /* PrivacyInfo.xcprivacy */; };
+		7A11AC1F0000000000000B03 /* TrapApp in Frameworks */ = {isa = PBXBuildFile; productRef = 7A11AC1F0000000000000B02 /* TrapApp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D2A57DC1D883FD21FB995169 /* TrapShooterPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrapShooterPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60792BEF2E5DEB86C489F487 /* TrapShooterProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrapShooterProApp.swift; sourceTree = "<group>"; };
-		4D2D059072C1E33E64D7DCDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		ADFCD83796929D1B169E5A9B /* MicBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicBridge.swift; sourceTree = "<group>"; };
-		8B24EED77EAEC7981B330C78 /* AudioDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDetector.swift; sourceTree = "<group>"; };
-		FC8B17F31552BF09FAD3A4D7 /* RoundRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundRecorder.swift; sourceTree = "<group>"; };
-		AC130C607CCD83209973A990 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		32BB636196F91ED59D7A4919 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2567A5EC9705EB7AC2C98403 /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
 		7A11AC1F00000000000000A2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -36,6 +25,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A11AC1F0000000000000B03 /* TrapApp in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,14 +52,8 @@
 			isa = PBXGroup;
 			children = (
 				60792BEF2E5DEB86C489F487 /* TrapShooterProApp.swift */,
-				4D2D059072C1E33E64D7DCDF /* ContentView.swift */,
-				ADFCD83796929D1B169E5A9B /* MicBridge.swift */,
-				8B24EED77EAEC7981B330C78 /* AudioDetector.swift */,
-				FC8B17F31552BF09FAD3A4D7 /* RoundRecorder.swift */,
-				AC130C607CCD83209973A990 /* LocationFetcher.swift */,
 				32BB636196F91ED59D7A4919 /* Assets.xcassets */,
 				7A11AC1F00000000000000A2 /* PrivacyInfo.xcprivacy */,
-				2567A5EC9705EB7AC2C98403 /* Web */,
 			);
 			path = TrapShooterPro;
 			sourceTree = "<group>";
@@ -90,6 +74,9 @@
 			dependencies = (
 			);
 			name = TrapShooterPro;
+			packageProductDependencies = (
+				7A11AC1F0000000000000B02 /* TrapApp */,
+			);
 			productName = TrapShooterPro;
 			productReference = D2A57DC1D883FD21FB995169 /* TrapShooterPro.app */;
 			productType = "com.apple.product-type.application";
@@ -110,7 +97,7 @@
 				};
 			};
 			buildConfigurationList = B70BFAED9452B281FBE6DE10 /* Build configuration list for PBXProject "TrapShooterPro" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -118,6 +105,9 @@
 				Base,
 			);
 			mainGroup = FAD58DE7366495DB4650CFEF;
+			packageReferences = (
+				7A11AC1F0000000000000B01 /* XCLocalSwiftPackageReference "Packages/TrapApp" */,
+			);
 			productRefGroup = 86024CAD1E83101D97359D73 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -134,7 +124,6 @@
 			files = (
 				DCB5039E1B8D057334E9C8BE /* Assets.xcassets in Resources */,
 				7A11AC1F00000000000000A1 /* PrivacyInfo.xcprivacy in Resources */,
-				9CDBD54070D5CE81CD040EB9 /* Web in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,11 +135,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7E79F1CB89CC573FF298988 /* TrapShooterProApp.swift in Sources */,
-				62ADFAF7EDC910F8379C61C6 /* ContentView.swift in Sources */,
-				2CB8C222AB35F0FBA2367676 /* MicBridge.swift in Sources */,
-				7CEC401AA1811787FE12FEE1 /* AudioDetector.swift in Sources */,
-				8F3CF1941FD441BD02F426AA /* RoundRecorder.swift in Sources */,
-				F840C253CF41888D16B28C8C /* LocationFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,17 +256,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "TrapShoot";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Shooter Pro reads your location once to fill in the range weather for a round.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Shooter Pro listens for the athlete's call and the shots to time each target.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TrapShoot reads your location once, when you ask for the range weather, to fill in temperature, humidity, sky and wind for the round.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TrapShoot listens through the microphone or a receiver such as the DJI Mic Mini 2 for the call and the shots, to time each target. Audio stays on this iPhone.";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIFileSharingEnabled = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,17 +291,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "TrapShoot";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Shooter Pro reads your location once to fill in the range weather for a round.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Shooter Pro listens for the athlete's call and the shots to time each target.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TrapShoot reads your location once, when you ask for the range weather, to fill in temperature, humidity, sky and wind for the round.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TrapShoot listens through the microphone or a receiver such as the DJI Mic Mini 2 for the call and the shots, to time each target. Audio stays on this iPhone.";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIFileSharingEnabled = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,6 +336,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		7A11AC1F0000000000000B01 /* XCLocalSwiftPackageReference "Packages/TrapApp" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/TrapApp;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7A11AC1F0000000000000B02 /* TrapApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A11AC1F0000000000000B01 /* XCLocalSwiftPackageReference "Packages/TrapApp" */;
+			productName = TrapApp;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 46F86FAA6BBF9AC94A7E4595 /* Project object */;
 }

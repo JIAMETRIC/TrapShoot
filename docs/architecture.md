@@ -188,3 +188,10 @@ data leaves the device unless the shooter sends it, and Apple's tools read all o
 **ADR‑013 Publishing artifacts live in the repository.** Privacy manifest, export options, archive script, review
 notes and listing text are versioned next to the code (`docs/app-store.md`), so a release is reproducible by anyone
 with the Mac and the team id.
+
+**ADR‑017 The UI is a package; the app target only starts it.** Screens, view models and the timing flow live in
+`Packages/TrapApp`, which depends on the other seven packages; the app target holds `TrapShooterProApp.swift` and links
+the one product through an `XCLocalSwiftPackageReference`. Reason: a hand‑maintained `project.pbxproj` needs one entry
+instead of one per file, the UI compiles and tests in CI like any package (`xcodebuild -scheme TrapApp test`), and the
+hybrid sources leave the target in one edit. Consequence: `public` on what the app target touches (`TrapAppRoot`
+only); everything else stays internal and `@testable`.

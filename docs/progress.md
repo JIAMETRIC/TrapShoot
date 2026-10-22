@@ -61,8 +61,8 @@ Legend: ✅ done and verified in CI · 🟡 done in code, not yet verified where
 
 | Deliverable | State |
 |---|---|
-| `TrapReports` built and tested in CI | 🔨 |
-| Local packages linked into the Xcode project | ⬜ |
+| `TrapReports` built and tested in CI | ✅ |
+| Local packages linked into the Xcode project (`TrapApp`, ADR‑017) | 🔨 |
 | Native app root replaces the WebView | ⬜ |
 | `RecordModel`, `TimerLifecycle`, scene storage | ⬜ |
 | Record screen | ⬜ |

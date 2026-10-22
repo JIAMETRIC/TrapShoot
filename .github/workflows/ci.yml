@@ -50,7 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app
-      - name: App builds (hybrid shell until the native target lands)
+      - name: App builds (native root from the TrapApp package)
         run: |
           xcodebuild -project TrapShooterPro.xcodeproj -scheme TrapShooterPro \
             -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build | tee "$RUNNER_TEMP/App.log" | xcpretty || exit ${PIPESTATUS[0]}
@@ -66,6 +66,10 @@ jobs:
         run: |
           cd Packages/TrapReports
           xcodebuild -scheme TrapReports -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/TrapReports.log" | xcpretty || exit ${PIPESTATUS[0]}
+      - name: TrapApp tests (screens, models, timing flow)
+        run: |
+          cd Packages/TrapApp
+          xcodebuild -scheme TrapApp -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/TrapApp.log" | xcpretty || exit ${PIPESTATUS[0]}
       - name: ShotTimer and TrapDesign build
         run: |
           (cd Packages/ShotTimer && xcodebuild -scheme ShotTimer -destination 'generic/platform=iOS Simulator' build | xcpretty || exit ${PIPESTATUS[0]})
