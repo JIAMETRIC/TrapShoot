@@ -122,3 +122,4 @@ Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the g
 | 2026‑10‑22 | `27f40f5` | `TrapApp` package linked into the Xcode project (ADR‑017); hybrid sources out of the target |
 | 2026‑10‑22 | `31cd9c7` | Native Record, Timer, Rounds, Analysis, Schemes, Settings; `TimingFlow`; CI green |
 | 2026‑10‑22 | `e4375cf` | Phase 7 clean break: web app and hybrid sources deleted; README for the native app |
+| 2026‑10‑22 | `77aed18` | Phase 8 code side: 8.0.0 (1), review notes, privacy and support pages; CI green |
