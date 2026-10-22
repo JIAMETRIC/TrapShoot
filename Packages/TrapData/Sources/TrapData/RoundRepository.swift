@@ -13,6 +13,11 @@ public protocol RoundRepository: AnyObject {
     func delete(id: String) throws
     /// For session id uniqueness.
     func sessionIdentifiers() throws -> [(id: String, sessionId: String)]
+    /// List rows without the document payload, newest first. See `RoundFilter`.
+    func summaries(filter: RoundFilter, limit: Int?, offset: Int) throws -> [RoundSummary]
+    func countRounds(filter: RoundFilter) throws -> Int
+    /// All or nothing.
+    func saveMany(_ rounds: [Round]) throws
 }
 
 public extension RoundRepository {

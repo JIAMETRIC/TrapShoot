@@ -4,8 +4,8 @@ Native iOS/iPadOS app for Olympic Trap shooters: a call‑to‑shot timer that l
 a 25‑target round recorder, break‑distance model, analysis and exports. **Local‑first: no account, no server, no network
 dependency.** Icon label "TrapShoot", bundle id `com.mtajudeen.trapshooterpro`, iOS 17.0+, iPhone and iPad, SwiftUI.
 
-Read `docs/native-plan.md` (plan and decisions), `docs/architecture.md` (system design, ADRs) and `docs/design-system.md`
-(visual system) before larger changes.
+Read `docs/native-plan.md` (plan and decisions), `docs/architecture.md` (system design, ADRs), `docs/engineering.md`
+(testing, security, performance, debugging, git, CI) and `docs/design-system.md` (visual system) before larger changes.
 
 ## State of the migration
 
@@ -67,7 +67,16 @@ into the Swift packages and the SwiftUI app target.
 9. **Swift style**: Swift 5.9+, `@Observable`, async/await, value types for domain data, `Sendable` where cheap,
    no force‑unwraps outside tests, doc comments on public API in the packages.
 10. **Commits**: small, one topic, imperative subject, body says why. Never commit secrets. The old Supabase keys in
-    `Web/config.js` are public anon keys and go away with the Web folder.
+    `Web/config.js` are public anon keys and go away with the Web folder. Workflow in `docs/git-workflow.md`; CI in
+    `.github/workflows/ci.yml` must be green before merging.
+11. **Errors the shooter sees conform to `UserFacingError`** (TrapCore). No `localizedDescription` on screen. Expected
+    conditions (no weather, no receiver) are states with a line of text, not alerts. Imports sanitise, then report.
+12. **Validate at the boundaries.** Anything entering from a file, a backup or the network goes through
+    `Validation.sanitized` and `Validation.issues`; CSV cells are formula‑safe; file names are stripped. See `docs/security.md`.
+13. **Log with `TrapLog`**, round data as `privacy: .private`; add a signpost when touching anything with a budget in
+    `docs/performance.md`. No third‑party analytics or crash SDKs: MetricKit and the support bundle cover it.
+14. **Queries, not full loads, for lists.** `fetchSummaries` (columns, filter, paging) for the Rounds list;
+    `fetchAll` only for Analysis and exports; `saveMany` for anything that writes more than one round.
 
 ## Build, test, run
 

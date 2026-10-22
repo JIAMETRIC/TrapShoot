@@ -77,13 +77,26 @@ public enum WeatherFill {
     static func jsRound(_ x: Double) -> Double { (x + 0.5).rounded(.down) }
 }
 
-public enum WeatherError: Error, Equatable {
+public enum WeatherError: Error, Equatable, UserFacingError {
     case badURL
-    case httpStatus(Int)
     case noData
     case locationDenied
     case locationUnavailable
     case timeout
+    /// Same wording as the 7.x page.
+    public var message: String {
+        switch self {
+        case .locationDenied: return "Location is off for this app."
+        case .locationUnavailable, .timeout: return "Could not find your location."
+        case .badURL, .noData: return "Could not get the weather."
+        }
+    }
+    public var recovery: String? {
+        switch self {
+        case .locationDenied: return "Allow it in your phone settings, or type the values."
+        default: return "Check your connection, or type the values."
+        }
+    }
 }
 
 /// Anything that can answer "what is the weather here".
@@ -95,9 +108,10 @@ public protocol WeatherService: Sendable {
 /// 15 s timeout, no waiting for connectivity, no cache, no cookies, no constrained (Low Data Mode) access.
 public final class OpenMeteoClient: WeatherService {
     public static let endpoint = "https://api.open-meteo.com/v1/forecast"
-    private let session: URLSession
+    private let http: HTTPClient
 
-    public init(session: URLSession = OpenMeteoClient.makeSession()) { self.session = session }
+    public init(http: HTTPClient = URLSessionHTTPClient()) { self.http = http }
+    public convenience init(session: URLSession) { self.init(http: URLSessionHTTPClient(session: session)) }
 
     public static func makeSession(allowConstrained: Bool = false) -> URLSession {
         let c = URLSessionConfiguration.ephemeral
@@ -127,8 +141,7 @@ public final class OpenMeteoClient: WeatherService {
 
     public func current(latitude: Double, longitude: Double) async throws -> WeatherSample {
         guard let url = OpenMeteoClient.url(latitude: latitude, longitude: longitude) else { throw WeatherError.badURL }
-        let (data, response) = try await session.data(from: url)
-        if let http = response as? HTTPURLResponse, !(200..<300).contains(http.statusCode) { throw WeatherError.httpStatus(http.statusCode) }
+        let data = try await http.get(Endpoint(url: url))
         return try OpenMeteoClient.parse(data)
     }
 

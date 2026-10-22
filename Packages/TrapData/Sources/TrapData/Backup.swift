@@ -58,17 +58,34 @@ public enum Importer {
     /// Merge policy when importing into an existing library.
     public enum Policy: Sendable { case skipExisting, replaceExisting }
 
+    /// Rounds are sanitised on the way in; structural problems are reported, not fatal. The write is one transaction.
     @MainActor
-    public static func merge(_ rounds: [Round], into repo: RoundRepository, policy: Policy) throws -> (added: Int, replaced: Int, skipped: Int) {
-        var added = 0, replaced = 0, skipped = 0
-        for r in rounds {
+    public static func merge(_ rounds: [Round], into repo: RoundRepository, policy: Policy) throws -> ImportReport {
+        var report = ImportReport()
+        var toWrite: [Round] = []
+        for raw in rounds {
+            let r = Validation.sanitized(raw)
+            let issues = Validation.issues(in: r)
+            if !issues.isEmpty { report.issues[r.id] = issues }
             if try repo.fetch(id: r.id) != nil {
-                if policy == .replaceExisting { try repo.save(r); replaced += 1 } else { skipped += 1 }
+                if policy == .replaceExisting { toWrite.append(r); report.replaced += 1 } else { report.skipped += 1 }
             } else {
-                try repo.save(r); added += 1
+                toWrite.append(r); report.added += 1
             }
         }
-        return (added, replaced, skipped)
+        try repo.saveMany(toWrite)
+        return report
+    }
+
+    public struct ImportReport: Equatable, Sendable {
+        public var added = 0, replaced = 0, skipped = 0
+        /// Rounds that were written but carry problems the shooter should look at.
+        public var issues: [String: [ValidationIssue]] = [:]
+        public var summary: String {
+            var s = "\(added) added, \(replaced) replaced, \(skipped) already present."
+            if !issues.isEmpty { s += " \(issues.count) with values to check." }
+            return s
+        }
     }
 }
 

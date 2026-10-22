@@ -26,8 +26,10 @@ public enum CSVExport {
     }
 
     /// One CSV cell: nil is empty, numbers print like JavaScript, quotes when needed.
+    /// Text that starts with = + - @ or a tab is prefixed with an apostrophe so a spreadsheet never treats a
+    /// shooter's note as a formula (CSV injection). Numbers are not text and are never touched.
     public static func cell(_ v: Any?) -> String {
-        let s: String
+        var s: String
         switch v {
         case nil: s = ""
         case let x as String: s = x
@@ -35,6 +37,7 @@ public enum CSVExport {
         case let x as Double: s = JSText.number(x)
         default: s = "\(v!)"
         }
+        if v is String, let first = s.first, "=+-@\t\r".contains(first) { s = "'" + s }
         if s.contains("\"") || s.contains(",") || s.contains("\n") {
             return "\"" + s.replacingOccurrences(of: "\"", with: "\"\"") + "\""
         }

@@ -172,6 +172,19 @@ state into one advice value the Timer screen obeys (slower level meter, round au
 `NetworkMonitor` gates the only network call: automatic weather fill needs a reachable, unconstrained path; Low Data
 Mode disables automatic fetches; the URLSession never waits for connectivity, never caches, and times out at 15 s.
 
+**ADR‑014 No backend, so no auth, GraphQL or sockets.** The app's one network call is an unauthenticated REST GET to a
+public weather API through `HTTPClient` (typed endpoint, transient‑only retry, stub‑tested). Sharing with a coach, when
+it comes, is a file the shooter sends or a signed expiring link; never a login. Reason: nothing to protect server‑side,
+nothing to leak client‑side, no token lifecycle to get wrong.
+
+**ADR‑015 CI gates every change to main.** Fixtures must match the JavaScript, `swift test` must pass for the pure
+packages on macOS, the app and iOS‑only packages must build and test in the simulator. TestFlight uploads are a manual
+workflow. No Docker: iOS builds need macOS runners. Reason: the golden tests are only worth something if they run.
+
+**ADR‑016 Diagnostics without SDKs.** `os.Logger` with privacy annotations, signposts for the performance budgets,
+MetricKit for crashes, hangs and energy, and a text support bundle the shooter mails. Reason: no third‑party code, no
+data leaves the device unless the shooter sends it, and Apple's tools read all of it.
+
 **ADR‑013 Publishing artifacts live in the repository.** Privacy manifest, export options, archive script, review
 notes and listing text are versioned next to the code (`docs/app-store.md`), so a release is reproducible by anyone
 with the Mac and the team id.

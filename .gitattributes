@@ -1,0 +1,8 @@
+# Xcode project files merge badly; take both sides and let Xcode re-sort.
+*.pbxproj merge=union
+# Fixtures are generated; show them as binary-ish in diffs to keep reviews readable.
+Packages/TrapCore/Tests/TrapCoreTests/Fixtures/*.json -diff
+# Line endings
+* text=auto eol=lf
+*.png binary
+*.m4a binary

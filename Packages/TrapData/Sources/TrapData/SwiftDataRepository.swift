@@ -46,8 +46,8 @@ public final class SwiftDataRoundRepository: RoundRepository {
 
     /// The app's container (on disk) or a throwaway one for tests and previews.
     public static func container(inMemory: Bool = false) throws -> ModelContainer {
-        let config = ModelConfiguration("TrapShooterPro", isStoredInMemoryOnly: inMemory)
-        return try ModelContainer(for: RoundRecord.self, configurations: config)
+        let config = ModelConfiguration("TrapShooterPro", schema: Schema(versionedSchema: TrapSchemaV1.self), isStoredInMemoryOnly: inMemory)
+        return try ModelContainer(for: Schema(versionedSchema: TrapSchemaV1.self), migrationPlan: TrapMigrationPlan.self, configurations: [config])
     }
 
     public func fetchAll() throws -> [Round] {
@@ -55,7 +55,7 @@ public final class SwiftDataRoundRepository: RoundRepository {
         return try context.fetch(d).compactMap { try? $0.round() }
     }
 
-    private func record(id: String) throws -> RoundRecord? {
+    func record(id: String) throws -> RoundRecord? {
         var d = FetchDescriptor<RoundRecord>(predicate: #Predicate { $0.id == id })
         d.fetchLimit = 1
         return try context.fetch(d).first

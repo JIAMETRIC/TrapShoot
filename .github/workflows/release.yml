@@ -1,0 +1,35 @@
+name: TestFlight
+
+# Manual. Needs repository secrets: APPLE_TEAM_ID, ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (App Store Connect API key),
+# plus a signing certificate and profile strategy (Xcode cloud signing via the API key works for automatic signing).
+on:
+  workflow_dispatch:
+    inputs:
+      notes:
+        description: "What to test"
+        required: false
+
+jobs:
+  archive:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app
+      - name: Install App Store Connect API key
+        run: |
+          mkdir -p ~/.appstoreconnect/private_keys
+          echo "${{ secrets.ASC_KEY_P8 }}" > ~/.appstoreconnect/private_keys/AuthKey_${{ secrets.ASC_KEY_ID }}.p8
+      - name: Archive and upload
+        env:
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          sed "s/\$(TEAM_ID)/$TEAM_ID/" ExportOptions.plist > /tmp/ExportOptions.plist
+          xcodebuild -project TrapShooterPro.xcodeproj -scheme TrapShooterPro -configuration Release \
+            -destination 'generic/platform=iOS' -archivePath build/TrapShooterPro.xcarchive \
+            -allowProvisioningUpdates -authenticationKeyPath ~/.appstoreconnect/private_keys/AuthKey_${{ secrets.ASC_KEY_ID }}.p8 \
+            -authenticationKeyID ${{ secrets.ASC_KEY_ID }} -authenticationKeyIssuerID ${{ secrets.ASC_ISSUER_ID }} \
+            DEVELOPMENT_TEAM="$TEAM_ID" archive
+          xcodebuild -exportArchive -archivePath build/TrapShooterPro.xcarchive -exportOptionsPlist /tmp/ExportOptions.plist \
+            -exportPath build/export -allowProvisioningUpdates \
+            -authenticationKeyPath ~/.appstoreconnect/private_keys/AuthKey_${{ secrets.ASC_KEY_ID }}.p8 \
+            -authenticationKeyID ${{ secrets.ASC_KEY_ID }} -authenticationKeyIssuerID ${{ secrets.ASC_ISSUER_ID }}

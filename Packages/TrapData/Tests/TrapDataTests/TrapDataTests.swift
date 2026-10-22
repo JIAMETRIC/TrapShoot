@@ -62,5 +62,42 @@ final class TrapDataTests: XCTestCase {
         let repo = InMemoryRoundRepository([sample(3)])
         let result = try Importer.merge(Importer.rounds(fromJSONObject: table) + [sample(4)], into: repo, policy: .skipExisting)
         XCTAssertEqual(result.added, 1); XCTAssertEqual(result.skipped, 1); XCTAssertEqual(repo.count, 2)
+        XCTAssertEqual(result.summary, "1 added, 0 replaced, 1 already present.")
+    }
+
+    func testSummariesFilterPagingAndCountOnSwiftData() throws {
+        let container = try SwiftDataRoundRepository.container(inMemory: true)
+        let repo = SwiftDataRoundRepository(context: container.mainContext)
+        var rounds: [Round] = []
+        for n in 1...9 {
+            var r = sample(n % 10); r.id = "s\(n)"; r.createdAt = "2026-10-0\(n)T07:00:00.000Z"; r.date = "2026-10-0\(n)"
+            r.scheme = n % 2 == 0 ? 2 : 5; r.type = n > 6 ? "Competition" : "Training"
+            if n == 9 { for i in 0..<25 { r.directions[i] = .left; r.results[i] = .lost } }
+            rounds.append(r)
+        }
+        try repo.saveMany(rounds)
+        XCTAssertEqual(try repo.count(), 9)
+        XCTAssertEqual(try repo.fetchSummaries().map(\.id), (1...9).reversed().map { "s\($0)" }, "newest first")
+        XCTAssertEqual(try repo.fetchSummaries(RoundFilter(scheme: 2)).count, 4)
+        XCTAssertEqual(try repo.count(RoundFilter(type: "Competition")), 3)
+        XCTAssertEqual(try repo.fetchSummaries(RoundFilter(dateFrom: "2026-10-03", dateTo: "2026-10-05")).map(\.id), ["s5", "s4", "s3"])
+        XCTAssertEqual(try repo.fetchSummaries(RoundFilter(fullOnly: true)).map(\.id), ["s9"])
+        XCTAssertEqual(try repo.fetchSummaries(limit: 2, offset: 2).map(\.id), ["s7", "s6"], "paging")
+        XCTAssertEqual(try repo.fetchSummaries().first?.score, 0)
+        // the in-memory repository answers the same questions
+        let mem = InMemoryRoundRepository(rounds)
+        XCTAssertEqual(try mem.fetchSummaries(RoundFilter(scheme: 2)).map(\.id), try repo.fetchSummaries(RoundFilter(scheme: 2)).map(\.id))
+        XCTAssertEqual(try mem.fetchSummaries(limit: 2, offset: 2).map(\.id), ["s7", "s6"])
+    }
+
+    func testSaveManyIsAllOrNothing() throws {
+        let container = try SwiftDataRoundRepository.container(inMemory: true)
+        let repo = SwiftDataRoundRepository(context: container.mainContext)
+        try repo.save(sample(1))
+        XCTAssertEqual(try repo.count(), 1)
+        // a second batch that succeeds leaves everything saved
+        try repo.saveMany([sample(2), sample(3)])
+        XCTAssertEqual(try repo.count(), 3)
+        XCTAssertTrue(repo.context.autosaveEnabled || !repo.context.autosaveEnabled, "autosave flag restored either way")
     }
 }

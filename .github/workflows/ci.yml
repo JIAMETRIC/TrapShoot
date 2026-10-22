@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fixtures-current:
+    name: Golden fixtures match the JavaScript
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node Tools/golden/generate.js TrapShooterPro/Web/index.html Packages/TrapCore/Tests/TrapCoreTests/Fixtures
+      - run: git diff --exit-code -- Packages/TrapCore/Tests/TrapCoreTests/Fixtures
+
+  packages-macos:
+    name: swift test (TrapCore, TrapData, TrapWeather)
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app
+      - run: swift --version
+      - name: TrapCore
+        run: swift test --package-path Packages/TrapCore --parallel
+      - name: TrapData
+        run: swift test --package-path Packages/TrapData
+      - name: TrapWeather
+        run: swift test --package-path Packages/TrapWeather
+
+  ios:
+    name: iOS build and simulator tests
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app
+      - name: App builds (hybrid shell until the native target lands)
+        run: |
+          xcodebuild -project TrapShooterPro.xcodeproj -scheme TrapShooterPro \
+            -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build | xcpretty || exit ${PIPESTATUS[0]}
+      - name: TrapPlatform tests (iOS only package)
+        run: |
+          cd Packages/TrapPlatform
+          xcodebuild -scheme TrapPlatform -destination 'platform=iOS Simulator,name=iPhone 16' test | xcpretty || exit ${PIPESTATUS[0]}
+      - name: ShotTimer and TrapDesign build
+        run: |
+          (cd Packages/ShotTimer && xcodebuild -scheme ShotTimer -destination 'generic/platform=iOS Simulator' build | xcpretty || exit ${PIPESTATUS[0]})
+          (cd Packages/TrapDesign && xcodebuild -scheme TrapDesign -destination 'generic/platform=iOS Simulator' build | xcpretty || exit ${PIPESTATUS[0]})
