@@ -58,7 +58,17 @@ jobs:
         run: |
           cd Packages/TrapPlatform
           xcodebuild -scheme TrapPlatform -destination 'platform=iOS Simulator,name=iPhone 16' test | xcpretty || exit ${PIPESTATUS[0]}
+      - name: ShotTimer tests (iOS only package)
+        run: |
+          cd Packages/ShotTimer
+          xcodebuild -scheme ShotTimer -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/ShotTimer.log" | xcpretty || exit ${PIPESTATUS[0]}
       - name: ShotTimer and TrapDesign build
         run: |
           (cd Packages/ShotTimer && xcodebuild -scheme ShotTimer -destination 'generic/platform=iOS Simulator' build | xcpretty || exit ${PIPESTATUS[0]})
           (cd Packages/TrapDesign && xcodebuild -scheme TrapDesign -destination 'generic/platform=iOS Simulator' build | xcpretty || exit ${PIPESTATUS[0]})
+      - name: Annotate ShotTimer test failures
+        if: failure()
+        shell: bash
+        run: |
+          lines=$(grep -hE "error:|failed|Fatal error" "$RUNNER_TEMP"/ShotTimer.log 2>/dev/null | head -80 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+          echo "::error title=ShotTimer test failures::${lines:-no error lines found}"

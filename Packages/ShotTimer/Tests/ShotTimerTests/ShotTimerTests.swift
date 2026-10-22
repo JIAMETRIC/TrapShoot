@@ -68,6 +68,39 @@ final class ShotTimerTests: XCTestCase {
         XCTAssertTrue(det.armed.isEmpty, "arming is ignored while not running")
     }
 
+    func testDJIReceiverIsRecognised() {
+        XCTAssertTrue(ReferenceReceiver.matches(label: "DJI MIC MINI", isExternal: true))
+        XCTAssertTrue(ReferenceReceiver.matches(label: "dji mic mini 2 RX", isExternal: true))
+        XCTAssertFalse(ReferenceReceiver.matches(label: "DJI MIC MINI", isExternal: false), "only an external input")
+        XCTAssertFalse(ReferenceReceiver.matches(label: "iPhone Microphone", isExternal: false))
+        XCTAssertFalse(ReferenceReceiver.matches(label: "Wireless GO II RX", isExternal: true))
+        XCTAssertTrue(AudioRoute(id: "u", label: "DJI MIC MINI", isExternal: true).isReferenceReceiver)
+        XCTAssertFalse(AudioInput.systemDefault.isReferenceReceiver)
+    }
+
+    func testSystemDefaultPrefersTheDJIReceiver() {
+        let phone = AudioInput(id: "built-in", label: "iPhone Microphone", isExternal: false)
+        let lark = AudioInput(id: "usb-lark", label: "LARK M2", isExternal: true)
+        let dji = AudioInput(id: "usb-dji", label: "DJI MIC MINI", isExternal: true)
+        XCTAssertEqual(ReferenceReceiver.inputID(for: .systemDefault, among: [phone, lark, dji]), "usb-dji", "DJI beats another receiver")
+        XCTAssertEqual(ReferenceReceiver.inputID(for: .systemDefault, among: [phone, lark]), "", "no DJI: the detector's own rule")
+        XCTAssertEqual(ReferenceReceiver.inputID(for: .systemDefault, among: []), "")
+        XCTAssertEqual(ReferenceReceiver.inputID(for: lark, among: [phone, lark, dji]), "usb-lark", "the shooter's choice is honoured")
+        XCTAssertEqual(ReferenceReceiver.inputID(for: phone, among: [phone, dji]), "built-in")
+    }
+
+    func testAudioCheckLine() {
+        var d = AudioDiagnostics()
+        d.label = "DJI MIC MINI"; d.portType = "USBAudio"; d.isReferenceReceiver = true
+        d.rate = 48_000; d.channels = 2; d.activeChannel = 1; d.flowing = true
+        XCTAssertEqual(d.line, "Audio in: DJI Mic Mini 2 receiver (USBAudio) · 48 kHz · 2 ch, using ch 1 · receiving")
+        d.label = "iPhone Microphone"; d.portType = "MicrophoneBuiltIn"; d.isReferenceReceiver = false
+        d.rate = 44_100; d.channels = 1; d.flowing = false; d.restarts = 2
+        XCTAssertEqual(d.line, "Audio in: iPhone Microphone (MicrophoneBuiltIn) · 44.1 kHz · 1 ch · NO AUDIO · restarted 2x")
+        d.portType = "AVAudioSessionPortUSBAudio"
+        XCTAssertTrue(d.line.contains("(USBAudio)"), "prefix stripped like the page did")
+    }
+
     func testRecordingToShareWithoutFile() {
         let session = TimerSession(detector: FakeDetector(), recorder: FakeRecorder())
         var events: [TimerEvent] = []

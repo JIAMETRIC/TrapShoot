@@ -27,6 +27,26 @@ public struct TimerSettings: Equatable, Codable, Sendable {
     }
 }
 
+/// The receiver the timer is tuned and tested with: a DJI Mic Mini 2, transmitter on the shooter, receiver plugged into
+/// the iPhone. Recognised by its port name, which iOS takes from the receiver ("DJI …"); the exact name is checked on a
+/// device in Phase 4. Preference lives here and in `TimerSession`, never in `AudioDetector`.
+public enum ReferenceReceiver {
+    public static let name = "DJI Mic Mini 2"
+
+    /// True for an external input whose port name contains "DJI", in any case.
+    public static func matches(label: String, isExternal: Bool) -> Bool {
+        isExternal && label.range(of: "DJI", options: .caseInsensitive) != nil
+    }
+
+    /// The input id to hand the detector. An input the shooter picked is always honoured. Under System default a
+    /// connected DJI receiver wins over other external inputs; with none, "" keeps the detector's own rule
+    /// (first external input, else the phone mic).
+    public static func inputID(for choice: AudioInput, among inputs: [AudioInput]) -> String {
+        guard choice.id.isEmpty else { return choice.id }
+        return inputs.first(where: \.isReferenceReceiver)?.id ?? ""
+    }
+}
+
 /// A microphone or receiver the session can use.
 public struct AudioInput: Equatable, Identifiable, Sendable {
     public let id: String
@@ -34,7 +54,9 @@ public struct AudioInput: Equatable, Identifiable, Sendable {
     /// True for anything but the built‑in microphone (DJI, Lark, wired).
     public let isExternal: Bool
     public init(id: String, label: String, isExternal: Bool) { self.id = id; self.label = label; self.isExternal = isExternal }
-    /// "System default": a plugged‑in receiver is preferred over the phone mic.
+    /// The DJI Mic Mini 2 receiver (`ReferenceReceiver`).
+    public var isReferenceReceiver: Bool { ReferenceReceiver.matches(label: label, isExternal: isExternal) }
+    /// "System default": a plugged‑in DJI receiver first, then any other receiver, then the phone mic.
     public static let systemDefault = AudioInput(id: "", label: "System default", isExternal: false)
 }
 
@@ -44,6 +66,8 @@ public struct AudioRoute: Equatable, Sendable {
     public let label: String
     public let isExternal: Bool
     public init(id: String, label: String, isExternal: Bool) { self.id = id; self.label = label; self.isExternal = isExternal }
+    /// The DJI Mic Mini 2 receiver (`ReferenceReceiver`).
+    public var isReferenceReceiver: Bool { ReferenceReceiver.matches(label: label, isExternal: isExternal) }
     public static let noInput = AudioRoute(id: "", label: "No input", isExternal: false)
 }
 
@@ -71,7 +95,21 @@ public struct AudioDiagnostics: Equatable, Sendable {
     public var buffers = 0
     public var flowing = false
     public var restarts = 0
+    /// The input is the DJI Mic Mini 2 receiver.
+    public var isReferenceReceiver = false
     public init() {}
+
+    /// The audio check line, worded as the 7.0.7 page's `diag` handler, with the DJI receiver named as such:
+    /// "Audio in: DJI Mic Mini 2 receiver (USBAudio) · 48 kHz · 2 ch, using ch 1 · receiving".
+    public var line: String {
+        let kind = portType.hasPrefix("AVAudioSessionPort") ? String(portType.dropFirst("AVAudioSessionPort".count)) : portType
+        let name = isReferenceReceiver ? ReferenceReceiver.name + " receiver" : (label.isEmpty ? "input" : label)
+        let khz = (rate / 100).rounded() / 10                     // Math.round(rate / 100) / 10
+        let rateText = khz == khz.rounded() ? String(Int(khz)) : String(khz)
+        return "Audio in: " + name + (kind.isEmpty ? "" : " (\(kind))") + " · \(rateText) kHz · \(channels) ch"
+            + (channels > 1 ? ", using ch \(activeChannel)" : "") + " · " + (flowing ? "receiving" : "NO AUDIO")
+            + (restarts > 0 ? " · restarted \(restarts)x" : "")
+    }
 }
 
 /// Result of one timed target.

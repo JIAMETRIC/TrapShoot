@@ -96,18 +96,19 @@ public final class TimerSession: ShotTimerControlling {
 
     public func start(input: AudioInput = .systemDefault, record: Bool = false, sessionName: String = "round") {
         AVAudioApplication.requestRecordPermission { [weak self] ok in
-            Task { @MainActor [weak self] in self?.begin(granted: ok, preferredInput: input.id, record: record, name: sessionName) }
+            Task { @MainActor [weak self] in self?.begin(granted: ok, input: input, record: record, name: sessionName) }
         }
     }
 
-    private func begin(granted: Bool, preferredInput: String, record: Bool, name: String) {
+    private func begin(granted: Bool, input: AudioInput, record: Bool, name: String) {
         guard granted else {
             fail("Microphone access is off. Open Settings > TrapShoot > Microphone and turn it on.")
             return
         }
         if isRunning { stop() }                       // closes an open recording and cancels a pending restart
+        if inputs.isEmpty { refreshInputs() }         // System default needs the list to find the DJI receiver
         do {
-            try detector.start(preferredInput: preferredInput)
+            try detector.start(preferredInput: ReferenceReceiver.inputID(for: input, among: inputs))
             isRunning = true
             lastError = nil
             observe()
@@ -298,6 +299,7 @@ public final class TimerSession: ShotTimerControlling {
         d.buffers = n
         d.flowing = stalledFor == 0 && n > 0
         d.restarts = restarts
+        d.isReferenceReceiver = ReferenceReceiver.matches(label: d.label, isExternal: port.map { $0.portType != .builtInMic } ?? false)
         diagnostics = d
         emit(.diagnostics(d))
     }

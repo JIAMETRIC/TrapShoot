@@ -1,4 +1,7 @@
-# Phase 4 — Shot timer engine `[OOP · CMS · DSA]` — package builds in CI; `ShotTimerTests` not yet in CI; device verification pending
+# Phase 4 — Shot timer engine `[OOP · CMS · DSA]` — `ShotTimerTests` green in CI; device verification pending
+
+Reference receiver: **DJI Mic Mini 2** (`ReferenceReceiver` in `TimerTypes.swift`; see `Packages/ShotTimer/README.md`).
+The device checks below are run with it first; confirm the port name iOS reports contains "DJI".
 
 `Packages/ShotTimer`: `AudioDetector.swift` and `RoundRecorder.swift` byte for byte; `TimerSession` replaces `MicBridge`.
 

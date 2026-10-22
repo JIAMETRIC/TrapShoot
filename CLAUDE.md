@@ -52,6 +52,11 @@ into the Swift packages and the SwiftUI app target.
 1. **Never change `AudioDetector.swift` detection logic** without a fixture‑based regression run (range recordings with
    expected call/shot times). Timing is measured in samples on the audio thread; keep it there. The audio session is set
    once in `start` and never re‑applied while timing runs.
+   **Reference receiver: DJI Mic Mini 2** (transmitter on the shooter, receiver plugged into the iPhone); the phone mic is
+   the fallback. Design and verify timer work for it first. Receiver behaviour lives in `TimerSession`/`TimerTypes`, not
+   in the detector: `ReferenceReceiver` recognises it by a port name containing "DJI", System default prefers it over
+   other external inputs (a shooter's explicit pick always wins), and `AudioDiagnostics.line` names it on the audio
+   check line.
 2. **Golden tests gate TrapCore.** Any change to rules, schemes, codec, break distance, CSV or analysis must keep
    `swift test` green against `Packages/TrapCore/Tests/TrapCoreTests/Fixtures`. Regenerate fixtures only when the
    JavaScript reference itself changes: `node Tools/golden/generate.js TrapShooterPro/Web/index.html Packages/TrapCore/Tests/TrapCoreTests/Fixtures`.

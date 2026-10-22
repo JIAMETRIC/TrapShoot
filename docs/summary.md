@@ -47,7 +47,7 @@ One page. Every row points at code or a document in this repository.
 | 1 | Foundation, tooling, design tokens | done; CI green, design preview not yet rendered | baseline builds; CI green; design preview light and dark; breakpoints |
 | 2 | Pure domain core (`TrapCore`) | done; `swift test` green in CI | all golden fixtures pass; `RoundSession` tests; no UI/storage imports |
 | 3 | Local store (`TrapData`) | done; `swift test` green in CI, 2,000‑round timing on device pending | summaries, search, paging and rollback tests; 7.x import |
-| 4 | Shot timer engine (`ShotTimer`) | package builds in CI; tests not yet in CI; device verification pending | regression set within 7 ms; receiver scenarios recover; < 10 % battery per hour |
+| 4 | Shot timer engine (`ShotTimer`) | package tests green in CI; DJI Mic Mini 2 is the reference receiver; device verification pending | regression set within 7 ms; receiver scenarios recover; < 10 % battery per hour |
 | 5 | Record and Timer screens | next | full round on a real range; kill‑and‑resume; iPad split verified; UI test |
 | 6 | Rounds, Analysis, Schemes, exporters | after 5 | 2,000‑round list < 50 ms; selectable PDF text; CSV identical |
 | 7 | Settings, data, platform behaviours, Web folder deleted | after 6 | backup/restore round trip; lifecycle and notification policies on device; no JavaScript left |
@@ -61,5 +61,5 @@ Cross‑cutting matrix, risk register and per‑phase files: `docs/phases/`.
 - 7 Swift packages (`TrapCore`, `ShotTimer`, `TrapData`, `TrapDesign`, `TrapWeather`, `TrapPlatform`, `TrapReports`), 6 golden fixture files, 10 phase files, 15 documents, CI and release workflows.
 - On GitHub at `JIAMETRIC/TrapShooterPro`. CI is green on `main` (22 October 2026): golden fixtures current; `swift test` for TrapCore, TrapData and TrapWeather on macOS; the hybrid app builds; TrapPlatform tests pass in the simulator; ShotTimer and TrapDesign build.
 - The first CI runs found three defects, all fixed: percentages rounded ties to even where the web app's `toFixed` rounds them away from zero (now `JSText.fixed`); encoding a round with NaN raised an Objective‑C exception that skipped the `saveMany` rollback and would have crashed the app (now `RoundDocumentError.notEncodable`); and one TrapData test compared two repositories holding different rounds.
-- Not yet covered by CI: `ShotTimerTests` and `TrapReports` (neither built nor tested), the scorecard and design previews, anything on a real device. The app target still runs the hybrid web page; no package is linked to it yet.
+- Not yet covered by CI: `TrapReports` (neither built nor tested), the scorecard and design previews, anything on a real device. The app target still runs the hybrid web page; no package is linked to it yet.
 - Job logs need a signed‑in GitHub account; CI repeats `swift test` failure lines as an annotation, readable through the public API.
