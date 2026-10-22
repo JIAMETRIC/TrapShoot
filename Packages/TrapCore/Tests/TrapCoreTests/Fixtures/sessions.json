@@ -1,0 +1,70 @@
+{
+ "initials": [
+  {
+   "name": "",
+   "out": "USR"
+  },
+  {
+   "name": "   ",
+   "out": "USR"
+  },
+  {
+   "name": "Mohammad",
+   "out": "MOH"
+  },
+  {
+   "name": "Mohammad Tajudeen",
+   "out": "MT"
+  },
+  {
+   "name": "a b c d",
+   "out": "ABC"
+  },
+  {
+   "name": "  yugan   k  ",
+   "out": "YK"
+  },
+  {
+   "name": "ab",
+   "out": "AB"
+  }
+ ],
+ "genSid": [
+  {
+   "r": {
+    "id": "n1",
+    "date": "2026-10-22",
+    "startTime": "09:30",
+    "shooter": "Mohammad Tajudeen"
+   },
+   "out": "20261022-0930-MT-3"
+  },
+  {
+   "r": {
+    "id": "x1",
+    "date": "2026-10-22",
+    "startTime": "09:30",
+    "shooter": "Mohammad Tajudeen"
+   },
+   "out": "20261022-0930-MT"
+  },
+  {
+   "r": {
+    "id": "n2",
+    "date": "2026-01-05",
+    "startTime": "",
+    "shooter": ""
+   },
+   "out": "20260105-0000-USR"
+  },
+  {
+   "r": {
+    "id": "n3",
+    "date": "2026-10-22",
+    "startTime": "14:05",
+    "shooter": "Khalid"
+   },
+   "out": "20261022-1405-KHA"
+  }
+ ]
+}

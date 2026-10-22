@@ -1,0 +1,1572 @@
+{
+ "schemes": {
+  "1": [
+   {
+    "stn": 1,
+    "d": "R",
+    "n": 1,
+    "side": "R",
+    "angle": 30,
+    "signed": 30,
+    "h": 2.5,
+    "label": "30R"
+   },
+   {
+    "stn": 1,
+    "d": "S",
+    "n": 2,
+    "side": "R",
+    "angle": 10,
+    "signed": 10,
+    "h": 1.5,
+    "label": "10R"
+   },
+   {
+    "stn": 1,
+    "d": "L",
+    "n": 3,
+    "side": "L",
+    "angle": 30,
+    "signed": -30,
+    "h": 3,
+    "label": "30L"
+   },
+   {
+    "stn": 2,
+    "d": "R",
+    "n": 4,
+    "side": "R",
+    "angle": 40,
+    "signed": 40,
+    "h": 1.7,
+    "label": "40R"
+   },
+   {
+    "stn": 2,
+    "d": "S",
+    "n": 5,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 2,
+    "label": "5L"
+   },
+   {
+    "stn": 2,
+    "d": "L",
+    "n": 6,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 2,
+    "label": "45L"
+   },
+   {
+    "stn": 3,
+    "d": "R",
+    "n": 7,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 2,
+    "label": "45R"
+   },
+   {
+    "stn": 3,
+    "d": "S",
+    "n": 8,
+    "side": "L",
+    "angle": 10,
+    "signed": -10,
+    "h": 3,
+    "label": "10L"
+   },
+   {
+    "stn": 3,
+    "d": "L",
+    "n": 9,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 2.8,
+    "label": "45L"
+   },
+   {
+    "stn": 4,
+    "d": "R",
+    "n": 10,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 2.3,
+    "label": "45R"
+   },
+   {
+    "stn": 4,
+    "d": "S",
+    "n": 11,
+    "side": "R",
+    "angle": 10,
+    "signed": 10,
+    "h": 1.8,
+    "label": "10R"
+   },
+   {
+    "stn": 4,
+    "d": "L",
+    "n": 12,
+    "side": "L",
+    "angle": 40,
+    "signed": -40,
+    "h": 1.6,
+    "label": "40L"
+   },
+   {
+    "stn": 5,
+    "d": "R",
+    "n": 13,
+    "side": "R",
+    "angle": 30,
+    "signed": 30,
+    "h": 2,
+    "label": "30R"
+   },
+   {
+    "stn": 5,
+    "d": "S",
+    "n": 14,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 1.5,
+    "label": "5L"
+   },
+   {
+    "stn": 5,
+    "d": "L",
+    "n": 15,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 3,
+    "label": "35L"
+   }
+  ],
+  "2": [
+   {
+    "stn": 1,
+    "d": "R",
+    "n": 1,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 2.3,
+    "label": "45R"
+   },
+   {
+    "stn": 1,
+    "d": "S",
+    "n": 2,
+    "side": "R",
+    "angle": 10,
+    "signed": 10,
+    "h": 1.5,
+    "label": "10R"
+   },
+   {
+    "stn": 1,
+    "d": "L",
+    "n": 3,
+    "side": "L",
+    "angle": 20,
+    "signed": -20,
+    "h": 2,
+    "label": "20L"
+   },
+   {
+    "stn": 2,
+    "d": "R",
+    "n": 4,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 1.5,
+    "label": "45R"
+   },
+   {
+    "stn": 2,
+    "d": "S",
+    "n": 5,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 2,
+    "label": "0"
+   },
+   {
+    "stn": 2,
+    "d": "L",
+    "n": 6,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 2.8,
+    "label": "45L"
+   },
+   {
+    "stn": 3,
+    "d": "R",
+    "n": 7,
+    "side": "R",
+    "angle": 25,
+    "signed": 25,
+    "h": 2,
+    "label": "25R"
+   },
+   {
+    "stn": 3,
+    "d": "S",
+    "n": 8,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 3,
+    "label": "0"
+   },
+   {
+    "stn": 3,
+    "d": "L",
+    "n": 9,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 1.5,
+    "label": "45L"
+   },
+   {
+    "stn": 4,
+    "d": "R",
+    "n": 10,
+    "side": "R",
+    "angle": 35,
+    "signed": 35,
+    "h": 2.2,
+    "label": "35R"
+   },
+   {
+    "stn": 4,
+    "d": "S",
+    "n": 11,
+    "side": "R",
+    "angle": 10,
+    "signed": 10,
+    "h": 2.4,
+    "label": "10R"
+   },
+   {
+    "stn": 4,
+    "d": "L",
+    "n": 12,
+    "side": "L",
+    "angle": 40,
+    "signed": -40,
+    "h": 1.5,
+    "label": "40L"
+   },
+   {
+    "stn": 5,
+    "d": "R",
+    "n": 13,
+    "side": "R",
+    "angle": 30,
+    "signed": 30,
+    "h": 2.8,
+    "label": "30R"
+   },
+   {
+    "stn": 5,
+    "d": "S",
+    "n": 14,
+    "side": "L",
+    "angle": 10,
+    "signed": -10,
+    "h": 1.5,
+    "label": "10L"
+   },
+   {
+    "stn": 5,
+    "d": "L",
+    "n": 15,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 2,
+    "label": "45L"
+   }
+  ],
+  "3": [
+   {
+    "stn": 1,
+    "d": "R",
+    "n": 1,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 2.5,
+    "label": "45R"
+   },
+   {
+    "stn": 1,
+    "d": "S",
+    "n": 2,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 1.6,
+    "label": "0"
+   },
+   {
+    "stn": 1,
+    "d": "L",
+    "n": 3,
+    "side": "L",
+    "angle": 20,
+    "signed": -20,
+    "h": 3,
+    "label": "20L"
+   },
+   {
+    "stn": 2,
+    "d": "R",
+    "n": 4,
+    "side": "R",
+    "angle": 35,
+    "signed": 35,
+    "h": 2.9,
+    "label": "35R"
+   },
+   {
+    "stn": 2,
+    "d": "S",
+    "n": 5,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 1.8,
+    "label": "5L"
+   },
+   {
+    "stn": 2,
+    "d": "L",
+    "n": 6,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 2,
+    "label": "45L"
+   },
+   {
+    "stn": 3,
+    "d": "R",
+    "n": 7,
+    "side": "R",
+    "angle": 35,
+    "signed": 35,
+    "h": 2.5,
+    "label": "35R"
+   },
+   {
+    "stn": 3,
+    "d": "S",
+    "n": 8,
+    "side": "L",
+    "angle": 10,
+    "signed": -10,
+    "h": 3,
+    "label": "10L"
+   },
+   {
+    "stn": 3,
+    "d": "L",
+    "n": 9,
+    "side": "L",
+    "angle": 40,
+    "signed": -40,
+    "h": 3,
+    "label": "40L"
+   },
+   {
+    "stn": 4,
+    "d": "R",
+    "n": 10,
+    "side": "R",
+    "angle": 40,
+    "signed": 40,
+    "h": 2,
+    "label": "40R"
+   },
+   {
+    "stn": 4,
+    "d": "S",
+    "n": 11,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 2.5,
+    "label": "5L"
+   },
+   {
+    "stn": 4,
+    "d": "L",
+    "n": 12,
+    "side": "L",
+    "angle": 30,
+    "signed": -30,
+    "h": 3,
+    "label": "30L"
+   },
+   {
+    "stn": 5,
+    "d": "R",
+    "n": 13,
+    "side": "R",
+    "angle": 30,
+    "signed": 30,
+    "h": 2,
+    "label": "30R"
+   },
+   {
+    "stn": 5,
+    "d": "S",
+    "n": 14,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 1.8,
+    "label": "0"
+   },
+   {
+    "stn": 5,
+    "d": "L",
+    "n": 15,
+    "side": "L",
+    "angle": 30,
+    "signed": -30,
+    "h": 2.2,
+    "label": "30L"
+   }
+  ],
+  "4": [
+   {
+    "stn": 1,
+    "d": "R",
+    "n": 1,
+    "side": "R",
+    "angle": 30,
+    "signed": 30,
+    "h": 1.5,
+    "label": "30R"
+   },
+   {
+    "stn": 1,
+    "d": "S",
+    "n": 2,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 3,
+    "label": "0"
+   },
+   {
+    "stn": 1,
+    "d": "L",
+    "n": 3,
+    "side": "L",
+    "angle": 20,
+    "signed": -20,
+    "h": 3,
+    "label": "20L"
+   },
+   {
+    "stn": 2,
+    "d": "R",
+    "n": 4,
+    "side": "R",
+    "angle": 30,
+    "signed": 30,
+    "h": 2,
+    "label": "30R"
+   },
+   {
+    "stn": 2,
+    "d": "S",
+    "n": 5,
+    "side": "L",
+    "angle": 10,
+    "signed": -10,
+    "h": 1.5,
+    "label": "10L"
+   },
+   {
+    "stn": 2,
+    "d": "L",
+    "n": 6,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 2.2,
+    "label": "45L"
+   },
+   {
+    "stn": 3,
+    "d": "R",
+    "n": 7,
+    "side": "R",
+    "angle": 25,
+    "signed": 25,
+    "h": 3,
+    "label": "25R"
+   },
+   {
+    "stn": 3,
+    "d": "S",
+    "n": 8,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 1.5,
+    "label": "5L"
+   },
+   {
+    "stn": 3,
+    "d": "L",
+    "n": 9,
+    "side": "L",
+    "angle": 15,
+    "signed": -15,
+    "h": 1.8,
+    "label": "15L"
+   },
+   {
+    "stn": 4,
+    "d": "R",
+    "n": 10,
+    "side": "R",
+    "angle": 40,
+    "signed": 40,
+    "h": 2.8,
+    "label": "40R"
+   },
+   {
+    "stn": 4,
+    "d": "S",
+    "n": 11,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 1.5,
+    "label": "5L"
+   },
+   {
+    "stn": 4,
+    "d": "L",
+    "n": 12,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 2.2,
+    "label": "35L"
+   },
+   {
+    "stn": 5,
+    "d": "R",
+    "n": 13,
+    "side": "R",
+    "angle": 15,
+    "signed": 15,
+    "h": 3,
+    "label": "15R"
+   },
+   {
+    "stn": 5,
+    "d": "S",
+    "n": 14,
+    "side": "R",
+    "angle": 10,
+    "signed": 10,
+    "h": 3,
+    "label": "10R"
+   },
+   {
+    "stn": 5,
+    "d": "L",
+    "n": 15,
+    "side": "L",
+    "angle": 40,
+    "signed": -40,
+    "h": 1.7,
+    "label": "40L"
+   }
+  ],
+  "5": [
+   {
+    "stn": 1,
+    "d": "R",
+    "n": 1,
+    "side": "R",
+    "angle": 20,
+    "signed": 20,
+    "h": 1.8,
+    "label": "20R"
+   },
+   {
+    "stn": 1,
+    "d": "S",
+    "n": 2,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 3,
+    "label": "0"
+   },
+   {
+    "stn": 1,
+    "d": "L",
+    "n": 3,
+    "side": "L",
+    "angle": 25,
+    "signed": -25,
+    "h": 2.6,
+    "label": "25L"
+   },
+   {
+    "stn": 2,
+    "d": "R",
+    "n": 4,
+    "side": "R",
+    "angle": 35,
+    "signed": 35,
+    "h": 3,
+    "label": "35R"
+   },
+   {
+    "stn": 2,
+    "d": "S",
+    "n": 5,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 1.6,
+    "label": "0"
+   },
+   {
+    "stn": 2,
+    "d": "L",
+    "n": 6,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 3,
+    "label": "35L"
+   },
+   {
+    "stn": 3,
+    "d": "R",
+    "n": 7,
+    "side": "R",
+    "angle": 35,
+    "signed": 35,
+    "h": 2.3,
+    "label": "35R"
+   },
+   {
+    "stn": 3,
+    "d": "S",
+    "n": 8,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 1.8,
+    "label": "5L"
+   },
+   {
+    "stn": 3,
+    "d": "L",
+    "n": 9,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 2.3,
+    "label": "35L"
+   },
+   {
+    "stn": 4,
+    "d": "R",
+    "n": 10,
+    "side": "R",
+    "angle": 40,
+    "signed": 40,
+    "h": 3,
+    "label": "40R"
+   },
+   {
+    "stn": 4,
+    "d": "S",
+    "n": 11,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 2.3,
+    "label": "0"
+   },
+   {
+    "stn": 4,
+    "d": "L",
+    "n": 12,
+    "side": "L",
+    "angle": 40,
+    "signed": -40,
+    "h": 2,
+    "label": "40L"
+   },
+   {
+    "stn": 5,
+    "d": "R",
+    "n": 13,
+    "side": "R",
+    "angle": 25,
+    "signed": 25,
+    "h": 1.8,
+    "label": "25R"
+   },
+   {
+    "stn": 5,
+    "d": "S",
+    "n": 14,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 2.5,
+    "label": "5L"
+   },
+   {
+    "stn": 5,
+    "d": "L",
+    "n": 15,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 1.6,
+    "label": "45L"
+   }
+  ],
+  "6": [
+   {
+    "stn": 1,
+    "d": "R",
+    "n": 1,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 1.9,
+    "label": "45R"
+   },
+   {
+    "stn": 1,
+    "d": "S",
+    "n": 2,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 2.8,
+    "label": "0"
+   },
+   {
+    "stn": 1,
+    "d": "L",
+    "n": 3,
+    "side": "L",
+    "angle": 30,
+    "signed": -30,
+    "h": 3,
+    "label": "30L"
+   },
+   {
+    "stn": 2,
+    "d": "R",
+    "n": 4,
+    "side": "R",
+    "angle": 40,
+    "signed": 40,
+    "h": 1.5,
+    "label": "40R"
+   },
+   {
+    "stn": 2,
+    "d": "S",
+    "n": 5,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 1.6,
+    "label": "0"
+   },
+   {
+    "stn": 2,
+    "d": "L",
+    "n": 6,
+    "side": "L",
+    "angle": 40,
+    "signed": -40,
+    "h": 2,
+    "label": "40L"
+   },
+   {
+    "stn": 3,
+    "d": "R",
+    "n": 7,
+    "side": "R",
+    "angle": 35,
+    "signed": 35,
+    "h": 2,
+    "label": "35R"
+   },
+   {
+    "stn": 3,
+    "d": "S",
+    "n": 8,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 3,
+    "label": "0"
+   },
+   {
+    "stn": 3,
+    "d": "L",
+    "n": 9,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 2,
+    "label": "45L"
+   },
+   {
+    "stn": 4,
+    "d": "R",
+    "n": 10,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 2.3,
+    "label": "45R"
+   },
+   {
+    "stn": 4,
+    "d": "S",
+    "n": 11,
+    "side": "R",
+    "angle": 5,
+    "signed": 5,
+    "h": 2,
+    "label": "5R"
+   },
+   {
+    "stn": 4,
+    "d": "L",
+    "n": 12,
+    "side": "L",
+    "angle": 40,
+    "signed": -40,
+    "h": 3,
+    "label": "40L"
+   },
+   {
+    "stn": 5,
+    "d": "R",
+    "n": 13,
+    "side": "R",
+    "angle": 25,
+    "signed": 25,
+    "h": 2.4,
+    "label": "25R"
+   },
+   {
+    "stn": 5,
+    "d": "S",
+    "n": 14,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 1.75,
+    "label": "0"
+   },
+   {
+    "stn": 5,
+    "d": "L",
+    "n": 15,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 1.8,
+    "label": "35L"
+   }
+  ],
+  "7": [
+   {
+    "stn": 1,
+    "d": "R",
+    "n": 1,
+    "side": "R",
+    "angle": 40,
+    "signed": 40,
+    "h": 3,
+    "label": "40R"
+   },
+   {
+    "stn": 1,
+    "d": "S",
+    "n": 2,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 1.5,
+    "label": "0"
+   },
+   {
+    "stn": 1,
+    "d": "L",
+    "n": 3,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 1.5,
+    "label": "35L"
+   },
+   {
+    "stn": 2,
+    "d": "R",
+    "n": 4,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 2,
+    "label": "45R"
+   },
+   {
+    "stn": 2,
+    "d": "S",
+    "n": 5,
+    "side": "R",
+    "angle": 5,
+    "signed": 5,
+    "h": 2.2,
+    "label": "5R"
+   },
+   {
+    "stn": 2,
+    "d": "L",
+    "n": 6,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 3,
+    "label": "45L"
+   },
+   {
+    "stn": 3,
+    "d": "R",
+    "n": 7,
+    "side": "R",
+    "angle": 40,
+    "signed": 40,
+    "h": 1.5,
+    "label": "40R"
+   },
+   {
+    "stn": 3,
+    "d": "S",
+    "n": 8,
+    "side": "R",
+    "angle": 5,
+    "signed": 5,
+    "h": 1.9,
+    "label": "5R"
+   },
+   {
+    "stn": 3,
+    "d": "L",
+    "n": 9,
+    "side": "L",
+    "angle": 25,
+    "signed": -25,
+    "h": 2.6,
+    "label": "25L"
+   },
+   {
+    "stn": 4,
+    "d": "R",
+    "n": 10,
+    "side": "R",
+    "angle": 20,
+    "signed": 20,
+    "h": 1.8,
+    "label": "20R"
+   },
+   {
+    "stn": 4,
+    "d": "S",
+    "n": 11,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 3,
+    "label": "0"
+   },
+   {
+    "stn": 4,
+    "d": "L",
+    "n": 12,
+    "side": "L",
+    "angle": 30,
+    "signed": -30,
+    "h": 3,
+    "label": "30L"
+   },
+   {
+    "stn": 5,
+    "d": "R",
+    "n": 13,
+    "side": "R",
+    "angle": 35,
+    "signed": 35,
+    "h": 2.5,
+    "label": "35R"
+   },
+   {
+    "stn": 5,
+    "d": "S",
+    "n": 14,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 3,
+    "label": "0"
+   },
+   {
+    "stn": 5,
+    "d": "L",
+    "n": 15,
+    "side": "L",
+    "angle": 40,
+    "signed": -40,
+    "h": 2.2,
+    "label": "40L"
+   }
+  ],
+  "8": [
+   {
+    "stn": 1,
+    "d": "R",
+    "n": 1,
+    "side": "R",
+    "angle": 40,
+    "signed": 40,
+    "h": 3,
+    "label": "40R"
+   },
+   {
+    "stn": 1,
+    "d": "S",
+    "n": 2,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 3,
+    "label": "5L"
+   },
+   {
+    "stn": 1,
+    "d": "L",
+    "n": 3,
+    "side": "L",
+    "angle": 15,
+    "signed": -15,
+    "h": 2.2,
+    "label": "15L"
+   },
+   {
+    "stn": 2,
+    "d": "R",
+    "n": 4,
+    "side": "R",
+    "angle": 30,
+    "signed": 30,
+    "h": 2,
+    "label": "30R"
+   },
+   {
+    "stn": 2,
+    "d": "S",
+    "n": 5,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 2,
+    "label": "5L"
+   },
+   {
+    "stn": 2,
+    "d": "L",
+    "n": 6,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 1.8,
+    "label": "35L"
+   },
+   {
+    "stn": 3,
+    "d": "R",
+    "n": 7,
+    "side": "R",
+    "angle": 40,
+    "signed": 40,
+    "h": 2,
+    "label": "40R"
+   },
+   {
+    "stn": 3,
+    "d": "S",
+    "n": 8,
+    "side": "R",
+    "angle": 5,
+    "signed": 5,
+    "h": 1.5,
+    "label": "5R"
+   },
+   {
+    "stn": 3,
+    "d": "L",
+    "n": 9,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 2.5,
+    "label": "35L"
+   },
+   {
+    "stn": 4,
+    "d": "R",
+    "n": 10,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 1.5,
+    "label": "45R"
+   },
+   {
+    "stn": 4,
+    "d": "S",
+    "n": 11,
+    "side": "R",
+    "angle": 5,
+    "signed": 5,
+    "h": 2,
+    "label": "5R"
+   },
+   {
+    "stn": 4,
+    "d": "L",
+    "n": 12,
+    "side": "L",
+    "angle": 25,
+    "signed": -25,
+    "h": 3,
+    "label": "25L"
+   },
+   {
+    "stn": 5,
+    "d": "R",
+    "n": 13,
+    "side": "R",
+    "angle": 15,
+    "signed": 15,
+    "h": 1.5,
+    "label": "15R"
+   },
+   {
+    "stn": 5,
+    "d": "S",
+    "n": 14,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 1.5,
+    "label": "0"
+   },
+   {
+    "stn": 5,
+    "d": "L",
+    "n": 15,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 1.6,
+    "label": "45L"
+   }
+  ],
+  "9": [
+   {
+    "stn": 1,
+    "d": "R",
+    "n": 1,
+    "side": "R",
+    "angle": 30,
+    "signed": 30,
+    "h": 1.6,
+    "label": "30R"
+   },
+   {
+    "stn": 1,
+    "d": "S",
+    "n": 2,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 1.5,
+    "label": "0"
+   },
+   {
+    "stn": 1,
+    "d": "L",
+    "n": 3,
+    "side": "L",
+    "angle": 15,
+    "signed": -15,
+    "h": 2,
+    "label": "15L"
+   },
+   {
+    "stn": 2,
+    "d": "R",
+    "n": 4,
+    "side": "R",
+    "angle": 20,
+    "signed": 20,
+    "h": 2.4,
+    "label": "20R"
+   },
+   {
+    "stn": 2,
+    "d": "S",
+    "n": 5,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 3,
+    "label": "5L"
+   },
+   {
+    "stn": 2,
+    "d": "L",
+    "n": 6,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 2,
+    "label": "35L"
+   },
+   {
+    "stn": 3,
+    "d": "R",
+    "n": 7,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 2,
+    "label": "45R"
+   },
+   {
+    "stn": 3,
+    "d": "S",
+    "n": 8,
+    "side": "L",
+    "angle": 5,
+    "signed": -5,
+    "h": 1.5,
+    "label": "5L"
+   },
+   {
+    "stn": 3,
+    "d": "L",
+    "n": 9,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 1.5,
+    "label": "35L"
+   },
+   {
+    "stn": 4,
+    "d": "R",
+    "n": 10,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 1.6,
+    "label": "45R"
+   },
+   {
+    "stn": 4,
+    "d": "S",
+    "n": 11,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 2.8,
+    "label": "0"
+   },
+   {
+    "stn": 4,
+    "d": "L",
+    "n": 12,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 2,
+    "label": "45L"
+   },
+   {
+    "stn": 5,
+    "d": "R",
+    "n": 13,
+    "side": "R",
+    "angle": 25,
+    "signed": 25,
+    "h": 3,
+    "label": "25R"
+   },
+   {
+    "stn": 5,
+    "d": "S",
+    "n": 14,
+    "side": "R",
+    "angle": 5,
+    "signed": 5,
+    "h": 1.5,
+    "label": "5R"
+   },
+   {
+    "stn": 5,
+    "d": "L",
+    "n": 15,
+    "side": "L",
+    "angle": 20,
+    "signed": -20,
+    "h": 3,
+    "label": "20L"
+   }
+  ],
+  "10": [
+   {
+    "stn": 1,
+    "d": "R",
+    "n": 1,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 2.25,
+    "label": "45R"
+   },
+   {
+    "stn": 1,
+    "d": "S",
+    "n": 2,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 1.75,
+    "label": "0"
+   },
+   {
+    "stn": 1,
+    "d": "L",
+    "n": 3,
+    "side": "L",
+    "angle": 25,
+    "signed": -25,
+    "h": 2,
+    "label": "25L"
+   },
+   {
+    "stn": 2,
+    "d": "R",
+    "n": 4,
+    "side": "R",
+    "angle": 35,
+    "signed": 35,
+    "h": 1.8,
+    "label": "35R"
+   },
+   {
+    "stn": 2,
+    "d": "S",
+    "n": 5,
+    "side": "C",
+    "angle": 0,
+    "signed": 0,
+    "h": 3,
+    "label": "0"
+   },
+   {
+    "stn": 2,
+    "d": "L",
+    "n": 6,
+    "side": "L",
+    "angle": 40,
+    "signed": -40,
+    "h": 2.25,
+    "label": "40L"
+   },
+   {
+    "stn": 3,
+    "d": "R",
+    "n": 7,
+    "side": "R",
+    "angle": 40,
+    "signed": 40,
+    "h": 3,
+    "label": "40R"
+   },
+   {
+    "stn": 3,
+    "d": "S",
+    "n": 8,
+    "side": "R",
+    "angle": 5,
+    "signed": 5,
+    "h": 1.8,
+    "label": "5R"
+   },
+   {
+    "stn": 3,
+    "d": "L",
+    "n": 9,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 3,
+    "label": "45L"
+   },
+   {
+    "stn": 4,
+    "d": "R",
+    "n": 10,
+    "side": "R",
+    "angle": 45,
+    "signed": 45,
+    "h": 2,
+    "label": "45R"
+   },
+   {
+    "stn": 4,
+    "d": "S",
+    "n": 11,
+    "side": "L",
+    "angle": 10,
+    "signed": -10,
+    "h": 2.5,
+    "label": "10L"
+   },
+   {
+    "stn": 4,
+    "d": "L",
+    "n": 12,
+    "side": "L",
+    "angle": 35,
+    "signed": -35,
+    "h": 1.5,
+    "label": "35L"
+   },
+   {
+    "stn": 5,
+    "d": "R",
+    "n": 13,
+    "side": "R",
+    "angle": 15,
+    "signed": 15,
+    "h": 1.8,
+    "label": "15R"
+   },
+   {
+    "stn": 5,
+    "d": "S",
+    "n": 14,
+    "side": "R",
+    "angle": 10,
+    "signed": 10,
+    "h": 2,
+    "label": "10R"
+   },
+   {
+    "stn": 5,
+    "d": "L",
+    "n": 15,
+    "side": "L",
+    "angle": 45,
+    "signed": -45,
+    "h": 1.5,
+    "label": "45L"
+   }
+  ]
+ },
+ "quota": {
+  "R": 2,
+  "S": 1,
+  "L": 2
+ },
+ "predFrom": 15,
+ "grades": [
+  {
+   "p": -1,
+   "g": 0
+  },
+  {
+   "p": 0,
+   "g": 0
+  },
+  {
+   "p": 0.1,
+   "g": 1
+  },
+  {
+   "p": 0.29,
+   "g": 1
+  },
+  {
+   "p": 0.3,
+   "g": 2
+  },
+  {
+   "p": 0.49,
+   "g": 2
+  },
+  {
+   "p": 0.5,
+   "g": 3
+  },
+  {
+   "p": 0.74,
+   "g": 3
+  },
+  {
+   "p": 0.75,
+   "g": 4
+  },
+  {
+   "p": 1,
+   "g": 4
+  }
+ ]
+}

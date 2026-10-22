@@ -130,7 +130,7 @@ Each phase ends with something installable on the phone. Estimates assume one de
 
 ### Phase 1 — Core logic and the shooting flow, native (about 3 weeks)
 
-1. **TrapCore**: port schemes, station math, direction quota/odds, scoring, round document codec, break‑distance ballistics. Write golden tests by running the JavaScript functions on fixture rounds and asserting the Swift results match to the last decimal.
+1. **TrapCore**: port schemes, station math, direction quota/odds, scoring, round document codec, break‑distance ballistics, CSV and analysis. Golden tests run the JavaScript functions on fixture rounds and assert the Swift results match to the last decimal. *Status: written (`Packages/TrapCore`, 9 source files, 3 test files, 5 fixture files). First `swift test` run happens on the Mac.*
 2. **ShotTimer**: move `AudioDetector` and `RoundRecorder` unchanged; turn `MicBridge` into `TimerSession` (`@Observable`). Add `FileAnalyzer`.
 3. **TrapData**: SwiftData models, container, autosave on every target entry (today's 500 ms debounce becomes a simple context save).
 4. **Timer tab** in SwiftUI: start/stop, input picker, audio‑in line, live meter, rejects, settings, break distance, round audio + share.

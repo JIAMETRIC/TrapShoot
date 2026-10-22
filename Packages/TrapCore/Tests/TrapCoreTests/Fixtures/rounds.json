@@ -1,0 +1,6290 @@
+[
+ {
+  "round": {
+   "id": "r1abc",
+   "uid": "u-1",
+   "createdAt": "2026-10-20T07:11:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 1,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 2,
+   "field": 3,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "ver": "7.0.7",
+   "dirs": "LRLLLSSRSLRLRLRRRLRRLLSRS",
+   "res": "GGYGGRRGGGGGGYRGRGGYRGGYY",
+   "t1": [
+    0.565,
+    0.78,
+    0.82,
+    0.637,
+    0.567,
+    0.691,
+    0.877,
+    null,
+    0.882,
+    0.69,
+    0.833,
+    0.651,
+    0.599,
+    0.728,
+    null,
+    0.56,
+    0.638,
+    0.693,
+    null,
+    0.632,
+    null,
+    0.563,
+    0.658,
+    0.636,
+    0.56
+   ],
+   "t2": [
+    null,
+    null,
+    1.468,
+    null,
+    null,
+    1.212,
+    1.143,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    1.187,
+    null,
+    null,
+    null,
+    null,
+    null,
+    1.035,
+    null,
+    null,
+    null,
+    1.1,
+    0.941
+   ],
+   "call": [
+    92.3,
+    93.5,
+    90.4,
+    89.5,
+    94.2,
+    97.5,
+    96.7,
+    null,
+    89.3,
+    91.2,
+    96.5,
+    89.4,
+    88.7,
+    90.1,
+    null,
+    97.8,
+    96,
+    93.4,
+    null,
+    91.1,
+    null,
+    95.8,
+    96.9,
+    95.6,
+    92.3
+   ],
+   "tmic": [
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "",
+    "DJI Mic Mini 2",
+    "",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone"
+   ],
+   "nt": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "doc": {
+   "v": 2,
+   "ver": "7.0.7",
+   "uid": "u-1",
+   "createdAt": "2026-10-20T07:11:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 1,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 2,
+   "field": 3,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "dirs": "LRLLLSSRSLRLRLRRRLRRLLSRS",
+   "res": "GGYGGRRGGGGGGYRGRGGYRGGYY",
+   "t1": [
+    0.565,
+    0.78,
+    0.82,
+    0.637,
+    0.567,
+    0.691,
+    0.877,
+    null,
+    0.882,
+    0.69,
+    0.833,
+    0.651,
+    0.599,
+    0.728,
+    null,
+    0.56,
+    0.638,
+    0.693,
+    null,
+    0.632,
+    null,
+    0.563,
+    0.658,
+    0.636,
+    0.56
+   ],
+   "t2": [
+    null,
+    null,
+    1.468,
+    null,
+    null,
+    1.212,
+    1.143,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    1.187,
+    null,
+    null,
+    null,
+    null,
+    null,
+    1.035,
+    null,
+    null,
+    null,
+    1.1,
+    0.941
+   ],
+   "call": [
+    92.3,
+    93.5,
+    90.4,
+    89.5,
+    94.2,
+    97.5,
+    96.7,
+    null,
+    89.3,
+    91.2,
+    96.5,
+    89.4,
+    88.7,
+    90.1,
+    null,
+    97.8,
+    96,
+    93.4,
+    null,
+    91.1,
+    null,
+    95.8,
+    96.9,
+    95.6,
+    92.3
+   ],
+   "tmic": [
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "",
+    "DJI Mic Mini 2",
+    "",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone"
+   ],
+   "nt": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "score": 20,
+  "counts": {
+   "G": 15,
+   "Y": 5,
+   "R": 5
+  },
+  "recorded": 25,
+  "dirsRecorded": 25,
+  "stations": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "stationCounts": [
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   }
+  ],
+  "stationOver": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "isFull": [
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    false,
+    true
+   ]
+  ],
+  "odds": [
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   }
+  ],
+  "predict": {
+   "have": 25,
+   "ready": true,
+   "items": []
+  },
+  "brkShot": [
+   1,
+   1,
+   2,
+   1,
+   1,
+   0,
+   0,
+   0,
+   1,
+   1,
+   1,
+   1,
+   1,
+   2,
+   0,
+   1,
+   0,
+   1,
+   0,
+   2,
+   0,
+   1,
+   1,
+   2,
+   2
+  ],
+  "brk": [
+   31.4,
+   35.4,
+   57.1,
+   31.8,
+   29,
+   null,
+   null,
+   null,
+   41.7,
+   32.6,
+   36.7,
+   31.2,
+   32.1,
+   48.9,
+   null,
+   28.8,
+   null,
+   32.8,
+   null,
+   44.5,
+   null,
+   28.7,
+   34.5,
+   46.4,
+   44.2
+  ],
+  "csv": "round_id,shooter_id,date,start_time,start_station,session,session_id,round_type,scheme,field,sky,wind,temp_c,humidity_pct,shooter,place,weapon,ammo,choke_1st,choke_2nd,seq,station,direction,trap,side,angle_deg,angle_signed_deg,height_m,status,hit,first_shot_s,second_shot_s,notes,call_db,timer_mic,break_m,break_shot,release_delay_ms,shot_v1_ms,shot_size,no_target\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,1,1,L,3,L,20,-20,2,G,1,0.565,,,92.3,iPhone Microphone,31.4,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,2,2,R,4,R,45,45,1.5,G,1,0.78,,,93.5,iPhone Microphone,35.4,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,3,3,L,9,L,45,-45,1.5,Y,1,0.82,1.468,,90.4,iPhone Microphone,57.1,2,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,4,4,L,12,L,40,-40,1.5,G,1,0.637,,,89.5,iPhone Microphone,31.8,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,5,5,L,15,L,45,-45,2,G,1,0.567,,,94.2,iPhone Microphone,29,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,6,1,S,2,R,10,10,1.5,R,0,0.691,1.212,,97.5,iPhone Microphone,,,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,7,2,S,5,C,0,0,2,R,0,0.877,1.143,,96.7,DJI Mic Mini 2,,,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,8,3,R,7,R,25,25,2,G,1,,,,,,,,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,9,4,S,11,R,10,10,2.4,G,1,0.882,,,89.3,iPhone Microphone,41.7,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,10,5,L,15,L,45,-45,2,G,1,0.69,,,91.2,iPhone Microphone,32.6,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,11,1,R,1,R,45,45,2.3,G,1,0.833,,,96.5,DJI Mic Mini 2,36.7,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,12,2,L,6,L,45,-45,2.8,G,1,0.651,,,89.4,iPhone Microphone,31.2,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,13,3,R,7,R,25,25,2,G,1,0.599,,,88.7,DJI Mic Mini 2,32.1,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,14,4,L,12,L,40,-40,1.5,Y,1,0.728,1.187,,90.1,iPhone Microphone,48.9,2,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,15,5,R,13,R,30,30,2.8,R,0,,,,,,,,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,16,1,R,1,R,45,45,2.3,G,1,0.56,,,97.8,DJI Mic Mini 2,28.8,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,17,2,R,4,R,45,45,1.5,R,0,0.638,,,96,iPhone Microphone,,,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,18,3,L,9,L,45,-45,1.5,G,1,0.693,,,93.4,DJI Mic Mini 2,32.8,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,19,4,R,10,R,35,35,2.2,G,1,,,,,,,,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,20,5,R,13,R,30,30,2.8,Y,1,0.632,1.035,,91.1,DJI Mic Mini 2,44.5,2,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,21,1,L,3,L,20,-20,2,R,0,,,,,,,,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,22,2,L,6,L,45,-45,2.8,G,1,0.563,,,95.8,DJI Mic Mini 2,28.7,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,23,3,S,8,C,0,0,3,G,1,0.658,,,96.9,iPhone Microphone,34.5,1,50,415,7.5,0\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,24,4,R,10,R,35,35,2.2,Y,1,0.636,1.1,,95.6,iPhone Microphone,46.4,2,50,415,7.5,1\nr1abc,u-1,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,25,5,S,14,L,10,-10,1.5,Y,1,0.56,0.941,,92.3,iPhone Microphone,44.2,2,50,415,7.5,0",
+  "stats": {
+   "rounds": 1,
+   "n": 25,
+   "hit": 20,
+   "g": 15
+  },
+  "analyse": [
+   {
+    "t": "Direction",
+    "rows": [
+     {
+      "k": "Left",
+      "n": 10,
+      "hit": 9,
+      "g": 7
+     },
+     {
+      "k": "Straight",
+      "n": 5,
+      "hit": 3,
+      "g": 2
+     },
+     {
+      "k": "Right",
+      "n": 10,
+      "hit": 8,
+      "g": 6
+     }
+    ]
+   },
+   {
+    "t": "Station",
+    "rows": [
+     {
+      "k": "1",
+      "n": 5,
+      "hit": 3,
+      "g": 3
+     },
+     {
+      "k": "2",
+      "n": 5,
+      "hit": 3,
+      "g": 3
+     },
+     {
+      "k": "3",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     },
+     {
+      "k": "4",
+      "n": 5,
+      "hit": 5,
+      "g": 3
+     },
+     {
+      "k": "5",
+      "n": 5,
+      "hit": 4,
+      "g": 2
+     }
+    ]
+   },
+   {
+    "t": "Angle",
+    "rows": [
+     {
+      "k": "0 to 10°",
+      "n": 5,
+      "hit": 3,
+      "g": 2
+     },
+     {
+      "k": "15 to 25°",
+      "n": 4,
+      "hit": 3,
+      "g": 3
+     },
+     {
+      "k": "30 to 35°",
+      "n": 4,
+      "hit": 3,
+      "g": 1
+     },
+     {
+      "k": "40 to 45°",
+      "n": 12,
+      "hit": 11,
+      "g": 9
+     }
+    ]
+   },
+   {
+    "t": "Height at 10 m",
+    "rows": [
+     {
+      "k": "Under 2.0 m",
+      "n": 8,
+      "hit": 6,
+      "g": 3
+     },
+     {
+      "k": "2.0 to 2.5 m",
+      "n": 12,
+      "hit": 10,
+      "g": 9
+     },
+     {
+      "k": "Over 2.5 m",
+      "n": 5,
+      "hit": 4,
+      "g": 3
+     }
+    ]
+   },
+   {
+    "t": "Position in round",
+    "rows": [
+     {
+      "k": "Shots 1 to 5",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     },
+     {
+      "k": "Shots 6 to 10",
+      "n": 5,
+      "hit": 3,
+      "g": 3
+     },
+     {
+      "k": "Shots 11 to 15",
+      "n": 5,
+      "hit": 4,
+      "g": 3
+     },
+     {
+      "k": "Shots 16 to 20",
+      "n": 5,
+      "hit": 4,
+      "g": 3
+     },
+     {
+      "k": "Shots 21 to 25",
+      "n": 5,
+      "hit": 4,
+      "g": 2
+     }
+    ]
+   },
+   {
+    "t": "Scheme",
+    "rows": [
+     {
+      "k": "2",
+      "n": 25,
+      "hit": 20,
+      "g": 15
+     }
+    ]
+   },
+   {
+    "t": "Sky",
+    "rows": [
+     {
+      "k": "Sun",
+      "n": 25,
+      "hit": 20,
+      "g": 15
+     }
+    ]
+   },
+   {
+    "t": "Wind",
+    "rows": [
+     {
+      "k": "Light",
+      "n": 25,
+      "hit": 20,
+      "g": 15
+     }
+    ]
+   },
+   {
+    "t": "Temperature",
+    "rows": [
+     {
+      "k": "15 to 24 °C",
+      "n": 25,
+      "hit": 20,
+      "g": 15
+     }
+    ]
+   },
+   {
+    "t": "Humidity",
+    "rows": [
+     {
+      "k": "40 to 59 %",
+      "n": 25,
+      "hit": 20,
+      "g": 15
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "round": {
+   "id": "r2abc",
+   "uid": "u-2",
+   "createdAt": "2026-10-20T07:12:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 1,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 2,
+   "field": 3,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "ver": "7.0.7",
+   "dirs": "SLRLLLRLRRRR-------------",
+   "res": "RRYYGGRRGGGG-------------",
+   "t1": [
+    0.595,
+    0.714,
+    0.894,
+    0.822,
+    0.893,
+    0.844,
+    0.672,
+    null,
+    0.768,
+    0.738,
+    0.688,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "t2": [
+    0.848,
+    0.985,
+    1.173,
+    1.437,
+    null,
+    null,
+    1.303,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    97.4,
+    93.2,
+    97.7,
+    96.3,
+    96.4,
+    93.5,
+    91.1,
+    null,
+    95.1,
+    88.3,
+    92.2,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "tmic": [
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "nt": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "doc": {
+   "v": 2,
+   "ver": "7.0.7",
+   "uid": "u-2",
+   "createdAt": "2026-10-20T07:12:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 1,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 2,
+   "field": 3,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "dirs": "SLRLLLRLRRRR-------------",
+   "res": "RRYYGGRRGGGG-------------",
+   "t1": [
+    0.595,
+    0.714,
+    0.894,
+    0.822,
+    0.893,
+    0.844,
+    0.672,
+    null,
+    0.768,
+    0.738,
+    0.688,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "t2": [
+    0.848,
+    0.985,
+    1.173,
+    1.437,
+    null,
+    null,
+    1.303,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    97.4,
+    93.2,
+    97.7,
+    96.3,
+    96.4,
+    93.5,
+    91.1,
+    null,
+    95.1,
+    88.3,
+    92.2,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "tmic": [
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "nt": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "score": 8,
+  "counts": {
+   "G": 6,
+   "Y": 2,
+   "R": 4
+  },
+  "recorded": 12,
+  "dirsRecorded": 12,
+  "stations": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "stationCounts": [
+   {
+    "R": 1,
+    "S": 1,
+    "L": 1
+   },
+   {
+    "R": 2,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 1
+   }
+  ],
+  "stationOver": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "isFull": [
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ]
+  ],
+  "odds": [
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0,
+    "S": 0.3333333333333333,
+    "L": 0.6666666666666666
+   },
+   {
+    "R": 0.5,
+    "S": 0.25,
+    "L": 0.25
+   },
+   {
+    "R": 0.25,
+    "S": 0.25,
+    "L": 0.5
+   },
+   {
+    "R": 0.25,
+    "S": 0.25,
+    "L": 0.5
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0,
+    "L": 0.6666666666666666
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.25,
+    "S": 0.25,
+    "L": 0.5
+   },
+   {
+    "R": 0.5,
+    "S": 0.25,
+    "L": 0.25
+   },
+   {
+    "R": 0.5,
+    "S": 0.25,
+    "L": 0.25
+   },
+   {
+    "R": 0.6666666666666666,
+    "S": 0,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.5,
+    "S": 0,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.5,
+    "S": 0,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   }
+  ],
+  "predict": {
+   "have": 12,
+   "ready": false,
+   "items": []
+  },
+  "brkShot": [
+   0,
+   0,
+   2,
+   2,
+   1,
+   1,
+   0,
+   0,
+   1,
+   1,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "brk": [
+   null,
+   null,
+   50.1,
+   57,
+   38.6,
+   40,
+   null,
+   null,
+   36.1,
+   35.5,
+   32.4,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "csv": "round_id,shooter_id,date,start_time,start_station,session,session_id,round_type,scheme,field,sky,wind,temp_c,humidity_pct,shooter,place,weapon,ammo,choke_1st,choke_2nd,seq,station,direction,trap,side,angle_deg,angle_signed_deg,height_m,status,hit,first_shot_s,second_shot_s,notes,call_db,timer_mic,break_m,break_shot,release_delay_ms,shot_v1_ms,shot_size,no_target\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,1,1,S,2,R,10,10,1.5,R,0,0.595,0.848,,97.4,DJI Mic Mini 2,,,50,415,7.5,0\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,2,2,L,6,L,45,-45,2.8,R,0,0.714,0.985,,93.2,DJI Mic Mini 2,,,50,415,7.5,2\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,3,3,R,7,R,25,25,2,Y,1,0.894,1.173,,97.7,iPhone Microphone,50.1,2,50,415,7.5,0\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,4,4,L,12,L,40,-40,1.5,Y,1,0.822,1.437,,96.3,DJI Mic Mini 2,57,2,50,415,7.5,0\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,5,5,L,15,L,45,-45,2,G,1,0.893,,,96.4,iPhone Microphone,38.6,1,50,415,7.5,0\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,6,1,L,3,L,20,-20,2,G,1,0.844,,,93.5,DJI Mic Mini 2,40,1,50,415,7.5,0\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,7,2,R,4,R,45,45,1.5,R,0,0.672,1.303,,91.1,DJI Mic Mini 2,,,50,415,7.5,0\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,8,3,L,9,L,45,-45,1.5,R,0,,,,,,,,50,415,7.5,0\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,9,4,R,10,R,35,35,2.2,G,1,0.768,,,95.1,iPhone Microphone,36.1,1,50,415,7.5,0\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,10,5,R,13,R,30,30,2.8,G,1,0.738,,,88.3,DJI Mic Mini 2,35.5,1,50,415,7.5,0\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,11,1,R,1,R,45,45,2.3,G,1,0.688,,,92.2,DJI Mic Mini 2,32.4,1,50,415,7.5,0\nr2abc,u-2,2026-10-20,09:30,1,1,20261020-0930-MT,Training,2,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,12,2,R,4,R,45,45,1.5,G,1,,,,,,,,50,415,7.5,0",
+  "stats": {
+   "rounds": 1,
+   "n": 12,
+   "hit": 8,
+   "g": 6
+  },
+  "analyse": [
+   {
+    "t": "Direction",
+    "rows": [
+     {
+      "k": "Left",
+      "n": 5,
+      "hit": 3,
+      "g": 2
+     },
+     {
+      "k": "Straight",
+      "n": 1,
+      "hit": 0,
+      "g": 0
+     },
+     {
+      "k": "Right",
+      "n": 6,
+      "hit": 5,
+      "g": 4
+     }
+    ]
+   },
+   {
+    "t": "Station",
+    "rows": [
+     {
+      "k": "1",
+      "n": 3,
+      "hit": 2,
+      "g": 2
+     },
+     {
+      "k": "2",
+      "n": 3,
+      "hit": 1,
+      "g": 1
+     },
+     {
+      "k": "3",
+      "n": 2,
+      "hit": 1,
+      "g": 0
+     },
+     {
+      "k": "4",
+      "n": 2,
+      "hit": 2,
+      "g": 1
+     },
+     {
+      "k": "5",
+      "n": 2,
+      "hit": 2,
+      "g": 2
+     }
+    ]
+   },
+   {
+    "t": "Angle",
+    "rows": [
+     {
+      "k": "0 to 10°",
+      "n": 1,
+      "hit": 0,
+      "g": 0
+     },
+     {
+      "k": "15 to 25°",
+      "n": 2,
+      "hit": 2,
+      "g": 1
+     },
+     {
+      "k": "30 to 35°",
+      "n": 2,
+      "hit": 2,
+      "g": 2
+     },
+     {
+      "k": "40 to 45°",
+      "n": 7,
+      "hit": 4,
+      "g": 3
+     }
+    ]
+   },
+   {
+    "t": "Height at 10 m",
+    "rows": [
+     {
+      "k": "Under 2.0 m",
+      "n": 5,
+      "hit": 2,
+      "g": 1
+     },
+     {
+      "k": "2.0 to 2.5 m",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     },
+     {
+      "k": "Over 2.5 m",
+      "n": 2,
+      "hit": 1,
+      "g": 1
+     }
+    ]
+   },
+   {
+    "t": "Position in round",
+    "rows": [
+     {
+      "k": "Shots 1 to 5",
+      "n": 5,
+      "hit": 3,
+      "g": 1
+     },
+     {
+      "k": "Shots 6 to 10",
+      "n": 5,
+      "hit": 3,
+      "g": 3
+     },
+     {
+      "k": "Shots 11 to 15",
+      "n": 2,
+      "hit": 2,
+      "g": 2
+     }
+    ]
+   },
+   {
+    "t": "Scheme",
+    "rows": [
+     {
+      "k": "2",
+      "n": 12,
+      "hit": 8,
+      "g": 6
+     }
+    ]
+   },
+   {
+    "t": "Sky",
+    "rows": [
+     {
+      "k": "Sun",
+      "n": 12,
+      "hit": 8,
+      "g": 6
+     }
+    ]
+   },
+   {
+    "t": "Wind",
+    "rows": [
+     {
+      "k": "Light",
+      "n": 12,
+      "hit": 8,
+      "g": 6
+     }
+    ]
+   },
+   {
+    "t": "Temperature",
+    "rows": [
+     {
+      "k": "15 to 24 °C",
+      "n": 12,
+      "hit": 8,
+      "g": 6
+     }
+    ]
+   },
+   {
+    "t": "Humidity",
+    "rows": [
+     {
+      "k": "40 to 59 %",
+      "n": 12,
+      "hit": 8,
+      "g": 6
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "round": {
+   "id": "r3abc",
+   "uid": "u-3",
+   "createdAt": "2026-10-20T07:13:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 4,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 5,
+   "field": 3,
+   "sky": "overcast",
+   "wind": "calm",
+   "temp": null,
+   "hum": null,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "Windy, \"gusty\" afternoon",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "ver": "7.0.7",
+   "dirs": "RLSSLLLLRLSRRLRRSRRSLRLLR",
+   "res": "GGGYYGGRYGGGGGYYYGRYYGGGG",
+   "t1": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "t2": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "tmic": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "nt": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "doc": {
+   "v": 2,
+   "ver": "7.0.7",
+   "uid": "u-3",
+   "createdAt": "2026-10-20T07:13:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 4,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 5,
+   "field": 3,
+   "sky": "overcast",
+   "wind": "calm",
+   "temp": null,
+   "hum": null,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "Windy, \"gusty\" afternoon",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "dirs": "RLSSLLLLRLSRRLRRSRRSLRLLR",
+   "res": "GGGYYGGRYGGGGGYYYGRYYGGGG",
+   "t1": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "t2": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "tmic": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "nt": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "score": 23,
+  "counts": {
+   "G": 15,
+   "Y": 8,
+   "R": 2
+  },
+  "recorded": 25,
+  "dirsRecorded": 25,
+  "stations": [
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2
+  ],
+  "stationCounts": [
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   }
+  ],
+  "stationOver": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "isFull": [
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ]
+  ],
+  "odds": [
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   }
+  ],
+  "predict": {
+   "have": 25,
+   "ready": true,
+   "items": []
+  },
+  "brkShot": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "brk": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "csv": "round_id,shooter_id,date,start_time,start_station,session,session_id,round_type,scheme,field,sky,wind,temp_c,humidity_pct,shooter,place,weapon,ammo,choke_1st,choke_2nd,seq,station,direction,trap,side,angle_deg,angle_signed_deg,height_m,status,hit,first_shot_s,second_shot_s,notes,call_db,timer_mic,break_m,break_shot,release_delay_ms,shot_v1_ms,shot_size,no_target\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,1,4,R,10,R,40,40,3,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,2,5,L,15,L,45,-45,1.6,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,2\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,3,1,S,2,C,0,0,3,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,4,2,S,5,C,0,0,1.6,Y,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,5,3,L,9,L,35,-35,2.3,Y,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,6,4,L,12,L,40,-40,2,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,7,5,L,15,L,45,-45,1.6,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,1\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,8,1,L,3,L,25,-25,2.6,R,0,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,9,2,R,4,R,35,35,3,Y,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,10,3,L,9,L,35,-35,2.3,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,11,4,S,11,C,0,0,2.3,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,12,5,R,13,R,25,25,1.8,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,13,1,R,1,R,20,20,1.8,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,14,2,L,6,L,35,-35,3,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,15,3,R,7,R,35,35,2.3,Y,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,16,4,R,10,R,40,40,3,Y,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,17,5,S,14,L,5,-5,2.5,Y,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,18,1,R,1,R,20,20,1.8,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,19,2,R,4,R,35,35,3,R,0,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,20,3,S,8,L,5,-5,1.8,Y,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,21,4,L,12,L,40,-40,2,Y,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,1\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,22,5,R,13,R,25,25,1.8,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,23,1,L,3,L,25,-25,2.6,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,24,2,L,6,L,35,-35,3,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0\nr3abc,u-3,2026-10-20,09:30,4,1,20261020-0930-MT,Training,5,3,overcast,calm,,,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,25,3,R,7,R,35,35,2.3,G,1,,,\"Windy, \"\"gusty\"\" afternoon\",,,,,50,415,7.5,0",
+  "stats": {
+   "rounds": 1,
+   "n": 25,
+   "hit": 23,
+   "g": 15
+  },
+  "analyse": [
+   {
+    "t": "Direction",
+    "rows": [
+     {
+      "k": "Left",
+      "n": 10,
+      "hit": 9,
+      "g": 7
+     },
+     {
+      "k": "Straight",
+      "n": 5,
+      "hit": 5,
+      "g": 2
+     },
+     {
+      "k": "Right",
+      "n": 10,
+      "hit": 9,
+      "g": 6
+     }
+    ]
+   },
+   {
+    "t": "Station",
+    "rows": [
+     {
+      "k": "1",
+      "n": 5,
+      "hit": 4,
+      "g": 4
+     },
+     {
+      "k": "2",
+      "n": 5,
+      "hit": 4,
+      "g": 2
+     },
+     {
+      "k": "3",
+      "n": 5,
+      "hit": 5,
+      "g": 2
+     },
+     {
+      "k": "4",
+      "n": 5,
+      "hit": 5,
+      "g": 3
+     },
+     {
+      "k": "5",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     }
+    ]
+   },
+   {
+    "t": "Angle",
+    "rows": [
+     {
+      "k": "0 to 10°",
+      "n": 5,
+      "hit": 5,
+      "g": 2
+     },
+     {
+      "k": "15 to 25°",
+      "n": 6,
+      "hit": 5,
+      "g": 5
+     },
+     {
+      "k": "30 to 35°",
+      "n": 8,
+      "hit": 7,
+      "g": 4
+     },
+     {
+      "k": "40 to 45°",
+      "n": 6,
+      "hit": 6,
+      "g": 4
+     }
+    ]
+   },
+   {
+    "t": "Height at 10 m",
+    "rows": [
+     {
+      "k": "Under 2.0 m",
+      "n": 8,
+      "hit": 8,
+      "g": 6
+     },
+     {
+      "k": "2.0 to 2.5 m",
+      "n": 8,
+      "hit": 8,
+      "g": 4
+     },
+     {
+      "k": "Over 2.5 m",
+      "n": 9,
+      "hit": 7,
+      "g": 5
+     }
+    ]
+   },
+   {
+    "t": "Position in round",
+    "rows": [
+     {
+      "k": "Shots 1 to 5",
+      "n": 5,
+      "hit": 5,
+      "g": 3
+     },
+     {
+      "k": "Shots 6 to 10",
+      "n": 5,
+      "hit": 4,
+      "g": 3
+     },
+     {
+      "k": "Shots 11 to 15",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     },
+     {
+      "k": "Shots 16 to 20",
+      "n": 5,
+      "hit": 4,
+      "g": 1
+     },
+     {
+      "k": "Shots 21 to 25",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     }
+    ]
+   },
+   {
+    "t": "Scheme",
+    "rows": [
+     {
+      "k": "5",
+      "n": 25,
+      "hit": 23,
+      "g": 15
+     }
+    ]
+   },
+   {
+    "t": "Sky",
+    "rows": [
+     {
+      "k": "Overcast",
+      "n": 25,
+      "hit": 23,
+      "g": 15
+     }
+    ]
+   },
+   {
+    "t": "Wind",
+    "rows": [
+     {
+      "k": "Calm",
+      "n": 25,
+      "hit": 23,
+      "g": 15
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "round": {
+   "id": "r4abc",
+   "uid": "u-4",
+   "createdAt": "2026-10-20T07:14:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 1,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 2,
+   "field": 3,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "ver": "7.0.7",
+   "dirs": "-------------------------",
+   "res": "-------------------------",
+   "t1": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "t2": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "tmic": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "nt": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "doc": {
+   "v": 2,
+   "ver": "7.0.7",
+   "uid": "u-4",
+   "createdAt": "2026-10-20T07:14:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 1,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 2,
+   "field": 3,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "dirs": "-------------------------",
+   "res": "-------------------------",
+   "t1": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "t2": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "tmic": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "nt": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "score": 0,
+  "counts": {
+   "G": 0,
+   "Y": 0,
+   "R": 0
+  },
+  "recorded": 0,
+  "dirsRecorded": 0,
+  "stations": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "stationCounts": [
+   {
+    "R": 0,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 0
+   }
+  ],
+  "stationOver": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "isFull": [
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ]
+  ],
+  "odds": [
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   },
+   {
+    "R": 0.4,
+    "S": 0.2,
+    "L": 0.4
+   }
+  ],
+  "predict": {
+   "have": 0,
+   "ready": false,
+   "items": []
+  },
+  "brkShot": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "brk": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "csv": "round_id,shooter_id,date,start_time,start_station,session,session_id,round_type,scheme,field,sky,wind,temp_c,humidity_pct,shooter,place,weapon,ammo,choke_1st,choke_2nd,seq,station,direction,trap,side,angle_deg,angle_signed_deg,height_m,status,hit,first_shot_s,second_shot_s,notes,call_db,timer_mic,break_m,break_shot,release_delay_ms,shot_v1_ms,shot_size,no_target",
+  "stats": {
+   "rounds": 1,
+   "n": 0,
+   "hit": 0,
+   "g": 0
+  },
+  "analyse": []
+ },
+ {
+  "round": {
+   "id": "r5abc",
+   "uid": "u-5",
+   "createdAt": "2026-10-20T07:15:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 3,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Competition",
+   "scheme": 7,
+   "field": null,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Al Ain, Range 2",
+   "notes": "line1\nline2",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "ver": "7.0.7",
+   "dirs": "LSRSRRLLRLSRSRLRRRLSLLLLR",
+   "res": "GGGGYYGYGRYYGGGGGGGGGGYGG",
+   "t1": [
+    0.828,
+    null,
+    0.661,
+    0.854,
+    0.599,
+    0.876,
+    0.648,
+    0.781,
+    null,
+    0.737,
+    0.588,
+    0.578,
+    0.885,
+    0.876,
+    0.697,
+    0.585,
+    0.677,
+    0.895,
+    0.779,
+    0.882,
+    0.61,
+    0.822,
+    null,
+    0.646,
+    0.635
+   ],
+   "t2": [
+    null,
+    null,
+    null,
+    null,
+    1.103,
+    1.263,
+    null,
+    1.062,
+    null,
+    null,
+    0.956,
+    0.959,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    90.1,
+    null,
+    92.1,
+    95.2,
+    93.8,
+    91.5,
+    98,
+    88.8,
+    null,
+    96.5,
+    93.3,
+    96.1,
+    91.3,
+    94.1,
+    97.2,
+    93.1,
+    94.6,
+    94.4,
+    88.2,
+    93.9,
+    88.4,
+    93.9,
+    null,
+    90.9,
+    94.7
+   ],
+   "tmic": [
+    "DJI Mic Mini 2",
+    "",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "",
+    "iPhone Microphone",
+    "iPhone Microphone"
+   ],
+   "nt": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ]
+  },
+  "doc": {
+   "v": 2,
+   "ver": "7.0.7",
+   "uid": "u-5",
+   "createdAt": "2026-10-20T07:15:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 3,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Competition",
+   "scheme": 7,
+   "field": null,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Al Ain, Range 2",
+   "notes": "line1\nline2",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "dirs": "LSRSRRLLRLSRSRLRRRLSLLLLR",
+   "res": "GGGGYYGYGRYYGGGGGGGGGGYGG",
+   "t1": [
+    0.828,
+    null,
+    0.661,
+    0.854,
+    0.599,
+    0.876,
+    0.648,
+    0.781,
+    null,
+    0.737,
+    0.588,
+    0.578,
+    0.885,
+    0.876,
+    0.697,
+    0.585,
+    0.677,
+    0.895,
+    0.779,
+    0.882,
+    0.61,
+    0.822,
+    null,
+    0.646,
+    0.635
+   ],
+   "t2": [
+    null,
+    null,
+    null,
+    null,
+    1.103,
+    1.263,
+    null,
+    1.062,
+    null,
+    null,
+    0.956,
+    0.959,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    90.1,
+    null,
+    92.1,
+    95.2,
+    93.8,
+    91.5,
+    98,
+    88.8,
+    null,
+    96.5,
+    93.3,
+    96.1,
+    91.3,
+    94.1,
+    97.2,
+    93.1,
+    94.6,
+    94.4,
+    88.2,
+    93.9,
+    88.4,
+    93.9,
+    null,
+    90.9,
+    94.7
+   ],
+   "tmic": [
+    "DJI Mic Mini 2",
+    "",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "",
+    "iPhone Microphone",
+    "iPhone Microphone"
+   ],
+   "nt": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ]
+  },
+  "score": 24,
+  "counts": {
+   "G": 18,
+   "Y": 6,
+   "R": 1
+  },
+  "recorded": 25,
+  "dirsRecorded": 25,
+  "stations": [
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1
+  ],
+  "stationCounts": [
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 2
+   }
+  ],
+  "stationOver": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "isFull": [
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ]
+  ],
+  "odds": [
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   }
+  ],
+  "predict": {
+   "have": 25,
+   "ready": true,
+   "items": []
+  },
+  "brkShot": [
+   1,
+   0,
+   1,
+   1,
+   2,
+   2,
+   1,
+   2,
+   0,
+   0,
+   2,
+   2,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   0,
+   1,
+   1
+  ],
+  "brk": [
+   38.8,
+   null,
+   32.8,
+   41.6,
+   45.1,
+   51.3,
+   32.7,
+   44.5,
+   null,
+   null,
+   44.5,
+   43.8,
+   41.5,
+   38.3,
+   32.5,
+   30.3,
+   34.9,
+   39.8,
+   36.7,
+   42,
+   32.2,
+   37.9,
+   null,
+   32.7,
+   31
+  ],
+  "csv": "round_id,shooter_id,date,start_time,start_station,session,session_id,round_type,scheme,field,sky,wind,temp_c,humidity_pct,shooter,place,weapon,ammo,choke_1st,choke_2nd,seq,station,direction,trap,side,angle_deg,angle_signed_deg,height_m,status,hit,first_shot_s,second_shot_s,notes,call_db,timer_mic,break_m,break_shot,release_delay_ms,shot_v1_ms,shot_size,no_target\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,1,3,L,9,L,25,-25,2.6,G,1,0.828,,\"line1\nline2\",90.1,DJI Mic Mini 2,38.8,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,2,4,S,11,C,0,0,3,G,1,,,\"line1\nline2\",,,,,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,3,5,R,13,R,35,35,2.5,G,1,0.661,,\"line1\nline2\",92.1,iPhone Microphone,32.8,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,4,1,S,2,C,0,0,1.5,G,1,0.854,,\"line1\nline2\",95.2,iPhone Microphone,41.6,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,5,2,R,4,R,45,45,2,Y,1,0.599,1.103,\"line1\nline2\",93.8,DJI Mic Mini 2,45.1,2,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,6,3,R,7,R,40,40,1.5,Y,1,0.876,1.263,\"line1\nline2\",91.5,iPhone Microphone,51.3,2,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,7,4,L,12,L,30,-30,3,G,1,0.648,,\"line1\nline2\",98,DJI Mic Mini 2,32.7,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,8,5,L,15,L,40,-40,2.2,Y,1,0.781,1.062,\"line1\nline2\",88.8,iPhone Microphone,44.5,2,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,9,1,R,1,R,40,40,3,G,1,,,\"line1\nline2\",,,,,50,415,7.5,2\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,10,2,L,6,L,45,-45,3,R,0,0.737,,\"line1\nline2\",96.5,iPhone Microphone,,,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,11,3,S,8,R,5,5,1.9,Y,1,0.588,0.956,\"line1\nline2\",93.3,DJI Mic Mini 2,44.5,2,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,12,4,R,10,R,20,20,1.8,Y,1,0.578,0.959,\"line1\nline2\",96.1,iPhone Microphone,43.8,2,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,13,5,S,14,C,0,0,3,G,1,0.885,,\"line1\nline2\",91.3,iPhone Microphone,41.5,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,14,1,R,1,R,40,40,3,G,1,0.876,,\"line1\nline2\",94.1,DJI Mic Mini 2,38.3,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,15,2,L,6,L,45,-45,3,G,1,0.697,,\"line1\nline2\",97.2,DJI Mic Mini 2,32.5,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,16,3,R,7,R,40,40,1.5,G,1,0.585,,\"line1\nline2\",93.1,iPhone Microphone,30.3,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,17,4,R,10,R,20,20,1.8,G,1,0.677,,\"line1\nline2\",94.6,DJI Mic Mini 2,34.9,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,18,5,R,13,R,35,35,2.5,G,1,0.895,,\"line1\nline2\",94.4,DJI Mic Mini 2,39.8,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,19,1,L,3,L,35,-35,1.5,G,1,0.779,,\"line1\nline2\",88.2,DJI Mic Mini 2,36.7,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,20,2,S,5,R,5,5,2.2,G,1,0.882,,\"line1\nline2\",93.9,iPhone Microphone,42,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,21,3,L,9,L,25,-25,2.6,G,1,0.61,,\"line1\nline2\",88.4,DJI Mic Mini 2,32.2,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,22,4,L,12,L,30,-30,3,G,1,0.822,,\"line1\nline2\",93.9,DJI Mic Mini 2,37.9,1,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,23,5,L,15,L,40,-40,2.2,Y,1,,,\"line1\nline2\",,,,,50,415,7.5,0\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,24,1,L,3,L,35,-35,1.5,G,1,0.646,,\"line1\nline2\",90.9,iPhone Microphone,32.7,1,50,415,7.5,2\nr5abc,u-5,2026-10-20,09:30,3,1,20261020-0930-MT,Competition,7,,sun,light,24,55,Mohammad Tajudeen,\"Al Ain, Range 2\",Beretta DT11,RC4 24g,3/4,Full,25,2,R,4,R,45,45,2,G,1,0.635,,\"line1\nline2\",94.7,iPhone Microphone,31,1,50,415,7.5,0",
+  "stats": {
+   "rounds": 1,
+   "n": 25,
+   "hit": 24,
+   "g": 18
+  },
+  "analyse": [
+   {
+    "t": "Direction",
+    "rows": [
+     {
+      "k": "Left",
+      "n": 10,
+      "hit": 9,
+      "g": 7
+     },
+     {
+      "k": "Straight",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     },
+     {
+      "k": "Right",
+      "n": 10,
+      "hit": 10,
+      "g": 7
+     }
+    ]
+   },
+   {
+    "t": "Station",
+    "rows": [
+     {
+      "k": "1",
+      "n": 5,
+      "hit": 5,
+      "g": 5
+     },
+     {
+      "k": "2",
+      "n": 5,
+      "hit": 4,
+      "g": 3
+     },
+     {
+      "k": "3",
+      "n": 5,
+      "hit": 5,
+      "g": 3
+     },
+     {
+      "k": "4",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     },
+     {
+      "k": "5",
+      "n": 5,
+      "hit": 5,
+      "g": 3
+     }
+    ]
+   },
+   {
+    "t": "Angle",
+    "rows": [
+     {
+      "k": "0 to 10°",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     },
+     {
+      "k": "15 to 25°",
+      "n": 4,
+      "hit": 4,
+      "g": 3
+     },
+     {
+      "k": "30 to 35°",
+      "n": 6,
+      "hit": 6,
+      "g": 6
+     },
+     {
+      "k": "40 to 45°",
+      "n": 10,
+      "hit": 9,
+      "g": 5
+     }
+    ]
+   },
+   {
+    "t": "Height at 10 m",
+    "rows": [
+     {
+      "k": "Under 2.0 m",
+      "n": 8,
+      "hit": 8,
+      "g": 5
+     },
+     {
+      "k": "2.0 to 2.5 m",
+      "n": 7,
+      "hit": 7,
+      "g": 4
+     },
+     {
+      "k": "Over 2.5 m",
+      "n": 10,
+      "hit": 9,
+      "g": 9
+     }
+    ]
+   },
+   {
+    "t": "Position in round",
+    "rows": [
+     {
+      "k": "Shots 1 to 5",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     },
+     {
+      "k": "Shots 6 to 10",
+      "n": 5,
+      "hit": 4,
+      "g": 2
+     },
+     {
+      "k": "Shots 11 to 15",
+      "n": 5,
+      "hit": 5,
+      "g": 3
+     },
+     {
+      "k": "Shots 16 to 20",
+      "n": 5,
+      "hit": 5,
+      "g": 5
+     },
+     {
+      "k": "Shots 21 to 25",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     }
+    ]
+   },
+   {
+    "t": "Scheme",
+    "rows": [
+     {
+      "k": "7",
+      "n": 25,
+      "hit": 24,
+      "g": 18
+     }
+    ]
+   },
+   {
+    "t": "Sky",
+    "rows": [
+     {
+      "k": "Sun",
+      "n": 25,
+      "hit": 24,
+      "g": 18
+     }
+    ]
+   },
+   {
+    "t": "Wind",
+    "rows": [
+     {
+      "k": "Light",
+      "n": 25,
+      "hit": 24,
+      "g": 18
+     }
+    ]
+   },
+   {
+    "t": "Temperature",
+    "rows": [
+     {
+      "k": "15 to 24 °C",
+      "n": 25,
+      "hit": 24,
+      "g": 18
+     }
+    ]
+   },
+   {
+    "t": "Humidity",
+    "rows": [
+     {
+      "k": "40 to 59 %",
+      "n": 25,
+      "hit": 24,
+      "g": 18
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "round": {
+   "id": "r6abc",
+   "uid": "u-6",
+   "createdAt": "2026-10-20T07:16:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 2,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 10,
+   "field": 3,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "ver": "7.0.7",
+   "dirs": "RRRRRRLSRLLSRLRRR--------",
+   "res": "RRGGYGGRGYGGGGGYR--------",
+   "t1": [
+    null,
+    0.894,
+    0.622,
+    0.752,
+    0.645,
+    0.558,
+    0.681,
+    0.59,
+    0.874,
+    0.864,
+    0.843,
+    0.726,
+    0.668,
+    0.601,
+    null,
+    0.877,
+    0.791,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "t2": [
+    null,
+    null,
+    null,
+    null,
+    1.236,
+    null,
+    null,
+    1.03,
+    null,
+    1.178,
+    null,
+    null,
+    null,
+    null,
+    null,
+    1.285,
+    1.192,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    null,
+    97.4,
+    90.9,
+    96.9,
+    96.1,
+    91.3,
+    88.9,
+    88.6,
+    89.2,
+    93.9,
+    88.8,
+    96.8,
+    93.3,
+    95.4,
+    null,
+    95,
+    88.8,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "tmic": [
+    "",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "nt": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "doc": {
+   "v": 2,
+   "ver": "7.0.7",
+   "uid": "u-6",
+   "createdAt": "2026-10-20T07:16:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 2,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 10,
+   "field": 3,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "dirs": "RRRRRRLSRLLSRLRRR--------",
+   "res": "RRGGYGGRGYGGGGGYR--------",
+   "t1": [
+    null,
+    0.894,
+    0.622,
+    0.752,
+    0.645,
+    0.558,
+    0.681,
+    0.59,
+    0.874,
+    0.864,
+    0.843,
+    0.726,
+    0.668,
+    0.601,
+    null,
+    0.877,
+    0.791,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "t2": [
+    null,
+    null,
+    null,
+    null,
+    1.236,
+    null,
+    null,
+    1.03,
+    null,
+    1.178,
+    null,
+    null,
+    null,
+    null,
+    null,
+    1.285,
+    1.192,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    null,
+    97.4,
+    90.9,
+    96.9,
+    96.1,
+    91.3,
+    88.9,
+    88.6,
+    89.2,
+    93.9,
+    88.8,
+    96.8,
+    93.3,
+    95.4,
+    null,
+    95,
+    88.8,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "tmic": [
+    "",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "nt": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "score": 13,
+  "counts": {
+   "G": 10,
+   "Y": 3,
+   "R": 4
+  },
+  "recorded": 17,
+  "dirsRecorded": 17,
+  "stations": [
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0
+  ],
+  "stationCounts": [
+   {
+    "R": 2,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 3,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 1
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 2,
+    "S": 0,
+    "L": 1
+   }
+  ],
+  "stationOver": [
+   false,
+   true,
+   false,
+   false,
+   false
+  ],
+  "isFull": [
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ]
+  ],
+  "odds": [
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0.5,
+    "S": 0,
+    "L": 0.5
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0,
+    "L": 0.6666666666666666
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0.3333333333333333,
+    "L": 0.6666666666666666
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0,
+    "S": 0.3333333333333333,
+    "L": 0.6666666666666666
+   },
+   {
+    "R": 0,
+    "S": 0.3333333333333333,
+    "L": 0.6666666666666666
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0,
+    "L": 0.6666666666666666
+   },
+   {
+    "R": 0,
+    "S": 0.3333333333333333,
+    "L": 0.6666666666666666
+   },
+   {
+    "R": 0.3333333333333333,
+    "S": 0.3333333333333333,
+    "L": 0.3333333333333333
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0.5,
+    "S": 0,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   }
+  ],
+  "predict": {
+   "have": 17,
+   "ready": true,
+   "items": [
+    {
+     "i": 17,
+     "stn": 4,
+     "p": {
+      "L": 1,
+      "S": 0,
+      "R": 0
+     },
+     "exact": "L"
+    },
+    {
+     "i": 18,
+     "stn": 5,
+     "p": {
+      "L": 0.5,
+      "S": 0.5,
+      "R": 0
+     },
+     "exact": null
+    },
+    {
+     "i": 19,
+     "stn": 1,
+     "p": {
+      "L": 0.5,
+      "S": 0.5,
+      "R": 0
+     },
+     "exact": null
+    },
+    {
+     "i": 21,
+     "stn": 3,
+     "p": {
+      "L": 1,
+      "S": 0,
+      "R": 0
+     },
+     "exact": "L"
+    },
+    {
+     "i": 22,
+     "stn": 4,
+     "p": {
+      "L": 1,
+      "S": 0,
+      "R": 0
+     },
+     "exact": "L"
+    },
+    {
+     "i": 23,
+     "stn": 5,
+     "p": {
+      "L": 0.5,
+      "S": 0.5,
+      "R": 0
+     },
+     "exact": null
+    },
+    {
+     "i": 24,
+     "stn": 1,
+     "p": {
+      "L": 0.5,
+      "S": 0.5,
+      "R": 0
+     },
+     "exact": null
+    }
+   ]
+  },
+  "brkShot": [
+   0,
+   0,
+   1,
+   1,
+   2,
+   1,
+   1,
+   0,
+   1,
+   2,
+   1,
+   1,
+   1,
+   1,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "brk": [
+   null,
+   null,
+   30.6,
+   37.6,
+   49.1,
+   30,
+   32,
+   null,
+   41.5,
+   50.3,
+   37.7,
+   37.2,
+   31.9,
+   30.1,
+   null,
+   52.6,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "csv": "round_id,shooter_id,date,start_time,start_station,session,session_id,round_type,scheme,field,sky,wind,temp_c,humidity_pct,shooter,place,weapon,ammo,choke_1st,choke_2nd,seq,station,direction,trap,side,angle_deg,angle_signed_deg,height_m,status,hit,first_shot_s,second_shot_s,notes,call_db,timer_mic,break_m,break_shot,release_delay_ms,shot_v1_ms,shot_size,no_target\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,1,2,R,4,R,35,35,1.8,R,0,,,,,,,,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,2,3,R,7,R,40,40,3,R,0,0.894,,,97.4,iPhone Microphone,,,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,3,4,R,10,R,45,45,2,G,1,0.622,,,90.9,DJI Mic Mini 2,30.6,1,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,4,5,R,13,R,15,15,1.8,G,1,0.752,,,96.9,iPhone Microphone,37.6,1,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,5,1,R,1,R,45,45,2.25,Y,1,0.645,1.236,,96.1,DJI Mic Mini 2,49.1,2,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,6,2,R,4,R,35,35,1.8,G,1,0.558,,,91.3,DJI Mic Mini 2,30,1,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,7,3,L,9,L,45,-45,3,G,1,0.681,,,88.9,DJI Mic Mini 2,32,1,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,8,4,S,11,L,10,-10,2.5,R,0,0.59,1.03,,88.6,DJI Mic Mini 2,,,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,9,5,R,13,R,15,15,1.8,G,1,0.874,,,89.2,DJI Mic Mini 2,41.5,1,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,10,1,L,3,L,25,-25,2,Y,1,0.864,1.178,,93.9,DJI Mic Mini 2,50.3,2,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,11,2,L,6,L,40,-40,2.25,G,1,0.843,,,88.8,DJI Mic Mini 2,37.7,1,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,12,3,S,8,R,5,5,1.8,G,1,0.726,,,96.8,iPhone Microphone,37.2,1,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,13,4,R,10,R,45,45,2,G,1,0.668,,,93.3,DJI Mic Mini 2,31.9,1,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,14,5,L,15,L,45,-45,1.5,G,1,0.601,,,95.4,iPhone Microphone,30.1,1,50,415,7.5,2\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,15,1,R,1,R,45,45,2.25,G,1,,,,,,,,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,16,2,R,4,R,35,35,1.8,Y,1,0.877,1.285,,95,DJI Mic Mini 2,52.6,2,50,415,7.5,0\nr6abc,u-6,2026-10-20,09:30,2,1,20261020-0930-MT,Training,10,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,17,3,R,7,R,40,40,3,R,0,0.791,1.192,,88.8,DJI Mic Mini 2,,,50,415,7.5,0",
+  "stats": {
+   "rounds": 1,
+   "n": 17,
+   "hit": 13,
+   "g": 10
+  },
+  "analyse": [
+   {
+    "t": "Direction",
+    "rows": [
+     {
+      "k": "Left",
+      "n": 4,
+      "hit": 4,
+      "g": 3
+     },
+     {
+      "k": "Straight",
+      "n": 2,
+      "hit": 1,
+      "g": 1
+     },
+     {
+      "k": "Right",
+      "n": 11,
+      "hit": 8,
+      "g": 6
+     }
+    ]
+   },
+   {
+    "t": "Station",
+    "rows": [
+     {
+      "k": "1",
+      "n": 3,
+      "hit": 3,
+      "g": 1
+     },
+     {
+      "k": "2",
+      "n": 4,
+      "hit": 3,
+      "g": 2
+     },
+     {
+      "k": "3",
+      "n": 4,
+      "hit": 2,
+      "g": 2
+     },
+     {
+      "k": "4",
+      "n": 3,
+      "hit": 2,
+      "g": 2
+     },
+     {
+      "k": "5",
+      "n": 3,
+      "hit": 3,
+      "g": 3
+     }
+    ]
+   },
+   {
+    "t": "Angle",
+    "rows": [
+     {
+      "k": "0 to 10°",
+      "n": 2,
+      "hit": 1,
+      "g": 1
+     },
+     {
+      "k": "15 to 25°",
+      "n": 3,
+      "hit": 3,
+      "g": 2
+     },
+     {
+      "k": "30 to 35°",
+      "n": 3,
+      "hit": 2,
+      "g": 1
+     },
+     {
+      "k": "40 to 45°",
+      "n": 9,
+      "hit": 7,
+      "g": 6
+     }
+    ]
+   },
+   {
+    "t": "Height at 10 m",
+    "rows": [
+     {
+      "k": "Under 2.0 m",
+      "n": 7,
+      "hit": 6,
+      "g": 5
+     },
+     {
+      "k": "2.0 to 2.5 m",
+      "n": 7,
+      "hit": 6,
+      "g": 4
+     },
+     {
+      "k": "Over 2.5 m",
+      "n": 3,
+      "hit": 1,
+      "g": 1
+     }
+    ]
+   },
+   {
+    "t": "Position in round",
+    "rows": [
+     {
+      "k": "Shots 1 to 5",
+      "n": 5,
+      "hit": 3,
+      "g": 2
+     },
+     {
+      "k": "Shots 6 to 10",
+      "n": 5,
+      "hit": 4,
+      "g": 3
+     },
+     {
+      "k": "Shots 11 to 15",
+      "n": 5,
+      "hit": 5,
+      "g": 5
+     },
+     {
+      "k": "Shots 16 to 20",
+      "n": 2,
+      "hit": 1,
+      "g": 0
+     }
+    ]
+   },
+   {
+    "t": "Scheme",
+    "rows": [
+     {
+      "k": "10",
+      "n": 17,
+      "hit": 13,
+      "g": 10
+     }
+    ]
+   },
+   {
+    "t": "Sky",
+    "rows": [
+     {
+      "k": "Sun",
+      "n": 17,
+      "hit": 13,
+      "g": 10
+     }
+    ]
+   },
+   {
+    "t": "Wind",
+    "rows": [
+     {
+      "k": "Light",
+      "n": 17,
+      "hit": 13,
+      "g": 10
+     }
+    ]
+   },
+   {
+    "t": "Temperature",
+    "rows": [
+     {
+      "k": "15 to 24 °C",
+      "n": 17,
+      "hit": 13,
+      "g": 10
+     }
+    ]
+   },
+   {
+    "t": "Humidity",
+    "rows": [
+     {
+      "k": "40 to 59 %",
+      "n": 17,
+      "hit": 13,
+      "g": 10
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "round": {
+   "id": "r7abc",
+   "uid": "u-7",
+   "createdAt": "2026-10-20T07:17:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 5,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 1,
+   "field": 3,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "ver": "7.0.7",
+   "dirs": "LLLRRLRRLLRSLRRSLRLS-----",
+   "res": "GGYRYGGGYGGYYGYGYYGG-----",
+   "t1": [
+    0.617,
+    0.576,
+    null,
+    0.564,
+    0.699,
+    0.599,
+    0.668,
+    0.779,
+    0.886,
+    0.552,
+    0.892,
+    0.743,
+    0.555,
+    null,
+    0.841,
+    0.624,
+    null,
+    null,
+    0.828,
+    0.613,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "t2": [
+    null,
+    null,
+    null,
+    0.957,
+    1.136,
+    null,
+    null,
+    null,
+    1.471,
+    null,
+    null,
+    1.118,
+    1.053,
+    null,
+    1.147,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    89.4,
+    97.1,
+    null,
+    92.3,
+    97.5,
+    89.3,
+    88.4,
+    97.2,
+    93.9,
+    93.2,
+    93.6,
+    90.4,
+    93.9,
+    null,
+    97.9,
+    96.1,
+    null,
+    null,
+    96.5,
+    90.5,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "tmic": [
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "",
+    "",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "nt": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "doc": {
+   "v": 2,
+   "ver": "7.0.7",
+   "uid": "u-7",
+   "createdAt": "2026-10-20T07:17:00.000Z",
+   "date": "2026-10-20",
+   "startTime": "09:30",
+   "startStn": 5,
+   "session": 1,
+   "sessionId": "20261020-0930-MT",
+   "type": "Training",
+   "scheme": 1,
+   "field": 3,
+   "sky": "sun",
+   "wind": "light",
+   "temp": 24,
+   "hum": 55,
+   "shooter": "Mohammad Tajudeen",
+   "place": "Capri Range",
+   "notes": "",
+   "weapon": "Beretta DT11",
+   "ammo": "RC4 24g",
+   "choke1": "3/4",
+   "choke2": "Full",
+   "dirs": "LLLRRLRRLLRSLRRSLRLS-----",
+   "res": "GGYRYGGGYGGYYGYGYYGG-----",
+   "t1": [
+    0.617,
+    0.576,
+    null,
+    0.564,
+    0.699,
+    0.599,
+    0.668,
+    0.779,
+    0.886,
+    0.552,
+    0.892,
+    0.743,
+    0.555,
+    null,
+    0.841,
+    0.624,
+    null,
+    null,
+    0.828,
+    0.613,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "t2": [
+    null,
+    null,
+    null,
+    0.957,
+    1.136,
+    null,
+    null,
+    null,
+    1.471,
+    null,
+    null,
+    1.118,
+    1.053,
+    null,
+    1.147,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "call": [
+    89.4,
+    97.1,
+    null,
+    92.3,
+    97.5,
+    89.3,
+    88.4,
+    97.2,
+    93.9,
+    93.2,
+    93.6,
+    90.4,
+    93.9,
+    null,
+    97.9,
+    96.1,
+    null,
+    null,
+    96.5,
+    90.5,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "tmic": [
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "DJI Mic Mini 2",
+    "iPhone Microphone",
+    "",
+    "iPhone Microphone",
+    "iPhone Microphone",
+    "",
+    "",
+    "DJI Mic Mini 2",
+    "DJI Mic Mini 2",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "nt": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "score": 19,
+  "counts": {
+   "G": 11,
+   "Y": 8,
+   "R": 1
+  },
+  "recorded": 20,
+  "dirsRecorded": 20,
+  "stations": [
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3,
+   4,
+   0,
+   1,
+   2,
+   3
+  ],
+  "stationCounts": [
+   {
+    "R": 1,
+    "S": 1,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 0,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 0,
+    "L": 2
+   },
+   {
+    "R": 2,
+    "S": 1,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 1,
+    "L": 2
+   }
+  ],
+  "stationOver": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "isFull": [
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    false,
+    true
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    true,
+    true,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    false,
+    true
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    false,
+    false,
+    true
+   ],
+   [
+    false,
+    true,
+    false
+   ],
+   [
+    false,
+    false,
+    true
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    true,
+    false,
+    false
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    false,
+    true,
+    true
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    false,
+    true
+   ],
+   [
+    true,
+    true,
+    false
+   ]
+  ],
+  "odds": [
+   {
+    "R": 0.5,
+    "S": 0,
+    "L": 0.5
+   },
+   {
+    "R": 0.5,
+    "S": 0,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0.5,
+    "S": 0.5,
+    "L": 0
+   },
+   {
+    "R": 0.5,
+    "S": 0,
+    "L": 0.5
+   },
+   {
+    "R": 0.5,
+    "S": 0,
+    "L": 0.5
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0.5,
+    "S": 0.5,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0.5,
+    "S": 0.5,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0.5,
+    "S": 0.5,
+    "L": 0
+   },
+   {
+    "R": 0.5,
+    "S": 0,
+    "L": 0.5
+   },
+   {
+    "R": 0.5,
+    "S": 0.5,
+    "L": 0
+   },
+   {
+    "R": 0.5,
+    "S": 0,
+    "L": 0.5
+   },
+   {
+    "R": 0.5,
+    "S": 0.5,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 0,
+    "S": 0.5,
+    "L": 0.5
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 1,
+    "S": 0,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 1,
+    "L": 0
+   },
+   {
+    "R": 0,
+    "S": 0,
+    "L": 1
+   }
+  ],
+  "predict": {
+   "have": 20,
+   "ready": true,
+   "items": [
+    {
+     "i": 20,
+     "stn": 5,
+     "p": {
+      "L": 0,
+      "S": 0,
+      "R": 1
+     },
+     "exact": "R"
+    },
+    {
+     "i": 21,
+     "stn": 1,
+     "p": {
+      "L": 0,
+      "S": 0,
+      "R": 1
+     },
+     "exact": "R"
+    },
+    {
+     "i": 22,
+     "stn": 2,
+     "p": {
+      "L": 0,
+      "S": 1,
+      "R": 0
+     },
+     "exact": "S"
+    },
+    {
+     "i": 23,
+     "stn": 3,
+     "p": {
+      "L": 0,
+      "S": 1,
+      "R": 0
+     },
+     "exact": "S"
+    },
+    {
+     "i": 24,
+     "stn": 4,
+     "p": {
+      "L": 1,
+      "S": 0,
+      "R": 0
+     },
+     "exact": "L"
+    }
+   ]
+  },
+  "brkShot": [
+   1,
+   1,
+   0,
+   0,
+   2,
+   1,
+   1,
+   1,
+   2,
+   1,
+   1,
+   2,
+   2,
+   0,
+   2,
+   1,
+   0,
+   0,
+   1,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "brk": [
+   31.3,
+   30.6,
+   null,
+   null,
+   45.9,
+   30.8,
+   33.5,
+   36,
+   56.2,
+   29.3,
+   40.6,
+   50,
+   43.5,
+   null,
+   46.3,
+   34.1,
+   null,
+   null,
+   36.3,
+   33.6,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "csv": "round_id,shooter_id,date,start_time,start_station,session,session_id,round_type,scheme,field,sky,wind,temp_c,humidity_pct,shooter,place,weapon,ammo,choke_1st,choke_2nd,seq,station,direction,trap,side,angle_deg,angle_signed_deg,height_m,status,hit,first_shot_s,second_shot_s,notes,call_db,timer_mic,break_m,break_shot,release_delay_ms,shot_v1_ms,shot_size,no_target\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,1,5,L,15,L,35,-35,3,G,1,0.617,,,89.4,DJI Mic Mini 2,31.3,1,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,2,1,L,3,L,30,-30,3,G,1,0.576,,,97.1,iPhone Microphone,30.6,1,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,3,2,L,6,L,45,-45,2,Y,1,,,,,,,,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,4,3,R,7,R,45,45,2,R,0,0.564,0.957,,92.3,DJI Mic Mini 2,,,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,5,4,R,10,R,45,45,2.3,Y,1,0.699,1.136,,97.5,iPhone Microphone,45.9,2,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,6,5,L,15,L,35,-35,3,G,1,0.599,,,89.3,iPhone Microphone,30.8,1,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,7,1,R,1,R,30,30,2.5,G,1,0.668,,,88.4,iPhone Microphone,33.5,1,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,8,2,R,4,R,40,40,1.7,G,1,0.779,,,97.2,DJI Mic Mini 2,36,1,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,9,3,L,9,L,45,-45,2.8,Y,1,0.886,1.471,,93.9,iPhone Microphone,56.2,2,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,10,4,L,12,L,40,-40,1.6,G,1,0.552,,,93.2,DJI Mic Mini 2,29.3,1,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,11,5,R,13,R,30,30,2,G,1,0.892,,,93.6,iPhone Microphone,40.6,1,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,12,1,S,2,R,10,10,1.5,Y,1,0.743,1.118,,90.4,DJI Mic Mini 2,50,2,50,415,7.5,2\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,13,2,L,6,L,45,-45,2,Y,1,0.555,1.053,,93.9,iPhone Microphone,43.5,2,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,14,3,R,7,R,45,45,2,G,1,,,,,,,,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,15,4,R,10,R,45,45,2.3,Y,1,0.841,1.147,,97.9,iPhone Microphone,46.3,2,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,16,5,S,14,L,5,-5,1.5,G,1,0.624,,,96.1,iPhone Microphone,34.1,1,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,17,1,L,3,L,30,-30,3,Y,1,,,,,,,,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,18,2,R,4,R,40,40,1.7,Y,1,,,,,,,,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,19,3,L,9,L,45,-45,2.8,G,1,0.828,,,96.5,DJI Mic Mini 2,36.3,1,50,415,7.5,0\nr7abc,u-7,2026-10-20,09:30,5,1,20261020-0930-MT,Training,1,3,sun,light,24,55,Mohammad Tajudeen,Capri Range,Beretta DT11,RC4 24g,3/4,Full,20,4,S,11,R,10,10,1.8,G,1,0.613,,,90.5,DJI Mic Mini 2,33.6,1,50,415,7.5,0",
+  "stats": {
+   "rounds": 1,
+   "n": 20,
+   "hit": 19,
+   "g": 11
+  },
+  "analyse": [
+   {
+    "t": "Direction",
+    "rows": [
+     {
+      "k": "Left",
+      "n": 9,
+      "hit": 9,
+      "g": 5
+     },
+     {
+      "k": "Straight",
+      "n": 3,
+      "hit": 3,
+      "g": 2
+     },
+     {
+      "k": "Right",
+      "n": 8,
+      "hit": 7,
+      "g": 4
+     }
+    ]
+   },
+   {
+    "t": "Station",
+    "rows": [
+     {
+      "k": "1",
+      "n": 4,
+      "hit": 4,
+      "g": 2
+     },
+     {
+      "k": "2",
+      "n": 4,
+      "hit": 4,
+      "g": 1
+     },
+     {
+      "k": "3",
+      "n": 4,
+      "hit": 3,
+      "g": 2
+     },
+     {
+      "k": "4",
+      "n": 4,
+      "hit": 4,
+      "g": 2
+     },
+     {
+      "k": "5",
+      "n": 4,
+      "hit": 4,
+      "g": 4
+     }
+    ]
+   },
+   {
+    "t": "Angle",
+    "rows": [
+     {
+      "k": "0 to 10°",
+      "n": 3,
+      "hit": 3,
+      "g": 2
+     },
+     {
+      "k": "30 to 35°",
+      "n": 6,
+      "hit": 6,
+      "g": 5
+     },
+     {
+      "k": "40 to 45°",
+      "n": 11,
+      "hit": 10,
+      "g": 4
+     }
+    ]
+   },
+   {
+    "t": "Height at 10 m",
+    "rows": [
+     {
+      "k": "Under 2.0 m",
+      "n": 6,
+      "hit": 6,
+      "g": 4
+     },
+     {
+      "k": "2.0 to 2.5 m",
+      "n": 8,
+      "hit": 7,
+      "g": 3
+     },
+     {
+      "k": "Over 2.5 m",
+      "n": 6,
+      "hit": 6,
+      "g": 4
+     }
+    ]
+   },
+   {
+    "t": "Position in round",
+    "rows": [
+     {
+      "k": "Shots 1 to 5",
+      "n": 5,
+      "hit": 4,
+      "g": 2
+     },
+     {
+      "k": "Shots 6 to 10",
+      "n": 5,
+      "hit": 5,
+      "g": 4
+     },
+     {
+      "k": "Shots 11 to 15",
+      "n": 5,
+      "hit": 5,
+      "g": 2
+     },
+     {
+      "k": "Shots 16 to 20",
+      "n": 5,
+      "hit": 5,
+      "g": 3
+     }
+    ]
+   },
+   {
+    "t": "Scheme",
+    "rows": [
+     {
+      "k": "1",
+      "n": 20,
+      "hit": 19,
+      "g": 11
+     }
+    ]
+   },
+   {
+    "t": "Sky",
+    "rows": [
+     {
+      "k": "Sun",
+      "n": 20,
+      "hit": 19,
+      "g": 11
+     }
+    ]
+   },
+   {
+    "t": "Wind",
+    "rows": [
+     {
+      "k": "Light",
+      "n": 20,
+      "hit": 19,
+      "g": 11
+     }
+    ]
+   },
+   {
+    "t": "Temperature",
+    "rows": [
+     {
+      "k": "15 to 24 °C",
+      "n": 20,
+      "hit": 19,
+      "g": 11
+     }
+    ]
+   },
+   {
+    "t": "Humidity",
+    "rows": [
+     {
+      "k": "40 to 59 %",
+      "n": 20,
+      "hit": 19,
+      "g": 11
+     }
+    ]
+   }
+  ]
+ }
+]
