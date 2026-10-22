@@ -90,6 +90,7 @@ TrapShooterPro.xcworkspace
 │   ├── TrapData      (SwiftData) models, container, migrations, v7 importer
 │   ├── TrapReports   Scorecard (SwiftUI ImageRenderer → PNG), PDF (UIGraphicsPDFRenderer), ShareLink items
 │   └── TrapWeather   CoreLocation one‑shot + Open‑Meteo client (async/await)
+│   ├── TrapPlatform  lifecycle, power, network, local notifications, storage, app identity   [written]
 └── Tests/
     ├── TrapCoreTests        golden tests: JS output vs Swift output on the same fixture rounds
     └── ShotTimerTests       detector regression: fixture .m4a files + expected call/shot times
