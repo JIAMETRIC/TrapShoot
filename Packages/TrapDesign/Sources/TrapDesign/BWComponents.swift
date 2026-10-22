@@ -274,8 +274,9 @@ public struct BWInkPanel<Content: View>: View {
                     Circle().strokeBorder(BW.inkOverlay(0.08), lineWidth: 1).frame(width: 450, height: 450).offset(x: 180, y: -180)
                     Circle().strokeBorder(BW.inkOverlay(0.05), lineWidth: 1).frame(width: 350, height: 350).offset(x: -160, y: 160)
                 }
-                .clipped()
             }
+            // clip the panel, not the ring stack: the 450 pt rings must not paint ink outside the panel's own frame
+            .clipShape(RoundedRectangle(cornerRadius: BWMetrics.radiusLG, style: .continuous))
     }
 }
 

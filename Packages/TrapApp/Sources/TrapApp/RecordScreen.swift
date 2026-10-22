@@ -364,6 +364,7 @@ private struct DoneCard: View {
                     .font(BWFont.secondary).foregroundStyle(BW.onInk)
                 ShareRoundButton(round: r)
             }
+            .padding(BWMetrics.s5)
         }
     }
 }

@@ -24,11 +24,12 @@ struct AnalysisScreen: View {
             } else {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: BWMetrics.s3), count: breakpoint.tileColumns), spacing: BWMetrics.s3) {
                     BWKPITile("Rounds", value: "\(overview.rounds)", sub: "\(overview.fullRounds) full")
-                    BWKPITile("Avg score", value: overview.averageScoreText)
-                    BWKPITile("Best score", value: overview.bestScoreText)
-                    BWKPITile("Hit rate", value: overview.hitRateText)
-                    BWKPITile("1st barrel", value: overview.firstBarrelText)
-                    BWKPITile("2nd barrel", value: overview.secondBarrelText)
+                    // every tile has a sub line so a row lines up
+                    BWKPITile("Avg score", value: overview.averageScoreText, sub: "full rounds")
+                    BWKPITile("Best score", value: overview.bestScoreText, sub: "of 25")
+                    BWKPITile("Hit rate", value: overview.hitRateText, sub: "\(overview.targets) targets")
+                    BWKPITile("1st barrel", value: overview.firstBarrelText, sub: "broken with the 1st shot")
+                    BWKPITile("2nd barrel", value: overview.secondBarrelText, sub: "broken with the 2nd shot")
                 }
                 TrendBars(points: Analysis.trend(rounds))
                 TrapSection(analysis: TrapLog.measure("trap analysis") { Analysis.trapAnalysis(rounds, scheme: chosen) }, scheme: chosen,

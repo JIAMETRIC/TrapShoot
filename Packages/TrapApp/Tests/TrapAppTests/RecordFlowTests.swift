@@ -116,12 +116,24 @@ final class RecordFlowTests: XCTestCase {
 
         m.select(0)
         XCTAssertEqual(m.flow.phase, .review)
+        m.clock = { Date().addingTimeInterval(1) }             // the range moves on: past the 400 ms NO TARGET guard
         m.retime()
         XCTAssertNil(m.round.firstShot[0])
         XCTAssertEqual(m.flow.phase, .armed, "a complete target can be timed again")
         timer.send(.target(TimedTarget(firstMs: 655.4, secondMs: nil, callDb: nil)))
         XCTAssertEqual(m.round.firstShot[0], 0.655)
         XCTAssertEqual(m.round.results[0], .lost, "re-timing keeps the result")
+    }
+
+    func testEventsRightAfterNoTargetAreDropped() {
+        let (m, timer, _) = makeModel()
+        fillSetup(m); m.start(); m.startTimer(input: .systemDefault)
+        m.noTarget()
+        timer.send(.target(TimedTarget(firstMs: 640, secondMs: nil, callDb: nil)))
+        XCTAssertNil(m.round.firstShot[0], "within 400 ms the shot belongs to the cleared clay")
+        m.clock = { Date().addingTimeInterval(1) }
+        timer.send(.target(TimedTarget(firstMs: 640, secondMs: nil, callDb: nil)))
+        XCTAssertEqual(m.round.firstShot[0], 0.64)
     }
 
     func testTapArmingAndBeep() {

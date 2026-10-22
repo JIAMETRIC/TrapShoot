@@ -26,6 +26,8 @@ final class RecordModel {
     @ObservationIgnored let timer: ShotTimerControlling
     @ObservationIgnored private let defaults: UserDefaults
     @ObservationIgnored private(set) var settings: AppSettings
+    /// Time source for the 400 ms NO TARGET guard; tests move it forward.
+    @ObservationIgnored var clock: () -> Date = Date.init
 
     init(repository: RoundRepository, timer: ShotTimerControlling, settings: AppSettings, defaults: UserDefaults = .standard) {
         self.repository = repository
@@ -116,7 +118,7 @@ final class RecordModel {
         session.noTarget()
         readout = nil; error = nil
         persist()
-        command(flow.noTarget(session, running: timer.isRunning))
+        command(flow.noTarget(session, running: timer.isRunning, now: clock()))
         message = flow.status
     }
 
@@ -167,10 +169,10 @@ final class RecordModel {
         case .restarted:
             if flow.phase == .armed { command(flow.arm(session, running: true)) }
         case .firstShot(let ms):
-            flow.firstShot(ms: ms, session)
+            flow.firstShot(ms: ms, session, now: clock())
             readout = (ms / 1000, nil)
         case .target(let t):
-            let (placement, cmd) = flow.target(firstMs: t.firstMs, secondMs: t.secondMs, callDb: t.callDb, session)
+            let (placement, cmd) = flow.target(firstMs: t.firstMs, secondMs: t.secondMs, callDb: t.callDb, session, now: clock())
             command(cmd)
             guard let p = placement else { return }
             session.recordTiming(at: p.index, firstShot: p.firstShot, secondShot: p.secondShot, callLevel: p.callLevel, mic: timer.route.label)

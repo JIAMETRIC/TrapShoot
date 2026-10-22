@@ -103,6 +103,7 @@ private struct Readout: View {
                 Text(second.map { "2nd " + JSText.fixed($0, 3) + " s" } ?? " ")
                     .font(BWFont.value(.title3)).foregroundStyle(BW.onInk)
             }
+            .padding(BWMetrics.s5)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .accessibilityElement(children: .combine)
