@@ -2,13 +2,15 @@ import Foundation
 import SwiftData
 import TrapCore
 
-/// Schema versions. Every change to `RoundRecord` adds a new `VersionedSchema` and a stage in the plan,
-/// so a shooter's store from any earlier build opens without loss (the "ALTER TABLE" of SwiftData).
+/// Schema versions. The native app has not shipped yet, so there is exactly one version and no migration stage.
+/// The 7.x hybrid app never had a SwiftData store (its data lived in the web page and Supabase), so there is no
+/// older store to migrate. When `RoundRecord` changes after the first TestFlight build, add `TrapSchemaV2` with the
+/// new model, keep V1 here unchanged, and add a stage to `TrapMigrationPlan`.
 public enum TrapSchemaV1: VersionedSchema {
     public static let versionIdentifier = Schema.Version(1, 0, 0)
     public static var models: [any PersistentModel.Type] { [RoundRecord.self] }
 
-    /// First shape of the store (build 8). Kept so stores from that build can migrate.
+    /// One stored round: indexed columns for lists and filters, and the full document v2 JSON as the payload.
     @Model
     public final class RoundRecord {
         @Attribute(.unique) public var id: String
@@ -18,32 +20,8 @@ public enum TrapSchemaV1: VersionedSchema {
         public var scheme: Int
         public var type: String
         public var sessionId: String
-        public var score: Int
-        public var recorded: Int
-        public var document: Data
-        public init(id: String, createdAt: String, updatedAt: String, date: String, scheme: Int, type: String, sessionId: String, score: Int, recorded: Int, document: Data) {
-            self.id = id; self.createdAt = createdAt; self.updatedAt = updatedAt; self.date = date; self.scheme = scheme
-            self.type = type; self.sessionId = sessionId; self.score = score; self.recorded = recorded; self.document = document
-        }
-    }
-}
-
-public enum TrapSchemaV2: VersionedSchema {
-    public static let versionIdentifier = Schema.Version(2, 0, 0)
-    public static var models: [any PersistentModel.Type] { [RoundRecord.self] }
-
-    /// V2 adds `place` as a column so the Rounds list can search and group by range without decoding documents.
-    /// A lightweight migration adds it with an empty default; `SwiftDataRoundRepository.backfill()` fills it once.
-    @Model
-    public final class RoundRecord {
-        @Attribute(.unique) public var id: String
-        public var createdAt: String
-        public var updatedAt: String
-        public var date: String
-        public var scheme: Int
-        public var type: String
-        public var sessionId: String
-        public var place: String = ""
+        /// Range name, for search and grouping without decoding documents.
+        public var place: String
         public var score: Int
         public var recorded: Int
         public var document: Data
@@ -69,14 +47,13 @@ public enum TrapSchemaV2: VersionedSchema {
 }
 
 /// The current record type. Code outside this file never names a version.
-public typealias RoundRecord = TrapSchemaV2.RoundRecord
-public typealias CurrentSchema = TrapSchemaV2
+public typealias RoundRecord = TrapSchemaV1.RoundRecord
+public typealias CurrentSchema = TrapSchemaV1
 
 public enum TrapMigrationPlan: SchemaMigrationPlan {
-    public static var schemas: [any VersionedSchema.Type] { [TrapSchemaV1.self, TrapSchemaV2.self] }
-    public static var stages: [MigrationStage] { [v1ToV2] }
-    /// Additive: one new column with a default. No data rewrite; `backfill()` fills `place` from the documents.
-    static let v1ToV2 = MigrationStage.lightweight(fromVersion: TrapSchemaV1.self, toVersion: TrapSchemaV2.self)
+    public static var schemas: [any VersionedSchema.Type] { [TrapSchemaV1.self] }
+    /// Empty until a V2 exists. Then: `.lightweight(fromVersion: TrapSchemaV1.self, toVersion: TrapSchemaV2.self)`.
+    public static var stages: [MigrationStage] { [] }
 }
 
 /// Schema design in one place, for the reader who thinks in tables:
@@ -90,17 +67,16 @@ public enum TrapMigrationPlan: SchemaMigrationPlan {
 ///   scheme     INTEGER           -- 1…10; filter for Analysis
 ///   type       TEXT              -- Training / Competition
 ///   sessionId  TEXT              -- human id; uniqueness enforced in code (SessionID), not by the store
-///   place      TEXT              -- V2; range name for search and grouping
+///   place      TEXT              -- range name for search and grouping
 ///   score      INTEGER           -- denormalised from the document for list rows
 ///   recorded   INTEGER           -- denormalised; 25 = full round
 ///   document   BLOB              -- the round itself, document v2 JSON (25 targets, times, levels, flags)
 /// ```
 ///
+/// Store: `AppConstants.storeName` + ".store" in Application Support (the same constant `TrapPlatform.AppPaths` uses).
+///
 /// Indexes: the primary key only. iOS 17 SwiftData offers no secondary indexes (`#Index` arrives with iOS 18);
 /// a lifetime of rounds is a few thousand rows, and the list sort on `createdAt` is a single ordered scan.
-/// When the minimum rises to iOS 18, add `#Index<RoundRecord>([\.createdAt], [\.scheme, \.date])`.
-///
-/// Migrations: V1 (build 8) → V2 (adds `place`, lightweight). Each new version is a new enum; the old ones stay.
 ///
 /// Transactions: SwiftData batches changes in the context until `save()`. `saveMany` turns autosave off,
 /// applies every row, saves once, and rolls back the context on any error, so an import is all or nothing.

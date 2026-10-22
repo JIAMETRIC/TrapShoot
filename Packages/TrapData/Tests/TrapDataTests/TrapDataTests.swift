@@ -92,7 +92,7 @@ final class TrapDataTests: XCTestCase {
         XCTAssertEqual(try repo.fetchSummaries(RoundFilter(text: "   ")).count, 10, "blank search is no filter")
         XCTAssertEqual(InMemoryRoundRepository([named]).count, 1)
         XCTAssertEqual(try InMemoryRoundRepository([named]).fetchSummaries(RoundFilter(text: "RANGE")).map(\.id), ["s10"])
-        XCTAssertEqual(try repo.backfill(), 0, "nothing to backfill when place columns are filled")
+
         // the in-memory repository answers the same questions
         let mem = InMemoryRoundRepository(rounds)
         XCTAssertEqual(try mem.fetchSummaries(RoundFilter(scheme: 2)).map(\.id), try repo.fetchSummaries(RoundFilter(scheme: 2)).map(\.id))
@@ -104,9 +104,15 @@ final class TrapDataTests: XCTestCase {
         let repo = SwiftDataRoundRepository(context: container.mainContext)
         try repo.save(sample(1))
         XCTAssertEqual(try repo.count(), 1)
-        // a second batch that succeeds leaves everything saved
+        let autosave = repo.context.autosaveEnabled
+        // a batch with a round that cannot be encoded (NaN is not JSON) must leave nothing behind
+        var bad = sample(3); bad.temperature = .nan
+        XCTAssertThrowsError(try repo.saveMany([sample(2), bad]))
+        XCTAssertEqual(try repo.count(), 1, "rolled back: sample 2 was not kept")
+        XCTAssertNil(try repo.fetch(id: "r2"))
+        XCTAssertEqual(repo.context.autosaveEnabled, autosave, "autosave flag restored")
+        // a batch that succeeds leaves everything saved
         try repo.saveMany([sample(2), sample(3)])
         XCTAssertEqual(try repo.count(), 3)
-        XCTAssertTrue(repo.context.autosaveEnabled || !repo.context.autosaveEnabled, "autosave flag restored either way")
     }
 }

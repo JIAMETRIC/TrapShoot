@@ -1,19 +1,7 @@
 import Foundation
 import TrapCore
 
-/// Sky as the round stores it.
-public enum Sky: String, CaseIterable, Sendable {
-    case sun, part, overcast, rain
-    public var name: String {
-        switch self { case .sun: return "Sun"; case .part: return "Part cloud"; case .overcast: return "Overcast"; case .rain: return "Rain" }
-    }
-}
-
-/// Wind as the round stores it.
-public enum Wind: String, CaseIterable, Sendable {
-    case calm, light, moderate, strong
-    public var name: String { rawValue.prefix(1).uppercased() + rawValue.dropFirst() }
-}
+// `Sky` and `Wind` live in TrapCore (shared with Analysis and the scorecard).
 
 /// The current conditions as Open-Meteo reports them.
 public struct WeatherSample: Equatable, Sendable {
@@ -74,7 +62,7 @@ public enum WeatherFill {
         return r.temperature == nil && r.humidity == nil && r.sky.isEmpty
     }
 
-    static func jsRound(_ x: Double) -> Double { (x + 0.5).rounded(.down) }
+    static func jsRound(_ x: Double) -> Double { JSMath.round(x) }
 }
 
 public enum WeatherError: Error, Equatable, UserFacingError {

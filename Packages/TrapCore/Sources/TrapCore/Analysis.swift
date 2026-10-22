@@ -32,8 +32,6 @@ public enum Analysis {
     public static let temperatureBands = ["Under 15 °C", "15 to 24 °C", "25 °C and over"]
     public static let humidityBands = ["Under 40 %", "40 to 59 %", "60 % and over"]
     public static let blocks = ["Shots 1 to 5", "Shots 6 to 10", "Shots 11 to 15", "Shots 16 to 20", "Shots 21 to 25"]
-    static let skyNames = ["sun": "Sun", "part": "Part cloud", "overcast": "Overcast", "rain": "Rain"]
-    static let windNames = ["calm": "Calm", "light": "Light", "moderate": "Moderate", "strong": "Strong"]
 
     struct Dimension {
         let title: String
@@ -55,8 +53,8 @@ public enum Analysis {
         },
         Dimension(title: "Position in round", order: blocks) { _, i in blocks[i / 5] },
         Dimension(title: "Scheme", order: (1...10).map(String.init)) { r, _ in String(r.scheme) },
-        Dimension(title: "Sky", order: ["Sun", "Part cloud", "Overcast", "Rain"]) { r, _ in skyNames[r.sky] },
-        Dimension(title: "Wind", order: ["Calm", "Light", "Moderate", "Strong"]) { r, _ in windNames[r.wind] },
+        Dimension(title: "Sky", order: Sky.names) { r, _ in Sky(rawValue: r.sky)?.name },
+        Dimension(title: "Wind", order: Wind.names) { r, _ in Wind(rawValue: r.wind)?.name },
         Dimension(title: "Temperature", order: temperatureBands) { r, _ in
             guard let t = r.temperature else { return nil }
             return t < 15 ? temperatureBands[0] : t < 25 ? temperatureBands[1] : temperatureBands[2]

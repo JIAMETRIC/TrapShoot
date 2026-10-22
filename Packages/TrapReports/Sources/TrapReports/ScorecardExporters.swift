@@ -2,8 +2,7 @@ import SwiftUI
 import UIKit
 import TrapCore
 
-/// PNG at 2× for sharing to messages and photos.
-@MainActor
+/// PNG at 2× for sharing to messages and photos. Call from the main actor (exports start from screens).
 public struct ScorecardImageExporter: DocumentExporter {
     public typealias Input = Round
     public let format = ExportFormat.png
@@ -14,16 +13,17 @@ public struct ScorecardImageExporter: DocumentExporter {
 
     public func filename(for r: Round) -> String { Exporters.reportBase(for: r) + "-scorecard.png" }
     public func data(for r: Round) throws -> Data {
-        let renderer = ImageRenderer(content: ScorecardView(round: r, breakModel: breakModel, appVersion: appVersion))
-        renderer.scale = scale
-        renderer.proposedSize = ProposedViewSize(ScorecardView.pageSize)
-        guard let image = renderer.uiImage, let png = image.pngData() else { throw ExportError.renderFailed }
-        return png
+        try MainActor.assumeIsolated {
+            let renderer = ImageRenderer(content: ScorecardView(round: r, breakModel: breakModel, appVersion: appVersion))
+            renderer.scale = scale
+            renderer.proposedSize = ProposedViewSize(ScorecardView.pageSize)
+            guard let image = renderer.uiImage, let png = image.pngData() else { throw ExportError.renderFailed }
+            return png
+        }
     }
 }
 
-/// A4 PDF with vector text (selectable, crisp at any zoom), one page per round.
-@MainActor
+/// A4 PDF with vector text (selectable, crisp at any zoom), one page per round. Call from the main actor.
 public struct ScorecardPDFExporter: DocumentExporter {
     public typealias Input = Round
     public let format = ExportFormat.pdf
@@ -33,6 +33,10 @@ public struct ScorecardPDFExporter: DocumentExporter {
 
     public func filename(for r: Round) -> String { Exporters.reportBase(for: r) + "-scorecard.pdf" }
     public func data(for r: Round) throws -> Data {
+        try MainActor.assumeIsolated { try render(r) }
+    }
+
+    private func render(_ r: Round) throws -> Data {
         var box = CGRect(origin: .zero, size: ScorecardView.pageSize)
         let data = NSMutableData()
         let info: [CFString: Any] = [kCGPDFContextTitle: "TrapShooterPro scorecard \(r.sessionId)", kCGPDFContextCreator: "TrapShooterPro \(appVersion)"]

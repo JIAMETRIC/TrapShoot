@@ -14,21 +14,8 @@ public final class SwiftDataRoundRepository: RoundRepository {
     /// The app's container (on disk) or a throwaway one for tests and previews.
     public static func container(inMemory: Bool = false) throws -> ModelContainer {
         let schema = Schema(versionedSchema: CurrentSchema.self)
-        let config = ModelConfiguration("TrapShooterPro", schema: schema, isStoredInMemoryOnly: inMemory)
+        let config = ModelConfiguration(AppConstants.storeName, schema: schema, isStoredInMemoryOnly: inMemory)
         return try ModelContainer(for: schema, migrationPlan: TrapMigrationPlan.self, configurations: [config])
-    }
-
-    /// Fills columns added by a migration from the stored documents. Cheap, idempotent; call once at launch.
-    @discardableResult
-    public func backfill() throws -> Int {
-        let empty = ""
-        let d = FetchDescriptor<RoundRecord>(predicate: #Predicate { $0.place == empty })
-        var n = 0
-        for rec in try context.fetch(d) {
-            if let r = try? rec.round(), !r.place.isEmpty { rec.place = r.place; n += 1 }
-        }
-        if n > 0 { try context.save() }
-        return n
     }
 
     public func fetchAll() throws -> [Round] {
@@ -60,7 +47,10 @@ public final class SwiftDataRoundRepository: RoundRepository {
         }
     }
 
+    /// Column fetch only: never loads the document payloads.
     public func sessionIdentifiers() throws -> [(id: String, sessionId: String)] {
-        try context.fetch(FetchDescriptor<RoundRecord>()).map { (id: $0.id, sessionId: $0.sessionId) }
+        var d = FetchDescriptor<RoundRecord>()
+        d.propertiesToFetch = [\.id, \.sessionId]
+        return try context.fetch(d).map { (id: $0.id, sessionId: $0.sessionId) }
     }
 }

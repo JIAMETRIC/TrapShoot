@@ -70,20 +70,26 @@ public extension RoundRepository {
 
 public extension SwiftDataRoundRepository {
     private func descriptor(_ f: RoundFilter) -> FetchDescriptor<RoundRecord> {
-        // Optionals are captured as (flag, value) pairs: #Predicate cannot unwrap optionals itself.
-        let useScheme = f.scheme != nil, scheme = f.scheme ?? 0
-        let useType = f.type != nil, type = f.type ?? ""
-        let useFrom = f.dateFrom != nil, from = f.dateFrom ?? ""
-        let useTo = f.dateTo != nil, to = f.dateTo ?? ""
-        let fullOnly = f.fullOnly, full = Round.targetCount
-        let useText = f.text != nil, text = f.text ?? ""
-        var d = FetchDescriptor<RoundRecord>(
-            predicate: #Predicate { r in
-                (!useScheme || r.scheme == scheme) && (!useType || r.type == type) &&
-                (!useFrom || r.date >= from) && (!useTo || r.date <= to) && (!fullOnly || r.recorded == full) &&
-                (!useText || r.place.localizedStandardContains(text) || r.sessionId.localizedStandardContains(text))
-            },
-            sortBy: [SortDescriptor(\.createdAt, order: .reverse)])
+        // Optionals become inclusive bounds so the predicate stays small enough for the type checker:
+        // a missing scheme is the full range, a missing date is "" … "9999-99-99", a missing type matches "".
+        let schemeLo = f.scheme ?? Int.min, schemeHi = f.scheme ?? Int.max
+        let anyType = f.type == nil, type = f.type ?? ""
+        let from = f.dateFrom ?? "", to = f.dateTo ?? "9999-99-99"
+        let recordedMin = f.fullOnly ? Round.targetCount : 0
+        let predicate: Predicate<RoundRecord>
+        if let text = f.text {
+            predicate = #Predicate { r in
+                r.scheme >= schemeLo && r.scheme <= schemeHi && (anyType || r.type == type) &&
+                r.date >= from && r.date <= to && r.recorded >= recordedMin &&
+                (r.place.localizedStandardContains(text) || r.sessionId.localizedStandardContains(text))
+            }
+        } else {
+            predicate = #Predicate { r in
+                r.scheme >= schemeLo && r.scheme <= schemeHi && (anyType || r.type == type) &&
+                r.date >= from && r.date <= to && r.recorded >= recordedMin
+            }
+        }
+        var d = FetchDescriptor<RoundRecord>(predicate: predicate, sortBy: [SortDescriptor(\.createdAt, order: .reverse)])
         d.propertiesToFetch = [\.id, \.createdAt, \.date, \.scheme, \.type, \.sessionId, \.place, \.score, \.recorded]
         return d
     }

@@ -32,8 +32,16 @@ Mobile-platform concerns, out of the screens and out of the domain. iOS only; ru
     let timer: TimerSession, lifecycle: LifecycleCoordinator, save: () -> Void
     func appWillResignActive() { save() }
     func appDidEnterBackground() {
-        lifecycle.finishInBackground("stop-timer") { [timer, save] in timer.stop(); save() }
+        lifecycle.finishInBackground("stop-timer") { [timer, save] in
+            timer.stop()                      // closes the recording on the recorder's queue
+            try? await Task.sleep(for: .milliseconds(300))   // let the file finalise before the task ends
+            save()
+            ScreenAwake.shared.release("timer")
+        }
     }
     func appWillEnterForeground() { timer.refreshInputs() }
 }
+
+/// The app, not the timer, keeps the screen awake: hold on `.started`, release on `stop()` and on background.
+```
 ```

@@ -185,11 +185,10 @@ public struct ScorecardView: View {
     /// "Sun, 24°C, 55% humidity, light wind" (the report's condition line).
     public static func conditions(_ r: Round) -> String {
         var bits: [String] = []
-        let sky = ["sun": "Sun", "part": "Part cloud", "overcast": "Overcast", "rain": "Rain"][r.sky]
-        if let sky { bits.append(sky) }
+        if let sky = Sky(rawValue: r.sky) { bits.append(sky.name) }
         if let t = r.temperature { bits.append("\(Int(t))°C") }
         if let h = r.humidity { bits.append("\(Int(h))% humidity") }
-        if !r.wind.isEmpty { bits.append("\(r.wind) wind") }
+        if let w = Wind(rawValue: r.wind) { bits.append("\(w.name.lowercased()) wind") }
         return bits.joined(separator: ", ")
     }
 }

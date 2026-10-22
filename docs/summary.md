@@ -21,7 +21,7 @@ One page. Every row points at code or a document in this repository.
 | Topic | Native iOS term here | Where |
 |---|---|---|
 | App lifecycle | `ScenePhase` → `LifecycleCoordinator` → four ordered participant calls; save on resign‑active, stop timer and close recording on background inside a `UIBackgroundTask`, refresh inputs on foreground; no background audio mode (ADR‑010); `ScreenAwake` ref‑counts the idle timer | `TrapPlatform/AppLifecycle.swift` |
-| Offline storage | SwiftData with versioned schema (V1→V2 lightweight migration, backfill), `completeUntilFirstUserAuthentication` file protection, recordings in Documents for the Files app, `RecordingsStore`, `StorageReport`, typed `CodableDefaults`, `BackupFile` (Transferable) | `TrapData`, `TrapPlatform/Storage.swift` |
+| Offline storage | SwiftData with a versioned schema and migration plan, `completeUntilFirstUserAuthentication` file protection, recordings in Documents for the Files app, `RecordingsStore`, `StorageReport`, typed `CodableDefaults`, `BackupFile` (Transferable) | `TrapData`, `TrapPlatform/Storage.swift` |
 | Push notifications | none remote (no server, no APNs); `LocalNotifier` schedules one passive unfinished‑round reminder, permission asked at that moment, never at launch; `SilentNotifier` for previews (ADR‑011) | `TrapPlatform/LocalNotifications.swift` |
 | Battery and network constraints | `PowerMonitor` (battery, Low Power Mode, thermal) → one advice value: slower level meter, round audio off by default, critical warnings; `NetworkMonitor` (`NWPathMonitor`) gates the only network call; `URLSession` with 15 s timeout, no cache, no waiting, no constrained access (ADR‑012) | `TrapPlatform/PowerMonitor.swift`, `NetworkMonitor.swift`, `TrapWeather` |
 | App Store publishing | `PrivacyInfo.xcprivacy` (no tracking, no collected data, required‑reason APIs) in the project; `ExportOptions.plist` + `Scripts/archive.sh`; privacy answers, review notes, listing text, quality gates; icon label TrapShoot; iOS 17, iPhone + iPad (ADR‑013) | `docs/app-store.md` |
@@ -46,7 +46,7 @@ One page. Every row points at code or a document in this repository.
 | 0 | Discovery, architecture, decisions | done | ADR‑001…016, plans and rules in the repo |
 | 1 | Foundation, tooling, design tokens | done, Mac verification pending | baseline builds; CI green; design preview light and dark; breakpoints |
 | 2 | Pure domain core (`TrapCore`) | done, first `swift test` pending | all golden fixtures pass; `RoundSession` tests; no UI/storage imports |
-| 3 | Local store (`TrapData`) | done, Mac verification pending | V1→V2 migration; summaries, search, paging, transaction tests; 7.x import |
+| 3 | Local store (`TrapData`) | done, Mac verification pending | summaries, search, paging and rollback tests; 7.x import |
 | 4 | Shot timer engine (`ShotTimer`) | package written; device verification pending | regression set within 7 ms; receiver scenarios recover; < 10 % battery per hour |
 | 5 | Record and Timer screens | next | full round on a real range; kill‑and‑resume; iPad split verified; UI test |
 | 6 | Rounds, Analysis, Schemes, exporters | after 5 | 2,000‑round list < 50 ms; selectable PDF text; CSV identical |

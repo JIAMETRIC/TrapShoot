@@ -1,4 +1,5 @@
 import Foundation
+import TrapCore
 
 /// Where the app keeps things on disk. Everything is local; everything is in the device backup.
 public enum AppPaths {
@@ -9,9 +10,9 @@ public enum AppPaths {
         return url
     }
     /// Same folder `RoundRecorder` writes to; visible in the Files app under On My iPhone > TrapShoot > Recordings.
-    public static var recordings: URL { documents.appendingPathComponent("Recordings", isDirectory: true) }
+    public static var recordings: URL { documents.appendingPathComponent(AppConstants.recordingsFolder, isDirectory: true) }
     /// SwiftData store (`TrapShooterPro.store`) lives here.
-    public static var store: URL { applicationSupport.appendingPathComponent("TrapShooterPro.store") }
+    public static var store: URL { applicationSupport.appendingPathComponent(AppConstants.storeName + ".store") }
 
     /// Rounds and recordings are readable after the first unlock, so the timer works on a locked, pocketed phone's
     /// next unlock without waiting, and are still encrypted at rest.
@@ -111,7 +112,7 @@ public struct CodableDefaults<Value: Codable> {
 
 /// Version, build and channel, for the About screen and support mails.
 public enum AppInfo {
-    public static var displayName: String { Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "TrapShoot" }
+    public static var displayName: String { Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? AppConstants.displayName }
     public static var version: String { Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0" }
     public static var build: String { Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "0" }
     public static var bundleID: String { Bundle.main.bundleIdentifier ?? "" }

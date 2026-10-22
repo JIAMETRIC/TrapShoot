@@ -31,8 +31,8 @@ public enum ExportError: Error, Equatable, UserFacingError {
 
 /// One kind of document from one kind of input. `export` is the template method: produce bytes, name the file,
 /// write it atomically to a folder, hand back the result. Subtypes only say what the bytes and the name are.
-/// Main‑actor bound: exports start from screens and the scorecard renderers need the main actor.
-@MainActor
+/// Not actor‑bound: CSV and backup exports can run anywhere. The two scorecard renderers need the main actor and
+/// say so inside their own `data(for:)`.
 public protocol DocumentExporter<Input> {
     associatedtype Input
     var format: ExportFormat { get }
@@ -98,7 +98,6 @@ public enum ExporterFactory {
         switch context { case .round: return [.png, .pdf, .csv]; case .roundList: return [.csv]; case .library: return [.json, .csv] }
     }
 
-    @MainActor
     public static func roundsExporter(_ format: ExportFormat, breakModel: BreakDistanceModel, appVersion: String) -> (any DocumentExporter<[Round]>)? {
         switch format {
         case .csv: return CSVRoundsExporter(breakModel: breakModel)
@@ -107,7 +106,6 @@ public enum ExporterFactory {
         }
     }
 
-    @MainActor
     public static func roundExporter(_ format: ExportFormat, breakModel: BreakDistanceModel, appVersion: String) -> (any DocumentExporter<Round>)? {
         switch format {
         case .png: return ScorecardImageExporter(breakModel: breakModel, appVersion: appVersion)

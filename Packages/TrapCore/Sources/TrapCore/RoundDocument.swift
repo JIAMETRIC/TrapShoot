@@ -30,9 +30,9 @@ public enum RoundDocument {
         if let v = str("choke2") { r.choke2 = v }
         if let v = str("ver") { r.appVersion = v }
 
-        if let v = num("session") { r.session = Int(v) }                 // session is an integer count
+        if let v = num("session"), let i = JSMath.safeInt(v) { r.session = i }   // session is an integer count
         if let v = num("scheme") { r.scheme = Int(exactly: v) ?? -1 }    // 3.5 is not a scheme
-        if let v = num("field") { r.field = Int(v) } else if isNull("field") { r.field = nil }
+        if let v = num("field") { r.field = JSMath.safeInt(v) } else if isNull("field") { r.field = nil }
         if let v = num("temp") { r.temperature = v } else if isNull("temp") { r.temperature = nil }
         if let v = num("hum") { r.humidity = v } else if isNull("hum") { r.humidity = nil }
         if let v = num("startStn"), v >= 1, v <= 5, let s = Int(exactly: v) { r.startStation = s }
@@ -57,8 +57,8 @@ public enum RoundDocument {
         }
         if let a = d["nt"] as? [Any] {
             var out: [Int] = a.prefix(n).map { v in
-                guard let x = jsonNumber(v), x > 0 else { return 0 }
-                return Int(x.rounded(.toNearestOrAwayFromZero))
+                guard let x = jsonNumber(v), x > 0, let i = JSMath.safeInt(x.rounded(.toNearestOrAwayFromZero)) else { return 0 }
+                return min(i, 9_999)
             }
             while out.count < n { out.append(0) }
             r.noTarget = out

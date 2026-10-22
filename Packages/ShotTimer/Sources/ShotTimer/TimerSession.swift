@@ -1,11 +1,11 @@
 import AVFoundation
 import Observation
-import UIKit
 
 /// The shot timer as the app sees it. A port of 7.0.7's `MicBridge`: it starts and stops the microphone,
 /// restarts it after hardware changes or silence, records round audio, and publishes results.
 /// Rule kept from the original: the audio session is set once, in start. Nothing re-applies it while timing runs.
 /// All state changes happen on the main actor; the detector delivers its callbacks on the main queue.
+/// Keeping the screen awake is the app's job (`TrapPlatform.ScreenAwake`), driven by `isRunning`.
 @MainActor
 @Observable
 public final class TimerSession: ShotTimerControlling {
@@ -26,8 +26,8 @@ public final class TimerSession: ShotTimerControlling {
     @ObservationIgnored public var onEvent: ((TimerEvent) -> Void)?
 
     // MARK: private
-    private let detector = AudioDetector()
-    private let recorder = RoundRecorder()
+    private let detector: ShotDetecting
+    private let recorder: RoundRecording
     @ObservationIgnored private var recordName = ""
     @ObservationIgnored private var observers: [NSObjectProtocol] = []
     // watchdog: restarts the engine when no audio arrives
@@ -39,7 +39,12 @@ public final class TimerSession: ShotTimerControlling {
     @ObservationIgnored private var reportedDead = false
     @ObservationIgnored private var pendingRestart: DispatchWorkItem?
 
-    public init() {
+    public convenience init() { self.init(detector: AudioDetector(), recorder: RoundRecorder()) }
+
+    /// Tests inject fakes here.
+    init(detector: ShotDetecting, recorder: RoundRecording) {
+        self.detector = detector
+        self.recorder = recorder
         detector.onFirstShot = { [weak self] ms in
             MainActor.assumeIsolated { self?.emit(.firstShot(ms: ms)) }
         }
@@ -57,6 +62,13 @@ public final class TimerSession: ShotTimerControlling {
                 self.emit(.level(voiceDb: self.voiceDb, peakDb: self.peakDb))
             }
         }
+    }
+
+    deinit {
+        let center = NotificationCenter.default
+        observers.forEach { center.removeObserver($0) }
+        watchdog?.invalidate()
+        pendingRestart?.cancel()
     }
 
     // MARK: control
@@ -93,12 +105,11 @@ public final class TimerSession: ShotTimerControlling {
             fail("Microphone access is off. Open Settings > TrapShoot > Microphone and turn it on.")
             return
         }
+        if isRunning { stop() }                       // closes an open recording and cancels a pending restart
         do {
-            if isRunning { detector.stop(); isRunning = false }
             try detector.start(preferredInput: preferredInput)
             isRunning = true
             lastError = nil
-            UIApplication.shared.isIdleTimerDisabled = true
             observe()
             route = routeInfo()
             sampleRate = detector.sr
@@ -110,6 +121,7 @@ public final class TimerSession: ShotTimerControlling {
             startWatchdog()
         } catch {
             detector.stop()
+            removeObservers()
             fail("The microphone could not start (\(error.localizedDescription)).")
         }
     }
@@ -120,11 +132,16 @@ public final class TimerSession: ShotTimerControlling {
         watchdog?.invalidate(); watchdog = nil
         pendingRestart?.cancel(); pendingRestart = nil
         detector.stop()
-        UIApplication.shared.isIdleTimerDisabled = false
+        removeObservers()
         endRecording()
     }
 
     // MARK: round audio
+
+    private func installTap() {
+        let rec = recorder                                   // the tap runs on the audio render thread
+        detector.tap = { @Sendable buffer, ch in rec.append(buffer, channel: ch) }
+    }
 
     private func beginRecording() -> String? {
         let meta: [String: Any] = ["app": "TrapShooterPro", "session": recordName, "mic": route.label,
@@ -132,8 +149,7 @@ public final class TimerSession: ShotTimerControlling {
                                              "minCallMs": settings.minCallMs, "secondWinMs": settings.secondWinMs, "gateDb": settings.gateDb.map { $0 as Any } ?? NSNull()]]
         do {
             let url = try recorder.begin(name: recordName, sampleRate: detector.sr, meta: meta)
-            let rec = recorder                                   // the tap runs on the audio thread
-            detector.tap = { buffer, ch in rec.append(buffer, channel: ch) }
+            installTap()
             isRecording = true
             return url.lastPathComponent
         } catch {
@@ -208,6 +224,12 @@ public final class TimerSession: ShotTimerControlling {
         })
     }
 
+    private func removeObservers() {
+        let center = NotificationCenter.default
+        observers.forEach { center.removeObserver($0) }
+        observers = []
+    }
+
     // MARK: restart and watchdog
 
     private func scheduleRestart(after delay: Double, reason: String) {
@@ -229,8 +251,7 @@ public final class TimerSession: ShotTimerControlling {
                 endRecording()
                 _ = beginRecording()
             } else if wasRecording {
-                let rec = recorder
-                detector.tap = { buffer, ch in rec.append(buffer, channel: ch) }
+                installTap()
             }
             route = routeInfo()
             sampleRate = detector.sr

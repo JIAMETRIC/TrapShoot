@@ -236,7 +236,7 @@ public extension Analysis {
     static func angleLabel(_ l: String) -> String { l == "0" ? "straight" : l }
     static func heightLabel(_ h: Double) -> String { JSText.number(jsRound(h * 100) / 100) + " m" }
     /// JavaScript Math.round: halves go up.
-    static func jsRound(_ x: Double) -> Double { (x + 0.5).rounded(.down) }
+    static func jsRound(_ x: Double) -> Double { JSMath.round(x) }
 
     /// Plain-language findings of a trap analysis, in the web app's wording.
     static func findings(_ a: TrapAnalysis) -> [String] {

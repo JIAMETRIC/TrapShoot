@@ -10,6 +10,6 @@ let package = Package(
     dependencies: [.package(path: "../TrapCore")],
     targets: [
         .target(name: "TrapData", dependencies: [.product(name: "TrapCore", package: "TrapCore")]),
-        .testTarget(name: "TrapDataTests", dependencies: ["TrapData"])
+        .testTarget(name: "TrapDataTests", dependencies: ["TrapData", .product(name: "TrapCore", package: "TrapCore")])
     ]
 )

@@ -49,7 +49,7 @@ public enum CSVExport {
 public enum JSText {
     public static func number(_ v: Double) -> String {
         if !v.isFinite { return v.isNaN ? "NaN" : (v < 0 ? "-Infinity" : "Infinity") }
-        if v == v.rounded(), abs(v) < 1e21 { return String(Int64(v)) }
+        if v == v.rounded(), abs(v) < 9_007_199_254_740_992 { return String(Int64(v)) }   // beyond 2^53 fall through to the shortest form
         var s = "\(v)"                         // Swift prints the shortest round-trip form, like JavaScript
         if let e = s.range(of: "e") {          // 1e-07 -> 1e-7
             let mant = s[..<e.lowerBound], expo = s[e.upperBound...]

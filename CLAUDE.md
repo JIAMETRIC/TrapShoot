@@ -4,7 +4,8 @@ Native iOS/iPadOS app for Olympic Trap shooters: a call‑to‑shot timer that l
 a 25‑target round recorder, break‑distance model, analysis and exports. **Local‑first: no account, no server, no network
 dependency.** Icon label "TrapShoot", bundle id `com.mtajudeen.trapshooterpro`, iOS 17.0+, iPhone and iPad, SwiftUI.
 
-Read `docs/phases/README.md` (master plan by phase, exit gates), `docs/native-plan.md` (decisions), `docs/architecture.md`
+Read `docs/phases/README.md` (master plan by phase, exit gates), `docs/architecture-review.md` and
+`docs/code-review-2026-10-22.md` (evaluation and the fixed findings), `docs/build-options.md` (how to compile without a local Mac), `docs/native-plan.md` (decisions), `docs/architecture.md`
 (system design, ADRs), `docs/engineering.md` (testing, security, performance, debugging, git, CI) and
 `docs/design-system.md` (visual system, breakpoints) before larger changes.
 
@@ -20,7 +21,7 @@ into the Swift packages and the SwiftUI app target.
 | Shot detector, mic engine, recorder | `Packages/ShotTimer` (detector and recorder byte‑identical copies of the app files; `TimerSession` replaces `MicBridge`) | written; the app target still uses its own copies until it links the package |
 | Pure logic | `Packages/TrapCore` | written, golden‑tested against the JavaScript (incl. trap analysis) |
 | Design system | `Packages/TrapDesign` | written |
-| Storage (SwiftData) | `Packages/TrapData` | written: `RoundRepository`, in‑memory and SwiftData, backup, importer |
+| Storage (SwiftData) | `Packages/TrapData` | written: `RoundRepository`, in‑memory and SwiftData, summaries with search and paging, transactional `saveMany`, backup, importer |
 | Reports (scorecard PNG, PDF, CSV share) | `Packages/TrapReports` | written: `DocumentExporter` + factory, `ScorecardView`, PNG and vector PDF exporters |
 | Weather + location | `Packages/TrapWeather` | written: Open‑Meteo client tuned for constrained networks, sky/wind mapping, fill policy, one‑shot location |
 | Platform (lifecycle, power, network, notifications, storage, identity) | `Packages/TrapPlatform` | written; policies in `docs/architecture.md` ADR‑010..013 |

@@ -13,6 +13,7 @@ let package = Package(
             .product(name: "TrapCore", package: "TrapCore"),
             .product(name: "TrapData", package: "TrapData"),
             .product(name: "TrapDesign", package: "TrapDesign")
-        ])
+        ]),
+        .testTarget(name: "TrapReportsTests", dependencies: ["TrapReports", .product(name: "TrapCore", package: "TrapCore")])
     ]
 )

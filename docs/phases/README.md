@@ -23,7 +23,7 @@ and EAS (Xcode and `xcodebuild`), Sentry (MetricKit and a support bundle), Andro
 | 0 | Discovery, architecture and decisions | SD · SEF · OOP | **done** | ADR‑001…016 written; plan, design system and engineering docs in the repo |
 | 1 | Foundation, tooling, design tokens | CMS · SEF · TAB | **done** (verification on Mac pending) | baseline 7.0.7 builds; CI green; `TrapDesign` preview renders light and dark; breakpoints published |
 | 2 | Pure domain core | OOP · DSA · SEF | **done** (first `swift test` on Mac pending) | all golden fixtures pass; `RoundSession` tests pass; zero UI or storage imports in TrapCore |
-| 3 | Local store and repositories | SD · DSA · CMS · SEF | **done** (verification on Mac pending) | V1→V2 migration passes on a build‑8 store; summaries, search, paging, `saveMany` tests green; import of 7.x shapes |
+| 3 | Local store and repositories | SD · DSA · CMS · SEF | **done** (verification on Mac pending) | summaries, search, paging and `saveMany` rollback tests green; import of 7.x shapes |
 | 4 | Shot timer engine | OOP · CMS · DSA | package written; device verification pending | detector regression set within 7 ms on every fixture; receiver plug/unplug recovers; watchdog restarts; 1 h timing < 10 % battery |
 | 5 | Record and Timer screens | OOP · CMS · TAB · SEF | next | a full round recorded on a real range with the native app; kill‑and‑resume restores the round; iPad split layout verified |
 | 6 | Rounds, Analysis, Schemes, exporters | DSA · TAB · SEF | after 5 | 2,000‑round list first screen < 50 ms; scorecard PDF text is selectable; CSV byte‑identical to the web app for the same round |
@@ -60,7 +60,7 @@ Phase files: `phase-0.md` … `phase-9.md`. Gate record template: `gates/PHASE_G
 | Detector regresses when moved or wrapped | 4 | Low | Critical | byte‑identical copy, regression fixtures from range recordings, `cmp` in CI |
 | Code written without a compiler does not build | 1–7 | High | Medium | small commits, `swift test` on the Mac after every package change, CI on every PR |
 | Hand‑edited `project.pbxproj` breaks | 1, 5 | Medium | Medium | changes limited to resources and package references; Xcode re‑sorts; `merge=union` |
-| V1 → V2 store migration fails on a real device | 3, 7 | Low | High | lightweight stage only; test opens a build‑8 store copy; `backfill()` idempotent |
+| First schema change after TestFlight breaks existing stores | 7+ | Low | High | versioned schemas with a migration plan already in place; add V2 and a lightweight stage, test on a copied store |
 | App Review questions the microphone or wants an account | 8 | Medium | Medium | review notes, no login, privacy manifest, demo instructions (say "pull", clap twice) |
 | Battery drain during long sessions | 4, 5 | Medium | Medium | `PowerMonitor` advice, screen‑awake only while timing, level meter throttled |
 | External receiver behaviour differs per device | 4, 5 | High | Medium | route handling kept from 7.0.4, audio check line, TestFlight with DJI users |

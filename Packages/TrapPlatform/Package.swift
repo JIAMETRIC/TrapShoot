@@ -8,8 +8,9 @@ let package = Package(
     name: "TrapPlatform",
     platforms: [.iOS(.v17)],
     products: [.library(name: "TrapPlatform", targets: ["TrapPlatform"])],
+    dependencies: [.package(path: "../TrapCore")],
     targets: [
-        .target(name: "TrapPlatform"),
+        .target(name: "TrapPlatform", dependencies: [.product(name: "TrapCore", package: "TrapCore")]),
         .testTarget(name: "TrapPlatformTests", dependencies: ["TrapPlatform"])
     ]
 )

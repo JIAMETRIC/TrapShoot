@@ -17,7 +17,7 @@ final class ValidationAndPerformanceTests: XCTestCase {
         r.date = "22/10/2026"; r.startTime = "9:30"; r.startStation = 7; r.scheme = 11; r.session = 0
         r.notes = String(repeating: "x", count: 2001); r.temperature = 80; r.humidity = -1
         r.firstShot[1] = 9; r.firstShot[2] = 0.8; r.secondShot[2] = 0.5
-        r.directions[0] = .right; r.directions[5] = .right; r.directions[10] = .right   // station 1 three rights
+        r.directions[0] = .right; r.directions[5] = .right; r.directions[10] = .right   // with start station 7 these are station 2: three rights
         let issues = Validation.issues(in: r)
         XCTAssertTrue(issues.contains(.badDate("22/10/2026")))
         XCTAssertTrue(issues.contains(.badStartTime("9:30")))
@@ -29,7 +29,7 @@ final class ValidationAndPerformanceTests: XCTestCase {
         XCTAssertTrue(issues.contains(.humidityOutOfRange(-1)))
         XCTAssertTrue(issues.contains(.shotTimeOutOfRange(target: 1, seconds: 9)))
         XCTAssertTrue(issues.contains(.secondBeforeFirst(target: 2)))
-        XCTAssertTrue(issues.contains(.stationOverQuota(station: 1)))
+        XCTAssertTrue(issues.contains(.stationOverQuota(station: 2)))
         XCTAssertFalse(issues[0].message.isEmpty)
     }
 
@@ -54,6 +54,16 @@ final class ValidationAndPerformanceTests: XCTestCase {
         XCTAssertEqual(CSVExport.cell(-20), "-20", "numbers are untouched")
         XCTAssertEqual(CSVExport.cell(-0.5), "-0.5")
         XCTAssertEqual(CSVExport.cell("plain"), "plain")
+    }
+
+    func testSafeIntegersAndSharedEnums() throws {
+        XCTAssertEqual(JSMath.safeInt(3.9), 3); XCTAssertNil(JSMath.safeInt(.nan)); XCTAssertNil(JSMath.safeInt(1e300))
+        let r = RoundDocument.round(id: "x", from: ["date": "2026-10-01", "createdAt": "2026-10-01T05:00:00.000Z", "session": 1e300, "field": Double.infinity, "nt": [1e300, 2]])
+        XCTAssertEqual(r.session, 1); XCTAssertNil(r.field); XCTAssertEqual(Array(r.noTarget.prefix(2)), [0, 2])
+        XCTAssertEqual(JSText.number(1e19), "1e+19")
+        XCTAssertEqual(CSVExport.cell(1e19), "1e+19", "no Int64 overflow")
+        XCTAssertEqual(Sky(rawValue: "part")?.name, "Part cloud"); XCTAssertEqual(Wind(rawValue: "strong")?.name, "Strong")
+        XCTAssertEqual(Sky.names, ["Sun", "Part cloud", "Overcast", "Rain"])
     }
 
     func testDisplayError() {

@@ -72,15 +72,30 @@ public final class LifecycleCoordinator {
     }
 
     /// Runs `work` under a UIKit background task so file writes and the final save finish after the app is hidden.
-    /// Keep it short (well under 30 s); the system ends it otherwise.
-    public func finishInBackground(_ name: String, _ work: @escaping @MainActor () -> Void) {
-        var id: UIBackgroundTaskIdentifier = .invalid
-        id = UIApplication.shared.beginBackgroundTask(withName: name) {
-            UIApplication.shared.endBackgroundTask(id)
-            id = .invalid
+    /// The task ends when `work` returns, including its awaited parts. Keep it short (well under 30 s); the system
+    /// ends it otherwise and the expiration handler releases it.
+    public func finishInBackground(_ name: String, _ work: @escaping @MainActor () async -> Void) {
+        let handle = BackgroundTaskHandle(name: name)
+        Task { @MainActor in
+            await work()
+            handle.end()
         }
-        work()
-        if id != .invalid { UIApplication.shared.endBackgroundTask(id) }
+    }
+}
+
+/// Owns one background task identifier; ends it exactly once, from `end()` or from the expiration handler.
+@MainActor
+final class BackgroundTaskHandle {
+    private var id: UIBackgroundTaskIdentifier = .invalid
+    init(name: String) {
+        id = UIApplication.shared.beginBackgroundTask(withName: name) { [weak self] in
+            MainActor.assumeIsolated { self?.end() }
+        }
+    }
+    func end() {
+        guard id != .invalid else { return }
+        UIApplication.shared.endBackgroundTask(id)
+        id = .invalid
     }
 }
 

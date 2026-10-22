@@ -63,11 +63,12 @@ public enum Importer {
     public static func merge(_ rounds: [Round], into repo: RoundRepository, policy: Policy) throws -> ImportReport {
         var report = ImportReport()
         var toWrite: [Round] = []
+        let existing = Set(try repo.sessionIdentifiers().map(\.id))      // ids only, no document decoding
         for raw in rounds {
             let r = Validation.sanitized(raw)
             let issues = Validation.issues(in: r)
             if !issues.isEmpty { report.issues[r.id] = issues }
-            if try repo.fetch(id: r.id) != nil {
+            if existing.contains(r.id) {
                 if policy == .replaceExisting { toWrite.append(r); report.replaced += 1 } else { report.skipped += 1 }
             } else {
                 toWrite.append(r); report.added += 1

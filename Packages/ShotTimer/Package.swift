@@ -8,5 +8,8 @@ let package = Package(
     name: "ShotTimer",
     platforms: [.iOS(.v17)],
     products: [.library(name: "ShotTimer", targets: ["ShotTimer"])],
-    targets: [.target(name: "ShotTimer")]
+    targets: [
+        .target(name: "ShotTimer"),
+        .testTarget(name: "ShotTimerTests", dependencies: ["ShotTimer"])
+    ]
 )
