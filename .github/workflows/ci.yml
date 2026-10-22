@@ -23,6 +23,7 @@ jobs:
   packages-macos:
     name: swift test (TrapCore, TrapData, TrapWeather)
     runs-on: macos-15
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - run: sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app
@@ -47,6 +48,7 @@ jobs:
   ios:
     name: iOS build and simulator tests
     runs-on: macos-15
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - run: sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app
