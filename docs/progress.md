@@ -2,13 +2,13 @@
 
 One line per deliverable, updated with every commit that changes one. Plan and exit gates: `docs/phases/`.
 Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the gate's device, range or Mac check still to do ·
-🔨 in progress · 🔁 re‑verifying after the CI correction · ⏳ waiting on the owner (recordings, iPhone, range, Mac, Apple account) · ⬜ not started.
+🔨 in progress · ⏳ waiting on the owner (recordings, iPhone, range, Mac, Apple account) · ⬜ not started.
 
 *Last updated: 22 October 2026*
 
 > **Correction (22 October 2026, `d4852de`).** Until this commit the iOS CI job could not fail: `xcodebuild | xcpretty`
 > ran without `pipefail`, so a step passed whatever xcodebuild did. Everything that only that job checked (the app build;
-> TrapPlatform, ShotTimer, TrapReports and TrapApp tests) is marked 🔁 below until a corrected run passes. Golden
+> TrapPlatform, ShotTimer, TrapReports and TrapApp tests) was re‑verified by run 39807963273 on `b7543a8`: the app build and all package tests pass. Golden
 > fixtures and `swift test` for TrapCore, TrapData and TrapWeather were always real.
 
 ## Verification available
@@ -32,7 +32,7 @@ Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the g
 | Repository on GitHub (`JIAMETRIC/TrapShooterPro`), CI and release workflows | ✅ |
 | CI green on `main` (fixtures, `swift test`, simulator build and tests) | ✅ |
 | CI failure lines published as annotations (logs need sign‑in) | ✅ |
-| `TrapDesign` tokens, components, breakpoints | 🔁 |
+| `TrapDesign` tokens, components, breakpoints | ✅ |
 | Design preview rendered light and dark | ⏳ Mac |
 
 ## Phase 2 — Domain core (`TrapCore`) ✅
@@ -55,8 +55,8 @@ Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the g
 | Deliverable | State |
 |---|---|
 | Detector and recorder byte‑identical to the app; `TimerSession` replaces `MicBridge` | ✅ |
-| `ShotTimerTests` run in CI | 🔁 |
-| DJI Mic Mini 2 as reference receiver: recognised, preferred under System default, named on the check line | 🔁 |
+| `ShotTimerTests` run in CI | ✅ |
+| DJI Mic Mini 2 as reference receiver: recognised, preferred under System default, named on the check line | ✅ |
 | Port name of the DJI receiver confirmed on a device | ⏳ iPhone + DJI |
 | Detector regression recordings (9 range videos, 18 Oct mic test) with expected times | ⏳ owner |
 | `FileAnalyzer` ("Time a recording") and regression test target | ⬜ after the recordings |
@@ -66,32 +66,32 @@ Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the g
 
 | Deliverable | State |
 |---|---|
-| `TrapReports` built and tested in CI | 🔁 |
-| Local packages linked into the Xcode project (`TrapApp`, ADR‑017) | 🔁 |
-| Native app root replaces the WebView | 🔁 |
-| `RecordModel`, `TimingFlow` (7.0.7 range flow), lifecycle, kill‑and‑resume | 🔁 |
-| Record screen | 🔁 |
-| Timer screen | 🔁 |
-| iPhone tabs, iPad split, keyboard, VoiceOver, Dynamic Type | 🔁 |
-| Range flow tested through a scripted timer (`RecordFlowTests`) | 🔁 |
+| `TrapReports` built and tested in CI | ✅ |
+| Local packages linked into the Xcode project (`TrapApp`, ADR‑017) | ✅ |
+| Native app root replaces the WebView | ✅ |
+| `RecordModel`, `TimingFlow` (7.0.7 range flow), lifecycle, kill‑and‑resume | 🟡 |
+| Record screen | 🟡 |
+| Timer screen | 🟡 |
+| iPhone tabs, iPad split, keyboard, VoiceOver, Dynamic Type | 🟡 |
+| Range flow tested through a scripted timer (`RecordFlowTests`) | 🟡 |
 | Full round on a real range; kill‑and‑resume on device | ⏳ range |
 
 ## Phase 6 — Rounds, Analysis, Schemes, exporters
 
 | Deliverable | State |
 |---|---|
-| Rounds list (search, chips, paging, delete with undo, iPad master‑detail) | 🔁 |
-| Analysis (tiles, trends, tables, trap analysis) | 🔁 |
-| Schemes table | 🔁 |
-| Exports through `ExporterFactory` and the share sheet, temp files removed | 🔁 |
+| Rounds list (search, chips, paging, delete with undo, iPad master‑detail) | 🟡 |
+| Analysis (tiles, trends, tables, trap analysis) | 🟡 |
+| Schemes table | 🟡 |
+| Exports through `ExporterFactory` and the share sheet, temp files removed | 🟡 |
 | Performance gates on device | ⏳ iPhone |
 
 ## Phase 7 — Settings, data, platform
 
 | Deliverable | State |
 |---|---|
-| Settings, Data, About screens | 🔁 |
-| Lifecycle, power, network, reminder, MetricKit wired | 🔁 |
+| Settings, Data, About screens | 🟡 |
+| Lifecycle, power, network, reminder, MetricKit wired | 🟡 |
 | `Web/`, Supabase and hybrid Swift files deleted; 7.0.7 page kept only as the golden reference in `Tools/golden/reference/` | ✅ |
 | Backup → reinstall → restore on device | ⏳ iPhone |
 
@@ -127,4 +127,7 @@ Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the g
 | 2026‑10‑22 | `27f40f5` | `TrapApp` package linked into the Xcode project (ADR‑017); hybrid sources out of the target |
 | 2026‑10‑22 | `31cd9c7` | Native Record, Timer, Rounds, Analysis, Schemes, Settings; `TimingFlow`; CI green |
 | 2026‑10‑22 | `e4375cf` | Phase 7 clean break: web app and hybrid sources deleted; README for the native app |
-| 2026‑10‑22 | `77aed18` | Phase 8 code side: 8.0.0 (1), review notes, privacy and support pages; CI green |
+| 2026‑10‑22 | `77aed18` | Phase 8 code side: 8.0.0 (1), review notes, privacy and support pages |
+| 2026‑10‑22 | `c0e247f` | Demo mode and screenshot workflow (`screenshots` branch) |
+| 2026‑10‑22 | `d4852de` | CI corrected: simulator steps fail when xcodebuild fails |
+| 2026‑10‑22 | `b7543a8` | First fully verified run: app build and every package test green; ink panel and tile fixes |
