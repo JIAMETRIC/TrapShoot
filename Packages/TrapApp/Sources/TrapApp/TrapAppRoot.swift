@@ -8,7 +8,7 @@ import TrapPlatform
 public struct TrapAppRoot: View {
     @State private var app: AppModel
 
-    public init() { _app = State(initialValue: AppModel()) }
+    public init() { _app = State(initialValue: DemoMode.isOn ? DemoMode.makeApp() : AppModel()) }
     init(app: AppModel) { _app = State(initialValue: app) }
 
     public var body: some View {
@@ -52,6 +52,7 @@ struct AppShell: View {
     @Environment(\.breakpoint) private var breakpoint
     @Environment(AppModel.self) private var app
     @AppStorage(AppState.sectionKey) private var selectedRaw = AppSection.record.rawValue
+    @State private var columns = NavigationSplitViewVisibility.all
 
     private var selection: Binding<AppSection> {
         Binding(get: { AppSection(rawValue: selectedRaw) ?? .record }, set: { selectedRaw = $0.rawValue })
@@ -60,12 +61,13 @@ struct AppShell: View {
     var body: some View {
         Group {
             if breakpoint.isSplit {
-                NavigationSplitView {
+                NavigationSplitView(columnVisibility: $columns) {
                     Sidebar(selection: selection)
                         .navigationSplitViewColumnWidth(breakpoint.sidebarWidth)
                 } detail: {
                     NavigationStack { SectionScreen(section: selection.wrappedValue) }
                 }
+                .navigationSplitViewStyle(.balanced)              // sidebar stays beside the content in portrait
             } else {
                 TabView(selection: selection) {
                     ForEach(AppSection.allCases) { s in

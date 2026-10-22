@@ -51,14 +51,15 @@ final class AppModel: LifecycleParticipant {
         MetricsCollector.shared.start()
     }
 
-    /// Previews and UI tests: an in-memory store and a scripted timer.
-    init(repository: RoundRepository, timer: ShotTimerControlling, settings: AppSettings = AppSettings()) {
+    /// Previews, demo mode and UI tests: an in-memory store and a scripted timer.
+    init(repository: RoundRepository, timer: ShotTimerControlling, settings: AppSettings = AppSettings(),
+         defaults: UserDefaults = UserDefaults(suiteName: "preview") ?? .standard) {
         self.settings = settings
         self.repository = repository
         container = nil
         self.timer = timer
         notifier = SilentNotifier()
-        record = RecordModel(repository: repository, timer: timer, settings: settings, defaults: UserDefaults(suiteName: "preview") ?? .standard)
+        record = RecordModel(repository: repository, timer: timer, settings: settings, defaults: defaults)
         weather = WeatherModel()
         lifecycle.add(self)
     }

@@ -1,0 +1,45 @@
+name: Screenshots
+
+# Every screen in demo mode on iPhone and iPad, light and dark, published to the `screenshots` branch
+# (view: https://github.com/JIAMETRIC/TrapShooterPro/tree/screenshots). Runs when the app or this workflow changes.
+on:
+  push:
+    branches: [main]
+    paths: ['Packages/**', 'TrapShooterPro/**', 'Scripts/screenshots.sh', '.github/workflows/screenshots.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: screenshots
+  cancel-in-progress: true
+
+jobs:
+  screenshots:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo xcode-select -s /Applications/Xcode_16.4.app || sudo xcode-select -s /Applications/Xcode.app
+      - name: Build for the simulator
+        run: |
+          xcodebuild -project TrapShooterPro.xcodeproj -scheme TrapShooterPro -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build CODE_SIGNING_ALLOWED=NO build \
+            | tee "$RUNNER_TEMP/build.log" | xcpretty || exit ${PIPESTATUS[0]}
+      - name: Take screenshots
+        run: bash Scripts/screenshots.sh build/Build/Products/Debug-iphonesimulator/TrapShooterPro.app shots
+      - name: Publish to the screenshots branch
+        run: |
+          cd shots
+          git init -q -b screenshots
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -q -m "Screenshots of ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" screenshots
+      - name: Annotate failures
+        if: failure()
+        shell: bash
+        run: |
+          lines=$(grep -hE "error:|failed|Fatal error" "$RUNNER_TEMP"/*.log 2>/dev/null | head -60 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+          echo "::error title=screenshot failures::${lines:-see the step that failed}"
