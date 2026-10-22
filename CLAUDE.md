@@ -4,7 +4,8 @@ Native iOS/iPadOS app for Olympic Trap shooters: a call‑to‑shot timer that l
 a 25‑target round recorder, break‑distance model, analysis and exports. **Local‑first: no account, no server, no network
 dependency.** Icon label "TrapShoot", bundle id `com.mtajudeen.trapshooterpro`, iOS 17.0+, iPhone and iPad, SwiftUI.
 
-Read `docs/native-plan.md` (plan and decisions) and `docs/design-system.md` (visual system) before larger changes.
+Read `docs/native-plan.md` (plan and decisions), `docs/architecture.md` (system design, ADRs) and `docs/design-system.md`
+(visual system) before larger changes.
 
 ## State of the migration
 
@@ -15,10 +16,10 @@ into the Swift packages and the SwiftUI app target.
 | Layer | Path | Status |
 |---|---|---|
 | App target (SwiftUI) | `TrapShooterPro/` | hybrid shell; being replaced screen by screen |
-| Shot detector, mic engine, recorder | `TrapShooterPro/AudioDetector.swift`, `MicBridge.swift`, `RoundRecorder.swift` | **finished and validated; keep** (moves into `Packages/ShotTimer`) |
-| Pure logic | `Packages/TrapCore` | written, golden‑tested against the JavaScript |
+| Shot detector, mic engine, recorder | `Packages/ShotTimer` (detector and recorder byte‑identical copies of the app files; `TimerSession` replaces `MicBridge`) | written; the app target still uses its own copies until it links the package |
+| Pure logic | `Packages/TrapCore` | written, golden‑tested against the JavaScript (incl. trap analysis) |
 | Design system | `Packages/TrapDesign` | written |
-| Storage (SwiftData) | `Packages/TrapData` | planned |
+| Storage (SwiftData) | `Packages/TrapData` | written: `RoundRepository`, in‑memory and SwiftData, backup, importer |
 | Reports (scorecard PNG, PDF, CSV share) | `Packages/TrapReports` | planned |
 | Weather + location | `Packages/TrapWeather` | planned |
 | Legacy web page | `TrapShooterPro/Web/` | reference only; deleted at the end of Phase 2 |

@@ -131,8 +131,8 @@ Each phase ends with something installable on the phone. Estimates assume one de
 ### Phase 1 — Core logic and the shooting flow, native (about 3 weeks)
 
 1. **TrapCore**: port schemes, station math, direction quota/odds, scoring, round document codec, break‑distance ballistics, CSV and analysis. Golden tests run the JavaScript functions on fixture rounds and assert the Swift results match to the last decimal. *Status: written (`Packages/TrapCore`, 9 source files, 3 test files, 5 fixture files). First `swift test` run happens on the Mac.*
-2. **ShotTimer**: move `AudioDetector` and `RoundRecorder` unchanged; turn `MicBridge` into `TimerSession` (`@Observable`). Add `FileAnalyzer`.
-3. **TrapData**: SwiftData models, container, autosave on every target entry (today's 500 ms debounce becomes a simple context save).
+2. **ShotTimer**: move `AudioDetector` and `RoundRecorder` unchanged; turn `MicBridge` into `TimerSession` (`@Observable`). Add `FileAnalyzer`. *Status: package written (detector and recorder byte‑identical, `TimerSession`, typed events); `FileAnalyzer` pending.*
+3. **TrapData**: SwiftData models, container, autosave on every target entry (today's 500 ms debounce becomes a simple context save). *Status: written (`RoundRepository`, in‑memory + SwiftData, `Backup`, `Importer` for 7.x shapes) with tests.*
 4. **Timer tab** in SwiftUI: start/stop, input picker, audio‑in line, live meter, rejects, settings, break distance, round audio + share.
 5. **Record tab** in SwiftUI: range data, conditions (+ weather), target entry with the exact range flow (call + shots → direction + result → arm next target), Skip, Re‑time, Undo, NO TARGET, scorecard, ledger, done card.
 6. Install on the phone, run a real round. At this point the WebView is no longer used for shooting.

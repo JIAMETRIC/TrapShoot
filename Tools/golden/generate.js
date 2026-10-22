@@ -29,8 +29,8 @@ code += range(lineOf(/^\s*var BRK_K\b/), lineOf(/^\s*function brkTxt\b/)) + "\n"
 code += ["ntCount", "csvCell", "shooterById", "csvFor"].map(grab).join("\n") + "\n";
 code += range(lineOf(/^\s*var ANG\b/), lineOf(/^\s*var DIMS = \[/)) + "\n";   // analysis constants
 code += ["trapAt"].map(grab).join("\n") + "\n" + range(lineOf(/^\s*var DIMS = \[/), lineOf(/^\s*function statsOf\b/)) + "\n";
-code += ["statsOf", "analyse"].map(grab).join("\n") + "\n";
-code += "\nreturn { N, QUOTA, PRED_FROM, SCHEMES, DIROFF, trapFor, blank, score, counts, recorded, stnOf, stationCounts, stationOver, isFull, dirOdds, grade, initials, genSid, dirsRecorded, predict, newRound, norm, toDoc, BRK, shotTime, breakDist, brkShot, brkFor, csvFor, ntCount, DIMS, statsOf, analyse, setRounds: function (x) { rounds = x; }, setBrk: function (b) { BRK = Object.assign({}, BRK, b); shotKey = ''; } };";
+code += ["statsOf", "analyse", "pct", "schemeCounts", "dominantScheme", "solve3", "fitGeometry", "aLabel", "hLabel", "trapStats", "trapFindings", "esc", "fmtDate"].map(grab).join("\n") + "\n";
+code += "\nreturn { N, QUOTA, PRED_FROM, pct, schemeCounts, dominantScheme, fitGeometry, trapStats, trapFindings, SCHEMES, DIROFF, trapFor, blank, score, counts, recorded, stnOf, stationCounts, stationOver, isFull, dirOdds, grade, initials, genSid, dirsRecorded, predict, newRound, norm, toDoc, BRK, shotTime, breakDist, brkShot, brkFor, csvFor, ntCount, DIMS, statsOf, analyse, setRounds: function (x) { rounds = x; }, setBrk: function (b) { BRK = Object.assign({}, BRK, b); shotKey = ''; } };";
 const localStorage = { getItem: () => null, setItem: () => {}, removeItem: () => {} };
 const app = new Function("localStorage", "document", "var rounds = [], shooters = [], me = null, cur = null;\n" + code)(localStorage, {});
 
@@ -78,6 +78,7 @@ const rounds = [
   mkRound(7, { targets: 20, base: { scheme: 1, startStn: 5 } })
 ];
 const N = app.N, D = ["R", "S", "L"];
+const w = (n, o) => fs.writeFileSync(path.join(outDir, n), JSON.stringify(o, null, 1));
 const roundFx = rounds.map(r => ({
   round: r,
   doc: (() => { const d = app.toDoc(r); delete d.updatedAt; return d; })(),
@@ -128,8 +129,37 @@ const normCases = [
 ];
 const norm = normCases.map(c => ({ ...c, out: app.norm(c.id, c.doc) }));
 
+
+// ---- multi-round analysis sets (trap analysis needs >= 30 timed first shots for the geometry fit) ----
+const extra = [11, 12, 13, 14, 15, 16].map(seed => mkRound(seed, { base: { scheme: 2, startStn: 1 + (seed % 5), date: "2026-10-" + String(seed).padStart(2, "0"), createdAt: "2026-10-" + String(seed).padStart(2, "0") + "T06:00:00.000Z" } }));
+const partial = mkRound(21, { targets: 9, base: { scheme: 2, date: "2026-10-21", createdAt: "2026-10-21T06:00:00.000Z" } });
+const otherScheme = mkRound(22, { base: { scheme: 7, date: "2026-10-22", createdAt: "2026-10-22T06:00:00.000Z" } });
+const untimed = mkRound(23, { timed: false, base: { scheme: 2, date: "2026-10-23", createdAt: "2026-10-23T06:00:00.000Z" } });
+function strip(h) { return h.replace(/<\/?b>/g, ""); }
+function overview(list) {
+  const full = list.filter(r => app.recorded(r) === N), all = app.statsOf(list);
+  let best = 0, sum = 0, g = 0, y = 0;
+  full.forEach(r => { const sc = app.score(r); sum += sc; if (sc > best) best = sc; });
+  list.forEach(r => { const c = app.counts(r); g += c.G; y += c.Y; });
+  return { rounds: list.length, fullRounds: full.length, avgScore: full.length ? (sum / full.length).toFixed(1) : null, best: full.length ? best : null,
+           hitRate: app.pct(all.hit, all.n), firstBarrel: app.pct(g, all.n), secondBarrel: app.pct(y, all.n) };
+}
+function trend(list) {
+  return list.filter(r => app.recorded(r) === N).sort((a, b) => a.createdAt < b.createdAt ? -1 : 1).slice(-14).map(r => ({ id: r.id, date: r.date, score: app.score(r) }));
+}
+const sets = [
+  { name: "six full scheme 2 + partial + other scheme + untimed", list: [...extra, partial, otherScheme, untimed] },
+  { name: "two rounds, no fit", list: [rounds[0], rounds[1]] },
+  { name: "empty", list: [rounds[3]] },
+  { name: "other scheme only", list: [otherScheme, rounds[4]] }
+].map(st => {
+  const dom = app.dominantScheme(st.list);
+  const ts = dom == null ? null : app.trapStats(st.list, dom);
+  return { name: st.name, rounds: st.list, schemeCounts: app.schemeCounts(st.list), dominant: dom, overview: overview(st.list), trend: trend(st.list),
+           trapStats: ts, findings: ts ? app.trapFindings(ts).map(strip) : [] };
+});
 fs.mkdirSync(outDir, { recursive: true });
-const w = (n, o) => fs.writeFileSync(path.join(outDir, n), JSON.stringify(o, null, 1));
+w("analysis.json", sets);
 w("schemes.json", { schemes, quota: app.QUOTA, predFrom: app.PRED_FROM, grades });
 w("rounds.json", roundFx);
 w("break.json", brk);

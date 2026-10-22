@@ -13,6 +13,7 @@ The pure-Swift heart of TrapShooterPro. No UIKit, no AVFoundation, no storage.
 | `BreakDistance.swift` | `BRK`, `sphereCd`, `shotTime`, `breakDist`, `brkShot`, `brkFor` |
 | `CSVExport.swift` | `csvFor`, `csvCell` |
 | `Analysis.swift` | `DIMS`, `statsOf`, `analyse` |
+| `TrapAnalysis.swift` | `schemeCounts`, `dominantScheme`, `solve3`, `fitGeometry`, `trapStats`, `trapFindings`, `overviewHtml` (data), `trendHtml` (data), `signedMs` |
 
 ## Golden tests
 
