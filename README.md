@@ -4,7 +4,7 @@
 The plan is in [`docs/native-plan.md`](docs/native-plan.md). The first native package is [`Packages/TrapCore`](Packages/TrapCore)
 (round model, Olympic Trap rules, schemes, break distance, CSV, analysis) with golden tests against the JavaScript original,
 and [`Packages/TrapDesign`](Packages/TrapDesign) holds the black‑and‑white design system (see [`docs/design-system.md`](docs/design-system.md)).
-Further packages: `ShotTimer`, `TrapData`, `TrapWeather`, `TrapPlatform`. Architecture and decisions: [`docs/architecture.md`](docs/architecture.md); engineering practices: [`docs/engineering.md`](docs/engineering.md); master plan by phase: [`docs/phases/README.md`](docs/phases/README.md); publishing: [`docs/app-store.md`](docs/app-store.md).
+Further packages: `ShotTimer`, `TrapData`, `TrapWeather`, `TrapPlatform`. Architecture and decisions: [`docs/architecture.md`](docs/architecture.md); engineering practices: [`docs/engineering.md`](docs/engineering.md); master plan by phase: [`docs/phases/README.md`](docs/phases/README.md); one‑page summary of the four parts: [`docs/summary.md`](docs/summary.md); publishing: [`docs/app-store.md`](docs/app-store.md).
 The notes below describe the 7.0.7 baseline, which still builds as before.
 
 ---
