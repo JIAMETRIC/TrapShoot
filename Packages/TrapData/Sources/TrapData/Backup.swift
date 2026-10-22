@@ -71,3 +71,23 @@ public enum Importer {
         return (added, replaced, skipped)
     }
 }
+
+#if canImport(CoreTransferable)
+import CoreTransferable
+import UniformTypeIdentifiers
+
+/// A backup as something `ShareLink` can hand to Files, AirDrop or Mail.
+public struct BackupFile: Transferable, Sendable {
+    public let data: Data
+    public let filename: String
+    public init(data: Data, filename: String) { self.data = data; self.filename = filename }
+    public init(rounds: [Round], appVersion: String, now: Date = Date()) throws {
+        self.init(data: try Backup.encode(rounds, now: now, appVersion: appVersion),
+                  filename: "TrapShooterPro-backup-\(DateText.day(now)).\(Backup.fileExtension)")
+    }
+    public static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(exportedContentType: .json) { $0.data }
+            .suggestedFileName { $0.filename }
+    }
+}
+#endif

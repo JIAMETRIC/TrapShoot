@@ -29,7 +29,8 @@ TrapShooterPro (app)  ──▶  TrapDesign (SwiftUI tokens, styles)
         ├──▶ ShotTimer   (AVFoundation)        ──▶ (no TrapCore dependency: ms in, ms out)
         ├──▶ TrapData    (SwiftData)           ──▶ TrapCore
         ├──▶ TrapReports (CoreGraphics, PDF)   ──▶ TrapCore, TrapDesign
-        ├──▶ TrapWeather (CoreLocation, URLSession)
+        ├──▶ TrapWeather (CoreLocation, URLSession) ──▶ TrapCore
+        ├──▶ TrapPlatform (UIKit, Network, UserNotifications)
         └──▶ TrapCore    (Foundation only)
 ```
 
@@ -40,7 +41,8 @@ TrapShooterPro (app)  ──▶  TrapDesign (SwiftUI tokens, styles)
 | TrapData | persistence, backup, import | `RoundRepository`, `InMemoryRoundRepository`, `SwiftDataRoundRepository`, `RoundRecord`, `Backup`, `Importer` | in‑memory and in‑memory‑SwiftData tests |
 | TrapDesign | visual system | `BW`, `BWFont`, `BWMetrics`, `BWMotion`, components | preview |
 | TrapReports | scorecard PNG, A4 PDF, share items | planned | snapshot |
-| TrapWeather | one‑shot location, Open‑Meteo | planned | stubbed URL session |
+| TrapWeather | one‑shot location, Open‑Meteo, sky/wind mapping, fill policy | `WeatherService`, `OpenMeteoClient`, `WeatherSample`, `WeatherFill`, `LocationOnce` | mapping, policy, URL and parsing tests |
+| TrapPlatform | lifecycle, power, network, local notifications, storage, identity | `LifecycleCoordinator`, `PowerMonitor`, `NetworkMonitor`, `LocalNotifier`, `RecordingsStore`, `StorageReport`, `AppInfo` | pure parts tested; monitors verified on device |
 
 ## 3. Object model
 
@@ -155,3 +157,21 @@ Reason: greppable, testable, dark mode in one place, no Xcode‑only edits.
 
 **ADR‑009 Main‑actor UI state, audio thread detection, serial recorder queue.** Three concurrency domains, fixed
 hand‑off points (`DispatchQueue.main` posts, `MainActor.assumeIsolated`), no shared mutable state elsewhere.
+
+**ADR‑010 Lifecycle: no background audio.** On `background` the timer stops and the recording closes inside a short
+background task; on `inactive` the round is saved and timing continues; on foreground the inputs refresh and the
+shooter is told the timer stopped. Reason: a microphone that listens while the app is hidden is a privacy and battery
+problem and would need a background mode we cannot justify to review. `TrapPlatform.LifecycleCoordinator`.
+
+**ADR‑011 Local notifications only.** No server, so no remote push, no APNs token, no notification permission at
+launch. One reminder exists: an unfinished round, scheduled when the app goes to background mid‑round, cancelled when
+the round completes, permission asked at that moment. `TrapPlatform.LocalNotifier`.
+
+**ADR‑012 Power and network are inputs, not afterthoughts.** `PowerMonitor` turns battery, Low Power Mode and thermal
+state into one advice value the Timer screen obeys (slower level meter, round audio off by default, warning under 10 %).
+`NetworkMonitor` gates the only network call: automatic weather fill needs a reachable, unconstrained path; Low Data
+Mode disables automatic fetches; the URLSession never waits for connectivity, never caches, and times out at 15 s.
+
+**ADR‑013 Publishing artifacts live in the repository.** Privacy manifest, export options, archive script, review
+notes and listing text are versioned next to the code (`docs/app-store.md`), so a release is reproducible by anyone
+with the Mac and the team id.

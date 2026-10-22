@@ -21,7 +21,9 @@ into the Swift packages and the SwiftUI app target.
 | Design system | `Packages/TrapDesign` | written |
 | Storage (SwiftData) | `Packages/TrapData` | written: `RoundRepository`, in‑memory and SwiftData, backup, importer |
 | Reports (scorecard PNG, PDF, CSV share) | `Packages/TrapReports` | planned |
-| Weather + location | `Packages/TrapWeather` | planned |
+| Weather + location | `Packages/TrapWeather` | written: Open‑Meteo client tuned for constrained networks, sky/wind mapping, fill policy, one‑shot location |
+| Platform (lifecycle, power, network, notifications, storage, identity) | `Packages/TrapPlatform` | written; policies in `docs/architecture.md` ADR‑010..013 |
+| Publishing | `TrapShooterPro/PrivacyInfo.xcprivacy`, `ExportOptions.plist`, `Scripts/archive.sh`, `docs/app-store.md` | written |
 | Legacy web page | `TrapShooterPro/Web/` | reference only; deleted at the end of Phase 2 |
 
 ## Architecture
@@ -51,7 +53,9 @@ into the Swift packages and the SwiftUI app target.
    `swift test` green against `Packages/TrapCore/Tests/TrapCoreTests/Fixtures`. Regenerate fixtures only when the
    JavaScript reference itself changes: `node Tools/golden/generate.js TrapShooterPro/Web/index.html Packages/TrapCore/Tests/TrapCoreTests/Fixtures`.
 3. **No accounts, no network at launch.** No sign‑in, no analytics, no third‑party SDKs. The only network call is the
-   optional Open‑Meteo weather fill, and the app must work with it failing.
+   optional Open‑Meteo weather fill through `TrapWeather`, gated by `NetworkMonitor` (no automatic fetch in Low Data
+   Mode), and the app must work with it failing. No remote push; local notifications only, permission never at launch.
+   The timer stops when the app goes to background; there is no background audio mode (ADR‑010).
 4. **Design system only.** Use `TrapDesign` tokens and components; light and dark must both look right; Dynamic Type;
    44 pt minimum tap targets; respect Reduce Motion.
 5. **Olympic Trap facts are fixed**: 25 targets, 5 stations, order 3‑4‑5‑1‑2 from the chosen start station, each station
