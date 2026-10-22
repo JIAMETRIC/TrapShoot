@@ -53,7 +53,7 @@ jobs:
       - name: App builds (hybrid shell until the native target lands)
         run: |
           xcodebuild -project TrapShooterPro.xcodeproj -scheme TrapShooterPro \
-            -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build | xcpretty || exit ${PIPESTATUS[0]}
+            -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build | tee "$RUNNER_TEMP/App.log" | xcpretty || exit ${PIPESTATUS[0]}
       - name: TrapPlatform tests (iOS only package)
         run: |
           cd Packages/TrapPlatform
@@ -62,13 +62,17 @@ jobs:
         run: |
           cd Packages/ShotTimer
           xcodebuild -scheme ShotTimer -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/ShotTimer.log" | xcpretty || exit ${PIPESTATUS[0]}
+      - name: TrapReports tests (iOS only package)
+        run: |
+          cd Packages/TrapReports
+          xcodebuild -scheme TrapReports -destination 'platform=iOS Simulator,name=iPhone 16' test | tee "$RUNNER_TEMP/TrapReports.log" | xcpretty || exit ${PIPESTATUS[0]}
       - name: ShotTimer and TrapDesign build
         run: |
           (cd Packages/ShotTimer && xcodebuild -scheme ShotTimer -destination 'generic/platform=iOS Simulator' build | xcpretty || exit ${PIPESTATUS[0]})
           (cd Packages/TrapDesign && xcodebuild -scheme TrapDesign -destination 'generic/platform=iOS Simulator' build | xcpretty || exit ${PIPESTATUS[0]})
-      - name: Annotate ShotTimer test failures
+      - name: Annotate simulator test failures
         if: failure()
         shell: bash
         run: |
-          lines=$(grep -hE "error:|failed|Fatal error" "$RUNNER_TEMP"/ShotTimer.log 2>/dev/null | head -80 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
-          echo "::error title=ShotTimer test failures::${lines:-no error lines found}"
+          lines=$(grep -hE "error:|failed|Fatal error" "$RUNNER_TEMP"/*.log 2>/dev/null | head -80 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+          echo "::error title=simulator test failures::${lines:-no error lines found}"
