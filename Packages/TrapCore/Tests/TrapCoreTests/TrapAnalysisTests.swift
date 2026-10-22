@@ -88,6 +88,16 @@ final class TrapAnalysisTests: XCTestCase {
         XCTAssertEqual(Analysis.jsRound(2.5), 3)
         XCTAssertEqual(Analysis.jsRound(-2.5), -2)
     }
+
+    /// Reference values from node: `(81.25).toFixed(1)` and so on.
+    func testFixedMatchesJavaScriptToFixed() {
+        let cases: [(Double, Int, String)] = [
+            (81.25, 1, "81.3"), (1.005, 2, "1.00"), (2.5, 0, "3"), (-2.5, 0, "-3"), (0.125, 2, "0.13"),
+            (-0.04, 1, "-0.0"), (0, 1, "0.0"), (99.95, 1, "100.0"), (-45.5, 0, "-46")
+        ]
+        for (v, d, js) in cases { XCTAssertEqual(JSText.fixed(v, d), js, "\(v).toFixed(\(d))") }
+        XCTAssertEqual(Analysis.percent(13, 16), "81.3%")
+    }
 }
 
 func assertOptional(_ a: Double?, _ b: Double?, _ message: String, accuracy: Double = 1e-9, file: StaticString = #filePath, line: UInt = #line) {

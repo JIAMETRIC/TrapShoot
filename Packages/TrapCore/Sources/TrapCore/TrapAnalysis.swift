@@ -71,7 +71,7 @@ public struct Overview: Equatable, Sendable {
     public let averageScore: Double?
     public let bestScore: Int?
     public let targets: Int, hits: Int, firstBarrel: Int, secondBarrel: Int
-    public var averageScoreText: String { averageScore.map { String(format: "%.1f", $0) } ?? "–" }
+    public var averageScoreText: String { averageScore.map { JSText.fixed($0, 1) } ?? "–" }
     public var bestScoreText: String { bestScore.map(String.init) ?? "–" }
     public var hitRateText: String { Analysis.percent(hits, targets) }
     public var firstBarrelText: String { Analysis.percent(firstBarrel, targets) }
@@ -286,7 +286,7 @@ public extension Analysis {
             f.append("First 5 targets of a round: \(percent(a.early.hits, a.early.targets)). The other 20: \(percent(a.late.hits, a.late.targets))\(tail)")
         }
         if let fit = a.fit {
-            f.append("Shot time follows the trap: about \(String(format: "%.1f", fit.b1 * 1000)) ms per degree of angle and \(String(format: "%.0f", fit.b2 * 1000)) ms per metre of height (fit \(Int(jsRound(fit.r2 * 100)))%).")
+            f.append("Shot time follows the trap: about \(JSText.fixed(fit.b1 * 1000, 1)) ms per degree of angle and \(JSText.fixed(fit.b2 * 1000, 0)) ms per metre of height (fit \(Int(jsRound(fit.r2 * 100)))%).")
         }
         return f
     }

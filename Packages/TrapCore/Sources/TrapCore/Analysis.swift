@@ -94,5 +94,5 @@ public enum Analysis {
     }
 
     /// "72.0%" or "–".
-    public static func percent(_ a: Int, _ b: Int) -> String { b > 0 ? String(format: "%.1f%%", 100 * Double(a) / Double(b)) : "–" }
+    public static func percent(_ a: Int, _ b: Int) -> String { b > 0 ? JSText.fixed(100 * Double(a) / Double(b), 1) + "%" : "–" }
 }

@@ -59,4 +59,22 @@ public enum JSText {
         }
         return s
     }
+
+    /// JavaScript `toFixed`: the exact binary value rounded to `digits` places, an exact tie going away from zero.
+    /// `String(format: "%.1f")` rounds ties to even instead, so 13 of 16 would read 81.2 % where the web app says 81.3 %.
+    public static func fixed(_ v: Double, _ digits: Int) -> String {
+        guard v.isFinite, abs(v) < 1e21, digits >= 0 else { return number(v) }
+        // A double has at most 1074 fractional decimal digits, so this prints its exact value with nothing rounded.
+        let exact = String(format: "%.1074f", abs(v))
+        guard let dot = exact.firstIndex(of: ".") else { return number(v) }
+        let frac = exact[exact.index(after: dot)...]
+        var kept = Array(exact[..<dot]) + Array(frac.prefix(digits))
+        if let next = frac.dropFirst(digits).first, next >= "5" {
+            var i = kept.count - 1
+            while i >= 0, kept[i] == "9" { kept[i] = "0"; i -= 1 }
+            if i >= 0, let d = kept[i].wholeNumberValue { kept[i] = Character(String(d + 1)) } else { kept.insert("1", at: 0) }
+        }
+        let whole = String(kept.dropLast(digits)), places = String(kept.suffix(digits))
+        return (v < 0 ? "-" : "") + whole + (digits > 0 ? "." + places : "")
+    }
 }
