@@ -21,10 +21,10 @@ and EAS (Xcode and `xcodebuild`), Sentry (MetricKit and a support bundle), Andro
 | Phase | Name | Pillars | Status | Exit gate (one line) |
 |:---:|---|---|---|---|
 | 0 | Discovery, architecture and decisions | SD · SEF · OOP | **done** | ADR‑001…016 written; plan, design system and engineering docs in the repo |
-| 1 | Foundation, tooling, design tokens | CMS · SEF · TAB | **done** (verification on Mac pending) | baseline 7.0.7 builds; CI green; `TrapDesign` preview renders light and dark; breakpoints published |
-| 2 | Pure domain core | OOP · DSA · SEF | **done** (first `swift test` on Mac pending) | all golden fixtures pass; `RoundSession` tests pass; zero UI or storage imports in TrapCore |
-| 3 | Local store and repositories | SD · DSA · CMS · SEF | **done** (verification on Mac pending) | summaries, search, paging and `saveMany` rollback tests green; import of 7.x shapes |
-| 4 | Shot timer engine | OOP · CMS · DSA | package written; device verification pending | detector regression set within 7 ms on every fixture; receiver plug/unplug recovers; watchdog restarts; 1 h timing < 10 % battery |
+| 1 | Foundation, tooling, design tokens | CMS · SEF · TAB | **done** (CI green; design preview not yet rendered) | baseline 7.0.7 builds; CI green; `TrapDesign` preview renders light and dark; breakpoints published |
+| 2 | Pure domain core | OOP · DSA · SEF | **done** (`swift test` green in CI) | all golden fixtures pass; `RoundSession` tests pass; zero UI or storage imports in TrapCore |
+| 3 | Local store and repositories | SD · DSA · CMS · SEF | **done** (`swift test` green in CI; 2,000‑round timing on device pending) | summaries, search, paging and `saveMany` rollback tests green; import of 7.x shapes |
+| 4 | Shot timer engine | OOP · CMS · DSA | package builds in CI; tests not yet in CI; device verification pending | detector regression set within 7 ms on every fixture; receiver plug/unplug recovers; watchdog restarts; 1 h timing < 10 % battery |
 | 5 | Record and Timer screens | OOP · CMS · TAB · SEF | next | a full round recorded on a real range with the native app; kill‑and‑resume restores the round; iPad split layout verified |
 | 6 | Rounds, Analysis, Schemes, exporters | DSA · TAB · SEF | after 5 | 2,000‑round list first screen < 50 ms; scorecard PDF text is selectable; CSV byte‑identical to the web app for the same round |
 | 7 | Settings, data, platform behaviours | CMS · SD · SEF | after 6 | backup/restore round‑trips the library; lifecycle, notifications, power and network policies observed on device; Web folder deleted |

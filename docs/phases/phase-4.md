@@ -1,4 +1,4 @@
-# Phase 4 — Shot timer engine `[OOP · CMS · DSA]` — package written, device verification pending
+# Phase 4 — Shot timer engine `[OOP · CMS · DSA]` — package builds in CI; `ShotTimerTests` not yet in CI; device verification pending
 
 `Packages/ShotTimer`: `AudioDetector.swift` and `RoundRecorder.swift` byte for byte; `TimerSession` replaces `MicBridge`.
 

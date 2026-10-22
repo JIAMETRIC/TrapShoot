@@ -2,6 +2,22 @@
 
 *22 October 2026 · repository state: 13 commits, 7 Swift packages, nothing compiled yet*
 
+> **Update, later on 22 October 2026: CI is green.** The repository is on GitHub (`JIAMETRIC/TrapShooterPro`) and
+> every job passes on `main`: golden fixtures, `swift test` for TrapCore, TrapData and TrapWeather on macOS, the hybrid
+> app build, TrapPlatform tests in the simulator, and ShotTimer and TrapDesign builds. Next step 1 below is done, and the
+> first risk turned out small: the code compiled as written, and the tests found three defects.
+>
+> - TrapCore: percentages rounded ties to even instead of like JavaScript's `toFixed`; fixed with `JSText.fixed`.
+> - TrapData: a NaN value made `JSONSerialization` raise an Objective‑C exception that skipped the `saveMany` rollback
+>   and would have crashed the app; fixed with `RoundDocument.jsonData` and `RoundDocumentError.notEncodable`.
+> - TrapData: one test compared two repositories holding different rounds; fixed in the test.
+>
+> Since this evaluation, ShotTimer and TrapReports have test targets (see the code review), and the two design debts
+> below are fixed: the exporter protocol is nonisolated and the schema is a single V1. Still open: CI neither runs
+> `ShotTimerTests` nor builds or tests `TrapReports`; the previews have not been rendered; the packages are not yet linked
+> into the app target; the detector regression set does not exist yet. The rest of this document is the evaluation as
+> written before the first compile.
+
 An honest evaluation needs a read that is not anchored on my own, so an independent reviewer is going through the Swift packages for compile and design defects while this assesses the architecture. The reviewer's file-level findings follow separately.
 
 ## Verdict
