@@ -123,11 +123,37 @@
             border-radius: var(--borderRadius);
         }
 
+        pre {
+            position: relative;
+        }
+
         pre code {
             padding: 0;
             background: none;
             color: inherit;
             font-size: inherit;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            min-height: 3.2rem;
+            padding: 0.4rem 1.2rem;
+            font-family: var(--ffSecondary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--lightColor);
+            background: var(--primaryColor);
+            border: none;
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+            cursor: pointer;
+        }
+
+        .copy-btn:hover,
+        .copy-btn:focus-visible {
+            background: var(--secondaryColor);
         }
 
         .closing {
@@ -195,6 +221,45 @@ git pull</code></pre>
             <p>I checked that the scripts and folders the file names exist in the repo. I have not run the Mac steps, because this machine is Windows. The GitHub URL comes from this repo’s <code>origin</code> remote.</p>
         </div>
     </main>
+
+    <script>
+        function copyText(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(text);
+            }
+            return new Promise((resolve, reject) => {
+                const area = document.createElement('textarea');
+                area.value = text;
+                area.setAttribute('readonly', '');
+                area.style.position = 'fixed';
+                area.style.opacity = '0';
+                document.body.appendChild(area);
+                area.select();
+                const copied = document.execCommand('copy');
+                document.body.removeChild(area);
+                copied ? resolve() : reject(new Error('copy failed'));
+            });
+        }
+
+        document.querySelectorAll('pre').forEach((pre) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'copy-btn';
+            button.textContent = 'Copy';
+            button.addEventListener('click', () => {
+                const code = pre.querySelector('code');
+                const text = (code ? code.textContent : pre.textContent).trim();
+                copyText(text).then(() => {
+                    button.textContent = 'Copied';
+                    setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+                }).catch(() => {
+                    button.textContent = 'Failed';
+                    setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+                });
+            });
+            pre.appendChild(button);
+        });
+    </script>
 </body>
 
 </html>

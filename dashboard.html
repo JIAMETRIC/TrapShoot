@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette */
+            --primaryColor: #2596be;
+            --secondaryColor: #5bc1da;
+            --tertiaryColor: #666666;
+            --quaternaryColor: #ebeaea;
+            --darkColor: #000000;
+            --lightColor: #ffffff;
+
+            /* Typography */
+            --regularFont: 1.6rem;
+            --headingFont: 3.5rem;
+            --ffPrimary: "Playfair Display", serif;
+            --ffSecondary: "Inter", sans-serif;
+            --ffCode: "JetBrains Mono", monospace;
+
+            /* Structural */
+            --border: 1px solid var(--primaryColor);
+            --borderRadius: 0.5rem;
+            --primaryShadow: 0 4px 8px rgba(20, 71, 108, 0.15);
+            --secondaryShadow: 0 8px 16px rgba(20, 71, 108, 0.2);
+            --containerPaddingY: 2rem;
+            --containerPaddingX: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            /* 1rem = 10px, same base as TrapShooterPro.html */
+        }
+
+        body {
+            margin: 0;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            line-height: 1.6;
+            color: var(--darkColor);
+            background: var(--quaternaryColor);
+        }
+
+        .hero {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem var(--containerPaddingX);
+            color: var(--lightColor);
+            background: linear-gradient(135deg, var(--primaryColor), var(--secondaryColor));
+            border-radius: var(--borderRadius);
+            box-shadow: var(--secondaryShadow);
+        }
+
+        .hero-kicker {
+            margin: 0 0 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .hero h1 {
+            margin: 0 0 1.5rem;
+            font-family: var(--ffPrimary);
+            font-size: var(--headingFont);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            margin: 0 0 2rem;
+            max-width: 60ch;
+            font-size: var(--regularFont);
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .chips li {
+            padding: 0.8rem 1.4rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primaryColor);
+            background: var(--lightColor);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+        }
+
+        .local-note {
+            max-width: 900px;
+            margin: var(--containerPaddingX) auto 0;
+            padding: var(--containerPaddingX);
+            background: var(--lightColor);
+            border-left: 4px solid var(--primaryColor);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+        }
+
+        .local-note h2 {
+            margin: 0 0 0.6rem;
+            font-family: var(--ffPrimary);
+            font-size: 2.2rem;
+            color: var(--primaryColor);
+        }
+
+        .local-note p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <p class="hero-kicker">Olympic Trap · iPhone and iPad</p>
+        <h1>TrapShoot — TrapShooterPro for iPhone and iPad</h1>
+        <p>A call-to-shot timer that listens through the microphone, a 25-target round recorder, break-distance
+            modelling, analysis and exports. Built for the range, no account needed.</p>
+        <ul class="chips">
+            <li>Call-to-shot timer</li>
+            <li>25-target round recorder</li>
+            <li>Break distance model</li>
+            <li>Analysis and exports</li>
+        </ul>
+    </section>
+
+    <section class="local-note">
+        <h2>Local-first</h2>
+        <p>No account, no server and no sign-in. Your rounds stay on your device, and the only network call is the
+            optional weather fill.</p>
+    </section>
+</body>
+
+</html>
