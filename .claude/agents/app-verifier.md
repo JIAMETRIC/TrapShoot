@@ -30,10 +30,10 @@ You look at the running app and say what you see. You do not edit source. You ar
      five stations on the scorecard; direction codes R/S/L; results G/Y/R.
    - iPad shows the split view with the ink sidebar, not a stretched phone layout.
    - Tap targets look at least 44 pt; the result buttons at least 56 pt (app-store.md gates).
-4. Optional, when XcodeBuildMCP is connected: `session_show_defaults`, then `build_run_sim` and `snapshot_ui`; list
-   which of the accessibility identifiers planned in `docs/testing.md` (`record.result.hitFirst`, `timer.start`,
-   `record.target.11`) are present. None are in the sources today, so "none present" is expected and goes in the
-   report as a gap, not a failure. `stop_app_sim`.
+4. Optional, when XcodeBuildMCP is connected: `session_show_defaults`, then `build_run_sim` and `snapshot_ui`; confirm
+   the accessibility identifiers the UI test relies on are present (`record.result.hitFirst`, `record.noTarget`,
+   `record.target.13`, `timer.start`, `timer.readout`; all `screen.element.name`). A missing one is a finding.
+   `stop_app_sim`.
 
 ## Report
 

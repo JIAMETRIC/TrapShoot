@@ -63,7 +63,7 @@ private struct RoundHeader: View {
             if model.session.phase != .setup {
                 Button("Range data") { model.editSetup() }.buttonStyle(.bwSecondary)
             }
-            Button("New round") { confirmNew = true }.buttonStyle(.bwSecondary)
+            Button("New round") { confirmNew = true }.buttonStyle(.bwSecondary).accessibilityIdentifier("record.newRound")
         }
     }
 }
@@ -145,6 +145,7 @@ private struct SetupForm: View {
             Button(model.session.hasStarted ? "Back to targets" : "Start round") { model.start() }
                 .buttonStyle(.bwPrimary)
                 .keyboardShortcut(BWKeys.save)
+                .accessibilityIdentifier("record.start")
         }
         .bwCard()
     }
@@ -220,6 +221,7 @@ private struct EntryPanel: View {
             HStack {
                 Button { model.previous() } label: { Image(systemName: "chevron.left") }
                     .buttonStyle(.bwIcon).keyboardShortcut(BWKeys.previous).accessibilityLabel("Previous target")
+                    .accessibilityIdentifier("record.previous")
                 Spacer()
                 VStack(spacing: 2) {
                     Text("Target \(i + 1) · Station \(r.station(at: i))").bwDisplay(.title3)
@@ -228,6 +230,7 @@ private struct EntryPanel: View {
                 Spacer()
                 Button { model.next() } label: { Image(systemName: "chevron.right") }
                     .buttonStyle(.bwIcon).keyboardShortcut(BWKeys.next).accessibilityLabel("Next target")
+                    .accessibilityIdentifier("record.next")
             }
 
             Text("Direction").bwLabel()
@@ -235,7 +238,7 @@ private struct EntryPanel: View {
                 ForEach(Direction.displayOrder, id: \.self) { d in
                     let p = odds[d]
                     choice(title: "\(d.arrow) \(d.name)", sub: p > 0 ? JSText.fixed(p * 100, 0) + "%" : "full",
-                           selected: r.directions[i] == d, status: BW.inkStatus) { model.record(direction: d) }
+                           selected: r.directions[i] == d, status: BW.inkStatus, id: "record.direction.\(d.name.lowercased())") { model.record(direction: d) }
                         .keyboardShortcut(shortcut(d))
                         .disabled(p == 0 && r.directions[i] != d)
                 }
@@ -243,23 +246,27 @@ private struct EntryPanel: View {
             Text("Result").bwLabel()
             HStack(spacing: BWMetrics.s2) {
                 ForEach(TargetResult.allCases, id: \.self) { s in
-                    choice(title: s.title, sub: s.rawValue, selected: r.results[i] == s, status: s.status) { model.record(result: s) }
+                    choice(title: s.title, sub: s.rawValue, selected: r.results[i] == s, status: s.status, id: "record.result.\(identifier(s))") { model.record(result: s) }
                         .keyboardShortcut(shortcut(s))
                 }
             }
             Button("NO TARGET") { model.noTarget() }
                 .buttonStyle(BWSecondaryButtonStyle(height: 56))          // gloved hands (docs/app-store.md)
                 .keyboardShortcut(BWKeys.noTarget)
+                .accessibilityIdentifier("record.noTarget")
                 .accessibilityHint("The clay did not come or came out broken. The target keeps its number.")
             HStack(spacing: BWMetrics.s2) {
                 Button("Skip") { model.skip() }.buttonStyle(.bwSecondary)
                     .disabled(model.flow.slot(model.session) == nil)
+                    .accessibilityIdentifier("record.skip")
                     .accessibilityHint("No time for this target.")
                 Button("Time T\(i + 1)") { model.retime() }.buttonStyle(.bwSecondary)
+                    .accessibilityIdentifier("record.retime")
                     .accessibilityHint("Clear this target's time and time it again.")
                 Button("Undo") { model.undo() }.buttonStyle(.bwSecondary)
                     .disabled(!model.session.canUndo)
                     .keyboardShortcut(BWKeys.undo)
+                    .accessibilityIdentifier("record.undo")
             }
             timingLine(r, i)
             MessageLine(error: model.error, note: model.message)
@@ -291,7 +298,12 @@ private struct EntryPanel: View {
         }
     }
 
-    private func choice(title: String, sub: String, selected: Bool, status: BW.Status, action: @escaping () -> Void) -> some View {
+    /// Identifiers follow `screen.element.name` (docs/testing.md) so the UI test can find every control.
+    private func identifier(_ s: TargetResult) -> String {
+        switch s { case .hitFirst: return "hitFirst"; case .hitSecond: return "hitSecond"; case .lost: return "lost" }
+    }
+
+    private func choice(title: String, sub: String, selected: Bool, status: BW.Status, id: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             VStack(spacing: 2) {
                 Text(title).font(BWFont.body.weight(.bold))
@@ -303,6 +315,7 @@ private struct EntryPanel: View {
             .overlay(RoundedRectangle(cornerRadius: BWMetrics.radiusMD).stroke(selected ? status.border : BW.borderStrong, lineWidth: selected ? BWMetrics.rule : BWMetrics.hairline))
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier(id)
         .accessibilityAddTraits(selected ? .isSelected : [])
     }
 
@@ -338,6 +351,8 @@ private struct LedgerTable: View {
                     .background(i == model.session.index ? BW.surfaceAlt : Color.clear)
                 }
                 .buttonStyle(.plain)
+                .accessibilityIdentifier("record.target.\(i + 1)")
+                .accessibilityLabel("Target \(i + 1), station \(r.station(at: i)), \(r.directions[i]?.name ?? "no direction"), \(r.results[i]?.title ?? "no result")")
                 .bwTableRow(index: i)
             }
         }

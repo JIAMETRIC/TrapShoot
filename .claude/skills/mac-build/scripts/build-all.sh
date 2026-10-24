@@ -2,7 +2,7 @@
 # The CI pipeline (.github/workflows/ci.yml) run locally on a Mac, every step, continuing past failures so one run
 # shows every error. Logs and a summary land in build/mac/<timestamp>/.
 #
-# Usage: .claude/skills/mac-build/scripts/build-all.sh [--only pure|app|sim|design|fixtures] [--skip-fixtures]
+# Usage: .claude/skills/mac-build/scripts/build-all.sh [--only pure|app|sim|design|ui|fixtures] [--skip-fixtures]
 #   SIM="iPhone 17 Pro" to choose the simulator; RUN_DIR=... to choose the output folder.
 # Exit code: 0 when every step passed.
 set -uo pipefail
@@ -58,6 +58,13 @@ fi
 if want design; then
   design_build() { (cd Packages/TrapDesign && xcodebuild -scheme TrapDesign -destination "generic/platform=iOS Simulator" -derivedDataPath "$DERIVED" build); }
   run_step design-build design_build
+fi
+
+# 6. The range flow on screen, through the scripted demo timer (TrapShooterProUITests, docs/testing.md).
+if want ui; then
+  run_step ui-test xcodebuild -project TrapShooterPro.xcodeproj -scheme TrapShooterPro -destination "$DEST" \
+    -derivedDataPath "$DERIVED" -resultBundlePath "$RUN_DIR/UITests.xcresult" -only-testing:TrapShooterProUITests \
+    CODE_SIGNING_ALLOWED=NO test
 fi
 
 end_run

@@ -12,7 +12,10 @@
 | its reference | `.claude/skills/mac-build/reference/stages.md` | durations, step names, dependency order, CI vs local differences |
 | `/mac-device` | `.claude/skills/mac-device/SKILL.md` | the eighteen-row iPhone + DJI checklist, who does what, how results are recorded |
 | `/mac-release` | `.claude/skills/mac-release/SKILL.md` | archive, TestFlight, tag, submission material; asks before every upload |
-| agents | `.claude/agents/` | `mac-preflight`, `swift-builder`, `sim-tester`, `app-verifier`, `design-reviewer`, `progress-scribe` |
+| `/detector-fixtures` | `.claude/skills/detector-fixtures/SKILL.md` | the owner's recordings → regression fixtures in `Tools/detector-fixtures/` (ffmpeg, any machine); the run needs the Mac |
+| `/operate` | `.claude/skills/operate/SKILL.md` | Phase 9: weekly triage, per-iOS-beta run, quarterly security review, options; `support-triage` reads a diagnostics file |
+| phase map | `.claude/skills/mac-build/reference/phase-map.md` | every open row of `docs/progress.md` and the skill, stage and agent that closes it |
+| agents | `.claude/agents/` | `mac-preflight`, `swift-builder`, `sim-tester`, `app-verifier`, `design-reviewer`, `progress-scribe`, `support-triage` |
 | MCP servers | `.mcp.json`, `.claude/settings.json` | XcodeBuildMCP (build, run, test, screenshots) and the Xcode bridge (previews, diagnostics) |
 | records | `docs/mac-sessions/` | one file per session, written by `progress-scribe`; `docs/progress.md` rows flip from the evidence there |
 
