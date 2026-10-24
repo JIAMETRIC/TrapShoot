@@ -1,6 +1,6 @@
 ---
 name: mac-device
-description: Run TrapShooterPro on the owner's real iPhone from the Mac and work through the device checklist that the simulator cannot cover (DJI Mic Mini 2 receiver recognised and preferred, port name confirmed, plug and unplug, phone call interruption, Low Power Mode, timing readout, one-hour battery, 2,000-round list speed, backup → reinstall → restore). Use when asked to "test on the iPhone", "check the DJI receiver", "run the device checks", "verify timing on device", or when a progress.md item is marked ⏳ iPhone. Requires a Mac, a cable and the owner present with the receiver.
+description: Run TrapShooterPro on the owner's real iPhone from the Mac and work through the eighteen-row device checklist that the simulator cannot cover (DJI Mic Mini 2 receiver recognised and preferred, port name confirmed, plug and unplug, phone call interruption, Low Power Mode, timing readout, one-hour battery, 2,000-round list speed, backup → reinstall → restore, kill-and-resume, performance budgets, unfinished-round reminder, Low Data Mode weather policy, VoiceOver labels, scorecard PDF text selection). Use when asked to "test on the iPhone", "check the DJI receiver", "run the device checks", "verify timing on device", or when a progress.md item is marked ⏳ iPhone. Requires a Mac, a cable and the owner present with the receiver.
 ---
 
 # Device checks on the owner's iPhone
@@ -52,9 +52,16 @@ exactly what to do for each row in one sentence; you read the log and the screen
 | 11 | 2,000 rounds list | import a generated backup of 2,000 rounds (you write it with a short script in the TrapData backup JSON layout, `docs/testing.md`; there is no in-app generator), open Rounds | first screen < 50 ms (`fetchSummaries` signpost); scrolling smooth | 2,000 rounds first list screen |
 | 12 | Backup → reinstall → restore | export a backup, delete the app, reinstall, import the backup | round count and a spot-checked round identical | Backup → reinstall → restore |
 | 13 | Kill and resume mid-round | record 7 targets, swipe-kill the app, relaunch | round resumes at target 8 with the same station and entries | Kill-and-resume on device |
+| 14 | Performance budgets (`docs/performance.md`) | cold-launch the app five times (swipe-kill between), enter three targets, start the timer once | from Instruments (App Launch, os_signpost) or the `performance` signpost category in Console: launch to Record < 400 ms, `data.save` < 10 ms on the main thread, `timer.start` < 300 ms; Allocations steady state while timing < 60 MB | Performance gates on device |
+| 15 | Unfinished-round reminder | Settings → turn on "Remind me of an unfinished round" (permission prompt appears now, never at launch), record 3 targets, leave the app, wait 20 min | the local notification arrives once; tapping it opens the round; declining permission leaves a line of text in Settings, not an alert | Lifecycle, power, network, reminder, MetricKit wired |
+| 16 | Low Data Mode and weather | enable Low Data Mode on the phone's network, start a new round with weather auto-fill on; then tap the manual weather button; then airplane mode and tap again | no automatic fetch (`NetworkMonitor.isConstrained`, `allowsAutomaticFetch` false); the manual tap fetches; offline shows the "no weather" state as text, the round continues | Lifecycle, power, network, reminder, MetricKit wired |
+| 17 | VoiceOver | triple-click the side button, swipe through Record and Timer | every target button reads station, target and direction ("Station 3, target 11, left"), result buttons read "Hit first barrel" etc., the NO TARGET bar and timer Start have labels; nothing reads as "button" alone | iPhone tabs, iPad split, keyboard, VoiceOver, Dynamic Type |
+| 18 | Scorecard PDF text | export a scorecard as PDF, open it in Files, long-press the shooter's name | text selects and copies (vector PDF, not a bitmap); the file name has no stray characters; the temp file is gone from the app's tmp after sharing | Exports through `ExporterFactory` and the share sheet |
 
-Rows 10 and 13 take real time; start row 10 and do rows 11–12 meanwhile only if a second phone is available,
-otherwise do it last.
+Rows 10, 13 and 15 take real time; start row 10 first, start row 15's 20-minute wait right after, and do rows 11,
+12, 14, 16–18 meanwhile only if a second phone is available, otherwise do them last. Row 14 wants the phone cabled
+with Instruments on the Mac; the signposts are in the `performance` category of subsystem
+`com.mtajudeen.trapshooterpro`.
 
 ## Recording results
 
@@ -70,4 +77,7 @@ match rule can be tightened later with evidence.
   `AudioDetector.swift`. Dispatch **swift-builder** with the log lines and the row.
 - Timing off by more than 0.02 s consistently: do not touch the detector. Record the numbers, the receiver, the
   phone model, and stop; the detector regression set (⏳ owner recordings) is the tool for that, not a live tweak.
-- Battery or list-speed over budget: record the measurement and the Instruments trace path; fixing is a separate task.
+- Battery, launch, save or list-speed over budget: record the measurement and the Instruments trace path; fixing is a
+  separate task.
+- A missing VoiceOver label or a bitmap PDF is a code finding in `TrapApp` or `TrapReports`; dispatch **swift-builder**
+  with the row and the screen or exporter name. The fix must keep the design tokens and the PDF exporter's vector path.

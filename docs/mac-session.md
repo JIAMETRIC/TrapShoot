@@ -10,7 +10,7 @@
 | `/mac-build` | `.claude/skills/mac-build/SKILL.md` | the orchestration: eight stages, which agent handles which, exit criteria |
 | its scripts | `.claude/skills/mac-build/scripts/` | `preflight.sh`, `build-all.sh` (CI locally), `test-package.sh` (one package), `run-demo.sh` (launch + screenshots), `summarize-log.sh`; all write to `build/mac/<timestamp>/` |
 | its reference | `.claude/skills/mac-build/reference/stages.md` | durations, step names, dependency order, CI vs local differences |
-| `/mac-device` | `.claude/skills/mac-device/SKILL.md` | the thirteen-row iPhone + DJI checklist, who does what, how results are recorded |
+| `/mac-device` | `.claude/skills/mac-device/SKILL.md` | the eighteen-row iPhone + DJI checklist, who does what, how results are recorded |
 | `/mac-release` | `.claude/skills/mac-release/SKILL.md` | archive, TestFlight, tag, submission material; asks before every upload |
 | agents | `.claude/agents/` | `mac-preflight`, `swift-builder`, `sim-tester`, `app-verifier`, `design-reviewer`, `progress-scribe` |
 | MCP servers | `.mcp.json`, `.claude/settings.json` | XcodeBuildMCP (build, run, test, screenshots) and the Xcode bridge (previews, diagnostics) |
@@ -40,8 +40,8 @@ turned ✅.
 
 ## Then, with the iPhone and the DJI receiver
 
-`/mac-device`. Claude builds to the phone and walks you through the thirteen checks one at a time; you plug, unplug,
-call, shoot (dry), and wait out the one-hour battery row. It reads the logs and records each row. The exact port name
+`/mac-device`. Claude builds to the phone and walks you through the eighteen checks one at a time; you plug, unplug,
+call, shoot (dry), turn VoiceOver and Low Data Mode on and off, and wait out the one-hour battery row. It reads the logs and records each row. The exact port name
 of the DJI Mic Mini 2 receiver is the single most valuable fact from this session; it goes into the record and into a
 comment beside `ReferenceReceiver`.
 
