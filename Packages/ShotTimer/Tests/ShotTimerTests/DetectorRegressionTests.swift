@@ -110,13 +110,28 @@ private enum Synth {
             if let s = t.second { noise(s - 0.030); shot() }
             noise(2.5)                                             // longer than the 2nd shot window; next target
         }
+        // The file is 16-bit interleaved WAV (what a file on disk must be); the buffer is the engine's float32
+        // non-interleaved format and AVAudioFile converts on write. A standard format's own `settings` describe a
+        // non-interleaved stream, which AVAudioFile refuses as a file layout ("nilError").
         let format = AVAudioFormat(standardFormatWithSampleRate: sr, channels: 1)!
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("synthetic-\(UUID().uuidString).caf")
-        let file = try AVAudioFile(forWriting: url, settings: format.settings, commonFormat: .pcmFormatFloat32, interleaved: false)
-        let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: AVAudioFrameCount(samples.count))!
-        buffer.frameLength = AVAudioFrameCount(samples.count)
-        samples.withUnsafeBufferPointer { buffer.floatChannelData![0].update(from: $0.baseAddress!, count: samples.count) }
-        try file.write(from: buffer)
+        let fileSettings: [String: Any] = [
+            AVFormatIDKey: kAudioFormatLinearPCM, AVSampleRateKey: sr, AVNumberOfChannelsKey: 1,
+            AVLinearPCMBitDepthKey: 16, AVLinearPCMIsFloatKey: false, AVLinearPCMIsBigEndianKey: false, AVLinearPCMIsNonInterleaved: false
+        ]
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("synthetic-\(UUID().uuidString).wav")
+        do {
+            let file = try AVAudioFile(forWriting: url, settings: fileSettings, commonFormat: .pcmFormatFloat32, interleaved: false)
+            let chunk = 4096
+            var offset = 0
+            while offset < samples.count {
+                let n = min(chunk, samples.count - offset)
+                let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: AVAudioFrameCount(n))!
+                buffer.frameLength = AVAudioFrameCount(n)
+                samples.withUnsafeBufferPointer { buffer.floatChannelData![0].update(from: $0.baseAddress! + offset, count: n) }
+                try file.write(from: buffer)
+                offset += n
+            }
+        }                                                          // the writer closes when it goes out of scope
         return url
     }
 }

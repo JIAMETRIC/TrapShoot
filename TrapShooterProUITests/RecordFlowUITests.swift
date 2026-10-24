@@ -42,10 +42,16 @@ final class RecordFlowUITests: XCTestCase {
     /// Start the timer on the Timer screen; the scripted timer answers the arm with a 612 ms first shot and the
     /// readout shows it. Then the result entry arms the next target and the readout returns to 0.000.
     func testScriptedTimerTimesATarget() {
-        openTimer()
+        // Relaunch straight onto the Timer screen (the same launch argument the screenshot script uses), which
+        // does not depend on how the tab bar or sidebar is exposed to accessibility on this iOS version.
+        app.terminate()
+        app.launchArguments = ["-demo", "-uitest", "-state.section", "timer"]
+        app.launch()
         let start = app.buttons["timer.start"]
-        XCTAssertTrue(start.waitForExistence(timeout: 5))
-        start.tap()
+        if !start.waitForExistence(timeout: 8) { openTimer() }
+        XCTAssertTrue(start.waitForExistence(timeout: 8), "timer.start not found; tree:\n\(app.debugDescription.prefix(3000))")
+        XCTAssertTrue(start.isEnabled, "Start is enabled because the demo round is in progress")
+        tap("timer.start")
         let readout = app.descendants(matching: .any)["timer.readout"].firstMatch
         XCTAssertTrue(readout.waitForExistence(timeout: 5))
         let timed = NSPredicate(format: "label CONTAINS 'First shot 0.612'")
