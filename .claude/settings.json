@@ -9,7 +9,21 @@
       "Bash(node Tools/golden/generate.js:*)",
       "Bash(git status:*)",
       "Bash(git diff:*)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Bash(git fetch:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git rev-list:*)",
+      "Bash(bash .claude/skills/mac-build/scripts/*)",
+      "Bash(.claude/skills/mac-build/scripts/*)",
+      "Bash(Scripts/screenshots.sh:*)",
+      "Bash(xcrun:*)",
+      "Bash(xcode-select -p)",
+      "Bash(swift --version)",
+      "Bash(node:*)",
+      "Bash(open -a Simulator)",
+      "Bash(pgrep:*)",
+      "Bash(df:*)",
+      "Bash(security find-identity:*)"
     ]
   }
 }
