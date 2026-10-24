@@ -25,6 +25,10 @@ claude
 The repo's `.mcp.json` registers two servers and `.claude/settings.json` approves them, so no `claude mcp add` is needed.
 Check with `/mcp` inside Claude Code: both **XcodeBuildMCP** and **xcode** should show as connected.
 
+Then type `/mac-build`. It runs the readiness check, the whole CI pipeline locally, the fix loops, the demo run with
+screenshots and the design preview, and leaves a record in `docs/mac-sessions/`. The full sequence and what each step
+produces: `docs/mac-session.md`.
+
 If you prefer registering them globally instead of per project:
 
 ```sh

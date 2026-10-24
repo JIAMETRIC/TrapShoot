@@ -1,0 +1,19 @@
+{
+  "_comment": "Add these to permissions.allow in .claude/settings.json so /mac-build runs its scripts without a prompt per call. Claude could not edit settings.json itself (self-modification guard); paste by hand.",
+  "allow": [
+    "Bash(git fetch:*)",
+    "Bash(git rev-parse:*)",
+    "Bash(git rev-list:*)",
+    "Bash(bash .claude/skills/mac-build/scripts/*)",
+    "Bash(.claude/skills/mac-build/scripts/*)",
+    "Bash(Scripts/screenshots.sh:*)",
+    "Bash(xcrun:*)",
+    "Bash(xcode-select -p)",
+    "Bash(swift --version)",
+    "Bash(node:*)",
+    "Bash(open -a Simulator)",
+    "Bash(pgrep:*)",
+    "Bash(df:*)",
+    "Bash(security find-identity:*)"
+  ]
+}

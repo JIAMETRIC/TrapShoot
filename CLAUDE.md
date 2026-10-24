@@ -121,6 +121,12 @@ references). The microphone, external receivers and timing accuracy can only be 
 Setup steps are in `docs/mac-setup.md`. Neither server works in Linux cloud sessions; there, edit and reason, and leave
 compile verification to the Mac session.
 
+**On the Mac, start with `/mac-build`** (`.claude/skills/mac-build/`): preflight, the CI pipeline run locally
+(`build/mac/<timestamp>/summary.md`), fix loops per package through the `swift-builder` and `sim-tester` agents, a
+demo-mode run with screenshots (`app-verifier`), the design preview in light and dark (`design-reviewer`), and a
+session record under `docs/mac-sessions/` with `docs/progress.md` updated (`progress-scribe`). `/mac-device` is the
+iPhone + DJI checklist, `/mac-release` the TestFlight path. Runbook: `docs/mac-session.md`.
+
 ## Working agreements for Claude sessions
 
 - Before editing a screen, read the matching section of the 7.0.7 page (`Tools/golden/reference/index-7.0.7.html`) to preserve
