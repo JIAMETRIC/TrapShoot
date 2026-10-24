@@ -25,6 +25,8 @@ public enum FileAnalyzer {
         case unreadable(String)
         /// The file has no frames.
         case empty
+        /// Decoding stopped part way; the text names the file, the frame and the system error.
+        case readFailed(String)
     }
 
     /// Times `url`. Runs the detector synchronously on the calling task, then waits for its main-queue callbacks.
@@ -48,8 +50,10 @@ public enum FileAnalyzer {
         let frames: AVAudioFrameCount = 1024                       // the engine's tap size
         guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: frames) else { throw Failure.unreadable(url.lastPathComponent) }
         var position: AVAudioFramePosition = 0
-        while true {
-            try file.read(into: buffer, frameCount: frames)
+        // Never ask for more frames than remain: AVAudioFile.read(into:frameCount:) can throw at the end of the file.
+        while position < file.length {
+            let want = AVAudioFrameCount(min(AVAudioFramePosition(frames), file.length - position))
+            do { try file.read(into: buffer, frameCount: want) } catch { throw Failure.readFailed("\(url.lastPathComponent) at frame \(position): \(error)") }
             if buffer.frameLength == 0 { break }
             detector.process(buffer, AVAudioTime(sampleTime: position, atRate: format.sampleRate))
             position += AVAudioFramePosition(buffer.frameLength)
