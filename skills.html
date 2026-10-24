@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette */
+            --primaryColor: #2596be;
+            --secondaryColor: #5bc1da;
+            --tertiaryColor: #666666;
+            --quaternaryColor: #ebeaea;
+            --darkColor: #000000;
+            --lightColor: #ffffff;
+
+            /* Typography */
+            --regularFont: 1.6rem;
+            --headingFont: 3.5rem;
+            --ffPrimary: "Playfair Display", serif;
+            --ffSecondary: "Inter", sans-serif;
+            --ffCode: "JetBrains Mono", monospace;
+
+            /* Structural */
+            --border: 1px solid var(--primaryColor);
+            --borderRadius: 0.5rem;
+            --primaryShadow: 0 4px 8px rgba(20, 71, 108, 0.15);
+            --secondaryShadow: 0 8px 16px rgba(20, 71, 108, 0.2);
+            --containerPaddingY: 2rem;
+            --containerPaddingX: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            /* 1rem = 10px, same base as TrapShooterPro.html */
+        }
+
+        body {
+            margin: 0;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            line-height: 1.6;
+            color: var(--darkColor);
+            background: var(--quaternaryColor);
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            background: var(--lightColor);
+            border: var(--border);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+        }
+
+        .lead {
+            margin: 0 0 var(--containerPaddingY);
+            padding: var(--containerPaddingX);
+            font-weight: 600;
+            color: var(--primaryColor);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--primaryColor);
+            border-radius: var(--borderRadius);
+        }
+
+        h2 {
+            margin: var(--containerPaddingY) 0 var(--containerPaddingX);
+            padding-bottom: 0.5rem;
+            font-family: var(--ffPrimary);
+            font-size: var(--headingFont);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primaryColor);
+            border-bottom: var(--border);
+        }
+
+        h3 {
+            margin: 0 0 0.4rem;
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            font-weight: 600;
+            color: var(--darkColor);
+        }
+
+        p {
+            margin: 0.4rem 0;
+        }
+
+        code {
+            font-family: var(--ffCode);
+            font-size: 0.9em;
+            color: var(--primaryColor);
+            background: var(--quaternaryColor);
+            padding: 0.1rem 0.4rem;
+            border-radius: var(--borderRadius);
+        }
+
+        .item {
+            margin: 0 0 var(--containerPaddingX);
+            padding: var(--containerPaddingX);
+            background: var(--lightColor);
+            border: var(--border);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+        }
+
+        .tag {
+            display: inline-block;
+            margin-bottom: 0.6rem;
+            padding: 0.2rem 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--lightColor);
+            background: var(--secondaryColor);
+            border-radius: var(--borderRadius);
+        }
+
+        .file-link {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-family: var(--ffCode);
+            font-size: 1.3rem;
+            color: var(--primaryColor);
+            text-decoration: none;
+            border-bottom: 1px solid var(--primaryColor);
+            word-break: break-all;
+        }
+
+        .file-link:hover {
+            color: var(--darkColor);
+            border-bottom-color: var(--darkColor);
+        }
+
+        .no-file {
+            margin-top: 0.6rem;
+            font-size: 1.3rem;
+            color: var(--tertiaryColor);
+        }
+
+        .closing {
+            margin-top: var(--containerPaddingY);
+            padding: var(--containerPaddingX);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--secondaryColor);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--secondaryShadow);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <p class="lead">Short answer: 39 skills and 13 agents, and they guide the 10 phases (0–9) mainly through the Mac
+            workflow.</p>
+
+        <h2>1. Skills (39)</h2>
+        <p>A skill is a set of instructions Claude follows for one kind of task. Six of them are written for this
+            project. Five of those are in the repository, so their files open from the links below. The other 33 are
+            built into Claude Code or its plugins, so there is no file on this machine to open.</p>
+
+        <h2>TrapShooterPro project skills (6)</h2>
+
+        <section class="item">
+            <span class="tag">Project · Mac</span>
+            <h3>mac-build</h3>
+            <p>Builds, tests and runs TrapShooterPro on a Mac in eight fixed stages: preflight, the whole CI pipeline run
+                locally, compile fixes through <code>swift-builder</code>, test triage through <code>sim-tester</code>,
+                a demo run with screenshots through <code>app-verifier</code>, an XcodeBuildMCP smoke test, the design
+                preview through <code>design-reviewer</code>, and a session record through <code>progress-scribe</code>.
+                Use it at the start of any Mac session. On Windows it stops at preflight.</p>
+            <a class="file-link" href=".claude/skills/mac-build/SKILL.md" target="_blank" rel="noopener">.claude/skills/mac-build/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · Mac + iPhone</span>
+            <h3>mac-device</h3>
+            <p>Runs the app on the owner's iPhone from the Mac and works through the eighteen-row device checklist that
+                the simulator cannot cover: the DJI Mic Mini 2 receiver, plug and unplug, phone call interruption, Low
+                Power Mode, the one-hour battery test, the 2,000-round list speed, backup, reinstall and restore,
+                kill-and-resume, VoiceOver and the scorecard PDF. Only a passing row can change a ⏳ iPhone line in
+                <code>docs/progress.md</code>. The owner must be present with the receiver.</p>
+            <a class="file-link" href=".claude/skills/mac-device/SKILL.md" target="_blank" rel="noopener">.claude/skills/mac-device/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · Mac + Apple account</span>
+            <h3>mac-release</h3>
+            <p>Archives the app, uploads it to TestFlight, tags the build and prepares the App Store submission material.
+                It first checks that today's <code>mac-build</code> passed on the current commit with a clean working
+                tree, and that the detector regression set ran on the Release configuration. Build numbers cannot be
+                reused, so every signing, upload or tag step waits for the owner's yes.</p>
+            <a class="file-link" href=".claude/skills/mac-release/SKILL.md" target="_blank" rel="noopener">.claude/skills/mac-release/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · any machine</span>
+            <h3>detector-fixtures</h3>
+            <p>Turns the owner's range videos and microphone tests into regression fixtures: a mono 48 kHz audio file
+                plus a JSON file of expected call-to-shot times. It runs the regression set through
+                <code>DetectorRegressionTests</code>. Use it before any change near <code>AudioDetector.swift</code>,
+                which CLAUDE.md rule 1 requires. Building fixtures works on Windows with ffmpeg; running the set needs
+                the Mac.</p>
+            <a class="file-link" href=".claude/skills/detector-fixtures/SKILL.md" target="_blank" rel="noopener">.claude/skills/detector-fixtures/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · Phase 9</span>
+            <h3>operate</h3>
+            <p>Runs the app after release, with no server. The weekly triage reads App Store Connect crashes and reviews
+                and support bundles, and checks the results against fixed targets: crash-free sessions above 99.5 %, cold
+                launch p95 under 400 ms, and timer accuracy within 7 ms. It also covers the per-iOS-beta run, the
+                quarterly security review, the yearly minimum-iOS decision, and the deferred options such as iCloud sync.</p>
+            <a class="file-link" href=".claude/skills/operate/SKILL.md" target="_blank" rel="noopener">.claude/skills/operate/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · not used here</span>
+            <h3>responsive-screens</h3>
+            <p>Lays out React Native or Expo screens for phones and tablets with a Three-Slot method. This app is native
+                SwiftUI, so the skill does not apply to it. It is listed for completeness.</p>
+            <a class="file-link" href="file:///C:/Users/admin/.claude/skills/responsive-screens/SKILL.md" target="_blank" rel="noopener">C:\Users\admin\.claude\skills\responsive-screens\SKILL.md</a>
+        </section>
+
+        <h2>Documents and files (7)</h2>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>docs</h3>
+            <p>Creates editable documents that people can share and comment on. Use it for any document, report, proposal,
+                policy or guide that should be kept and shared.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/docs/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/docs/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>docx</h3>
+            <p>Reads, creates and edits Word files (.docx and .dotx), including tracked changes, comments and templates.</p>
+            <a class="file-link" href=".claude/skills/docx/SKILL.md" target="_blank" rel="noopener">.claude/skills/docx/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>pdf</h3>
+            <p>Reads PDFs, extracts text and tables, merges and splits them, rotates pages, adds watermarks, fills forms,
+                encrypts or decrypts, and runs OCR on scanned pages.</p>
+            <a class="file-link" href=".claude/skills/pdf/SKILL.md" target="_blank" rel="noopener">.claude/skills/pdf/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>pptx</h3>
+            <p>Creates, reads and edits PowerPoint files, including layouts, templates and speaker notes.</p>
+            <a class="file-link" href=".claude/skills/pptx/SKILL.md" target="_blank" rel="noopener">.claude/skills/pptx/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>xlsx</h3>
+            <p>Opens, edits, cleans and creates spreadsheets (.xlsx, .xlsm, .csv, .tsv), with formulas, formatting and charts.</p>
+            <a class="file-link" href=".claude/skills/xlsx/SKILL.md" target="_blank" rel="noopener">.claude/skills/xlsx/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>google-workspace</h3>
+            <p>Creates and changes Google Docs, Sheets and Slides in the user's Google Drive, with helper scripts for
+                positions, cell ranges and slide layout.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/google-workspace/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/google-workspace/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>dataviz</h3>
+            <p>Guides any chart, graph or dashboard so that the colours, marks and layout read as one system in light and
+                dark modes.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/dataviz/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/dataviz/SKILL.md</a>
+        </section>
+
+        <h2>Artifacts (3)</h2>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>artifact-design</h3>
+            <p>Design rules for Artifacts: colour tokens, dark mode, phone width, icons and page layout. Load it before
+                writing any artifact.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/artifact-design/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/artifact-design/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>artifact-diagramming</h3>
+            <p>Rules for when a diagram earns its place, and how to draw inline SVG that reads well in both themes.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/artifact-diagramming/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/artifact-diagramming/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>artifact-capabilities</h3>
+            <p>Runtime features an Artifact page can be given, such as saving state, shared storage, a viewer's file
+                download or a question to Claude. Load it before using any of them.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/artifact-capabilities/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/artifact-capabilities/SKILL.md</a>
+        </section>
+
+        <h2>Browsers and desktop (4)</h2>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>built-in-browser</h3>
+            <p>How to use the browser pane inside the Claude desktop app: tabs, reading pages as text, site approvals and
+                what it cannot open.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/built-in-browser/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/built-in-browser/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>chrome-browser</h3>
+            <p>How to use Claude in Chrome, the extension that works in the user's own Chrome with their sign-ins.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/chrome-browser/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/chrome-browser/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>computer-use</h3>
+            <p>Controls apps on the user's own computer through screenshots, clicks and typing, with safety rules for
+                sensitive apps and financial actions.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/computer-use/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/computer-use/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>run</h3>
+            <p>Launches the project's app and checks a change in the running app, not only in tests. It falls back to
+                standard patterns for each project type.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/run/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/run/SKILL.md</a>
+        </section>
+
+        <h2>Code quality (4)</h2>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>code-review</h3>
+            <p>Reviews the current diff or a pull request for correctness bugs, at a chosen effort level. It can post
+                findings as PR comments or apply fixes.</p>
+            <p class="no-file">Alternative from anthropics/claude-plugins-official, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/alternatives/code-review/commands/code-review.md" target="_blank" rel="noopener">.claude/skills-extra/alternatives/code-review/commands/code-review.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>simplify</h3>
+            <p>Reviews changed code for reuse, simplicity and efficiency, then applies the fixes. It does not hunt for bugs.</p>
+            <p class="no-file">Alternative from anthropics/claude-plugins-official, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/alternatives/code-simplifier/agents/code-simplifier.md" target="_blank" rel="noopener">.claude/skills-extra/alternatives/code-simplifier/agents/code-simplifier.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>security-review</h3>
+            <p>Reviews the pending changes on the current branch for security problems.</p>
+            <p class="no-file">Alternative from anthropics/claude-plugins-official, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/alternatives/claude-security/README.md" target="_blank" rel="noopener">.claude/skills-extra/alternatives/claude-security/README.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>workflow-authoring</h3>
+            <p>Reference for writing a Workflow script: the script API, resume, quality patterns and examples. Load it only
+                when the user has asked for a multi-agent workflow.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/workflow-authoring/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/workflow-authoring/SKILL.md</a>
+        </section>
+
+        <h2>Claude setup and memory (10)</h2>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>update-config</h3>
+            <p>Changes Claude Code settings in settings.json: permissions, environment variables and hooks.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/update-config/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/update-config/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>keybindings-help</h3>
+            <p>Customises keyboard shortcuts in keybindings.json, including chord bindings.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/keybindings-help/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/keybindings-help/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>fewer-permission-prompts</h3>
+            <p>Reads past transcripts for common read-only commands and proposes an allowlist to reduce permission prompts.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/fewer-permission-prompts/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/fewer-permission-prompts/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>claude-api</h3>
+            <p>Reference for the Claude API and Anthropic SDKs: model IDs, pricing, parameters, streaming, tool use, caching
+                and migration. Claude loads it before answering any question about models.</p>
+            <a class="file-link" href=".claude/skills/claude-api/SKILL.md" target="_blank" rel="noopener">.claude/skills/claude-api/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>skill-creator</h3>
+            <p>Creates new skills, edits existing ones, runs evaluations and tunes how well a skill's description triggers.</p>
+            <a class="file-link" href=".claude/skills/skill-creator/SKILL.md" target="_blank" rel="noopener">.claude/skills/skill-creator/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>setup-claude</h3>
+            <p>Guided setup: installs plugins that match a role, connects tools and tries a first skill.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/setup-claude/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/setup-claude/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>consolidate-memory</h3>
+            <p>Reviews the memory files: merges duplicates, fixes stale facts and prunes the index.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/consolidate-memory/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/consolidate-memory/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>import-memory</h3>
+            <p>Imports a memory export from another AI assistant. The content is treated as data, not as instructions.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/import-memory/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/import-memory/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>plugin-authoring</h3>
+            <p>Makes a mod: a panel, status line, toast, slash command or hook that changes Claude's own interface or behaviour.</p>
+            <p class="no-file">Alternative from anthropics/claude-plugins-official, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/alternatives/plugin-dev/README.md" target="_blank" rel="noopener">.claude/skills-extra/alternatives/plugin-dev/README.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>init</h3>
+            <p>Creates a new CLAUDE.md with documentation of the codebase.</p>
+            <p class="no-file">Alternative from anthropics/claude-plugins-official, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/alternatives/claude-md-management/skills/claude-md-improver/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/alternatives/claude-md-management/skills/claude-md-improver/SKILL.md</a>
+        </section>
+
+        <h2>Scheduling and misc (5)</h2>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>loop</h3>
+            <p>Runs a prompt or command again on an interval, or lets the model choose the pace.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/loop/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/loop/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>schedule</h3>
+            <p>Creates, updates and runs scheduled cloud agents on a cron schedule, including one-time runs.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/schedule/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/schedule/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>deep-research</h3>
+            <p>Researches a topic across many sources with research subagents and writes a full report.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/deep-research/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/deep-research/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>explain-usage</h3>
+            <p>Explains where this session's tokens went, with one simple chart.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/explain-usage/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/explain-usage/SKILL.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>morning</h3>
+            <p>Renders the user's morning brief as a styled page, or sets it up as a weekday task. Used only when asked.</p>
+            <p class="no-file">Our version, not the built-in file.</p>
+            <a class="file-link" href=".claude/skills-extra/own/morning/SKILL.md" target="_blank" rel="noopener">.claude/skills-extra/own/morning/SKILL.md</a>
+        </section>
+
+        <div class="closing">
+            <p>Skills are chosen by the task. A project skill such as <code>mac-build</code> is used on the Mac; the
+                built-in skills work on any machine.</p>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agents</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette */
+            --primaryColor: #2596be;
+            --secondaryColor: #5bc1da;
+            --tertiaryColor: #666666;
+            --quaternaryColor: #ebeaea;
+            --darkColor: #000000;
+            --lightColor: #ffffff;
+
+            /* Typography */
+            --regularFont: 1.6rem;
+            --headingFont: 3.5rem;
+            --ffPrimary: "Playfair Display", serif;
+            --ffSecondary: "Inter", sans-serif;
+            --ffCode: "JetBrains Mono", monospace;
+
+            /* Structural */
+            --border: 1px solid var(--primaryColor);
+            --borderRadius: 0.5rem;
+            --primaryShadow: 0 4px 8px rgba(20, 71, 108, 0.15);
+            --secondaryShadow: 0 8px 16px rgba(20, 71, 108, 0.2);
+            --containerPaddingY: 2rem;
+            --containerPaddingX: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            /* 1rem = 10px, same base as TrapShooterPro.html */
+        }
+
+        body {
+            margin: 0;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            line-height: 1.6;
+            color: var(--darkColor);
+            background: var(--quaternaryColor);
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            background: var(--lightColor);
+            border: var(--border);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+        }
+
+        .lead {
+            margin: 0 0 var(--containerPaddingY);
+            padding: var(--containerPaddingX);
+            font-weight: 600;
+            color: var(--primaryColor);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--primaryColor);
+            border-radius: var(--borderRadius);
+        }
+
+        h2 {
+            margin: var(--containerPaddingY) 0 var(--containerPaddingX);
+            padding-bottom: 0.5rem;
+            font-family: var(--ffPrimary);
+            font-size: var(--headingFont);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primaryColor);
+            border-bottom: var(--border);
+        }
+
+        h3 {
+            margin: 0 0 0.4rem;
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            font-weight: 600;
+            color: var(--darkColor);
+        }
+
+        p {
+            margin: 0.4rem 0;
+        }
+
+        code {
+            font-family: var(--ffCode);
+            font-size: 0.9em;
+            color: var(--primaryColor);
+            background: var(--quaternaryColor);
+            padding: 0.1rem 0.4rem;
+            border-radius: var(--borderRadius);
+        }
+
+        .item {
+            margin: 0 0 var(--containerPaddingX);
+            padding: var(--containerPaddingX);
+            background: var(--lightColor);
+            border: var(--border);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+        }
+
+        .tag {
+            display: inline-block;
+            margin-bottom: 0.6rem;
+            padding: 0.2rem 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--lightColor);
+            background: var(--secondaryColor);
+            border-radius: var(--borderRadius);
+        }
+
+        .file-link {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-family: var(--ffCode);
+            font-size: 1.3rem;
+            color: var(--primaryColor);
+            text-decoration: none;
+            border-bottom: 1px solid var(--primaryColor);
+            word-break: break-all;
+        }
+
+        .file-link:hover {
+            color: var(--darkColor);
+            border-bottom-color: var(--darkColor);
+        }
+
+        .no-file {
+            margin-top: 0.6rem;
+            font-size: 1.3rem;
+            color: var(--tertiaryColor);
+        }
+
+        .closing {
+            margin-top: var(--containerPaddingY);
+            padding: var(--containerPaddingX);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--secondaryColor);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--secondaryShadow);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <p class="lead">Short answer: 39 skills and 13 agents, and they guide the 10 phases (0–9) mainly through the Mac
+            workflow.</p>
+
+        <h2>2. Agents (13)</h2>
+        <p>An agent is a helper that Claude starts for one job. It gets its own instructions, its own tools and a
+            fresh context, and it returns a report. Seven agents are written for this project and their files are in
+            the repository, so their links below open. The other six come with Claude Code and have no file here.</p>
+
+        <h2>TrapShooterPro agents (7)</h2>
+
+        <section class="item">
+            <span class="tag">Project · Mac · stage 0</span>
+            <h3>mac-preflight</h3>
+            <p>Checks that the Mac can build, test and run the app: Xcode, simulators, Node, the MCP servers, git state,
+                disk space and signing. It explains every WARN or FAIL with the exact command that fixes it. It is
+                read-only and never changes the machine. Use it at the start of a Mac session, or when a build fails
+                for an environment reason.</p>
+            <a class="file-link" href=".claude/agents/mac-preflight.md" target="_blank" rel="noopener">.claude/agents/mac-preflight.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · Mac · stage 2</span>
+            <h3>swift-builder</h3>
+            <p>Fixes compile errors in one package, or in the app target, until it builds. Then it runs that package's
+                tests once. It works inside the project's rules: no changes to detector logic, no fixture regeneration,
+                no format changes, and design tokens only. The packages are fixed in dependency order, from TrapCore to
+                the app.</p>
+            <a class="file-link" href=".claude/agents/swift-builder.md" target="_blank" rel="noopener">.claude/agents/swift-builder.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · Mac · stage 3</span>
+            <h3>sim-tester</h3>
+            <p>Runs one package's tests in the simulator and decides, test by test, whether the Swift or the test is
+                wrong. Golden tests always mean the Swift is wrong. A test that needs a microphone, network or device is
+                skipped with a stated reason, never deleted. It reports the final test output.</p>
+            <a class="file-link" href=".claude/agents/sim-tester.md" target="_blank" rel="noopener">.claude/agents/sim-tester.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · Mac · stage 4</span>
+            <h3>app-verifier</h3>
+            <p>Launches the built app in demo mode on the iPhone and iPad simulators. It takes every section in light and
+                dark, scans the launch logs for crashes and TrapLog errors, and checks each screenshot against the design
+                system and the Olympic Trap facts. It returns a table and fixes nothing.</p>
+            <a class="file-link" href=".claude/agents/app-verifier.md" target="_blank" rel="noopener">.claude/agents/app-verifier.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · Mac · stage 6</span>
+            <h3>design-reviewer</h3>
+            <p>Renders the TrapDesign previews in light and dark through Xcode's bridge and audits them against the design
+                system: tokens, contrast, 44 pt targets, Dynamic Type and Reduce Motion. It closes the "Design preview
+                rendered light and dark" item in the progress file. It needs Xcode open with the project.</p>
+            <a class="file-link" href=".claude/agents/design-reviewer.md" target="_blank" rel="noopener">.claude/agents/design-reviewer.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · Mac · stage 7</span>
+            <h3>progress-scribe</h3>
+            <p>Writes the record of a Mac session under <code>docs/mac-sessions/</code> and updates the rows in
+                <code>docs/progress.md</code> to match what was verified, and nothing more. It edits only those two places
+                and never commits.</p>
+            <a class="file-link" href=".claude/agents/progress-scribe.md" target="_blank" rel="noopener">.claude/agents/progress-scribe.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Project · Phase 9</span>
+            <h3>support-triage</h3>
+            <p>Reads one support bundle from a shooter, with any MetricKit payloads. It returns the device, build, audio
+                line and storage, the error lines from the log, the numbers against the Phase 9 targets, a suggested reply
+                and a suggested engineering task. It is read-only and sends nothing.</p>
+            <a class="file-link" href=".claude/agents/support-triage.md" target="_blank" rel="noopener">.claude/agents/support-triage.md</a>
+        </section>
+
+        <h2>General agents (6)</h2>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>general-purpose</h3>
+            <p>A general agent for research, code search and multi-step tasks. Claude uses it when a search may need
+                several tries.</p>
+            <p class="no-file">No file on this machine.</p>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>Explore</h3>
+            <p>A read-only agent for wide searches across many files and naming patterns. It locates code and does not
+                review it.</p>
+            <p class="no-file">No file on this machine.</p>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>Plan</h3>
+            <p>A software architect agent that designs implementation plans, names the critical files and weighs the
+                trade-offs. It does not edit files.</p>
+            <p class="no-file">No file on this machine.</p>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>claude</h3>
+            <p>The catch-all agent for any task that does not fit a more specific agent.</p>
+            <p class="no-file">No file on this machine.</p>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>claude-code-guide</h3>
+            <p>Answers questions about Claude Code, the Agent SDK and the Claude API, with the documentation.</p>
+            <p class="no-file">No file on this machine.</p>
+        </section>
+
+        <section class="item">
+            <span class="tag">Built-in</span>
+            <h3>statusline-setup</h3>
+            <p>Configures the status line in Claude Code's settings.</p>
+            <p class="no-file">No file on this machine.</p>
+        </section>
+
+        <div class="closing">
+            <p>The Mac agents run in order during <code>mac-build</code>: preflight, then builder, tester, verifier,
+                designer and scribe. Support triage runs in the operate phase, after release.</p>
+        </div>
+    </main>
+</body>
+
+</html>
