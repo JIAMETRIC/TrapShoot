@@ -40,12 +40,8 @@ public enum FileAnalyzer {
         let detector = AudioDetector()
         detector.setConfig(settings.detectorConfig)
         let sink = Sink()
-        detector.onTarget = { t1, t2, db in
-            MainActor.assumeIsolated { sink.targets.append(TimedTarget(firstMs: t1, secondMs: t2, callDb: db)) }
-        }
-        detector.onReject = { r in
-            MainActor.assumeIsolated { if let reason = RejectReason(rawValue: r.rawValue) { sink.rejects.append(reason) } }
-        }
+        detector.onTarget = { t1, t2, db in sink.add(target: TimedTarget(firstMs: t1, secondMs: t2, callDb: db)) }
+        detector.onReject = { r in if let reason = RejectReason(rawValue: r.rawValue) { sink.add(reject: reason) } }
         detector.setup(sampleRate: format.sampleRate)
         detector.arm(beep: false, once: false)                   // stay armed: every target in the file counts
 
@@ -69,23 +65,21 @@ public enum FileAnalyzer {
 
         // The detector posts its callbacks with DispatchQueue.main.async; a block queued now runs after all of them.
         await withCheckedContinuation { (c: CheckedContinuation<Void, Never>) in DispatchQueue.main.async { c.resume() } }
-        var result = await MainActor.run { Result(targets: sink.targets, rejects: sink.rejects) }
+        var result = Result()
+        (result.targets, result.rejects) = sink.snapshot()
         result.seconds = Double(file.length) / format.sampleRate
         result.sampleRate = format.sampleRate
         return result
     }
 
-    /// Collects callbacks on the main queue.
-    @MainActor private final class Sink {
-        var targets: [TimedTarget] = []
-        var rejects: [RejectReason] = []
-    }
-}
-
-private extension FileAnalyzer.Result {
-    init(targets: [TimedTarget], rejects: [RejectReason]) {
-        self.init()
-        self.targets = targets
-        self.rejects = rejects
+    /// Collects the detector's callbacks (delivered on the main queue) behind a lock, so no actor isolation is
+    /// needed in the callback closures.
+    private final class Sink: @unchecked Sendable {
+        private let lock = NSLock()
+        private var targets: [TimedTarget] = []
+        private var rejects: [RejectReason] = []
+        func add(target: TimedTarget) { lock.lock(); targets.append(target); lock.unlock() }
+        func add(reject: RejectReason) { lock.lock(); rejects.append(reject); lock.unlock() }
+        func snapshot() -> ([TimedTarget], [RejectReason]) { lock.lock(); defer { lock.unlock() }; return (targets, rejects) }
     }
 }
