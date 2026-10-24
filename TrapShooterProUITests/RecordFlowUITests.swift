@@ -21,22 +21,22 @@ final class RecordFlowUITests: XCTestCase {
         let row = firstOpenTargetIndex()
         let before = app.buttons["record.target.\(row)"].label
         tapFirstEnabled(["record.direction.left", "record.direction.right", "record.direction.straight"])
-        app.buttons["record.result.hitFirst"].tap()
+        tap("record.result.hitFirst")
         let after = app.buttons["record.target.\(row)"].label
         XCTAssertNotEqual(before, after, "the ledger row changed after direction and result")
         XCTAssertFalse(after.contains("no result"), "row \(row) has a result: \(after)")
         XCTAssertFalse(after.contains("no direction"), "row \(row) has a direction: \(after)")
         XCTAssertTrue(app.buttons["record.undo"].isEnabled, "Undo is available after an entry")
-        app.buttons["record.undo"].tap()
+        tap("record.undo")
     }
 
     /// NO TARGET keeps the target number (CLAUDE.md rule 6) and leaves the panel on the same target.
     func testNoTargetKeepsTheNumber() {
         let row = firstOpenTargetIndex()
-        app.buttons["record.noTarget"].tap()
+        tap("record.noTarget")
         XCTAssertTrue(app.buttons["record.target.\(row)"].exists, "target \(row) still exists after NO TARGET")
         XCTAssertTrue(app.buttons["record.undo"].isEnabled)
-        app.buttons["record.undo"].tap()
+        tap("record.undo")
     }
 
     /// Start the timer on the Timer screen; the scripted timer answers the arm with a 612 ms first shot and the
@@ -67,8 +67,17 @@ final class RecordFlowUITests: XCTestCase {
     }
 
     private func tapFirstEnabled(_ ids: [String]) {
-        for id in ids where app.buttons[id].exists && app.buttons[id].isEnabled { app.buttons[id].tap(); return }
+        for id in ids where app.buttons[id].exists && app.buttons[id].isEnabled { tap(id); return }
         XCTFail("no enabled direction button among \(ids)")
+    }
+
+    /// Taps a control, scrolling the screen until it is on screen (the Record screen is longer than an iPhone).
+    private func tap(_ id: String) {
+        let element = app.buttons[id]
+        var tries = 0
+        while !element.isHittable && tries < 6 { app.swipeUp(); tries += 1 }
+        XCTAssertTrue(element.isHittable, "\(id) is on screen")
+        element.tap()
     }
 
     /// The ledger row of the first target without a result (the one the panel shows).
