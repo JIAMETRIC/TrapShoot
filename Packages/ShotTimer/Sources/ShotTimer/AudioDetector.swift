@@ -180,7 +180,9 @@ final class AudioDetector {
         return medBuf[H >> 1]
     }
 
-    private func setup(sampleRate: Double) {
+    // Internal (not private) so FileAnalyzer can feed a recording through the same code path. Phase 4, task 2:
+    // the only edit ever made to this file; no detection logic changed.
+    func setup(sampleRate: Double) {
         sr = sampleRate
         W = max(1, Int(sr * 0.010))
         ringV = Array(repeating: 0, count: W); ringB = Array(repeating: 0, count: W)
@@ -322,7 +324,7 @@ final class AudioDetector {
         cands = []
     }
 
-    private func process(_ buffer: AVAudioPCMBuffer, _ when: AVAudioTime) {
+    func process(_ buffer: AVAudioPCMBuffer, _ when: AVAudioTime) {
         guard let chans = buffer.floatChannelData else { return }
         let count = Int(buffer.frameLength)
         let nch = Int(buffer.format.channelCount)

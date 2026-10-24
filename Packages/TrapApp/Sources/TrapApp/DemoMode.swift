@@ -79,8 +79,12 @@ struct SeededRandom {
 }
 
 /// A timer for demo mode: lists a DJI receiver and the phone mic, never starts the microphone.
+/// With the extra launch argument `-uitest` it is the scripted timer of the UI tests (docs/testing.md): Start reports
+/// a started route, and every arm is answered 0.4 s later with a first shot at 612 ms and a target at 612 / 1034 ms,
+/// so the Record flow can be driven end to end in the simulator without audio.
 @MainActor
 final class DemoTimer: ShotTimerControlling {
+    static var isScripted: Bool { ProcessInfo.processInfo.arguments.contains("-uitest") }
     var isRunning = false
     var isRecording = false
     var inputs = [AudioInput(id: "built-in", label: "iPhone Microphone", isExternal: false),
@@ -98,11 +102,30 @@ final class DemoTimer: ShotTimerControlling {
     func start(input: AudioInput, record: Bool, sessionName: String) {
         lastNote = "Demo mode: the microphone stays off."
         onEvent?(.note(lastNote ?? ""))
+        guard DemoTimer.isScripted else { return }
+        isRunning = true
+        route = AudioRoute(id: "usb-dji", label: "DJI MIC MINI", isExternal: true)
+        onEvent?(.started(route: route, sampleRate: sampleRate, recording: nil))
     }
-    func stop() { isRunning = false }
+    func stop() {
+        isRunning = false
+        armToken += 1
+    }
     func apply(_ settings: TimerSettings) { self.settings = settings }
-    func arm(beep: Bool, once: Bool) {}
-    func disarm() {}
+
+    private var armToken = 0
+    func arm(beep: Bool, once: Bool) {
+        guard DemoTimer.isScripted, isRunning else { return }
+        armToken += 1
+        let token = armToken
+        Task { @MainActor [weak self] in
+            try? await Task.sleep(for: .milliseconds(400))
+            guard let self, self.isRunning, token == self.armToken else { return }
+            self.onEvent?(.firstShot(ms: 612))
+            self.onEvent?(.target(TimedTarget(firstMs: 612, secondMs: 1034, callDb: 91)))
+        }
+    }
+    func disarm() { armToken += 1 }
     func refreshInputs() {}
     func recordingToShare() -> URL? { nil }
 }

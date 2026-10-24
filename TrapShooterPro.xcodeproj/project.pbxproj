@@ -11,13 +11,26 @@
 		DCB5039E1B8D057334E9C8BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32BB636196F91ED59D7A4919 /* Assets.xcassets */; };
 		7A11AC1F00000000000000A1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7A11AC1F00000000000000A2 /* PrivacyInfo.xcprivacy */; };
 		7A11AC1F0000000000000B03 /* TrapApp in Frameworks */ = {isa = PBXBuildFile; productRef = 7A11AC1F0000000000000B02 /* TrapApp */; };
+		7A11AC1F0000000000000C05 /* RecordFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11AC1F0000000000000C04 /* RecordFlowUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A11AC1F0000000000000C0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46F86FAA6BBF9AC94A7E4595 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42AEFBAE01D2DFD981F7DA7D;
+			remoteInfo = TrapShooterPro;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D2A57DC1D883FD21FB995169 /* TrapShooterPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrapShooterPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60792BEF2E5DEB86C489F487 /* TrapShooterProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrapShooterProApp.swift; sourceTree = "<group>"; };
 		32BB636196F91ED59D7A4919 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A11AC1F00000000000000A2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		7A11AC1F0000000000000C02 /* TrapShooterProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrapShooterProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A11AC1F0000000000000C04 /* RecordFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordFlowUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +42,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A11AC1F0000000000000C07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -36,14 +56,24 @@
 			isa = PBXGroup;
 			children = (
 				DB0F6F37EBEB6EA094891243 /* TrapShooterPro */,
+				7A11AC1F0000000000000C03 /* TrapShooterProUITests */,
 				86024CAD1E83101D97359D73 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		7A11AC1F0000000000000C03 /* TrapShooterProUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7A11AC1F0000000000000C04 /* RecordFlowUITests.swift */,
+			);
+			path = TrapShooterProUITests;
 			sourceTree = "<group>";
 		};
 		86024CAD1E83101D97359D73 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				D2A57DC1D883FD21FB995169 /* TrapShooterPro.app */,
+				7A11AC1F0000000000000C02 /* TrapShooterProUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +111,23 @@
 			productReference = D2A57DC1D883FD21FB995169 /* TrapShooterPro.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7A11AC1F0000000000000C01 /* TrapShooterProUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A11AC1F0000000000000C0A /* Build configuration list for PBXNativeTarget "TrapShooterProUITests" */;
+			buildPhases = (
+				7A11AC1F0000000000000C06 /* Sources */,
+				7A11AC1F0000000000000C07 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A11AC1F0000000000000C0B /* PBXTargetDependency */,
+			);
+			name = TrapShooterProUITests;
+			productName = TrapShooterProUITests;
+			productReference = 7A11AC1F0000000000000C02 /* TrapShooterProUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +140,10 @@
 				TargetAttributes = {
 					42AEFBAE01D2DFD981F7DA7D = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					7A11AC1F0000000000000C01 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 42AEFBAE01D2DFD981F7DA7D;
 					};
 				};
 			};
@@ -113,6 +164,7 @@
 			projectRoot = "";
 			targets = (
 				42AEFBAE01D2DFD981F7DA7D /* TrapShooterPro */,
+				7A11AC1F0000000000000C01 /* TrapShooterProUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -138,7 +190,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A11AC1F0000000000000C06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A11AC1F0000000000000C05 /* RecordFlowUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7A11AC1F0000000000000C0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42AEFBAE01D2DFD981F7DA7D /* TrapShooterPro */;
+			targetProxy = 7A11AC1F0000000000000C0C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6F0B85FC643AF9C218F627EA /* Debug */ = {
@@ -314,6 +382,50 @@
 			};
 			name = Release;
 		};
+		7A11AC1F0000000000000C08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 8.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mtajudeen.trapshooterpro.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TrapShooterPro;
+			};
+			name = Debug;
+		};
+		7A11AC1F0000000000000C09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 8.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mtajudeen.trapshooterpro.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TrapShooterPro;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -331,6 +443,15 @@
 			buildConfigurations = (
 				CB8FE7DDB06B8A28E578DE77 /* Debug */,
 				C049B1C2A83F1767ABF6526D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A11AC1F0000000000000C0A /* Build configuration list for PBXNativeTarget "TrapShooterProUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A11AC1F0000000000000C08 /* Debug */,
+				7A11AC1F0000000000000C09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

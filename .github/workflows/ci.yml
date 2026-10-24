@@ -86,6 +86,13 @@ jobs:
         shell: bash          # -eo pipefail: a failing xcodebuild fails the step
         run: |
           (cd Packages/TrapDesign && xcodebuild -scheme TrapDesign -destination 'generic/platform=iOS Simulator' build | tee "$RUNNER_TEMP/TrapDesign.log" | xcpretty)
+      - name: UI test (range flow through the scripted timer, demo mode)
+        if: success() || failure()
+        shell: bash          # -eo pipefail: a failing xcodebuild fails the step
+        run: |
+          xcodebuild -project TrapShooterPro.xcodeproj -scheme TrapShooterPro \
+            -destination 'platform=iOS Simulator,name=iPhone 16' -only-testing:TrapShooterProUITests \
+            CODE_SIGNING_ALLOWED=NO test | tee "$RUNNER_TEMP/UITests.log" | xcpretty
       - name: Annotate simulator test failures
         if: failure()
         shell: bash

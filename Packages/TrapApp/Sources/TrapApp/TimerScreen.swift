@@ -70,6 +70,7 @@ struct TimerScreen: View {
             }
             .buttonStyle(.bwPrimary)
             .keyboardShortcut(BWKeys.start)
+            .accessibilityIdentifier("timer.start")
             .disabled(model.session.phase == .setup)
             if model.session.phase == .setup {
                 Text("Start the round on Record first.").font(BWFont.note).foregroundStyle(BW.textMuted)
@@ -79,8 +80,10 @@ struct TimerScreen: View {
                 if model.flow.phase == .idle {
                     Button("Arm T\(model.session.index + 1)") { model.armTapped() }
                         .buttonStyle(.bwPrimary).keyboardShortcut(BWKeys.start)
+                        .accessibilityIdentifier("timer.arm")
                 }
                 Button("Stop timer") { model.stopTimer() }.buttonStyle(.bwSecondary)
+                    .accessibilityIdentifier("timer.stop")
             }
         }
     }
@@ -107,6 +110,7 @@ private struct Readout: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("timer.readout")
         .accessibilityLabel(first.map { "First shot \(JSText.fixed($0, 3)) seconds" + (second.map { ", second \(JSText.fixed($0, 3))" } ?? "") } ?? "No time yet")
     }
 

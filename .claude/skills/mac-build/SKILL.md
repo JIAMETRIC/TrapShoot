@@ -11,7 +11,8 @@ fails or needs eyes. Nothing in this skill changes what the app does; it finds o
 passes and looks right on a Mac, and fixes what the Mac finds.
 
 **Read first, every time:** `CLAUDE.md` (rules 1, 2, 4, 6, 9, 11), `docs/progress.md` (what is still marked ⏳ Mac),
-and `.claude/skills/mac-build/reference/stages.md` (what each stage proves and how long it takes).
+`.claude/skills/mac-build/reference/stages.md` (what each stage proves and how long it takes) and
+`.claude/skills/mac-build/reference/phase-map.md` (which skill closes each open row of the plan).
 
 ## Fixed conventions
 
@@ -49,7 +50,10 @@ bash .claude/skills/mac-build/scripts/preflight.sh
 bash .claude/skills/mac-build/scripts/build-all.sh
 ```
 
-Runs every CI step locally and keeps going past failures. When it finishes, read `build/mac/<ts>/summary.md`.
+Runs every CI step locally and keeps going past failures: fixtures, `swift test` for the pure packages, the app
+build, the simulator package tests (the ShotTimer step includes the detector regression set, which skips with a
+reason until `Tools/detector-fixtures/` has recordings), the design build, and the UI test (`ui-test`: the range flow
+through the scripted demo timer, `TrapShooterProUITests`). When it finishes, read `build/mac/<ts>/summary.md`.
 
 - Everything passed: skip to stage 4.
 - `fixtures-current` failed: the fixtures differ from the JavaScript. Never regenerate them to make the step pass.
@@ -99,10 +103,9 @@ only the ones that are plainly wrong (clipped text, hard-coded colour visible in
 
 ### 5. XcodeBuildMCP smoke (5 min, optional when stage 4 passed)
 
-Through the MCP server: `build_run_sim` with defaults, then `snapshot_ui` and look for the accessibility identifiers
-`docs/testing.md` plans for the UI tests (`record.result.hitFirst`, `timer.start`, `record.target.11`). They are not
-in the sources yet, so their absence is a known gap to list in the report, not a failure. `stop_app_sim`. Skipped
-when the server is not connected; say so in the report.
+Through the MCP server: `build_run_sim` with defaults, then `snapshot_ui` and confirm the accessibility identifiers
+the UI test uses are present (`record.result.hitFirst`, `record.noTarget`, `record.target.13`, `timer.start`,
+`timer.readout`). `stop_app_sim`. Skipped when the server is not connected; say so in the report.
 
 ### 6. Design preview, light and dark (10 min, needs the Xcode bridge)
 

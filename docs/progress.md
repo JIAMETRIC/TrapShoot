@@ -4,7 +4,7 @@ One line per deliverable, updated with every commit that changes one. Plan and e
 Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the gate's device, range or Mac check still to do ·
 🔨 in progress · ⏳ waiting on the owner (recordings, iPhone, range, Mac, Apple account) · ⬜ not started.
 
-*Last updated: 22 October 2026*
+*Last updated: 24 October 2026*
 
 > **Correction (22 October 2026, `d4852de`).** Until this commit the iOS CI job could not fail: `xcodebuild | xcpretty`
 > ran without `pipefail`, so a step passed whatever xcodebuild did. Everything that only that job checked (the app build;
@@ -17,7 +17,7 @@ Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the g
 |---|---|
 | GitHub Actions (macOS runners) | compiles every package and the app; unit and simulator tests; golden fixtures |
 | Owner's iPhone + DJI Mic Mini 2 | timing, receiver behaviour, battery, kill‑and‑resume, real‑range round |
-| A Mac with Xcode | SwiftUI previews, Instruments, archive and App Store submission |
+| A Mac with Xcode | SwiftUI previews, Instruments, archive and App Store submission; driven by `/mac-build`, `/mac-device`, `/mac-release` (phase map: `.claude/skills/mac-build/reference/phase-map.md`) |
 
 ## Phase 0 — Discovery and decisions ✅
 
@@ -58,8 +58,8 @@ Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the g
 | `ShotTimerTests` run in CI | ✅ |
 | DJI Mic Mini 2 as reference receiver: recognised, preferred under System default, named on the check line | ✅ |
 | Port name of the DJI receiver confirmed on a device | ⏳ iPhone + DJI |
-| Detector regression recordings (9 range videos, 18 Oct mic test) with expected times | ⏳ owner |
-| `FileAnalyzer` ("Time a recording") and regression test target | ⬜ after the recordings |
+| Detector regression recordings (9 range videos, 18 Oct mic test) with expected times | ⏳ owner; intake with `/detector-fixtures` (`Tools/detector-fixtures/`) |
+| `FileAnalyzer` ("Time a recording"), `DetectorFixture`, `DetectorRegressionTests` (skips until fixtures exist; synthetic call-and-shot test always runs) | 🟡 |
 | Device checks: plug/unplug, call, Low Power Mode, 1 h < 10 % battery | ⏳ iPhone + DJI |
 
 ## Phase 5 — Record and Timer screens
@@ -73,7 +73,7 @@ Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the g
 | Record screen | 🟡 |
 | Timer screen | 🟡 |
 | iPhone tabs, iPad split, keyboard, VoiceOver, Dynamic Type | 🟡 |
-| Range flow tested through a scripted timer (`RecordFlowTests`) | 🟡 |
+| Range flow tested through a scripted timer (`RecordFlowTests`; `TrapShooterProUITests` on screen through `DemoTimer -uitest`, accessibility identifiers `screen.element.name`) | 🟡 |
 | Full round on a real range; kill‑and‑resume on device | ⏳ range |
 
 ## Phase 6 — Rounds, Analysis, Schemes, exporters
@@ -112,7 +112,7 @@ Legend: ✅ done and verified in CI · 🟡 built and unit‑tested in CI; the g
 
 | Deliverable | State |
 |---|---|
-| MetricKit service levels, support bundles, regression run per iOS beta | ⬜ after release |
+| MetricKit service levels, support bundles, regression run per iOS beta | ⬜ after release; procedure written: `/operate` with the `support-triage` agent |
 
 ## Log
 

@@ -16,6 +16,9 @@ screenshots and text needs no permission.
 
 1. The last `build/mac/<ts>/summary.md` of today says all steps passed on the current commit, and the working tree
    is clean (`git status`). If not, run `/mac-build` first.
+1b. The detector regression set on the Release configuration (Phase 8: "run the detector regression set on the
+   release build"): `bash .claude/skills/mac-build/scripts/test-package.sh ShotTimer --release`. With no fixtures
+   recorded yet the test skips; say so in the record rather than calling it passed.
 2. `docs/progress.md` has no 🔨 items in the phase being shipped.
 3. `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION` in the project are what the user wants:
    ```bash
