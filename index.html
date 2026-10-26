@@ -324,7 +324,7 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            flex: 1;
+            flex: 1 0 auto;
             min-height: 0;
         }
 
@@ -427,6 +427,388 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #aaa;
         }
+        /* --- Dashboard view, from dashboard.html --- */
+        #dashboard-view {
+                    --primaryColor: #2596be;
+                    --secondaryColor: #5bc1da;
+                    --tertiaryColor: #666666;
+                    --quaternaryColor: #ebeaea;
+                    --darkColor: #000000;
+                    --lightColor: #ffffff;
+                    --customColor: #0a78c1;
+                    --shadowPrimary: 0 4px 8px rgba(20, 71, 108, 0.15);
+
+                    --fontHeading: 'Playfair Display', serif;
+                    --fontBody: 'Inter', sans-serif;
+
+
+                    --heroInk: #0d2b3a;
+                    --heroMist: #e8f5fa;
+                    --clayOrange: #e8752a;
+                }
+        #dashboard-view, #dashboard-view * {
+                    box-sizing: border-box;
+                }
+        #dashboard-view {
+                    font-size: 62.5%;
+
+                }
+        #dashboard-view {
+                    margin: 0;
+                    font-family: var(--fontBody);
+                    font-size: 15px;
+                    color: var(--heroInk);
+                    background-color: #f1f5f9;
+                }
+        #dashboard-view .hero {
+                    position: relative;
+                    overflow: hidden;
+                    background:
+                        radial-gradient(600px 400px at 85% 20%, rgba(91, 193, 218, 0.35), transparent 70%),
+                        linear-gradient(160deg, var(--lightColor) 0%, var(--heroMist) 100%);
+                    padding: 50px max(24px, env(safe-area-inset-right, 0px)) 40px max(24px, env(safe-area-inset-left, 0px));
+                }
+        #dashboard-view .hero-inner {
+                    max-width: 1120px;
+                    margin: 0 auto;
+                    display: grid;
+                    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+                    gap: 40px;
+                    align-items: center;
+                }
+        #dashboard-view .eyebrow {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    color: var(--primaryColor);
+                    margin: 0 0 16px;
+                }
+        #dashboard-view .eyebrow .clay {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background: var(--clayOrange);
+                    box-shadow: 0 0 0 3px rgba(232, 117, 42, 0.2);
+                }
+        #dashboard-view .hero h1 {
+                    font-family: var(--fontHeading);
+                    font-size: clamp(32px, 5vw, 54px);
+                    line-height: 1.08;
+                    margin: 0 0 20px;
+                    color: var(--heroInk);
+                    text-wrap: balance;
+                }
+        #dashboard-view .hero h1 .brand {
+                    color: var(--primaryColor);
+                }
+        #dashboard-view .lead {
+                    font-size: 18px;
+                    line-height: 1.6;
+                    color: #36515f;
+                    max-width: 520px;
+                    margin: 0 0 30px;
+                }
+        #dashboard-view .cta-row {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 12px;
+                    margin-bottom: 30px;
+                }
+        #dashboard-view .btn {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 13px 22px;
+                    border-radius: 8px;
+                    font-family: var(--fontBody);
+                    font-size: 15px;
+                    font-weight: 600;
+                    text-decoration: none;
+                    transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+                }
+        #dashboard-view .btn-primary {
+                    background: var(--primaryColor);
+                    color: var(--lightColor);
+                    box-shadow: var(--shadowPrimary);
+                }
+        #dashboard-view .btn-primary:hover {
+                    background: var(--customColor);
+                    transform: translateY(-1px);
+                }
+        #dashboard-view .btn-secondary {
+                    background: var(--lightColor);
+                    color: var(--primaryColor);
+                    border: 1px solid rgba(37, 150, 190, 0.35);
+                }
+        #dashboard-view .btn-secondary:hover {
+                    background: var(--heroMist);
+                }
+        #dashboard-view .btn i {
+                    font-size: 18px;
+                }
+        #dashboard-view .btn:focus-visible {
+                    outline: 3px solid var(--secondaryColor);
+                    outline-offset: 2px;
+                }
+        #dashboard-view .platforms {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    font-size: 13px;
+                    color: var(--tertiaryColor);
+                }
+        #dashboard-view .platforms span {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 7px;
+                }
+        #dashboard-view .platforms i {
+                    color: var(--primaryColor);
+                    font-size: 16px;
+                }
+        #dashboard-view .devices {
+                    position: relative;
+                    min-height: 420px;
+                }
+        #dashboard-view .ipad {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 82%;
+                    aspect-ratio: 4 / 3;
+                    max-width: 100%;
+                    background: #1b1f23;
+                    border-radius: 26px;
+                    padding: 14px;
+                    box-shadow: 0 30px 60px rgba(13, 43, 58, 0.25);
+                }
+        #dashboard-view .iphone {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 38%;
+                    aspect-ratio: 9 / 19;
+                    max-width: 100%;
+                    background: #1b1f23;
+                    border-radius: 34px;
+                    padding: 10px;
+                    box-shadow: 0 30px 50px rgba(13, 43, 58, 0.35);
+                }
+        #dashboard-view .screen {
+                    width: 100%;
+                    height: 100%;
+                    background: var(--lightColor);
+                    border-radius: 16px;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                }
+        #dashboard-view .iphone .screen {
+                    border-radius: 26px;
+                }
+        #dashboard-view .app-bar {
+                    background: var(--primaryColor);
+                    color: var(--lightColor);
+                    padding: 10px 14px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+        #dashboard-view .iphone .app-bar {
+                    padding-top: 22px;
+                }
+        #dashboard-view .app-bar small {
+                    font-weight: 500;
+                    opacity: 0.85;
+                }
+        #dashboard-view .score {
+                    text-align: center;
+                    padding: 12px 0 6px;
+                }
+        #dashboard-view .score strong {
+                    display: block;
+                    font-family: var(--fontHeading);
+                    font-size: 34px;
+                    color: var(--heroInk);
+                    line-height: 1;
+                }
+        #dashboard-view .score span {
+                    font-size: 10px;
+                    color: var(--tertiaryColor);
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                }
+        #dashboard-view .stations {
+                    list-style: none;
+                    margin: 0;
+                    padding: 4px 12px 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                }
+        #dashboard-view .stations li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    font-size: 10px;
+                    color: var(--tertiaryColor);
+                }
+        #dashboard-view .marks {
+                    display: flex;
+                    gap: 4px;
+                }
+        #dashboard-view .mark {
+                    width: 11px;
+                    height: 11px;
+                    border-radius: 50%;
+                    background: var(--clayOrange);
+                }
+        #dashboard-view .mark.miss {
+                    background: transparent;
+                    border: 1.5px solid #b9c6cd;
+                }
+        #dashboard-view .ipad-body {
+                    flex: 1;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 14px;
+                    padding: 16px;
+                    min-height: 0;
+                }
+        #dashboard-view .panel {
+                    background: var(--heroMist);
+                    border-radius: 10px;
+                    padding: 12px;
+                    display: flex;
+                    flex-direction: column;
+                    min-height: 0;
+                }
+        #dashboard-view .panel h4 {
+                    margin: 0 0 10px;
+                    font-size: 11px;
+                    color: var(--heroInk);
+                }
+        #dashboard-view .bars {
+                    flex: 1;
+                    display: flex;
+                    align-items: flex-end;
+                    gap: 8px;
+                    min-height: 60px;
+                }
+        #dashboard-view .bars div {
+                    flex: 1;
+                    background: var(--secondaryColor);
+                    border-radius: 4px 4px 0 0;
+                }
+        #dashboard-view .bars div.best {
+                    background: var(--primaryColor);
+                }
+        #dashboard-view .bar-labels {
+                    display: flex;
+                    gap: 8px;
+                    margin-top: 5px;
+                }
+        #dashboard-view .bar-labels span {
+                    flex: 1;
+                    text-align: center;
+                    font-size: 9px;
+                    color: var(--tertiaryColor);
+                }
+        #dashboard-view .station-grid {
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    gap: 6px;
+                    flex: 1;
+                    align-content: center;
+                }
+        #dashboard-view .station-grid div {
+                    background: var(--lightColor);
+                    border-radius: 6px;
+                    text-align: center;
+                    padding: 8px 0;
+                    font-size: 9px;
+                    color: var(--tertiaryColor);
+                    white-space: nowrap;
+                    min-width: 0;
+                }
+        #dashboard-view .station-grid strong {
+                    display: block;
+                    font-size: 15px;
+                    color: var(--heroInk);
+                }
+        #dashboard-view .sample-note {
+                    position: absolute;
+                    right: 0;
+                    bottom: -26px;
+                    font-size: 11px;
+                    color: var(--tertiaryColor);
+                }
+        #dashboard-view .features {
+                    background: var(--lightColor);
+                    border-top: 1px solid var(--quaternaryColor);
+                    padding: 40px max(24px, env(safe-area-inset-right, 0px)) 44px max(24px, env(safe-area-inset-left, 0px));
+                }
+        #dashboard-view .features-inner {
+                    max-width: 1120px;
+                    margin: 0 auto;
+                    display: grid;
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                    gap: 24px;
+                }
+        #dashboard-view .feature {
+                    display: flex;
+                    gap: 14px;
+                    align-items: flex-start;
+                }
+        #dashboard-view .feature i {
+                    flex-shrink: 0;
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 10px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: var(--heroMist);
+                    color: var(--primaryColor);
+                    font-size: 19px;
+                }
+        #dashboard-view .feature h3 {
+                    margin: 0 0 6px;
+                    font-family: var(--fontHeading);
+                    font-size: 19px;
+                    color: var(--heroInk);
+                }
+        #dashboard-view .feature p {
+                    margin: 0;
+                    line-height: 1.55;
+                    color: #4a6371;
+                }
+        @media (max-width: 860px) {
+        #dashboard-view .hero-inner {
+                        grid-template-columns: 1fr;
+                    }
+        #dashboard-view .devices {
+                        min-height: 340px;
+                        max-width: 520px;
+                        width: 100%;
+                        margin: 0 auto 20px;
+                    }
+        #dashboard-view .features-inner {
+                        grid-template-columns: 1fr;
+                    }
+        }
+        @media (prefers-reduced-motion: reduce) {
+        #dashboard-view .btn {
+                        transition: none;
+                    }
+        }
+
     </style>
 </head>
 
@@ -506,7 +888,114 @@
             </header>
 
             <main>
-                <iframe id="contentFrame" src="dashboard.html"
+            <div id="dashboard-view">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="clay" aria-hidden="true"></span>TrapShoot</p>
+                    <h1 id="hero-title"><span class="brand">TrapShooterPro</span> for iPhone and iPad</h1>
+                    <p class="lead">Score every round station by station, see your hits and misses at a glance,
+                        and watch your trap game improve, on the iPhone in your pocket or the iPad on the bench.</p>
+                    <div class="cta-row">
+                        <!-- Replace "#" with the App Store link once the listing is live. -->
+                        <a class="btn btn-primary" href="#">
+                            <i class="fa-brands fa-apple" aria-hidden="true"></i>
+                            Get it on the App Store
+                        </a>
+                        <a class="btn btn-secondary" href="#features">
+                            <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                            See the features
+                        </a>
+                    </div>
+                    <div class="platforms">
+                        <span><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> iPhone</span>
+                        <span><i class="fa-solid fa-tablet-screen-button" aria-hidden="true"></i> iPad</span>
+                    </div>
+                </div>
+
+                <div class="devices" aria-hidden="true">
+                    <div class="ipad">
+                        <div class="screen">
+                            <div class="app-bar">TrapShooterPro <small>Season · last 5 rounds</small></div>
+                            <div class="ipad-body">
+                                <div class="panel">
+                                    <h4>Targets hit per round</h4>
+                                    <div class="bars">
+                                        <!-- height = targets hit / 25 -->
+                                        <div style="height: 80%"></div>
+                                        <div style="height: 84%"></div>
+                                        <div style="height: 80%"></div>
+                                        <div style="height: 88%"></div>
+                                        <div class="best" style="height: 92%"></div>
+                                    </div>
+                                    <div class="bar-labels"><span>20</span><span>21</span><span>20</span><span>22</span><span>23</span></div>
+                                </div>
+                                <div class="panel">
+                                    <h4>Hits by station, this round</h4>
+                                    <div class="station-grid">
+                                        <div><strong>5</strong>1</div>
+                                        <div><strong>4</strong>2</div>
+                                        <div><strong>5</strong>3</div>
+                                        <div><strong>4</strong>4</div>
+                                        <div><strong>5</strong>5</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="iphone">
+                        <div class="screen">
+                            <div class="app-bar">Round 5 <small>16 yd</small></div>
+                            <div class="score"><strong>23/25</strong><span>targets hit</span></div>
+                            <ul class="stations">
+                                <li>St 1 <span class="marks"><i class="mark"></i><i class="mark"></i><i class="mark"></i><i class="mark"></i><i class="mark"></i></span></li>
+                                <li>St 2 <span class="marks"><i class="mark"></i><i class="mark miss"></i><i class="mark"></i><i class="mark"></i><i class="mark"></i></span></li>
+                                <li>St 3 <span class="marks"><i class="mark"></i><i class="mark"></i><i class="mark"></i><i class="mark"></i><i class="mark"></i></span></li>
+                                <li>St 4 <span class="marks"><i class="mark"></i><i class="mark"></i><i class="mark"></i><i class="mark miss"></i><i class="mark"></i></span></li>
+                                <li>St 5 <span class="marks"><i class="mark"></i><i class="mark"></i><i class="mark"></i><i class="mark"></i><i class="mark"></i></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="sample-note">Illustration with example scores</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features" aria-label="Features">
+            <div class="features-inner">
+                <div class="feature">
+                    <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                    <div>
+                        <h3>Station-by-station scoring</h3>
+                        <p>Mark each target as you shoot: five stations, five targets each, a full round of 25.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+                    <div>
+                        <h3>Progress you can see</h3>
+                        <p>Compare rounds and stations to find where targets slip away, and track your best.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-tablet-screen-button" aria-hidden="true"></i>
+                    <div>
+                        <h3>Made for iPhone and iPad</h3>
+                        <p>Quick to use on the line with an iPhone, roomy for reviewing a season on an iPad.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                    <div>
+                        <h3>Local-first</h3>
+                        <p>No account, no server and no sign-in. Your rounds stay on your device, and the only network call is the optional weather fill.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+            </div>
+                <iframe id="contentFrame" hidden
                     style="width: 100%; height: 100%; min-height: 70vh; border: none; flex: 1;"></iframe>
             </main>
 
@@ -537,52 +1026,69 @@
             });
         }
 
+        function showPage(src) {
+            const frame = document.getElementById('contentFrame');
+            const dashboard = document.getElementById('dashboard-view');
+            if (dashboard) {
+                dashboard.hidden = true;
+            }
+            if (frame) {
+                frame.hidden = false;
+                frame.src = src;
+            }
+        }
+
         function loadDashboard() {
             const frame = document.getElementById('contentFrame');
+            const dashboard = document.getElementById('dashboard-view');
             if (frame) {
-                frame.src = 'dashboard.html';
+                frame.hidden = true;
+                frame.src = 'about:blank';
+            }
+            if (dashboard) {
+                dashboard.hidden = false;
             }
         }
 
         function loadStarterTemplate() {
             const frame = document.getElementById('contentFrame');
             if (frame) {
-                frame.src = 'starter-template.html';
+                showPage('starter-template.html');
             }
         }
 
         function loadGuides() {
             const frame = document.getElementById('contentFrame');
             if (frame) {
-                frame.src = 'guides.html';
+                showPage('guides.html');
             }
         }
 
         function loadMacRun() {
             const frame = document.getElementById('contentFrame');
             if (frame) {
-                frame.src = 'mac-run.html';
+                showPage('mac-run.html');
             }
         }
 
         function loadSkills() {
             const frame = document.getElementById('contentFrame');
             if (frame) {
-                frame.src = 'skills.html';
+                showPage('skills.html');
             }
         }
 
         function loadAgents() {
             const frame = document.getElementById('contentFrame');
             if (frame) {
-                frame.src = 'agents.html';
+                showPage('agents.html');
             }
         }
 
         function loadPhases() {
             const frame = document.getElementById('contentFrame');
             if (frame) {
-                frame.src = 'phases.html';
+                showPage('phases.html');
             }
         }
     </script>
