@@ -863,6 +863,12 @@
                             <span class="nav-text">Phases</span>
                         </a>
                     </li>
+                    <li title="Summary" id="nav-summary" onclick="loadSummary();">
+                        <a href="javascript:loadSummary();" class="nav-link" id="link-summary">
+                            <i class="fa-solid fa-file-lines fa-fw"></i>
+                            <span class="nav-text">Summary</span>
+                        </a>
+                    </li>
                 </ul>
             </main>
 
@@ -1090,6 +1096,10 @@
             if (frame) {
                 showPage('phases.html');
             }
+        }
+
+        function loadSummary() {
+            showPage('summary.html');
         }
     </script>
 </body>

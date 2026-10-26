@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primaryColor: #2596be;
+            --secondaryColor: #5bc1da;
+            --tertiaryColor: #666666;
+            --quaternaryColor: #ebeaea;
+            --darkColor: #000000;
+            --lightColor: #ffffff;
+            --heroInk: #0d2b3a;
+            --heroMist: #e8f5fa;
+            --clayOrange: #e8752a;
+            --fontHeading: 'Playfair Display', serif;
+            --fontBody: 'Inter', sans-serif;
+            --shadowPrimary: 0 4px 8px rgba(20, 71, 108, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--fontBody);
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--heroInk);
+            background-color: #f1f5f9;
+        }
+
+        .page {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 40px 24px 56px;
+        }
+
+        .header {
+            background: linear-gradient(160deg, var(--lightColor) 0%, var(--heroMist) 100%);
+            border-radius: 12px;
+            padding: 32px 32px 28px;
+            box-shadow: var(--shadowPrimary);
+            margin-bottom: 24px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--primaryColor);
+            margin: 0 0 12px;
+        }
+
+        .eyebrow .clay {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--clayOrange);
+        }
+
+        h1 {
+            font-family: var(--fontHeading);
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.1;
+            margin: 0 0 10px;
+        }
+
+        .meta {
+            margin: 0;
+            color: var(--tertiaryColor);
+            font-style: italic;
+        }
+
+        section.card {
+            background: var(--lightColor);
+            border-radius: 12px;
+            padding: 24px 28px;
+            box-shadow: var(--shadowPrimary);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-family: var(--fontHeading);
+            font-size: 22px;
+            margin: 0 0 12px;
+            color: var(--heroInk);
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--primaryColor);
+            margin: 18px 0 8px;
+        }
+
+        ul,
+        ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        code {
+            font-family: ui-monospace, Consolas, monospace;
+            font-size: 13px;
+            background: var(--quaternaryColor);
+            padding: 1px 5px;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--quaternaryColor);
+            vertical-align: top;
+        }
+
+        th {
+            color: var(--primaryColor);
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                padding: 24px 16px 40px;
+            }
+
+            section.card,
+            .header {
+                padding: 20px 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <header class="header">
+            <p class="eyebrow"><span class="clay" aria-hidden="true"></span>TrapShoot · Mac build</p>
+            <h1>Mac build orchestration: session summary</h1>
+            <p class="meta">24 to 26 October 2026. Written on Windows for the MacBook session.</p>
+        </header>
+
+        <section class="card" aria-labelledby="outcome">
+            <h2 id="outcome">Outcome</h2>
+            <ul>
+                <li>Everything in the phase plan that can be done without a Mac or the iPhone is on <code>main</code>. PR #1 (merge commit <code>ec90d00</code>) is merged.</li>
+                <li>The Mac work is organised as skills and agents that a Claude Code session on the MacBook can run in order.</li>
+                <li>CI on PR #1's final commit (<code>87bcbc3</code>) passed: golden fixtures, <code>swift test</code> for TrapCore, TrapData and TrapWeather, and the iOS job (app build, simulator package tests, UI test). The iOS job took 19 minutes.</li>
+                <li>Nothing has been compiled or run on a Mac or an iPhone yet. Those checks are the MacBook session's job.</li>
+            </ul>
+        </section>
+
+        <section class="card" aria-labelledby="built">
+            <h2 id="built">What was built</h2>
+            <h3>Skills <code>.claude/skills/</code></h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Skill</th>
+                        <th scope="col">Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>mac-build</code></td>
+                        <td>Eight stages: preflight, the CI pipeline run locally, compile fixes, test triage, demo run with screenshots, MCP smoke test, design preview, session record</td>
+                    </tr>
+                    <tr>
+                        <td><code>mac-device</code></td>
+                        <td>18-row iPhone and DJI Mic Mini 2 checklist, with the progress line each row closes</td>
+                    </tr>
+                    <tr>
+                        <td><code>mac-release</code></td>
+                        <td>Archive, TestFlight upload and tag; asks before every upload</td>
+                    </tr>
+                    <tr>
+                        <td><code>detector-fixtures</code></td>
+                        <td>Turns the owner's range recordings into regression fixtures</td>
+                    </tr>
+                    <tr>
+                        <td><code>operate</code></td>
+                        <td>Phase 9: weekly triage, iOS beta runs, quarterly security review</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><code>mac-build</code> also has a reference file, <code>phase-map.md</code>, which lists every open row of <code>docs/progress.md</code> with the skill, stage or agent that closes it.</p>
+
+            <h3>Agents <code>.claude/agents/</code></h3>
+            <p><code>mac-preflight</code>, <code>swift-builder</code>, <code>sim-tester</code>, <code>app-verifier</code>, <code>design-reviewer</code>, <code>progress-scribe</code>, <code>support-triage</code>.</p>
+
+            <h3>Scripts <code>.claude/skills/mac-build/scripts/</code></h3>
+            <p><code>preflight.sh</code>, <code>build-all.sh</code> (mirrors CI), <code>test-package.sh</code>, <code>run-demo.sh</code>, <code>summarize-log.sh</code>, and <code>lib.sh</code>. They write logs to <code>build/mac/&lt;timestamp&gt;/</code>.</p>
+
+            <h3>Code added to the app and tests</h3>
+            <ul>
+                <li><code>FileAnalyzer</code> and <code>DetectorFixture</code> feed a recording through the live detector and compare with expected times. <code>DetectorRegressionTests</code> skips until recordings exist; a synthetic test always runs.</li>
+                <li>The only change to <code>AudioDetector.swift</code>: <code>setup</code> and <code>process</code> went from private to internal. No detection logic changed.</li>
+                <li>Accessibility identifiers on the Record and Timer controls, a scripted demo timer (<code>-uitest</code>), and the <code>TrapShooterProUITests</code> target, added to the project, the scheme and CI.</li>
+            </ul>
+        </section>
+
+        <section class="card" aria-labelledby="decisions">
+            <h2 id="decisions">Decisions to know about</h2>
+            <ul>
+                <li>Claude cannot edit <code>.claude/settings.json</code> in auto mode, so the owner pasted the allow-list by hand. It is committed as <code>ec8a8cb</code>.</li>
+                <li>The Mac scripts must run on the MacBook's bash 3.2. They guard empty arrays for that reason.</li>
+                <li>The <code>iOS</code> CI job is the first real compile of the hand-edited project file and the UI test target.</li>
+            </ul>
+        </section>
+
+        <section class="card" aria-labelledby="fixed">
+            <h2 id="fixed">Issues fixed during CI</h2>
+            <ol>
+                <li><code>FileAnalyzer</code> used <code>MainActor.assumeIsolated</code> inside a plain callback, which did not compile. It now uses a locked sink.</li>
+                <li>The synthetic WAV was written with a format that <code>AVAudioFile</code> refused.</li>
+                <li>The Timer UI test could not find the Start button after tapping the tab. It now relaunches onto the Timer screen.</li>
+                <li>The file reader requested frames past the end of the file. It now reads only what remains.</li>
+            </ol>
+        </section>
+
+        <section class="card" aria-labelledby="open">
+            <h2 id="open">Still open</h2>
+            <h3>Windows side</h3>
+            <ul>
+                <li>Done: the Pages work is merged into <code>main</code> through PR #2, and the GitHub Pages source is <code>main</code> at the root.</li>
+                <li>Done: the Font Awesome and Google Fonts CDNs respond, and the icons show on the live dashboard.</li>
+                <li>The dashboard hero is now shown inline in <code>index.html</code>. The untracked <code>hero_TrapShooterPro.html</code> is a duplicate and can be deleted.</li>
+            </ul>
+            <h3>MacBook side</h3>
+            <ol>
+                <li>One-time setup from <code>docs/mac-setup.md</code>: Xcode 26.3 or newer, <code>xcode-select</code>, Node, Claude Code, and "Allow external agents to use Xcode tools".</li>
+                <li><code>git pull</code>, then open <code>TrapShooterPro.xcodeproj</code> in Xcode.</li>
+                <li>Run <code>claude</code> and type <code>/mac-build</code>. Preflight reports anything missing and the command to fix it.</li>
+                <li>Then <code>/mac-device</code> with the DJI receiver, <code>/detector-fixtures</code> for any recordings already on hand, and <code>/mac-release</code> once the Apple Developer account is active.</li>
+            </ol>
+            <h3>Not covered by any skill</h3>
+            <ul>
+                <li>Recording the detector's regression set at the range, and a full round on a real range. These need the owner.</li>
+                <li>Phase 9 operation over months, which begins after the first TestFlight build.</li>
+            </ul>
+        </section>
+
+        <section class="card" aria-labelledby="risks">
+            <h2 id="risks">Risks</h2>
+            <ul>
+                <li>The iOS job passed on Apple's runners, but the simulator UI test has run only in CI. It may behave differently on the MacBook's Xcode version.</li>
+                <li>The screenshots and design preview have not been reviewed by eye.</li>
+                <li>The detector has not been checked against real recordings. Until the regression set runs, the timer's accuracy is unverified.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>
