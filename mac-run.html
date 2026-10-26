@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacBook Steps</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette */
+            --primaryColor: #2596be;
+            --secondaryColor: #5bc1da;
+            --tertiaryColor: #666666;
+            --quaternaryColor: #ebeaea;
+            --darkColor: #000000;
+            --lightColor: #ffffff;
+
+            /* Typography */
+            --regularFont: 1.6rem;
+            --headingFont: 3.5rem;
+            --ffPrimary: "Playfair Display", serif;
+            --ffSecondary: "Inter", sans-serif;
+            --ffCode: "JetBrains Mono", monospace;
+
+            /* Structural */
+            --border: 1px solid var(--primaryColor);
+            --borderRadius: 0.5rem;
+            --primaryShadow: 0 4px 8px rgba(20, 71, 108, 0.15);
+            --secondaryShadow: 0 8px 16px rgba(20, 71, 108, 0.2);
+            --containerPaddingY: 2rem;
+            --containerPaddingX: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            /* 1rem = 10px, same base as TrapShooterPro.html */
+        }
+
+        body {
+            margin: 0;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            line-height: 1.6;
+            color: var(--darkColor);
+            background: var(--quaternaryColor);
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            background: var(--lightColor);
+            border: var(--border);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+        }
+
+        .lead {
+            margin: 0 0 var(--containerPaddingY);
+            padding: var(--containerPaddingX);
+            font-weight: 600;
+            color: var(--primaryColor);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--primaryColor);
+            border-radius: var(--borderRadius);
+        }
+
+        h2 {
+            margin: var(--containerPaddingY) 0 var(--containerPaddingX);
+            padding-bottom: 0.5rem;
+            font-family: var(--ffPrimary);
+            font-size: var(--headingFont);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primaryColor);
+            border-bottom: var(--border);
+        }
+
+        h3 {
+            margin: var(--containerPaddingX) 0 0.6rem;
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            font-weight: 600;
+            color: var(--tertiaryColor);
+        }
+
+        ol,
+        ul {
+            margin: 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+        }
+
+        code {
+            font-family: var(--ffCode);
+            font-size: 0.9em;
+            color: var(--primaryColor);
+            background: var(--quaternaryColor);
+            padding: 0.1rem 0.4rem;
+            border-radius: var(--borderRadius);
+        }
+
+        pre {
+            margin: 1rem 0;
+            padding: var(--containerPaddingX);
+            overflow-x: auto;
+            font-family: var(--ffCode);
+            font-size: 1.3rem;
+            color: var(--darkColor);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--primaryColor);
+            border-radius: var(--borderRadius);
+        }
+
+        pre {
+            position: relative;
+        }
+
+        pre code {
+            padding: 0;
+            background: none;
+            color: inherit;
+            font-size: inherit;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            min-height: 3.2rem;
+            padding: 0.4rem 1.2rem;
+            font-family: var(--ffSecondary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--lightColor);
+            background: var(--primaryColor);
+            border: none;
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+            cursor: pointer;
+        }
+
+        .copy-btn:hover,
+        .copy-btn:focus-visible {
+            background: var(--secondaryColor);
+        }
+
+        .closing {
+            margin-top: var(--containerPaddingY);
+            padding: var(--containerPaddingX);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--secondaryColor);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--secondaryShadow);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <p class="lead">I wrote the Mac instructions to MAC-AUTONOMOUS-RUN.md in the project root: <code>MAC-AUTONOMOUS-RUN.md</code>.</p>
+
+        <h2>What you do on the MacBook</h2>
+
+        <h3>Once (details in <code>docs/mac-setup.md</code>)</h3>
+        <ol>
+            <li>Install <strong>Xcode 26.3 or newer</strong> from the App Store and open it once.</li>
+            <li>In Terminal:
+                <pre><code>sudo xcode-select -s /Applications/Xcode.app
+xcrun --find mcpbridge
+brew install node</code></pre>
+                The last command must print a path.
+            </li>
+            <li>In Xcode: <strong>Settings → Intelligence → Model Context Protocol → Allow external agents to use Xcode tools</strong> (on).</li>
+            <li>Sign in to your Apple Developer account in Xcode → Settings → Accounts. Needed only for Phase 8.</li>
+        </ol>
+
+        <h3>Each session</h3>
+        <ol>
+            <li>Get the code:
+                <pre><code>git clone https://github.com/JIAMETRIC/TrapShooterPro.git
+cd TrapShooterPro
+git pull</code></pre>
+                If the folder already exists, skip the clone and run only <code>git pull</code>.
+            </li>
+            <li>Open <code>TrapShooterPro.xcodeproj</code> in Xcode and leave it open. The Xcode bridge needs it.</li>
+            <li>Open the <code>TrapShooterPro</code> folder in Claude Desktop (Code tab) and start a new session.</li>
+            <li>Paste the line: <em>"Read MAC-AUTONOMOUS-RUN.md and carry it out. Stop only where it says to stop."</em></li>
+        </ol>
+
+        <h2>What Claude does on its own</h2>
+
+        <p>It runs the <code>mac-build</code> stages in order, using the agents the skill names. It then checks the phases against the Mac and records the results in <code>docs/mac-sessions/</code>. It makes local commits only.</p>
+
+        <h2>Committing yourself</h2>
+
+        <p>The four proprietary folders are now in <code>.gitignore</code>, so Git ignores them. I checked <code>git status</code> and they don’t appear in it. Run these in the project folder:</p>
+
+        <pre><code>git status --short</code></pre>
+
+        <pre><code>git add .gitignore MAC-AUTONOMOUS-RUN.md TrapShooterPro.html guides.html skills.html agents.html phases.html mac-run.html .claude/skills/claude-api .claude/skills/skill-creator</code></pre>
+
+        <pre><code>git commit -m "Add the Guides, MacBook, Skills, Agents and Phases pages"</code></pre>
+
+        <pre><code>git push origin main</code></pre>
+
+        <p><code>claude-api</code> and <code>skill-creator</code> are Apache 2.0, so they can go to GitHub. The Mac will not get <code>docx</code>, <code>pdf</code>, <code>pptx</code> or <code>xlsx</code> from GitHub, so you’ll need to copy them over by hand.</p>
+
+        <div class="closing">
+            <p>I checked that the scripts and folders the file names exist in the repo. I have not run the Mac steps, because this machine is Windows. The GitHub URL comes from this repo’s <code>origin</code> remote.</p>
+        </div>
+    </main>
+
+    <script>
+        function copyText(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(text);
+            }
+            return new Promise((resolve, reject) => {
+                const area = document.createElement('textarea');
+                area.value = text;
+                area.setAttribute('readonly', '');
+                area.style.position = 'fixed';
+                area.style.opacity = '0';
+                document.body.appendChild(area);
+                area.select();
+                const copied = document.execCommand('copy');
+                document.body.removeChild(area);
+                copied ? resolve() : reject(new Error('copy failed'));
+            });
+        }
+
+        document.querySelectorAll('pre').forEach((pre) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'copy-btn';
+            button.textContent = 'Copy';
+            button.addEventListener('click', () => {
+                const code = pre.querySelector('code');
+                const text = (code ? code.textContent : pre.textContent).trim();
+                copyText(text).then(() => {
+                    button.textContent = 'Copied';
+                    setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+                }).catch(() => {
+                    button.textContent = 'Failed';
+                    setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+                });
+            });
+            pre.appendChild(button);
+        });
+    </script>
+</body>
+
+</html>

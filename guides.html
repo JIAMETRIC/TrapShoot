@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guides</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette */
+            --primaryColor: #2596be;
+            --secondaryColor: #5bc1da;
+            --tertiaryColor: #666666;
+            --quaternaryColor: #ebeaea;
+            --darkColor: #000000;
+            --lightColor: #ffffff;
+
+            /* Typography */
+            --regularFont: 1.6rem;
+            --headingFont: 3.5rem;
+            --ffPrimary: "Playfair Display", serif;
+            --ffSecondary: "Inter", sans-serif;
+            --ffCode: "JetBrains Mono", monospace;
+
+            /* Structural */
+            --border: 1px solid var(--primaryColor);
+            --borderRadius: 0.5rem;
+            --primaryShadow: 0 4px 8px rgba(20, 71, 108, 0.15);
+            --secondaryShadow: 0 8px 16px rgba(20, 71, 108, 0.2);
+            --containerPaddingY: 2rem;
+            --containerPaddingX: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            /* 1rem = 10px, same base as TrapShooterPro.html */
+        }
+
+        body {
+            margin: 0;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            line-height: 1.6;
+            color: var(--darkColor);
+            background: var(--quaternaryColor);
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            background: var(--lightColor);
+            border: var(--border);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+        }
+
+        .lead {
+            margin: 0 0 var(--containerPaddingY);
+            padding: var(--containerPaddingX);
+            font-weight: 600;
+            color: var(--primaryColor);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--primaryColor);
+            border-radius: var(--borderRadius);
+        }
+
+        h2 {
+            margin: var(--containerPaddingY) 0 var(--containerPaddingX);
+            padding-bottom: 0.5rem;
+            font-family: var(--ffPrimary);
+            font-size: var(--headingFont);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primaryColor);
+            border-bottom: var(--border);
+        }
+
+        h3 {
+            margin: var(--containerPaddingX) 0 0.6rem;
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            font-weight: 600;
+            color: var(--tertiaryColor);
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        code {
+            font-family: var(--ffCode);
+            font-size: 0.9em;
+            color: var(--primaryColor);
+            background: var(--quaternaryColor);
+            padding: 0.1rem 0.4rem;
+            border-radius: var(--borderRadius);
+        }
+
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 1rem;
+            border: var(--border);
+            border-radius: var(--borderRadius);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--regularFont);
+        }
+
+        th,
+        td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--quaternaryColor);
+        }
+
+        th {
+            background: var(--primaryColor);
+            color: var(--lightColor);
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) td {
+            background: var(--quaternaryColor);
+        }
+
+        .closing {
+            margin-top: var(--containerPaddingY);
+            padding: var(--containerPaddingX);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--secondaryColor);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--secondaryShadow);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <p class="lead">Short answer: 39 skills and 13 agents, and they guide the 10 phases (0–9) mainly through the Mac
+            workflow.</p>
+
+        <h2>1. Skills (39)</h2>
+
+        <h3>TrapShooterPro project skills (6)</h3>
+        <ul>
+            <li><code>mac-build</code>: build, test and run on a Mac, in fixed stages</li>
+            <li><code>mac-device</code>: the 18-row iPhone and DJI checklist</li>
+            <li><code>mac-release</code>: archive, TestFlight, App Store material</li>
+            <li><code>detector-fixtures</code>: turn range recordings into detector regression fixtures</li>
+            <li><code>operate</code>: post-release triage, beta checks, security review</li>
+            <li><code>responsive-screens</code>: written for React Native/Expo, so it does not fit this SwiftUI app</li>
+        </ul>
+
+        <h3>Documents and files</h3>
+        <ul>
+            <li><code>docs</code>, <code>docx</code>, <code>pdf</code>, <code>pptx</code>, <code>xlsx</code>,
+                <code>google-workspace</code>, <code>dataviz</code></li>
+        </ul>
+
+        <h3>Artifacts</h3>
+        <ul>
+            <li><code>artifact-design</code>, <code>artifact-diagramming</code>, <code>artifact-capabilities</code></li>
+        </ul>
+
+        <h3>Browsers and desktop</h3>
+        <ul>
+            <li><code>built-in-browser</code>, <code>chrome-browser</code>, <code>computer-use</code>, <code>run</code>
+            </li>
+        </ul>
+
+        <h3>Code quality</h3>
+        <ul>
+            <li><code>code-review</code>, <code>simplify</code>, <code>security-review</code>,
+                <code>workflow-authoring</code></li>
+        </ul>
+
+        <h3>Claude setup and memory</h3>
+        <ul>
+            <li><code>update-config</code>, <code>keybindings-help</code>, <code>fewer-permission-prompts</code>,
+                <code>claude-api</code>, <code>skill-creator</code>, <code>setup-claude</code>,
+                <code>consolidate-memory</code>, <code>import-memory</code>, <code>plugin-authoring</code>,
+                <code>init</code></li>
+        </ul>
+
+        <h3>Scheduling and misc</h3>
+        <ul>
+            <li><code>loop</code>, <code>schedule</code>, <code>deep-research</code>, <code>explain-usage</code>,
+                <code>morning</code></li>
+        </ul>
+
+        <h2>2. Agents (13)</h2>
+
+        <h3>TrapShooterPro agents (7)</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Agent</th>
+                        <th>Guides</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>mac-preflight</code></td>
+                        <td>Phase 1 Mac setup, and any environment failure</td>
+                    </tr>
+                    <tr>
+                        <td><code>swift-builder</code></td>
+                        <td>Build fixes per package, phases 2–7</td>
+                    </tr>
+                    <tr>
+                        <td><code>sim-tester</code></td>
+                        <td>Package test runs and triage, phases 2–4</td>
+                    </tr>
+                    <tr>
+                        <td><code>app-verifier</code></td>
+                        <td>Demo run and screenshots, phases 5–6</td>
+                    </tr>
+                    <tr>
+                        <td><code>design-reviewer</code></td>
+                        <td>Design preview check, phase 1 gate and phase 5 tablet layout</td>
+                    </tr>
+                    <tr>
+                        <td><code>progress-scribe</code></td>
+                        <td>Session records and <code>progress.md</code>, every phase</td>
+                    </tr>
+                    <tr>
+                        <td><code>support-triage</code></td>
+                        <td>Support bundles, phase 9</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>General agents (6)</h3>
+        <ul>
+            <li><code>general-purpose</code>, <code>Explore</code>, <code>Plan</code>, <code>claude</code>,
+                <code>claude-code-guide</code>, <code>statusline-setup</code></li>
+        </ul>
+
+        <h2>3. Phases</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Guided by</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>Discovery, architecture, decisions</td>
+                        <td>done</td>
+                        <td>Docs only</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Foundation, tooling, tokens</td>
+                        <td>done (design preview not rendered)</td>
+                        <td><code>mac-preflight</code>, <code>design-reviewer</code>, CI</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Pure domain core</td>
+                        <td>done</td>
+                        <td><code>mac-build</code> stages 1–3, <code>swift-builder</code>, <code>sim-tester</code></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Local store and repositories</td>
+                        <td>done (2,000-round timing on device pending)</td>
+                        <td><code>sim-tester</code>, <code>progress-scribe</code></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Shot timer engine</td>
+                        <td>device verification pending</td>
+                        <td><code>detector-fixtures</code>, <code>mac-device</code></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Record and Timer screens</td>
+                        <td>next</td>
+                        <td><code>app-verifier</code>, <code>design-reviewer</code>, <code>mac-device</code></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Rounds, Analysis, Schemes, exporters</td>
+                        <td>after 5</td>
+                        <td><code>app-verifier</code>, <code>mac-build</code></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Settings, data, platform behaviour</td>
+                        <td>after 6</td>
+                        <td><code>mac-device</code>, <code>code-review</code></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Release and App Store</td>
+                        <td>after 7</td>
+                        <td><code>mac-release</code></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Operate and iterate</td>
+                        <td>ongoing</td>
+                        <td><code>operate</code>, <code>support-triage</code>, <code>security-review</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="closing">
+            <p>Most of these are Mac-only. On this Windows machine, <code>mac-build</code> stops at preflight, so the
+                device and simulator gates (phases 4 and 5 onward) cannot be verified from here. The Windows-side work is
+                limited to code and reasoning, and the detector must not change without a fixture regression run
+                (CLAUDE.md rule 1).</p>
+        </div>
+    </main>
+</body>
+
+</html>

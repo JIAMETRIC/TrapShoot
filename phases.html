@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phases</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette */
+            --primaryColor: #2596be;
+            --secondaryColor: #5bc1da;
+            --tertiaryColor: #666666;
+            --quaternaryColor: #ebeaea;
+            --darkColor: #000000;
+            --lightColor: #ffffff;
+
+            /* Typography */
+            --regularFont: 1.6rem;
+            --headingFont: 3.5rem;
+            --ffPrimary: "Playfair Display", serif;
+            --ffSecondary: "Inter", sans-serif;
+            --ffCode: "JetBrains Mono", monospace;
+
+            /* Structural */
+            --border: 1px solid var(--primaryColor);
+            --borderRadius: 0.5rem;
+            --primaryShadow: 0 4px 8px rgba(20, 71, 108, 0.15);
+            --secondaryShadow: 0 8px 16px rgba(20, 71, 108, 0.2);
+            --containerPaddingY: 2rem;
+            --containerPaddingX: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            /* 1rem = 10px, same base as TrapShooterPro.html */
+        }
+
+        body {
+            margin: 0;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            line-height: 1.6;
+            color: var(--darkColor);
+            background: var(--quaternaryColor);
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--containerPaddingY) var(--containerPaddingX);
+            background: var(--lightColor);
+            border: var(--border);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+        }
+
+        .lead {
+            margin: 0 0 var(--containerPaddingY);
+            padding: var(--containerPaddingX);
+            font-weight: 600;
+            color: var(--primaryColor);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--primaryColor);
+            border-radius: var(--borderRadius);
+        }
+
+        h2 {
+            margin: var(--containerPaddingY) 0 var(--containerPaddingX);
+            padding-bottom: 0.5rem;
+            font-family: var(--ffPrimary);
+            font-size: var(--headingFont);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primaryColor);
+            border-bottom: var(--border);
+        }
+
+        h3 {
+            margin: 0 0 0.4rem;
+            font-family: var(--ffSecondary);
+            font-size: var(--regularFont);
+            font-weight: 600;
+            color: var(--darkColor);
+        }
+
+        p {
+            margin: 0.4rem 0;
+        }
+
+        ul {
+            margin: 0.4rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        code {
+            font-family: var(--ffCode);
+            font-size: 0.9em;
+            color: var(--primaryColor);
+            background: var(--quaternaryColor);
+            padding: 0.1rem 0.4rem;
+            border-radius: var(--borderRadius);
+        }
+
+        .item {
+            margin: 0 0 var(--containerPaddingX);
+            padding: var(--containerPaddingX);
+            background: var(--lightColor);
+            border: var(--border);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--primaryShadow);
+        }
+
+        .tag {
+            display: inline-block;
+            margin-bottom: 0.6rem;
+            padding: 0.2rem 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--lightColor);
+            background: var(--secondaryColor);
+            border-radius: var(--borderRadius);
+        }
+
+        .tag.done {
+            background: var(--primaryColor);
+        }
+
+        .file-link {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-family: var(--ffCode);
+            font-size: 1.3rem;
+            color: var(--primaryColor);
+            text-decoration: none;
+            border-bottom: 1px solid var(--primaryColor);
+            word-break: break-all;
+        }
+
+        .file-link:hover {
+            color: var(--darkColor);
+            border-bottom-color: var(--darkColor);
+        }
+
+        .gate {
+            margin-top: 0.6rem;
+            padding: 0.8rem var(--containerPaddingX);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--secondaryColor);
+            border-radius: var(--borderRadius);
+        }
+
+        .closing {
+            margin-top: var(--containerPaddingY);
+            padding: var(--containerPaddingX);
+            background: var(--quaternaryColor);
+            border-left: 4px solid var(--secondaryColor);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--secondaryShadow);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <p class="lead">Short answer: 39 skills and 13 agents, and they guide the 10 phases (0–9) mainly through the Mac
+            workflow.</p>
+
+        <h2>3. Phases (10)</h2>
+        <p>The master plan has ten phases. Each one has an exit gate that is checked on a real iPhone, not only in the
+            simulator. The full plan is in <code>docs/phases/README.md</code>; each phase has its own file.</p>
+
+        <section class="item">
+            <span class="tag done">Phase 0 · done</span>
+            <h3>Discovery, architecture and decisions</h3>
+            <p>Pillars: system design, software engineering, OOP. The architecture decisions ADR-001 to ADR-016 are written,
+                and the plan, design system and engineering documents are in the repository. Nothing is left to do.</p>
+            <p class="gate"><strong>Exit gate:</strong> the decisions are written and filed.</p>
+            <a class="file-link" href="docs/phases/phase-0.md" target="_blank" rel="noopener">docs/phases/phase-0.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag done">Phase 1 · done (design preview not rendered)</span>
+            <h3>Foundation, tooling and design tokens</h3>
+            <p>Pillars: core mobile systems, software engineering, tablet and responsive design. The baseline 7.0.7 builds,
+                CI is green, and the breakpoints are published. The design preview still needs rendering in light and dark
+                on the Mac. That is stage 6 of <code>mac-build</code>, done by <code>design-reviewer</code>.</p>
+            <p class="gate"><strong>Exit gate:</strong> the baseline builds, CI is green, and <code>TrapDesign</code>
+                renders in light and dark.</p>
+            <a class="file-link" href="docs/phases/phase-1.md" target="_blank" rel="noopener">docs/phases/phase-1.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag done">Phase 2 · done</span>
+            <h3>Pure domain core</h3>
+            <p>Pillars: OOP, data structures and algorithms, software engineering. <code>TrapCore</code> holds the round
+                session, the schemes, the codec, break distance, CSV and analysis, and it imports no UI or storage code.
+                Golden tests check it against the JavaScript reference. On the Mac, stages 1 to 3 of <code>mac-build</code>
+                keep these tests green.</p>
+            <p class="gate"><strong>Exit gate:</strong> all golden fixtures pass, the <code>RoundSession</code> tests pass,
+                and <code>TrapCore</code> has no UI or storage imports.</p>
+            <a class="file-link" href="docs/phases/phase-2.md" target="_blank" rel="noopener">docs/phases/phase-2.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag done">Phase 3 · done (device timing pending)</span>
+            <h3>Local store and repositories</h3>
+            <p>Pillars: system design, data structures, core mobile systems, software engineering. SwiftData stores the
+                rounds, with summaries, search, paging and a transactional <code>saveMany</code>. Its rollback tests pass in
+                CI. The 2,000-round timing still needs the phone.</p>
+            <p class="gate"><strong>Exit gate:</strong> summaries, search, paging and <code>saveMany</code> rollback tests
+                are green, and the import of 7.x shapes works.</p>
+            <a class="file-link" href="docs/phases/phase-3.md" target="_blank" rel="noopener">docs/phases/phase-3.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Phase 4 · tests green, device pending</span>
+            <h3>Shot timer engine</h3>
+            <p>Pillars: OOP, core mobile systems, data structures. The reference receiver is the DJI Mic Mini 2. The
+                remaining tasks are to record the regression set from the owner's recordings, feed each file through the
+                detector, add a test target that checks every fixture against 7 ms (first shot) and 3 ms (call onset), and
+                run the device checks: phone mic, DJI plugged in before and during timing, unplugged during timing, a phone
+                call, Low Power Mode, and one hour of continuous timing. The detector itself is not to be changed without
+                the regression run.</p>
+            <p class="gate"><strong>Exit gate:</strong> every fixture is within tolerance; the four receiver scenarios
+                recover (restart within 0.5 s); battery stays under 10 % per hour of timing; no allocation in the audio
+                callback.</p>
+            <a class="file-link" href="docs/phases/phase-4.md" target="_blank" rel="noopener">docs/phases/phase-4.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Phase 5 · next</span>
+            <h3>Record and Timer screens</h3>
+            <p>Pillars: OOP, core mobile systems, tablet and responsive design, software engineering. The first native
+                screens replace the web view. <code>RecordModel</code> saves after every entry, the Timer screen shows the
+                readout and the audio check, and kill-and-resume restores the round from the store. On iPhone it is a tab
+                view; on iPad a split view with a sidebar. The remaining work is the range check, the device check and
+                the iPad layout at 820 and 1180 pt.</p>
+            <p class="gate"><strong>Exit gate:</strong> a full 25-target round recorded on a real range; kill the app
+                mid-round and reopen it, with the same round, target and times; the iPad split layout is checked; the UI
+                test drives a round through a scripted timer.</p>
+            <a class="file-link" href="docs/phases/phase-5.md" target="_blank" rel="noopener">docs/phases/phase-5.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Phase 6 · after 5</span>
+            <h3>Rounds, Analysis, Schemes and exporters</h3>
+            <p>Pillars: data structures, tablet design, software engineering. The rounds list must open its first screen
+                within 50 ms with 2,000 rounds. The scorecard PDF text must be selectable, and the CSV output must match the
+                web app byte for byte for the same round.</p>
+            <p class="gate"><strong>Exit gate:</strong> the 2,000-round first screen is under 50 ms; the scorecard PDF
+                text is selectable; the CSV is byte-identical to the web app for the same round.</p>
+            <a class="file-link" href="docs/phases/phase-6.md" target="_blank" rel="noopener">docs/phases/phase-6.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Phase 7 · after 6</span>
+            <h3>Settings, data and platform behaviour</h3>
+            <p>Pillars: core mobile systems, system design, software engineering. Backup and restore must round-trip the
+                whole library. The lifecycle, notification, power and network policies must be observed on the phone. The
+                Web folder is deleted in this phase.</p>
+            <p class="gate"><strong>Exit gate:</strong> backup and restore round-trip the library; the lifecycle,
+                notification, power and network policies are seen on the device; the Web folder is deleted.</p>
+            <a class="file-link" href="docs/phases/phase-7.md" target="_blank" rel="noopener">docs/phases/phase-7.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Phase 8 · after 7</span>
+            <h3>Release engineering and the App Store</h3>
+            <p>Pillars: core mobile systems, software engineering. The app goes to a TestFlight external beta that three
+                shooters pass. The review notes and privacy answers are filed, and the submission is accepted. Every
+                archive and upload goes through <code>mac-release</code> with the owner's yes.</p>
+            <p class="gate"><strong>Exit gate:</strong> the external beta is passed by three shooters; the review notes and
+                privacy answers are filed; the submission is accepted.</p>
+            <a class="file-link" href="docs/phases/phase-8.md" target="_blank" rel="noopener">docs/phases/phase-8.md</a>
+        </section>
+
+        <section class="item">
+            <span class="tag">Phase 9 · ongoing</span>
+            <h3>Operate and iterate</h3>
+            <p>Pillars: all. Crash-free sessions must stay above 99.5 % over three months, and support bundles are answered
+                within two days. The iCloud sync option is evaluated here and nowhere else. The work is run with the
+                <code>operate</code> skill and <code>support-triage</code>.</p>
+            <p class="gate"><strong>Exit gate:</strong> MetricKit crash-free sessions above 99.5 % over three months;
+                support bundles answered; iCloud sync evaluated.</p>
+            <a class="file-link" href="docs/phases/phase-9.md" target="_blank" rel="noopener">docs/phases/phase-9.md</a>
+        </section>
+
+        <div class="closing">
+            <p>The full master plan, with the cross-cutting concern matrix and the risk register, is in
+                <a class="file-link" href="docs/phases/README.md" target="_blank" rel="noopener">docs/phases/README.md</a>.
+                Phases 4 and 5 onward need the iPhone and the receiver, so they cannot be closed from Windows.</p>
+        </div>
+    </main>
+</body>
+
+</html>
