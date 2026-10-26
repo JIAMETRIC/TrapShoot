@@ -50,10 +50,9 @@
 
 **Windows side**
 
-- The local checkout is on branch `pages-and-skills`, 10 commits ahead of `main` (235 files: the GitHub Pages site, the in-app guide pages and the adapted skills). It is also on `origin` at `1c60d83`, so the last two commits (`8cdbe97` dashboard hero, `eec7558` this summary) are local only. `main` and `origin/main` are level.
-- Recommendation: keep the work, do not discard it. Push `pages-and-skills`, open a PR into `main`, let CI run, merge, then `git switch main` and `git pull`. The Pages files do not touch the Swift packages, but CLAUDE.md requires CI to be green before merging.
-- The dashboard hero now lives in `dashboard.html`. The untracked `hero_TrapShooterPro.html` is a duplicate and can be deleted.
-- The Font Awesome and Google Fonts CDNs responded with HTTP 200 from this machine. The icons were missing only in the preview pane, so they still need a check on the live Pages URL after the push.
+- Done: the Pages work is merged into `main` through PR #2 (merge commit `044a5a5`), and the GitHub Pages source is `main` at the root.
+- Done: the Font Awesome and Google Fonts CDNs respond, and the icons show on the live dashboard.
+- The dashboard hero is now shown inline in `index.html`. The untracked `hero_TrapShooterPro.html` is a duplicate and can be deleted.
 
 **MacBook side**
 
